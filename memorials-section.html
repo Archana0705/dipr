@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html class="no-js  page-27 app-INFO-PRDEPT103" lang="en" >
+<head>
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+  <meta charset="utf-8">
+  <title>Memorials - Section</title>
+ <link rel="stylesheet" type="text/css" href="assets/css/Core.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/Theme-Standard.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-apex.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/Coretheme.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/cs-theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.min.css">
+    <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
+    <link rel="icon" href="assets/img/app-icon-32.png">
+    <style type="text/css">
+      @font-face {
+          font-family: 'FontApex';
+          src: url('../font/apex-5-icon-font.woff2') format('woff2'),
+               url('../font/apex-5-icon-font.woff') format('woff');
+          font-weight: normal;
+          font-style: normal;  
+        } 
+        @font-face { 
+            font-family: 'Font-APEX';
+            src: url('../fonts/Font-APEX-Small.woff2') format('woff2'),
+                 url('../fonts/Font-APEX-Small.woff') format('woff'),
+                 url('../fonts/Font-APEX-Large.woff2') format('woff2'),
+                 url('../fonts/Font-APEX-Large.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        } 
+    </style>
+  <style type="text/css">
+.t-Footer {
+    background-color: #3b3b79;
+    color: white;
+}
+
+.t-Header-nav1 {
+    text-align: center;
+    background-color: #3b3b79;
+    color: white;
+}
+
+.t-Header-navBar {
+    --ut-field-padding-y: 0rem;
+    align-items: center;
+    display: grid;
+    grid-area: navbar;
+    grid-template-areas: "navbar-start navbar-center navbar-end";
+    grid-template-columns: 1fr auto auto;
+    justify-content: end;
+    align-content: center;
+    background: #3b3b79;
+    color: white;
+}
+
+.apex-item-select, .datetimepicker_newMonth, .u-TF-item--select, select.group_selectlist {
+    background-position: 100%;
+    background-repeat: no-repeat;
+    padding-inline-end: var(--a-field-select-arrow-padding,2rem);
+    color: white;
+    background: #3b3b79;
+    width: 105px;
+}
+
+
+.fa {
+  padding: 10px;
+  font-size:15px;
+  width: 40px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 30%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+.fa-instagram {
+  background:white;
+  color: black;
+}
+
+ h4,h2 {
+            font-weight: var(--a-base-font-weight-semibold,500);
+            line-height: 1.5;
+            color: #3b3b79;
+
+ }
+ .t-Breadcrumb-label {
+    color: #3c3b79;
+    display: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: inherit;
+}
+
+.t-Footer-topButton {
+    --a-icon-size: 1rem;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    align-items: center;
+    background-color: var(--ut-footer-top-background-color,var(--a-button-background-color));
+    border-color: var(--ut-footer-top-border-color,var(--a-button-border-color));
+    border-radius: var(--ut-footer-top-border-radius,100%);
+    border-style: solid;
+    border-width: var(--ut-footer-top-border-width,var(--a-button-border-width,1px));
+    box-shadow: var(--ut-footer-top-box-shadow,var(--a-button-box-shadow),none);
+    color: var(--ut-footer-top-text-color,var(--a-button-text-color));
+    display: flex;
+    height: var(--ut-footer-top-size,2.5rem);
+    justify-content: center;
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+    /* opacity: var(--ut-footer-top-opacity,.); */
+    padding: calc(var(--ut-footer-top-padding, .75rem) - var(--ut-footer-top-border-width, var(--a-button-border-width, 1px)));
+    transition: .1s ease;
+    width: var(--ut-footer-top-size,2.5rem);
+    z-index: 99;
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    box-shadow: 1px 1px 5px black;
+}
+
+/* Sticky header styles */
+        .nobgcolor {
+            background-color: #fff; /* Set your desired background color */
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Header image styles */
+        .header-images {
+            max-height: 110px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Center text styles */
+        .center-text {
+            display: block;
+            margin: auto;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+        /* Container for centering */
+        .widthFixed {
+            max-width: 100%; /* Adjust as needed */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .center-text center {
+            color: #c52c27;
+            
+        }
+
+        .txtBlue{
+            color: #3c3b79;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+         #first_image{
+            margin-left: 8%;
+        }
+        #last_image{
+            margin-right: 8%;
+        }
+           .container{
+            width: 80%;
+            text-align: justify;
+        }
+
+        @media only screen and (max-width:600px){
+            .header-images{
+            max-height: 50px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .container{
+            width:95%;
+        }
+
+        #first_image{
+            margin-left: 2%;
+        }
+        #last_image{
+            margin-right: 2%;
+        }
+        .center-text {
+            display: block;
+            text-align: center;
+            margin: auto;
+            font-weight: 400;
+            font-size: .8rem;
+            
+        }
+        .txtBlue{
+            color: #3c3b79;
+            font-weight: 800;
+            font-size: .9rem;
+        }
+        
+        }
+
+        .first_image{
+            position:
+        }
+
+     
+
+
+</style>
+
+  <link rel="stylesheet" href="r/dipr/103/files/theme/42/v87/10689188252099023.css" type="text/css" />
+
+  
+  
+  <link rel="apple-touch-icon" href="r/dipr/103/files/static/v358/icons/app-icon-192.png" /><link rel="icon" href="r/dipr/103/files/static/v358/icons/app-icon-32.png" />
+  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="-1" /><meta http-equiv="Cache-Control" content="no-cache" /><meta name="theme-color" content="&#x23;000000" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Info&#x26;PRDept" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<link rel="manifest" href="&#x2F;ords&#x2F;r&#x2F;dipr&#x2F;info-prdept103&#x2F;manifest.json&#x3F;v&#x3D;24.1.1-41853896899929&#x26;lang&#x3D;en" crossorigin="use-credentials" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"   id="t_PageBody">
+<a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
+<form role="none" action="wwv_flow.accept?p_context=info-prdept103/memorials-section/304836552836106" method="post" name="wwv_flow" id="wwvFlowForm" data-oj-binding-provider="none" novalidate  autocomplete="off">
+<input type="hidden" name="p_flow_id" value="103" id="pFlowId" /><input type="hidden" name="p_flow_step_id" value="27" id="pFlowStepId" /><input type="hidden" name="p_instance" value="304836552836106" id="pInstance" /><input type="hidden" name="p_page_submission_id" value="Mjk1NDE2MDUzNTI4MDc5OTAyOTU3MzQ1MjYzOTczMzQzMTM4NDQw&#x2F;RCokAdnGjRzTj7NlbwnpasgYqhnFZyeZiVv1I6UB1zM4nKTQlaVoOj1OFr2T3o-kdeyJQ6BkuKHCUDMCa-6Hmw" id="pPageSubmissionId" /><input type="hidden" name="p_request" value="" id="pRequest" /><input type="hidden" name="p_reload_on_submit" value="S" id="pReloadOnSubmit" /><input type="hidden" value="info-prdept103&#x2F;memorials-section&#x2F;304836552836106" id="pContext" /><input type="hidden" value="295416053528079902957345263973343138440" id="pSalt" />
+<header class="t-Header" id="t_Header" role="banner">
+
+       <div class="t-Header-navBar">
+      
+          <div class="t-Header-navBar--start">
+
+      <!--  <div class="t-Header-navBar--end"><div class="t-Form-fieldContainer rel-col t-Form-fieldContainer--large t-Form-fieldContainer--normalDisplay apex-item-wrapper apex-item-wrapper--has-initial-value apex-item-wrapper--select-list" id="P0_LANGUAGE_CONTAINER"><div class="t-Form-labelContainer col col-null">
+<label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
+</div>
+<div class="t-Form-inputContainer col col-null"><div class="t-Form-itemWrapper"><select  id="P0_LANGUAGE" name="P0_LANGUAGE" class="selectlist&#x20;apex-item-select" data-native-menu="false"  size="1" ><option value="en" selected="selected" >English</option>
+<option value="ta">Tamil</option>
+</select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error" data-template-id="32751098700172723_ET"></span></div></div></div> 
+       <div class="t-Header-navBar--center"><ul class="t-NavigationBar " id="32861498506172843"><li class="t-NavigationBar-item a-pwaInstall">
+  <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install" title="" target="">
+    <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true" ></span><span class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
+  </a>
+</li><li class="t-NavigationBar-item has-username">
+  <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#" title="" target="">
+    <span class="t-Icon fa&#x20;fa-user" aria-hidden="true" ></span><span class="t-Button-label">nobody</span><span class="t-Button-badge"></span>
+  </a>
+</li></ul></div> -->
+          <div class="t-Header-navBar--end"></div> 
+                    <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a> 
+                    <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
+                    <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
+                    <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v358/instagram.jpeg" style="height:35px;"  class="fa fa-twitter" target='_blank'>
+                    <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
+
+         
+           </div>
+        
+    </div>
+
+ <!-- <div class=" nobgcolor ">
+<img id="first_image" style=" height: 100%;" src = 'r/dipr/103/files/static/v358/left-png.png' > <span class="alignCenter"><center> Information and Public Relations Department </br> செய்தி – மக்கள் தொடர்புத்துறை </center></span>
+    <img id="last_image" style=" height: 100%;" src = "r/dipr/103/files/static/v358/right-png.png" > 
+
+   </div> -->
+  <div class="nobgcolor">
+        <div class="widthFixed">
+            <!-- <img id="first_image" class="header-images" src="r/dipr/103/files/static/v358/left-png.png"> -->
+            <div class="center-text">
+                <center>Information and Public Relations Department <br> <span class="txtBlue">செய்தி – மக்கள் தொடர்புத்துறை</span></center>
+            </div>
+            <!-- <img id="last_image" class="header-images" src="r/dipr/103/files/static/v358/right-png.png"> -->
+        </div>
+    </div>
+    
+ <div class="t-Header-nav"><div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav"><ul><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/home" title="" target="">Home</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/about_page" title="" target="">About Us</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/gallery1" title="" target="">Photo &#x2F; Video</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/press-release1" title="" target="">Press Release &#x2F; Press Note</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/government-orders" title="" target="">Government Orders</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/sections" title="" target="">Sections</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/download-forms" title="" target="">Download Forms</a></li></ul></div></div>
+</header>
+
+<div class="t-Body">
+  
+  <div class="t-Body-main">
+    <div class="t-Body-title" id="t_Body_title"><nav id="R38592477200846833"  role="navigation" aria-label="Memorials"  class="t-BreadcrumbRegion t-BreadcrumbRegion--showBreadcrumb t-BreadcrumbRegion--useBreadcrumbTitle">
+  <div class="t-BreadcrumbRegion-top">
+    <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--start"></div>
+    <div class="t-BreadcrumbRegion-body">
+      <div class="t-BreadcrumbRegion-breadcrumb"><ul class="t-Breadcrumb "><li class="t-Breadcrumb-item"><a href="sections.html" class="t-Breadcrumb-label">Sections</a></li><li class="t-Breadcrumb-item is-active" aria-current="page"><h1 class="t-Breadcrumb-label">Memorials</h1></li></ul></div>
+        <div class="t-BreadcrumbRegion-title">
+        <h1 id="R38592477200846833_heading" class="t-BreadcrumbRegion-titleText" data-apex-heading>Memorials</h1>
+      </div>
+    </div>
+    <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--end"></div>
+  </div>
+  <div class="t-BreadcrumbRegion-bottom"></div>
+</nav>
+</div>
+    <div class="t-Body-content" id="t_Body_content">
+      <main id="main" class="t-Body-mainContent">
+        <span id="APEX_SUCCESS_MESSAGE" data-template-id="33086037481442559_S" class="apex-page-success u-hidden"></span><span id="APEX_ERROR_MESSAGE" data-template-id="33086037481442559_E" class="apex-page-error u-hidden"></span>
+        <div class="t-Body-fullContent"></div>
+        <div class="t-Body-contentInner"><div class="container">
+<div class="row ">
+<div class="col col-12 apex-col-auto col-start col-end" ><div id="R22879691196163085" class=""  ></div></div>
+</div><div class="row ">
+<div class="col col-12 apex-col-auto col-start col-end" ><div id="R35603984876332666" class=""  ><a-dynamic-content region-id="R35603984876332666" ajax-identifier="UkVHSU9OIFRZUEV-fjM1NjAzOTg0ODc2MzMyNjY2&#x2F;Vw8JZm28D3oChIS4V3CHaASqimUptxkhVNLzzF95nGGvLlR-6oWF31gERkpXV4CvYP-KyEqxTeoPqZVntZZYSg" >
+<div title="Page 7" class="page">
+<div class="layoutArea">
+<div class="column">
+<div title="Page 7" class="page">
+<div class="layoutArea">
+<div class="column">
+<p><span style="font-family: arial, helvetica, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp;Various Memorials are constructed and properly maintained in different parts of the State to celebrate and acknowledge the contributions made by the masters who shaped the history of Tamil Nadu. 81 Memorials, 4 Arangams, 5 Commemoration Pillars and 2 Monuments and one Commemoration Arch have been constructed to honour the significant contributions made by the eminent personalities of Tamil Nadu such as scholars, great freedom fighters, martyrs and leaders who sowed the seeds of social justice, poets and music maestros.</span></p>
+<div title="Page 8" class="page">
+<div class="layoutArea">
+<div class="column">
+<p><span style="font-family: arial, helvetica, sans-serif; color: rgb(57, 54, 133);"><a href="r/dipr/info-prdept103/memorials-cr" title="https://lstssxuegqjldw2-atpapex.adb.us-ashburn-1.oraclecloudapps.com/ords/r/ws_govt/info-prdept/memorials-cr" style="color: rgb(57, 54, 133);"><strong>DETAILS OF MEMORIALS IN TAMIL NADU (Click here to view details)</strong></a></span></p>
+<p class="p1"><span style="color: rgb(57, 54, 133); font-family: arial, helvetica, sans-serif; font-size: 14pt;"><strong>HONOURING MOZHIPPOR THIYAGIGAL</strong></span></p>
+<p style="margin-bottom: 0cm; text-align: justify; text-indent: 36.0pt; line-height: 150%; tab-stops: 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;" class="MsoNormal"><span style="font-size: 12pt; line-height: 150%; font-family: arial, helvetica, sans-serif; color: rgb(32, 33, 36);" lang="EN-US">To remember the martyrs who sacrificed their lives to save the Tamil language, this year Hon’ble Chief Minister of Tamil Nadu paid floral tributes to the portraits of the Mozhippor Thiyagigal at Gandhi Mandapam Campus on Mozhippor Thiyagigal Day, 25.01.2023, as was done in the last year.&nbsp;</span></p>
+<p style="margin-bottom: 0cm; text-align: justify; line-height: 150%; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;" class="MsoNormal"><span style="font-family: arial, helvetica, sans-serif; font-size: 14pt;"><strong><span style="color: rgb(57, 54, 133);"><span lang="EN-US">&nbsp;</span><span lang="EN-US">A STATUE FOR UTHAMAR GANDHI ADIGAL</span></span></strong></span></p>
+<p style="margin-bottom: 0cm; text-align: justify; line-height: 150%; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;" class="MsoNormal"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: rgb(32, 33, 36);" lang="EN-US">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hon'ble Chief Minister of Tamil Nadu Unveiled and garlanded the statue of Uthamar Gandhi Adigal on 15.08.2022 at Egmore Museum Campus Chennai. </span></p>
+<p style="margin-bottom: 0cm; text-align: justify; line-height: 150%; tab-stops: 45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;" class="MsoNormal"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: rgb(32, 33, 36);" lang="EN-US">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Following this, the Hon'ble Chief Minister of Tamil Nadu inaugurated the photo exhibition "Viduthalai Poril Thamizhagam" at the Egmore Museum Campus, Chennai on the occasion of Independence Day.</span></p>
+<p style="margin-bottom: 3.0pt; text-align: justify; line-height: 18.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><strong><span style="color: rgb(57, 54, 133); font-size: 14pt;"><span lang="EN-US">COMPLETED WORKS</span></span></strong></span></p>
+<p style="margin-bottom: 3.0pt; text-align: justify; line-height: 18.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US"><span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>A full size bronze statue of Muthamizharignar Kalaignar was installed at a cost of Rupees One Crore and 70 Lakh at Multi Speciality Hospital, Omandurar Government Estate Campus, Chennai and it was unveiled by the former Vice President of India Thiru.M.Venkaiah Naidu on 28.05.2022.</span></p>
+<p style="margin-bottom: 3.0pt; text-align: justify; line-height: 18.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US"><span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>A full size bronze statue of Annal Ambedkar was installed at Ambedkar Memorial at Raja Annamalaipuram, Chennai and it was unveiled by the Hon’ble Chief Minister of Tamil Nadu on 27.10.2022.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; line-height: 19.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif;" lang="EN-US"><span style="mso-spacerun: yes;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>For the students and public to benefit by viewing the photographs and learning about&nbsp;literary works of <span style="color: black;">the acclaimed writer&nbsp;Ki. Rajanarayanan who popularized the ‘Karisal’ literature to the world,</span> his statue <span style="color: black;">was installed&nbsp;and a library with a memorial was constructed in Kovilpatti at a cost of Rupees One Crore 50 Lakh and 70 Thousand and was inaugurated by the Hon’ble Chief Minister of Tamil Nadu on 02.12.2022.</span></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 19.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">To commemorate the birth centenary of Mahakavi Bharathiyar, the House where he lived while in Varanasi (Kashi), Uttar Pradesh, was announced as a memorial by the Government of Tamil Nadu, and was renovated at a cost of Rupees 18 Lakh and a bust size statue of Bharathiyar was installed there. The renovated memorial and statue were inaugurated by the Hon’ble Chief Minister of Tamil Nadu through video conferencing on 11.12.2022. In this function, as the Minister of this department, myself and Secretary to the Government, Government officials participated in-person.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 24.0pt; line-height: 19.8pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">A memorial with a full-size statue and a dome at a cost of Rupees 26 Lakh and 30 Thousand for Allala Ilaya Nayagar at Jedarpalayam, Namakkal District was inaugurated by the Hon’ble Minister for Youth Welfare and Sports Development Thiru. Udhayanidhi Stalin and was opened for public view on 28.01.2023. Hon’ble Ministers and Higher Officials also participated in this function.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 24.0pt; line-height: 19.8pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">To honour the sacrifice and mark the completion of 100 years of the death of 16 Piramalai Kallar Martyrs who lost their lives as they were fired by the British as they fought against the British law imposed against them in 1920, a Memorial was constructed at Perungamanallur, Usilampatti Taluk, Madurai District at a cost of Rupees One Crore and 47 Lakh and was inaugurated by the Hon’ble Chief Minister of Tamil Nadu on 14.02.2023</span></p>
+<p style="text-align: justify; line-height: normal; margin: 0cm 0cm 0cm .7pt;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><strong style="mso-bidi-font-weight: normal;"><span style="color: black;" lang="EN-US">&nbsp;</span></strong></span></p>
+<p style="text-align: justify; line-height: normal; margin: 0cm 0cm 0cm .7pt;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif; color: rgb(57, 54, 133);"><strong style="mso-bidi-font-weight: normal;"><span lang="EN-US">ANNOUNCEMENTS MADE BY THE HON’BLE CHIEF MINISTER OF TAMIL NADU UNDER RULE 110 IN THE YEAR 2021-22 and 2022-23 – WORKS IN PROGRESS</span></strong></span></p>
+<p style="text-align: justify; line-height: normal; margin: 0cm 0cm 0cm .7pt;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><strong style="mso-bidi-font-weight: normal;"><span style="font-size: 4pt; color: black;" lang="EN-US">&nbsp;</span></strong></span></p>
+<ul>
+<li style="font-family: arial, helvetica, sans-serif;"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; line-height: 110%;">In honouring of the great work done by Muthamizharignar Kalaignar and to highlight his achievements and thoughts to the people and future generations, an announcement was made to build a memorial for Muthamizharignar Kalaignar with modern illustrations on 2.21 acres, at a cost of Rs.39 crore, at Anna Memorial premises, Kamarajar Salai, Chennai. Following that, the construction works of the memorial is in progress.</span></span></li>
+<li style="font-family: arial, helvetica, sans-serif;"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; line-height: 110%; color: black;" lang="EN-US">Rupees 2 Crore 48 Lakh and 75 Thousand has been accorded for setting up of Manimandapam with statue for Ayothidasa Pandithar at Chennai in memory of his 175<sup>th</sup> birth anniversary. The construction works are nearing completion.</span></span></li>
+<li style="font-family: arial, helvetica, sans-serif;"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; line-height: 110%; color: black;" lang="EN-US">Orders have been issued for the construction of Manimandapam at a cost of Rupees 4 Crore in Vazhuthareddy Village, Villupuram District for the 21 martyrs who lost their lives because of police firing in the struggle for social justice in 1987. The construction works are to be commenced soon.</span></span></li>
+</ul>
+<p style="border: none; mso-padding-alt: 31.0pt 31.0pt 31.0pt 31.0pt; mso-border-shadow: yes; margin: 0cm 3.3pt 6.0pt 0cm;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif; color: rgb(57, 54, 133); font-size: 14pt;"><strong style="mso-bidi-font-weight: normal;"><span lang="EN-US">WORKS RELATED TO OTHER ANNOUNCEMENTS OF THE HON’BLE CHIEF MINISTER</span></strong></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.8pt; line-height: 20.0pt; mso-line-height-rule: exactly; tab-stops: 24.0pt;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">The construction of full-size statue of Rao Bahadhur Cruz Fernandes at Thoothukudi<span style="mso-spacerun: yes;">&nbsp; </span>has been accorded at a cost of Rupees 77 Lakh and&nbsp;87 Thousand. Construction works are in progress.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.8pt; line-height: 20.0pt; mso-line-height-rule: exactly; tab-stops: 24.0pt;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">Orders have been issued for the renovation of V.O.Chidambaranar Memorial House at Ottapidaram and Manimandapam at Tirunelveli. To benefit everyone by learning his life history, a light and sound show set up and the renovation work has been completed at a cost of Rupees 72 Lakh and<span style="mso-spacerun: yes;">&nbsp; </span>49 Thousand.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; line-height: 15.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif; font-size: 14pt; color: rgb(57, 54, 133);"><strong style="mso-bidi-font-weight: normal;"><span lang="EN-US">WORKS RELATED TO ANNOUNCEMENTS OF&nbsp;THE INFORMATION DEPARMENT</span></strong></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 150%;" class="Normal2"><span style="font-size: 12pt; line-height: 150%; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">A statue is to be installed for the Freedom Fighter Anjalai Ammal, who had actively participated in the non-cooperation movement, and was addressed as the ‘Jansi Rani of South India’ by Mahatma Gandhi, at Gandhi Park, Muthu Nagar, Cuddalore and construction works are in progress.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 19.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">A statue is to be installed for the former President of India who was also India’s leading scientist and charismatic idol of the students,&nbsp;Dr. A.P.J. Abdul Kalam at Anna University Campus, Chennai and construction works are in progress.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 19.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">A statue is to be installed for Rabindranath Tagore, a Nobel Prize Laureate and a Bengal Poet who penned the National Anthem at Queen Mary’s College Campus, Chennai and construction works are in progress.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 19.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">A statue is installed for Moovalur Ramamirtham Ammaiyar, who was a Social Reformer, Writer and Eminent person in Dravidian Movement and in the abolition of the Devadasi system, at Mayiladuthurai and it has been unveiled by the Hon'ble Chief Minister.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 19.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">A statue is to be installed for Dr. Muthulakshmi Reddy who was the first Woman Legislator, Leader of the Women’s Indian Association, Social Reformer and a Doctor in the Government Medical College, Pudukottai.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 21.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">To commemorate the 75<sup>th</sup> year of India’s Independence, memorials of freedom fighters is to be renovated and setting up of light and sound shows, short films about the biographies of leaders of the Indian Independence movement and photo exhibitions are to be done. In the first phase, the light and sound show is going to be set up in 6 memorials and the cost estimate has been received and work is in progress.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 21.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">For Renovating the Gandhi Museum, which commemorates the martyrs who sacrificed their lives for the motherland and the Memorials of Perunthalaivar Kamarajar where his body was buried, Periyavar Bhakthavatchalam and Mootharignar Rajaji at Gandhi Mandapam premises, Guindy, at a cost of Rupees 3 Crore&nbsp;36 Lakh and 82 Thousand and the works are nearing completion.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 18.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">Rupees 2 Crore 53 Lakh and 26 Thousand has been accorded for installing a statue at Udumalaipettai Municipal Office premises, Tiruppur District and for constructing an Arangam near Thirumoorthy Dam for Thali Palayakarar Malaiyandi Venkidupathi Ethalappar Nayakar. The construction works are to be commenced soon.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 18.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">Orders have been issued for renovating a Memorial for those who died in the Coimbatore District Parambikulam Aliyar Project works at Aliyar Dam park for Rupees One Crore.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 18.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">The office premises of the Chief Engineer, Water Resources Department in Pollachi has now been named after the former Union Minister <span style="mso-spacerun: yes;">&nbsp;</span>Thiru. C. Subramaniyam as ‘C. Subramaniyam Valagam’.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 18.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">In this office premises, a two storied building with two Arangams is to be built to facilitate the conduct of training and seminars for the benefit of farmers, and the Arangam in the ground floor is to be named as ‘V.K. Palanisamy Arangam’ and the Arangam in the upper floor as ‘Pollachi Na.Mahalingam Arangam’.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 20.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">Also along with the construction of these Arangams, within the office premises, the statues of V.K. Palanisamy Gounder, Former Union Minister C.Subramaniyam and Industrialist Pollachi N. Mahalingam are to be installed, at a total cost of Rupees 4 crore 28 Lakh and 71 Thousand. The works are to be commenced soon.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 23.75pt; line-height: 20.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">Rupees 17 Lakh and 50 Thousand has been accorded for installing a statue of former Chief Minister of Madras Presidency&nbsp;Dr. Pa.Subbarayan, a Freedom fighter who toiled for Tamil language and Tamil people and passed legislations based on principles of Social justice at Gandhi Mandapam, Chennai and works are in progress. Also, orders have been issued for constructing an Arangam in his name, at a cost of Rupees 2 Crore and 50 Lakh in Namakkal District.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 24.0pt; line-height: 20.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">Rupees 2 Crore and 60 Lakh has been accorded for constructing an Arangam and statue in memory of Thiru. Eswaran, a former Member of the Legislative Assembly and freedom fighter who underwent eleven years of imprisonment, who was instrumental in bringing Keezh Bhavani Irrigation Scheme which caters to the need of irrigating 2 Lakh acres of land in Kongu Region, at Bhavani Sagar in Erode District. The foundation stone is to be laid very soon by the Hon’ble Chief Minister of Tamil Nadu.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 24.0pt; line-height: 20.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">Orders have been issued for installing a statue and for constructing an Arangam for&nbsp;Thiru A. Govindasamy, a former Minister in the cabinet of Perarignar Anna and of Muthamizharignar Kalaignar, who also greatly contributed towards the upliftment of the poor people, at Vazhudhareddy Village, Villupuram District at a cost of Rupees 2 Crore and 60 Lakh. The work is to be commenced soon.</span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 24.0pt; line-height: 20.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">Rupees One Crore has been accorded for construction of Statue with Manimandapam for Veeramamunivar at Saint Paralogamatha Church campus, Kamanayakkanpatti, Thoothukudi District and the construction works are in progress.</span></p>
+<p style="margin-bottom: 6.0pt; line-height: 20.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif; color: rgb(57, 54, 133); font-size: 14pt;"><strong style="mso-bidi-font-weight: normal;"><span lang="EN-US">STATUE FOR FREEDOM FIGHTERS AND LEADERS</span></strong></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 24.1pt; line-height: 19.0pt; mso-line-height-rule: exactly; tab-stops: 24.0pt;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; color: black;" lang="EN-US">At the Gandhi Mandapam premises, Guindy, Chennai, a full size statue of freedom fighter Panjalankurichi King Veera Pandiya Kattabomman, who fought against the British and was hanged, and a statue of freedom fighters Maruthu Brothers, who ruled Sivagangai Seemai and the bust size statue of V.O.Chidambaranar installed in his renovated memorial, where the oil press pulled by him when he was in prison has been kept,</span><span style="font-size: 12pt; color: black;" lang="EN-US"> </span><span style="font-size: 12pt; color: black;" lang="EN-US">were unveiled by the Hon’ble Chief Minister of Tamil Nadu on 14.02.2023.</span></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; line-height: 14.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif; color: rgb(57, 54, 133); font-size: 14pt;"><strong style="mso-bidi-font-weight: normal;"><span lang="EN-US">WORKS IN PROGRESS AND WORKS TO BE COMMENCED</span></strong></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 24.0pt; line-height: 18.0pt; mso-line-height-rule: exactly; tab-stops: 24.0pt;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; color: black;" lang="EN-US">Rupees 40 Lakh and 42 Thousand has been accorded to install a full size statue for V.O.Chidambaranar </span><span style="font-size: 12pt; color: black;" lang="EN-US">at VOC Park in Coimbatore and the statue was <span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">unveiled by the Hon'ble Chief Minister on 10.05.2023.</span></span></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; line-height: 18.0pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; color: black;" lang="EN-US"><span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>In order to </span><span style="font-size: 12pt;" lang="EN-US">commemorate<span style="color: black;"> the Centenary Celebrations of Pudukottai King Raja Gopala Thondaiman, a Memorial with Museum is to be constructed for him at Pudukottai at a cost of Rupees 3 Crore and 3 Lakh. </span></span></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 24.0pt; line-height: 19.5pt; mso-line-height-rule: exactly; tab-stops: 24.0pt;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; color: black;" lang="EN-US"><span style="mso-tab-count: 1;">&nbsp;&nbsp; </span>Rupees 3 Crore has been accorded for the construction of a statue and Arangam at Mayiladuthurai for Mayuram Muncif Vedha Nayagam Pillai, who wrote the first Tamil Novel. </span><span style="font-size: 12pt; color: black;" lang="EN-US">The works are to be commenced soon.</span></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; line-height: 19.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; color: black;" lang="EN-US"><span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>U</span><span style="font-size: 12pt;" lang="EN-US">p<span style="color: black;">gradation of 10 Memorials as study centers for the students preparing for </span>c<span style="color: black;">ompetitive exams with basic amenities and additional facilities, at a cost of Rupees One Cror</span>e is in progress.</span></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; line-height: 19.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; color: black;" lang="EN-US"><span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>In the Memorials, Manimandapams and Arangams that have been established by the Department of Information and Public Relations for various Freedom Fighters, Tamil Scholars and important leaders, their life history, photo albums, the books written by them and those books written on them will be displayed. Short films on each of the </span><span style="font-size: 12pt;" lang="EN-US">leaders<span style="color: black;"> will be telecasted in </span>their respective <span style="color: black;">memorials using LED TV, in first phase, LED TV to be installed in 15 different places and also, 360 degree photos of memorials will be taken and uploaded in </span>websites<span style="color: black;"> and social media and QR codes will be created and uploaded for every memorial, so th</span>at <span style="color: black;">the public can access it </span>with <span style="color: black;">ease. These works are to be carried </span>out at a cost<span style="color: black;"> of Rupees 2 Crore.</span></span></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; line-height: 19.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; color: black;" lang="EN-US"><span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>The bust-size statue of Freedom Fighter Veeran Sundaralingam</span><span style="font-size: 12pt;" lang="EN-US"> is to be replaced with <span style="color: black;">his full-size statue riding a horse at Veeran Sundaralingam Memorial, Governagiri, Thoothukudi District at a cost of Rupees 40 Lakh.</span></span></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; line-height: 19.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 12pt; color: black;" lang="EN-US"><span style="mso-tab-count: 1;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>A full size bronze statue of Former Minister Perasiriyar Anbazhaganar</span><span style="font-size: 12pt;" lang="EN-US"> has been<span style="color: black;"> installed at ‘Perasiriyar Anbazhaganar Kalvi Valagam’ in Nungambakkam, Chennai and it was <span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">unveiled by the Hon'ble Chief Minister on 10.08.2023.</span></span></span></span></p>
+<p style="margin-bottom: 6.0pt; text-align: justify; text-indent: 36.0pt; line-height: 19.5pt; mso-line-height-rule: exactly;" class="Normal2"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">As per instructions of the District Collectors, Information Boards with photos and biography of Freedom fighters, Leaders, Tamil Scholars, Guardians of the Tamil language are displayed at the following places in every district.</span></p>
+<br><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;A Vaikkom memorial is being renovated for the Centenary celebration of Vaikkam Satyagraha.&nbsp;</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;A Memorial is to be constructed in Arookuti, Azhappuzha District, Kerala in where Thanthai Periyar was kept in jail for Vaikkom Satyagraha.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; &nbsp; A Memorial is to be constructed for Periyavar Ilaya Perumal in Chidambaram, Cuddalore District.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; &nbsp;Valluvar Kottam is to be renovated at the cost of Rs.80 Crore, financial sanction has been issued and the work to be commenced soon.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; A full size statue to be installed for freedom fighter Venni Kaladi in Thenkasi district.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp;A full size statue to be installed for Veeramangai Kuyili who provided a great support to freedom fighter Veeramangai Velu Nachiyar at Sivagangai.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp;A full size statue to be installed for freedom fighter Valukku Veli Ambalam in Sivagangai.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp;A statue to be issued for "Perunthalaivar Kamarajar" who is the reason for implementing the Parambikulam Azhiyar Project.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp;A memorial to be constructed for "Keezhapaghuvur Chinnasamy" at Ariyalur District.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp;A full size statue to be installed for freedom fighter Annal Jhango at Gudiyatham, Vellore District.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; A&nbsp; bust of Namakkal Kavingar Ramalingam Pillai is to be installed inside his Memorial at Namakkal.</span></div>
+<div class="column">&nbsp;</div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; A full size statue of T.M.Soundararajan is installed in Madurai district in the mark of his Centenarary Celebration and the statue was unveiled by the Hon'ble Chief Minister on 16.08.2023.</span><span style="font-family: arial, helvetica, sans-serif;">&nbsp;</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></a-dynamic-content>
+</div></div>
+</div>
+</div></div>
+      </main>
+      <footer class="t-Footer" id="t_Footer" role="contentinfo">
+        <div class="t-Footer-body">
+          <div class="t-Footer-content"><div class="container">
+<div class="row ">
+<div class="col col-12 apex-col-auto col-start col-end" ><div id="R11684238522218402" class=""  >Information & Public Relations Department, Secretariat, Chennai 600 009</div></div>
+</div>
+</div></div>
+          <div class="t-Footer-apex">
+              
+            <div class="t-Footer-version"> 
+             <!--   <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav"><ul><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/home" title="" target="">Home</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/about_page" title="" target="">About Us</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/gallery1" title="" target="">Photo &#x2F; Video</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/press-release1" title="" target="">Press Release &#x2F; Press Note</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/government-orders" title="" target="">Government Orders</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/sections" title="" target="">Sections</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/download-forms" title="" target="">Download Forms</a></li></ul></div> -->
+            
+                </div>
+            <div class="t-Footer-customize">
+               
+            </div>
+            
+          </div>
+        </div>
+        <div class="t-Footer-top">
+          <a href="#top" class="t-Footer-topButton" id="t_Footer_topButton" title="Start of page" aria-label="Start of page"><span class="a-Icon icon-up-chevron" aria-hidden="true"></span></a>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+<div class="t-Body-inlineDialogs" id="t_Body_inlineDialogs"></div><input type="hidden" id="pPageFormRegionChecksums" value="&#x5B;&#x5D;">
+<input type="hidden" id="pPageItemsRowVersion" value="" /><input type="hidden" id="pPageItemsProtected" value="&#x2F;KjcQkJqhfHyIue7AyfWQCYTufEIH38SvzHNt6RM5X3CgHsw4fW0I8EikCWyJTm-6sMyyn5ns7p6_PNxrrJf8VA" /></form>
+
+
+<script>
+var apex_img_dir = "https:\u002F\u002Fstatic.oracle.com\u002Fcdn\u002Fapex\u002F24.1.1\u002F";
+var apex = {env: {APP_USER: "nobody",APP_ID: "103",APP_PAGE_ID: "27",APP_SESSION: "304836552836106",APP_FILES: "r\u002Fdipr\u002F103\u002Ffiles\u002Fstatic\u002Fv358\u002F",WORKSPACE_FILES: "r\u002Fdipr\u002Ffiles\u002Fstatic\u002Fv1\u002F",APEX_VERSION: "24.1.1",APEX_BASE_VERSION: "24.1"},
+libVersions:{cropperJs:"1.6.1",domPurify:"3.1.2",fontapex:"2.3",fullcalendar:"6.1.11",hammer:"2.0.8",jquery:"3.6.4",jqueryUi:"1.13.2",maplibre:"4.0.1",markedJs:"12.0.1",prismJs:"1.29.0",oraclejet:"16.0.1",tinymce:"6.8.3",turndown:"7.1.3",monacoEditor:"0.47.0",lessJs:"4.2.0"}};
+</script>
+
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/desktop_all.min.js"></script>
+    <script src="assets/js/widget.stickyWidget.min.js"></script>
+    <script src="assets/js/theme42.min.js"></script>
+    <script src="assets/js/widget.apexTabs.min.js"></script>
+    <script src="assets/js/com.oracle.apex.carousel.min.js"></script>
+    <script src="assets/js/modelViewBase.min.js"></script>
+    <script src="assets/js/widget.templateReport.min.js"></script>
+    <script src="assets/js/widget.report.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+
+
+<script type="text/javascript">
+apex.da.initDaEventList = function(){
+apex.da.gEventList = [
+{"triggeringElementType":"ITEM","triggeringElement":"P0_LANGUAGE_SELECTION","bindType":"bind","executionType":"IMMEDIATE","bindEventType":"change","anyActionsFireOnInit":false,actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"waitForResult":true,javascriptFunction:apex.da.executePlSqlCode,"ajaxIdentifier":"REEgVFlQRX5-Mzc0OTQ3NjY4MDA1MDg5MzI\u002Fu5lMEWFL1hSUxVYt2I5qEVhlVf_nR1hmtuQBgot9tVVpO5TTo4YmO_FRmRZJicUHmoWoqlcbZrwO6B3tQaiBrg","attribute01":"#P0_LANGUAGE_SELECTION","attribute04":"N","action":"NATIVE_EXECUTE_PLSQL_CODE"}]},
+{"triggeringElementType":"ITEM","triggeringElement":"P0_LANGUAGE","bindType":"bind","executionType":"IMMEDIATE","bindEventType":"change","anyActionsFireOnInit":false,actionList:[{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,"waitForResult":true,javascriptFunction:apex.da.executePlSqlCode,"ajaxIdentifier":"REEgVFlQRX5-NDM0MzQzOTA5NTkyMjI3NTI\u002FDZTRaWo1FeyOhHE67bkprc3t0URD779-XJP8Fvqhd5anLePTQLh8SV-IV9TrKMWxYMzxd-a5MuMkEkokwGd6uw","attribute01":"#P0_LANGUAGE","attribute04":"N","action":"NATIVE_EXECUTE_PLSQL_CODE"},{"eventResult":true,"executeOnPageInit":false,"stopExecutionOnError":true,javascriptFunction:apex.da.submitPage,"attribute02":"Y","action":"NATIVE_SUBMIT_PAGE"}]}];
+}
+</script>
+
+
+
+<script type="text/javascript">
+apex.jQuery( function() {
+apex.page.init( this, function() {
+try {
+(function(){apex.widget.selectList("#P0_LANGUAGE",{"ajaxIdentifier":"SVRFTSBUWVBFfjUxMjB-MzgxODM5MDAxMjAxMjk3NDc\u002Fk72owsCgfaix2yGyqSe573NRF_YJl0a7dPefqPHUU_Z4IQFhi2i8CFYWuHJksfRuerYW2Jg0k2KgAhWqA_xzmQ"});})();
+(function(){var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
+if (e.hasClass("js-addActions")) {
+  apex.actions.addFromMarkup( e );
+}
+e.menu({
+  behaveLikeTabs: e.hasClass("js-tabLike"),
+  menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
+  menubar: true,
+  menubarOverflow: true,
+  callout: e.hasClass("js-menu-callout")
+});
+})();
+(function(){var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
+if (e.hasClass("js-addActions")) {
+  apex.actions.addFromMarkup( e );
+}
+e.menu({
+  behaveLikeTabs: e.hasClass("js-tabLike"),
+  menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
+  menubar: true,
+  menubarOverflow: true,
+  callout: e.hasClass("js-menu-callout")
+});
+})();
+} catch(e) {apex.debug.error(e)};
+apex.item.waitForDelayLoadItems().done(function() {
+try {
+(function(){apex.da.initDaEventList();
+apex.da.init();})();
+apex.theme42.initializePage.noSideCol();
+
+apex.page.warnOnUnsavedChanges();
+} finally {
+apex.event.trigger(apex.gPageContext$,'apexreadyend');
+};
+});
+});
+});apex.pwa.publicKey = ''
+apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
+</script>
+
+
+</body>
+</html>
