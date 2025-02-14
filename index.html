@@ -14,6 +14,42 @@
   <link rel="stylesheet" type="text/css" href="assets/css/custom.min.css">
   <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
   <link rel="icon" href="assets/img/app-icon-32.png">
+  <style>
+    /* .a-CardView-items {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 10px;
+      list-style: none;
+      white-space: nowrap;
+    }
+
+    .a-CardView-item {
+      flex: 0 0 auto;
+    }
+
+    .a-CardView-item img {
+      width: 100px;
+      height: 100px;
+    } */
+    .a-CardView-items {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 10px;
+      list-style: none;
+      size: 7rem;
+      width: 100%;
+    }
+
+    .a-CardView-item img {
+      width: 120px;
+      height: 120px;
+    }
+  </style>
   <style type="text/css">
     @font-face {
       font-family: 'FontApex';
@@ -1041,7 +1077,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row ">
+                <!-- <div class="row ">
                   <div class="col col-12 apex-col-auto col-start col-end">
                     <div class="t-CardsRegion u-colors t-CardsRegion--styleB t-Region-orderBy--center"
                       id="R33195007429326677" role="region" aria-label="Cards">
@@ -1105,17 +1141,16 @@
                               </div>
                             </a>
                           </li>
-
-
-
-
-
                         </ul>
                       </div>
+                    </div>
+                  </div>
+                </div> -->
 
-
-
-
+                <div class="row">
+                  <div class="col-12">
+                    <div class="t-CardsRegion" id="card-container">
+                      <ul class="a-CardView-items d-flex flex-wrap list-unstyled" id="dynamic-cards"></ul>
                     </div>
                   </div>
                 </div>
@@ -1558,7 +1593,6 @@
   </script>
   <script type="text/javascript">
     $(document).ready(function () {
-
       apex.jQuery(function () {
         apex.page.init(this, function () {
           try {
@@ -1611,8 +1645,43 @@
     });
   </script>
 
-
-
+  <script>
+    $(document).ready(function () {
+      debugger
+      $.ajax({
+        url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/home",
+        method: "GET",
+        dataType: "json",
+        success: function (response) {
+          if (response.success && response.data.length > 0) {
+            response.data.forEach(function (item) {
+              let cardHtml = `
+                          <li class="a-CardView-item m-2">
+                              <a href="${item.page_name}.html">
+                                  <div class="a-CardView has-title has-icon has-icon--top">
+                                      <div class="a-CardView-header text-center">
+                                          <div class="a-CardView-iconWrap">
+                                              <img src="assets/img/${item.file_name}" class="a-CardView-icon">
+                                          </div>
+                                          <div class="a-CardView-headerBody">
+                                              <h5>${item.list_name}</h5>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </a>
+                          </li>`;
+              $("#dynamic-cards").append(cardHtml);
+            });
+          } else {
+            $("#dynamic-cards").html("<p>No data available</p>");
+          }
+        },
+        error: function () {
+          $("#dynamic-cards").html("<p>Error loading data</p>");
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
