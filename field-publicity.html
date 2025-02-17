@@ -466,7 +466,7 @@
                     <div id="R35604128773332667" class=""><a-dynamic-content region-id="R35604128773332667"
                         ajax-identifier="UkVHSU9OIFRZUEV-fjM1NjA0MTI4NzczMzMyNjY3&#x2F;9JnNdHpb-WkEh1gvoQVtsLhO_oq5zZFa13B3MI6aYjYm5HUmSP6KMVvTdp_e6bcRJRDH07uszOxfAeIMN5wm6Q">
                         <div title="Page 71" class="page">
-                          <div class="layoutArea" id="exhi_responseContainer">
+                          <div class="layoutArea" id="field_publicityContainer">
                             <!-- <div class="column">
                               <div title="Page 71" class="page">
                                 <div class="layoutArea">
@@ -670,7 +670,7 @@
       function fetchData() {
         $('#preloader').show();
         $.ajax({
-          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/exhibition",
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/field_publicity_desc",
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -678,14 +678,14 @@
               data = response.data;
               // currentPage = 1;
               // renderTable();
-              const responseContainer = document.getElementById("exhi_responseContainer");
-              responseContainer.innerHTML += data[0].get_section_description_exhibition;
+              const responseContainer = document.getElementById("field_publicityContainer");
+              responseContainer.innerHTML += data[0].get_field_publicity_description_field;
             } else {
-              $("#exhi_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
+              $("#field_publicityContainer").html("<tr><td colspan=''>No data available</td></tr>");
             }
           },
           error: function () {
-            $("#exhi_responseContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+            $("#field_publicityContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
           },
           complete: function () {
             $('#preloader').hide();
