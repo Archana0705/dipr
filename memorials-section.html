@@ -14,6 +14,53 @@
     <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
     <link rel="icon" href="assets/img/app-icon-32.png">
     <style type="text/css">
+      #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
       @font-face {
           font-family: 'FontApex';
           src: url('../font/apex-5-icon-font.woff2') format('woff2'),
@@ -235,9 +282,9 @@
         
         }
 
-        .first_image{
+        /* .first_image{
             position:
-        }
+        } */
 
      
 
@@ -260,6 +307,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <div id="preloader"></div>
 </head>
 <body class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"   id="t_PageBody">
 <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
@@ -348,10 +396,9 @@
 <div title="Page 7" class="page">
 <div class="layoutArea">
 <div class="column">
-<p><span style="font-family: arial, helvetica, sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp;Various Memorials are constructed and properly maintained in different parts of the State to celebrate and acknowledge the contributions made by the masters who shaped the history of Tamil Nadu. 81 Memorials, 4 Arangams, 5 Commemoration Pillars and 2 Monuments and one Commemoration Arch have been constructed to honour the significant contributions made by the eminent personalities of Tamil Nadu such as scholars, great freedom fighters, martyrs and leaders who sowed the seeds of social justice, poets and music maestros.</span></p>
 <div title="Page 8" class="page">
-<div class="layoutArea">
-<div class="column">
+<div class="layoutArea" id="memo_responseContainer">
+<!-- <div class="column">
 <p><span style="font-family: arial, helvetica, sans-serif; color: rgb(57, 54, 133);"><a href="r/dipr/info-prdept103/memorials-cr" title="https://lstssxuegqjldw2-atpapex.adb.us-ashburn-1.oraclecloudapps.com/ords/r/ws_govt/info-prdept/memorials-cr" style="color: rgb(57, 54, 133);"><strong>DETAILS OF MEMORIALS IN TAMIL NADU (Click here to view details)</strong></a></span></p>
 <p class="p1"><span style="color: rgb(57, 54, 133); font-family: arial, helvetica, sans-serif; font-size: 14pt;"><strong>HONOURING MOZHIPPOR THIYAGIGAL</strong></span></p>
 <p style="margin-bottom: 0cm; text-align: justify; text-indent: 36.0pt; line-height: 150%; tab-stops: 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;" class="MsoNormal"><span style="font-size: 12pt; line-height: 150%; font-family: arial, helvetica, sans-serif; color: rgb(32, 33, 36);" lang="EN-US">To remember the martyrs who sacrificed their lives to save the Tamil language, this year Hon’ble Chief Minister of Tamil Nadu paid floral tributes to the portraits of the Mozhippor Thiyagigal at Gandhi Mandapam Campus on Mozhippor Thiyagigal Day, 25.01.2023, as was done in the last year.&nbsp;</span></p>
@@ -426,7 +473,7 @@
 <div class="column">&nbsp;</div>
 <div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; A&nbsp; bust of Namakkal Kavingar Ramalingam Pillai is to be installed inside his Memorial at Namakkal.</span></div>
 <div class="column">&nbsp;</div>
-<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; A full size statue of T.M.Soundararajan is installed in Madurai district in the mark of his Centenarary Celebration and the statue was unveiled by the Hon'ble Chief Minister on 16.08.2023.</span><span style="font-family: arial, helvetica, sans-serif;">&nbsp;</span></div>
+<div class="column"><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif; color: black;" lang="EN-US">&nbsp; &nbsp; &nbsp; A full size statue of T.M.Soundararajan is installed in Madurai district in the mark of his Centenarary Celebration and the statue was unveiled by the Hon'ble Chief Minister on 16.08.2023.</span><span style="font-family: arial, helvetica, sans-serif;">&nbsp;</span></div> -->
 </div>
 </div>
 </div>
@@ -542,7 +589,48 @@ apex.event.trigger(apex.gPageContext$,'apexreadyend');
 });apex.pwa.publicKey = ''
 apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
 </script>
+<script>
+  $(document).ready(function () {
+    $('#preloader').hide();
 
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+    function fetchData() {
+        $('#preloader').show();
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/memorial_section_desc",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              // currentPage = 1;
+              // renderTable();
+              const responseContainer = document.getElementById("memo_responseContainer");
+              responseContainer.innerHTML += data[0].get_memorials_section_description_memorials;
+            } else {
+              $("#memo_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#memo_responseContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      }
+      fetchData();
+  })
+</script>
 
 </body>
 </html>
