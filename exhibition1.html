@@ -15,6 +15,53 @@
     <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
     <link rel="icon" href="assets/img/app-icon-32.png">
     <style type="text/css">
+      #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
       @font-face {
           font-family: 'FontApex';
           src: url('../font/apex-5-icon-font.woff2') format('woff2'),
@@ -237,9 +284,9 @@
         
         }
 
-        .first_image{
+        /* .first_image{
             position:
-        }
+        } */
 
      
 
@@ -262,6 +309,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <div id="preloader"></div>
 </head>
 <body class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"   id="t_PageBody">
 <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
@@ -360,8 +408,8 @@
      <div class="t-Region-orderBy"></div>
      <a-dynamic-content region-id="R35601909062332645" ajax-identifier="UkVHSU9OIFRZUEV-fjM1NjAxOTA5MDYyMzMyNjQ1&#x2F;VeHTGKKNs7arE6DCMY_EeazZd2C8vE2pV8b_nBYTlCOMXojM0I-O8BHVyNkWnBzCqskmXKghLGZSfITHeln5Dw" >
 <div title="Page 79" class="page">
-<div class="layoutArea">
-<div class="column">
+<div class="layoutArea" id="exhi_responseContainer">
+<!-- <div class="column">
 <div title="Page 79" class="page">
 <div class="layoutArea">
 <div class="column">
@@ -459,8 +507,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div>-->
+</div> 
 </div></a-dynamic-content>
 
      
@@ -582,6 +630,47 @@ apex.event.trigger(apex.gPageContext$,'apexreadyend');
 apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
 </script>
 
+<script>
+  $(document).ready(function () {
+    $('#preloader').hide();
 
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+    function fetchData() {
+        $('#preloader').show();
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/exhibition",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              // currentPage = 1;
+              // renderTable();
+              const responseContainer = document.getElementById("exhi_responseContainer");
+              responseContainer.innerHTML += data[0].get_section_description_exhibition;
+            } else {
+              $("#exhi_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#exhi_responseContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      }
+      fetchData();
+  })
+</script>
 </body>
 </html>
