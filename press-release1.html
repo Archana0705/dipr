@@ -31,7 +31,53 @@
                  url('../fonts/Font-APEX-Large.woff') format('woff');
             font-weight: normal;
             font-style: normal;
-        } 
+        } #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
     </style>
     
   <style type="text/css">
@@ -238,10 +284,6 @@
         
         }
 
-        .first_image{
-            position:
-        }
-
      
 
 
@@ -268,6 +310,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../../../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <div id="preloader"></div>
 </head>
 <body class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"   id="t_PageBody">
 <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
@@ -375,7 +418,8 @@
 </ul>
 </div><div class="a-IRR-reportSummaryContainer" id="R37972155424464867_control_panel_summary" style="display: none;"><ul class="a-IRR-reportSummary"><li class="a-IRR-reportSummary-item a-IRR-reportSummary-item--controlBreak"><a href="#" class="a-IRR-reportSummary-label" data-setting="break"><span class="a-IRR-reportSummary-icon" aria-label="Control&#x20;Break" role="img"><span class="a-Icon icon-irr-control-break"></span></span><span class="a-IRR-reportSummary-value">Pr Date</span></a></li></ul></div></div><style id="R37972155424464867_worksheet_css" type="text/css">
 </style>
-<div role="region" aria-label="Chart&#x20;view&#x20;of&#x20;Press&#x20;Release" id="R37972155424464867_chart" class="a-IRR-chartView"></div><div role="region" aria-label="Group&#x20;by&#x20;view&#x20;of&#x20;Press&#x20;Release" id="R37972155424464867_group_by" class="a-IRR-groupByView"></div><div role="region" aria-label="Pivot&#x20;view&#x20;of&#x20;Press&#x20;Release" id="R37972155424464867_pivot" class="a-IRR-pivotView"></div><div role="region" aria-label="Data&#x20;view&#x20;of&#x20;Press&#x20;Release" id="R37972155424464867_data_panel" class="a-IRR-reportView"><div class="a-IRR-tableContainer"><table aria-label="Press&#x20;Release,&#x20;Report&#x20;&#x3D;&#x20;Primary&#x20;Default,&#x20;View&#x20;&#x3D;&#x20;Report" class="a-IRR-table" id="39772618284043940">
+<div role="region" aria-label="Chart&#x20;view&#x20;of&#x20;Press&#x20;Release" id="R37972155424464867_chart" class="a-IRR-chartView"></div><div role="region" aria-label="Group&#x20;by&#x20;view&#x20;of&#x20;Press&#x20;Release" id="R37972155424464867_group_by" class="a-IRR-groupByView"></div><div role="region" aria-label="Pivot&#x20;view&#x20;of&#x20;Press&#x20;Release" id="R37972155424464867_pivot" class="a-IRR-pivotView"></div><div role="region" aria-label="Data&#x20;view&#x20;of&#x20;Press&#x20;Release" id="R37972155424464867_data_panel" class="a-IRR-reportView"><div class="a-IRR-tableContainer">
+<!-- <table aria-label="Press&#x20;Release,&#x20;Report&#x20;&#x3D;&#x20;Primary&#x20;Default,&#x20;View&#x20;&#x3D;&#x20;Report" class="a-IRR-table" id="press_release_data_table">
 <tr><th colspan="1" scope="colgroup" class="a-IRR-header a-IRR-header--group" id="B41889826777581078_1">Pr Date: 09&#x2F;27&#x2F;2024</th></tr>
 <tr><th class="a-IRR-header u-tL" id="C39772817176043942" ><a aria-haspopup="dialog" class="a-IRR-headerLink" data-column="39772817176043942" href="#">Press File Name</a></th></tr>
 
@@ -387,7 +431,19 @@
 <tr><th class="a-IRR-header u-tL"  #ARIA_SORT#><span class="a-IRR-headerLabel">Press File Name</span></th></tr>
 <tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release1ab7e.pdf?p33_file_id=7963&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1KFpgjUCCH5LuujB_4An_JyQCiZONBUgacvFck-kpwS7YeAGR1BUEPxw1qA9kh50JqqB1q5025dNcjam8Sjle2g" target='_blank'>DIPR-P.R.NO-1504-Hon&#x27;ble CM Press Release - Kolathur Building inaguration and work inspection-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="DIPR-P.R.No.1513-Tamil%2bDevelopment%2bDepartment-Press%2bRelease-Date%2b24.09.2024.pdf_%3b%20filename_%3dUTF-8%27%27DIPR-P.R.No.1513-Tamil%2bDevelopment%2bDepartment-Press%2bRelease-Date%2b24.09.20249164.pdf%3b%20E2?p33_file_id=7983&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1XiLPokL5gGOYH5ATsHtsIbWVq1VJ4Q6fKLB2XDpjI7XM3eMuF4ZKO_EBarSwuPA_j56QlL7BPa19g16h68emnQ" target='_blank'>DIPR-P.R.No.1513-Tamil Development Department-Press Release-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release149d3.pdf?p33_file_id=7967&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1xHGzki3AGeUgAqRZfjQcvmxxaQ063pdohGBSsqIDIxNfKPhbZ5Q2HvgEqSrzCVDlNFIW1H1SH7idWGvcECG-ow" target='_blank'>DIPR-P.R.NO-1506-Hon&#x27;ble CM Press Release-kalaignar ninaivu kalaithurai vithagar viruthu-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release12621.pdf?p33_file_id=8002&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1d0JDL4Uf3mThmOh9KWRKPjtt_9fHsXsJFWBjqYOumJy48pbXfHJseTCr6w3s0t6nHKzkhG51j0g0ga5RD6KdGg" target='_blank'>DIPR-P.R.No.1514-Hon&#x27;ble CM Press Release - Sports Dept - High Cash Incentive to 45th Chess Olympiad winners from TN-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release18fa7.pdf?p33_file_id=7975&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=19rsG6JHHFgd8v2SDQOhgHZfMtLmvc03WZa9Kq_kZcNDNZzT0qZ1eJEZNbmi51GmXqAH4zzq3_mPf9kH5tLmqXw" target='_blank'>DIPR-P.R.NO-1507-Hon&#x27;ble PWD Minister Press Rlease-Kalaignar Centenary Super Speciality Hospital Building Awarded as Gold status -Tamil-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release17a8d.pdf?p33_file_id=7974&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1TaPP0WOjbqeK97OXfq1x3E1yostbcp71aZBxdXRXO82NHaA72-z87rCDZA2Aai8zxUSDKhT94LO3pNaCFPI8Cg" target='_blank'>DIPR-P.R.NO-1507-Hon&#x27;ble PWD Minister Press Rlease-Kalaignar Centenary Super Speciality Hospital Building Awarded as Gold status -English-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release1539a.pdf?p33_file_id=7973&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1gev4bg6Uk15y7UbrQtQuVKNFM3icIonbzRUQKQ8SEytMiWJ7nPtGY4jxfTHTIWC0iio97W9oTOJr2d3RzKbsGg" target='_blank'>DIPR-P.R.No.1512-Municipal Administration and Water Supply Department-Press Release-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release17c57.pdf?p33_file_id=7972&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1lIuuT120S9sDaPYQYHtYa6UvjuHCw-PplMMq7p5eTzBFRIfUaEJAetqHN3j8cWYM2xl5p7bthU7kNmGkIEL6WA" target='_blank'>DIPR-P.R.No.1511-Municipal Administration and Water Supply Department-Press Release-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release1c814.pdf?p33_file_id=7971&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1rNKj8KU9mPiQZhJI0wlsz8SJu5Uxp-6zY_wSjp3djOGpZXRO1WDJkBgP8YG5dNKBTrWijC9CrtK6uweDPB20mQ" target='_blank'>DIPR-P.R.No.1510-Hon&#x27;ble Minister for Youth Welfare and Sports Development-TNSDC-Naan Mudhalvan-Press Release-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release12651.pdf?p33_file_id=7970&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1Q3u6WUet4Fa2BeLrRhKUGUuvWVhyo0FCtPcnY9z-cz93xgi230S8QgT6NcNW0QEj0Y0ybNPruf7kwQkI1z-I9A" target='_blank'>DIPR-P.R.No.1509-WRD-Kodayar Radhapuram Canal Water Release-Press Release-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release1420b.pdf?p33_file_id=7969&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1eGISEdkXzTN8OGbwqfVv-knOz8WgoJ9JisOf2BUs5p8Qdl36g5VBZf1QmzpnoTfIBVY8hL2DhpGltFeLzWdI6g" target='_blank'>DIPR-P.R.No.1508-Hon&#x27;ble Minister for Labour Welfare and Skill Development-TNLWB-Press Release-Date 24.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_4" ><a href="press-release16184.pdf?p33_file_id=7964&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1i4htPMGuU_fxj12373_q6fb3P9J1ptOW-CR4D8LwbB8ey0Mp4h3zctnQmdxEdlJGO4MV811r-4xrYCNMLnNKHQ" target='_blank'>DIPR-P.R.NO-1505-Hon&#x27;ble CM Condolence Message - Death of Father in Law of Thiru J. Kumaragurubaran, IAS - Date 24.09.2024.pdf</a></td></tr><tr><th colspan="1" scope="colgroup" class="a-IRR-header a-IRR-header--group" id="B41889826777581078_5">Pr Date: 09&#x2F;23&#x2F;2024</th></tr>
 <tr><th class="a-IRR-header u-tL"  #ARIA_SORT#><span class="a-IRR-headerLabel">Press File Name</span></th></tr>
-<tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="DIPR%2bPR%2bNO%2b-%2b1496%2b-%2bTransport%2bPress%2bRelease%2b-%2b23.09.2024.pdf_%3b%20filename_%3dUTF-8%27%27DIPR%2bPR%2bNO%2b-%2b1496%2b-%2bTransport%2bPress%2bRelease%2b-%2b23.09.2024af23.pdf%3b%202Epdf%3b?p33_file_id=7929&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1DRTKJG08qnyLiHLjSj1K1THDiHSirIWPtuwhpgKyB_QjU3t1lSCTCeoJQNOYbfpAGIvsbcPbsT5OmEQwLRel0g" target='_blank'>DIPR PR NO - 1496 - Transport Press Release - 23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1ea45.pdf?p33_file_id=7924&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1gn6-nB3IJyKNogxB-FSJRBDA8Il0H-W0eNGnCP2-MMjweLAcXudbpPhO6zKB5dzVjWEhBl8cZm8Oi6zBZiMzMw" target='_blank'>DIPR PR NO - 1495 - HCM Press Release - Industries Dept - Mini Tidel Park at Thanjavur &amp; Salem Inauguration - 23.9.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release13c6a.pdf?p33_file_id=7923&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=17SAwZPhT3Pb3jBCw15X6jXiT11lEbrlg-VrChqq1Rlo7-yNy2CW1EYkfgK0_5UdSl7eBEFhlg9xwKBMOx0Hcuw" target='_blank'>DIPR PR NO - 1492 - HCM Press Release - E&amp;F Dept - Appt order for Asst Forest Conservator and TNPCB Asst Engineers - 23.9.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1f415.pdf?p33_file_id=7941&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1b2YI6lGRR2FfGGJeWHOD3eqdYGptS-2EUcbPOQ8aRqC9lPiiCZD2TErtC-DqE-t4eKH9RjNzQgQBMKt5JjMFZg" target='_blank'>DIPR-P.R.NO-1502-Hon&#x27;ble CM Speech - CPI(M)  Demised General Secy Thiru Sitaram Yechury photo unveiling function - Dt.23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release118bb.pdf?p33_file_id=7939&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1-TiZhzPVAEQAqlqD5IEaTNkL7i3DmVgDXHPH2ywfNH6DEfifYtODg5sS_xxjceqikrtoadWmndrstFJkIIFr0A" target='_blank'>DIPR-P.R.NO-1500-Handlooms Dept.-Press Release-3rd Buyer Seller Meet-Dt.23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release17c07.pdf?p33_file_id=7937&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=19adzCvrypx8wOW0Am_atqbIEFSm4wLw2_Mlm-usP3E1vso-IPzv_jHx5H8ChB18zt8ylIgazL7IHJHcO25Yrfg" target='_blank'>DIPR-P.R.NO-1499-Hon&#x27;ble TNLA Speaker-10th CPA Indian Region Conference- Press Release-English-Dt.23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1fc39.pdf?p33_file_id=7927&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1_qz-Eaw4Kkk2zzxYXmqJQu4px9aP832W4AOKsEjAMfWlfmlrzF9ItxOGqLj32PtHOLZJxCGaflPmzSZw6wvhJA" target='_blank'>DIPR PR NO - 1493 - HCM Press Release - Tamil Nadu Civil Supplies Corp and  Cooperation Dept Building inauguration - 23.9.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1a7bc.pdf?p33_file_id=7921&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1g-jotUIAPg0JElIUNw8KwVJVmTnnNJqMKYqlHWj9aSACCROKBlCnZI1w4m7OOoFprhfZBDKUrW2TpXMspcGKqA" target='_blank'>DIPR PR NO - 1494 - HCM Press Release - CM D.O. Letter to Hon&#x27;ble Minister-External Affairs-Fishermen - 23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1615a.pdf?p33_file_id=7961&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=16RTo8NN5FW1Gxlv1ZNGsWrW9hWM0C50ZznI_Yk3LcA6m4WjwyXFV52mP7mXtr5cCA5cGnqAjShf3dHpahu7EVg" target='_blank'>DIPR-P.R.NO-1503-Hon&#x27;ble Minister for TD &amp; Information Minister -Press Byte Inspection of Valluvar Kottam - Dt.23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1077b.pdf?p33_file_id=7931&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1i2FmnAds5SzVRuWFWJ-UCWhDgtlBnrZ9AhUtAxKY0uFOQ_Wu0ZONgWGV2sYYb38YvAwkZfChQYz-_DLrzVuwOA" target='_blank'>DIPR-P.R.NO-1497-Hon&#x27;ble Minister for TD and Information -Press Release-Journalist Welfare Amount Issued Dt.23.09.2024.pdf</a></td></tr></table></div><div role="region" aria-label="Pagination&#x20;of&#x20;Press&#x20;Release" class="a-IRR-paginationWrap a-IRR-paginationWrap--bottom"><ul class="a-IRR-pagination"><li aria-hidden="true" class="a-IRR-pagination-item is-disabled"></li><li class="a-IRR-pagination-item"><span class="a-IRR-pagination-label">                   1 -                   50</span></li><li class="a-IRR-pagination-item"><button type="button" class="a-Button a-IRR-button a-IRR-button--pagination" aria-controls="R37972155424464867" title="Next" aria-label="Next" data-pagination="pgR_min_row=51max_rows=50rows_fetched=50"><span class="a-Icon icon-right-chevron" aria-hidden="true"></span></button></li></ul></div></div></div></div></div><div role="dialog" aria-label="Column&#x20;Actions" aria-modal="true" class="a-IRR-sortWidget" id="R37972155424464867_sort_widget" style="display:none;"><h1 class="u-vh" aria-roledescription="Visually&#x20;hidden&#x20;dialog&#x20;title">Column Actions</h1><ul role="toolbar" class="a-IRR-sortWidget-actions" id="R37972155424464867_sort_widget_actions"><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_up"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Sort&#x20;Ascending" aria-label="Sort&#x20;Ascending" data-option="up"><span aria-hidden="true" class="a-Icon icon-irr-sort-asc"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_down"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Sort&#x20;Descending" aria-label="Sort&#x20;Descending" data-option="down"><span aria-hidden="true" class="a-Icon icon-irr-sort-desc"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_hide"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Hide&#x20;Column" aria-label="Hide&#x20;Column" data-option="hide"><span aria-hidden="true" class="a-Icon icon-irr-remove-col"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_break"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Control&#x20;Break" aria-label="Control&#x20;Break" data-option="break"><span aria-hidden="true" class="a-Icon icon-irr-control-break"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_help"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Help" aria-label="Help" data-option="help" aria-pressed="false"><span aria-hidden="true" class="a-Icon icon-irr-help"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_computation"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Compute" aria-label="Compute" data-option="computation"><span aria-hidden="true" class="a-Icon icon-irr-calculator"></span></button></li></ul><div role="region" aria-label="Help" class="a-IRR-sortWidget-help" id="R37972155424464867_sort_widget_help"></div><div role="search" class="a-IRR-sortWidget-search" id="R37972155424464867_sort_widget_search"><label for="R37972155424464867_sort_widget_search_field"><span aria-hidden="true" class="a-IRR-sortWidget-searchLabel"></span><span class="u-vh">Search</span></label><input id="R37972155424464867_sort_widget_search_field" class="a-IRR-sortWidget-searchField" type="text" placeholder="Filter..." /><div role="group" aria-label="Filter&#x20;suggestions" class="a-IRR-sortWidget-rows" id="R37972155424464867_sort_widget_rows"></div></div></div></div>
+<tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="DIPR%2bPR%2bNO%2b-%2b1496%2b-%2bTransport%2bPress%2bRelease%2b-%2b23.09.2024.pdf_%3b%20filename_%3dUTF-8%27%27DIPR%2bPR%2bNO%2b-%2b1496%2b-%2bTransport%2bPress%2bRelease%2b-%2b23.09.2024af23.pdf%3b%202Epdf%3b?p33_file_id=7929&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1DRTKJG08qnyLiHLjSj1K1THDiHSirIWPtuwhpgKyB_QjU3t1lSCTCeoJQNOYbfpAGIvsbcPbsT5OmEQwLRel0g" target='_blank'>DIPR PR NO - 1496 - Transport Press Release - 23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1ea45.pdf?p33_file_id=7924&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1gn6-nB3IJyKNogxB-FSJRBDA8Il0H-W0eNGnCP2-MMjweLAcXudbpPhO6zKB5dzVjWEhBl8cZm8Oi6zBZiMzMw" target='_blank'>DIPR PR NO - 1495 - HCM Press Release - Industries Dept - Mini Tidel Park at Thanjavur &amp; Salem Inauguration - 23.9.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release13c6a.pdf?p33_file_id=7923&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=17SAwZPhT3Pb3jBCw15X6jXiT11lEbrlg-VrChqq1Rlo7-yNy2CW1EYkfgK0_5UdSl7eBEFhlg9xwKBMOx0Hcuw" target='_blank'>DIPR PR NO - 1492 - HCM Press Release - E&amp;F Dept - Appt order for Asst Forest Conservator and TNPCB Asst Engineers - 23.9.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1f415.pdf?p33_file_id=7941&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1b2YI6lGRR2FfGGJeWHOD3eqdYGptS-2EUcbPOQ8aRqC9lPiiCZD2TErtC-DqE-t4eKH9RjNzQgQBMKt5JjMFZg" target='_blank'>DIPR-P.R.NO-1502-Hon&#x27;ble CM Speech - CPI(M)  Demised General Secy Thiru Sitaram Yechury photo unveiling function - Dt.23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release118bb.pdf?p33_file_id=7939&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1-TiZhzPVAEQAqlqD5IEaTNkL7i3DmVgDXHPH2ywfNH6DEfifYtODg5sS_xxjceqikrtoadWmndrstFJkIIFr0A" target='_blank'>DIPR-P.R.NO-1500-Handlooms Dept.-Press Release-3rd Buyer Seller Meet-Dt.23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release17c07.pdf?p33_file_id=7937&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=19adzCvrypx8wOW0Am_atqbIEFSm4wLw2_Mlm-usP3E1vso-IPzv_jHx5H8ChB18zt8ylIgazL7IHJHcO25Yrfg" target='_blank'>DIPR-P.R.NO-1499-Hon&#x27;ble TNLA Speaker-10th CPA Indian Region Conference- Press Release-English-Dt.23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1fc39.pdf?p33_file_id=7927&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1_qz-Eaw4Kkk2zzxYXmqJQu4px9aP832W4AOKsEjAMfWlfmlrzF9ItxOGqLj32PtHOLZJxCGaflPmzSZw6wvhJA" target='_blank'>DIPR PR NO - 1493 - HCM Press Release - Tamil Nadu Civil Supplies Corp and  Cooperation Dept Building inauguration - 23.9.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1a7bc.pdf?p33_file_id=7921&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1g-jotUIAPg0JElIUNw8KwVJVmTnnNJqMKYqlHWj9aSACCROKBlCnZI1w4m7OOoFprhfZBDKUrW2TpXMspcGKqA" target='_blank'>DIPR PR NO - 1494 - HCM Press Release - CM D.O. Letter to Hon&#x27;ble Minister-External Affairs-Fishermen - 23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1615a.pdf?p33_file_id=7961&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=16RTo8NN5FW1Gxlv1ZNGsWrW9hWM0C50ZznI_Yk3LcA6m4WjwyXFV52mP7mXtr5cCA5cGnqAjShf3dHpahu7EVg" target='_blank'>DIPR-P.R.NO-1503-Hon&#x27;ble Minister for TD &amp; Information Minister -Press Byte Inspection of Valluvar Kottam - Dt.23.09.2024.pdf</a></td></tr><tr ><td class=" u-tL" headers="C39772817176043942 B41889826777581078_5" ><a href="press-release1077b.pdf?p33_file_id=7931&amp;request=APPLICATION_PROCESS%3DGET_FILE&amp;cs=1i2FmnAds5SzVRuWFWJ-UCWhDgtlBnrZ9AhUtAxKY0uFOQ_Wu0ZONgWGV2sYYb38YvAwkZfChQYz-_DLrzVuwOA" target='_blank'>DIPR-P.R.NO-1497-Hon&#x27;ble Minister for TD and Information -Press Release-Journalist Welfare Amount Issued Dt.23.09.2024.pdf</a></td></tr></table> -->
+<table class="t-Report-report" id="report_table_COPPR" aria-label="Corporations">
+  <!-- <thead>
+    <tr>
+      <th class="t-Report-colHead" align="left" id="NAME">Name</th>
+    </tr>
+  </thead> -->
+  <tbody id="press_release_data_table">
+    <!-- Dynamic rows will be inserted here -->
+  </tbody>
+</table>
+</div>
+<div role="region" aria-label="Pagination&#x20;of&#x20;Press&#x20;Release" class="a-IRR-paginationWrap a-IRR-paginationWrap--bottom"><ul class="a-IRR-pagination"><li aria-hidden="true" class="a-IRR-pagination-item is-disabled"></li><li class="a-IRR-pagination-item"><span class="a-IRR-pagination-label">                   1 -                   50</span></li><li class="a-IRR-pagination-item"><button type="button" class="a-Button a-IRR-button a-IRR-button--pagination" aria-controls="R37972155424464867" title="Next" aria-label="Next" data-pagination="pgR_min_row=51max_rows=50rows_fetched=50"><span class="a-Icon icon-right-chevron" aria-hidden="true"></span></button></li></ul></div></div></div></div></div><div role="dialog" aria-label="Column&#x20;Actions" aria-modal="true" class="a-IRR-sortWidget" id="R37972155424464867_sort_widget" style="display:none;"><h1 class="u-vh" aria-roledescription="Visually&#x20;hidden&#x20;dialog&#x20;title">Column Actions</h1><ul role="toolbar" class="a-IRR-sortWidget-actions" id="R37972155424464867_sort_widget_actions"><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_up"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Sort&#x20;Ascending" aria-label="Sort&#x20;Ascending" data-option="up"><span aria-hidden="true" class="a-Icon icon-irr-sort-asc"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_down"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Sort&#x20;Descending" aria-label="Sort&#x20;Descending" data-option="down"><span aria-hidden="true" class="a-Icon icon-irr-sort-desc"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_hide"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Hide&#x20;Column" aria-label="Hide&#x20;Column" data-option="hide"><span aria-hidden="true" class="a-Icon icon-irr-remove-col"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_break"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Control&#x20;Break" aria-label="Control&#x20;Break" data-option="break"><span aria-hidden="true" class="a-Icon icon-irr-control-break"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_help"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Help" aria-label="Help" data-option="help" aria-pressed="false"><span aria-hidden="true" class="a-Icon icon-irr-help"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37972155424464867_sort_widget_action_computation"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Compute" aria-label="Compute" data-option="computation"><span aria-hidden="true" class="a-Icon icon-irr-calculator"></span></button></li></ul><div role="region" aria-label="Help" class="a-IRR-sortWidget-help" id="R37972155424464867_sort_widget_help"></div><div role="search" class="a-IRR-sortWidget-search" id="R37972155424464867_sort_widget_search"><label for="R37972155424464867_sort_widget_search_field"><span aria-hidden="true" class="a-IRR-sortWidget-searchLabel"></span><span class="u-vh">Search</span></label><input id="R37972155424464867_sort_widget_search_field" class="a-IRR-sortWidget-searchField" type="text" placeholder="Filter..." /><div role="group" aria-label="Filter&#x20;suggestions" class="a-IRR-sortWidget-rows" id="R37972155424464867_sort_widget_rows"></div></div></div></div>
     
     
 </div>
@@ -411,7 +467,19 @@
 </ul>
 </div><div class="a-IRR-reportSummaryContainer" id="R37774366901031132_control_panel_summary" style="display: none;"><ul class="a-IRR-reportSummary"><li class="a-IRR-reportSummary-item a-IRR-reportSummary-item--controlBreak"><a href="#" class="a-IRR-reportSummary-label" data-setting="break"><span class="a-IRR-reportSummary-icon" aria-label="Control&#x20;Break" role="img"><span class="a-Icon icon-irr-control-break"></span></span><span class="a-IRR-reportSummary-value">Pn Date</span></a></li></ul></div></div><style id="R37774366901031132_worksheet_css" type="text/css">
 </style>
-<div role="region" aria-label="Chart&#x20;view&#x20;of&#x20;Press&#x20;Notes" id="R37774366901031132_chart" class="a-IRR-chartView"></div><div role="region" aria-label="Group&#x20;by&#x20;view&#x20;of&#x20;Press&#x20;Notes" id="R37774366901031132_group_by" class="a-IRR-groupByView"></div><div role="region" aria-label="Pivot&#x20;view&#x20;of&#x20;Press&#x20;Notes" id="R37774366901031132_pivot" class="a-IRR-pivotView"></div><div role="region" aria-label="Data&#x20;view&#x20;of&#x20;Press&#x20;Notes" id="R37774366901031132_data_panel" class="a-IRR-reportView"><div role="region" aria-label="Message" class="a-IRR-noDataMsg"><div class="a-IRR-noDataMsg-icon"><span class="a-Icon icon-irr-no-results" aria-hidden="true"></span></div><span class="a-IRR-noDataMsg-text"></span></div></div></div></div></div><div role="dialog" aria-label="Column&#x20;Actions" aria-modal="true" class="a-IRR-sortWidget" id="R37774366901031132_sort_widget" style="display:none;"><h1 class="u-vh" aria-roledescription="Visually&#x20;hidden&#x20;dialog&#x20;title">Column Actions</h1><ul role="toolbar" class="a-IRR-sortWidget-actions" id="R37774366901031132_sort_widget_actions"><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_up"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Sort&#x20;Ascending" aria-label="Sort&#x20;Ascending" data-option="up"><span aria-hidden="true" class="a-Icon icon-irr-sort-asc"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_down"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Sort&#x20;Descending" aria-label="Sort&#x20;Descending" data-option="down"><span aria-hidden="true" class="a-Icon icon-irr-sort-desc"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_hide"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Hide&#x20;Column" aria-label="Hide&#x20;Column" data-option="hide"><span aria-hidden="true" class="a-Icon icon-irr-remove-col"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_break"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Control&#x20;Break" aria-label="Control&#x20;Break" data-option="break"><span aria-hidden="true" class="a-Icon icon-irr-control-break"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_help"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Help" aria-label="Help" data-option="help" aria-pressed="false"><span aria-hidden="true" class="a-Icon icon-irr-help"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_computation"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Compute" aria-label="Compute" data-option="computation"><span aria-hidden="true" class="a-Icon icon-irr-calculator"></span></button></li></ul><div role="region" aria-label="Help" class="a-IRR-sortWidget-help" id="R37774366901031132_sort_widget_help"></div><div role="search" class="a-IRR-sortWidget-search" id="R37774366901031132_sort_widget_search"><label for="R37774366901031132_sort_widget_search_field"><span aria-hidden="true" class="a-IRR-sortWidget-searchLabel"></span><span class="u-vh">Search</span></label><input id="R37774366901031132_sort_widget_search_field" class="a-IRR-sortWidget-searchField" type="text" placeholder="Filter..." /><div role="group" aria-label="Filter&#x20;suggestions" class="a-IRR-sortWidget-rows" id="R37774366901031132_sort_widget_rows"></div></div></div></div>
+ <div role="region" aria-label="Chart&#x20;view&#x20;of&#x20;Press&#x20;Notes" id="R37774366901031132_chart" class="a-IRR-chartView">
+  <table class="t-Report-report" id="report_table_COPPR" aria-label="Corporations">
+    <!-- <thead>
+      <tr>
+        <th class="t-Report-colHead" align="left" id="NAME">Name</th>
+      </tr>
+    </thead> -->
+    <tbody id="press_notes_data_table">
+      <!-- Dynamic rows will be inserted here -->
+    </tbody>
+  </table>
+ </div>
+ <!--<div role="region" aria-label="Group&#x20;by&#x20;view&#x20;of&#x20;Press&#x20;Notes" id="R37774366901031132_group_by" class="a-IRR-groupByView"></div><div role="region" aria-label="Pivot&#x20;view&#x20;of&#x20;Press&#x20;Notes" id="R37774366901031132_pivot" class="a-IRR-pivotView"></div><div role="region" aria-label="Data&#x20;view&#x20;of&#x20;Press&#x20;Notes" id="R37774366901031132_data_panel" class="a-IRR-reportView"><div role="region" aria-label="Message" class="a-IRR-noDataMsg"><div class="a-IRR-noDataMsg-icon"><span class="a-Icon icon-irr-no-results" aria-hidden="true"></span></div><span class="a-IRR-noDataMsg-text"></span></div></div></div></div></div><div role="dialog" aria-label="Column&#x20;Actions" aria-modal="true" class="a-IRR-sortWidget" id="R37774366901031132_sort_widget" style="display:none;"><h1 class="u-vh" aria-roledescription="Visually&#x20;hidden&#x20;dialog&#x20;title">Column Actions</h1><ul role="toolbar" class="a-IRR-sortWidget-actions" id="R37774366901031132_sort_widget_actions"><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_up"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Sort&#x20;Ascending" aria-label="Sort&#x20;Ascending" data-option="up"><span aria-hidden="true" class="a-Icon icon-irr-sort-asc"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_down"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Sort&#x20;Descending" aria-label="Sort&#x20;Descending" data-option="down"><span aria-hidden="true" class="a-Icon icon-irr-sort-desc"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_hide"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Hide&#x20;Column" aria-label="Hide&#x20;Column" data-option="hide"><span aria-hidden="true" class="a-Icon icon-irr-remove-col"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_break"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Control&#x20;Break" aria-label="Control&#x20;Break" data-option="break"><span aria-hidden="true" class="a-Icon icon-irr-control-break"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_help"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Help" aria-label="Help" data-option="help" aria-pressed="false"><span aria-hidden="true" class="a-Icon icon-irr-help"></span></button></li><li role="none" class="a-IRR-sortWidget-actions-item" id="R37774366901031132_sort_widget_action_computation"><button class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Compute" aria-label="Compute" data-option="computation"><span aria-hidden="true" class="a-Icon icon-irr-calculator"></span></button></li></ul><div role="region" aria-label="Help" class="a-IRR-sortWidget-help" id="R37774366901031132_sort_widget_help"></div><div role="search" class="a-IRR-sortWidget-search" id="R37774366901031132_sort_widget_search"><label for="R37774366901031132_sort_widget_search_field"><span aria-hidden="true" class="a-IRR-sortWidget-searchLabel"></span><span class="u-vh">Search</span></label><input id="R37774366901031132_sort_widget_search_field" class="a-IRR-sortWidget-searchField" type="text" placeholder="Filter..." /><div role="group" aria-label="Filter&#x20;suggestions" class="a-IRR-sortWidget-rows" id="R37774366901031132_sort_widget_rows"></div></div></div></div> -->
     
     
 </div>
@@ -536,7 +604,145 @@ apex.event.trigger(apex.gPageContext$,'apexreadyend');
 apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
 </script>
 
+<script>
+  $(document).ready(function () {
+    $('#preloader').hide();
 
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+    let data = [];
+      let currentPage = 1;
+      let rowsPerPage = 5;
+      function fetchNotesData() {
+        $('#preloader').show();
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/pressReleases/press_notes",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              currentPage = 1;
+              renderTable('press_notes_data_table');
+            } else {
+              $("#press_notes_data_table").html("<tr><td colspan=''>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#press_notes_data_table").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      }
+      function fetchData() {
+        $('#preloader').show();
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/pressReleases/press_release",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              currentPage = 1;
+              renderTable();
+            } else {
+              $("#press_release_data_table").html("<tr><td colspan=''>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#press_release_data_table").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      }
+
+      function renderTable(name) {
+        if(name === "press_notes_data_table") {
+          $('#preloader').show();
+          let startIndex = (currentPage - 1) * rowsPerPage;
+          let endIndex = startIndex + rowsPerPage;
+          let paginatedData = data.slice(startIndex, endIndex);
+
+          let rows = "";
+          $.each(paginatedData, function (index, item) {
+            rows += `<tr>
+                      <td class="t-Report-cell">${item.name ? item.name : ""}</td>
+                  </tr>`;
+          });
+
+          $("#press_notes_data_table").html(rows);
+          updatePagination();
+
+          $('#preloader').hide(); // Hide loader after rendering
+        } else {
+        $('#preloader').show();
+
+        let startIndex = (currentPage - 1) * rowsPerPage;
+        let endIndex = startIndex + rowsPerPage;
+        let paginatedData = data.slice(startIndex, endIndex);
+
+        let rows = "";
+        $.each(paginatedData, function (index, item) {
+          rows += `<tr>
+                    <td class="t-Report-cell">${item.name ? item.name : ""}</td>
+                </tr>`;
+        });
+
+        $("#press_release_data_table").html(rows);
+        updatePagination();
+
+        $('#preloader').hide(); // Hide loader after rendering
+        }
+      }
+
+      function updatePagination() {
+        let totalPages = Math.ceil(data.length / rowsPerPage);
+        $("#pageInfo").text(`Page ${currentPage} of ${totalPages}`);
+
+        if (currentPage === 1) {
+          $("#prevPage").addClass("disabled");
+        } else {
+          $("#prevPage").removeClass("disabled");
+        }
+
+        if (currentPage === totalPages || totalPages === 0) {
+          $("#nextPage").addClass("disabled");
+        } else {
+          $("#nextPage").removeClass("disabled");
+        }
+      }
+
+      $("#prevPage").click(function () {
+        if (currentPage > 1) {
+          currentPage--;
+          renderTable();
+        }
+      });
+
+      $("#nextPage").click(function () {
+        let totalPages = Math.ceil(data.length / rowsPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderTable();
+        }
+      });
+
+      fetchData();
+      fetchNotesData();
+    });
+</script>
 </body>
 
 </html>
