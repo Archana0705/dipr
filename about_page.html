@@ -14,7 +14,69 @@
   <link rel="stylesheet" type="text/css" href="assets/css/custom.min.css">
   <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
   <link rel="icon" href="assets/img/app-icon-32.png">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <style type="text/css">
+    .toast-container {
+      right: 0.5%;
+    }
+
+    #successToast {
+      background: #198754 !important;
+    }
+
+    #errorToast {
+      background: #ff0000 !important;
+    }
+
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
     .a-CardView-iconWrap.a-CardView-iconWrap--top {
       text-align: center;
     }
@@ -255,6 +317,20 @@
     /* .first_image{
       position:
       } */
+    .pagination {
+      margin-top: 10px;
+    }
+
+    .pagination button {
+      padding: 5px 10px;
+      margin: 2px;
+      cursor: pointer;
+    }
+
+    .disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
   </style>
   <link rel="stylesheet" href="r/dipr/103/files/theme/42/v87/10689188252099023.css" type="text/css" />
   <style type="text/css">
@@ -279,14 +355,39 @@
     crossorigin="use-credentials" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../../../../../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Toast -->
+  <div class="toast-container position-fixed p-3 custom_toast" x-data="transButtonComponent()">
+    <div id="errorToast" class="toast align-items-center text-bg-primary border-0 " role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <p id="errorMessage" class="mb-0"></p>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+    <div id="successToast" class="toast align-items-center text-bg-primary border-0 " role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <p id="successMessage" class="mb-0"></p>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <!-- Toast -->
+
+  <div id="preloader"></div>
 </head>
 
 <body
   class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"
   id="t_PageBody">
   <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
-  <form role="none" action="wwv_flow.accept?p_context=info-prdept103/about_page/314438547945874" method="post"
-    name="wwv_flow" id="wwvFlowForm" data-oj-binding-provider="none" novalidate autocomplete="off">
+  <form role="none" method="post" name="wwv_flow" id="wwvFlowForm" novalidate autocomplete="off">
     <input type="hidden" name="p_flow_id" value="103" id="pFlowId" /><input type="hidden" name="p_flow_step_id"
       value="74" id="pFlowStepId" /><input type="hidden" name="p_instance" value="314438547945874"
       id="pInstance" /><input type="hidden" name="p_page_submission_id"
@@ -420,40 +521,14 @@
                     <div id="R22879691196163085" class=""></div>
                   </div>
                 </div>
-                <div class="row ">
+                <div class="row">
                   <div class="col col-12 apex-col-auto col-start col-end">
-                    <div id="R11556983055391229" class="margin-top-md margin-bottom-md margin-left-md margin-right-md">
-                      <a-dynamic-content region-id="R11556983055391229"
-                        ajax-identifier="UkVHSU9OIFRZUEV-fjExNTU2OTgzMDU1MzkxMjI5&#x2F;oRVqOSNxNcNMw27xzwYW8bzikrzSMQ6kCuqdgGNV8OwxS4BGyutL5UzBbq8cjR28QAK25z9DZ4ceMdZnXmCBgA">
-                        <p style="margin-bottom: 6.6pt; line-height: 106%; text-align: justify;" class="MsoNormal"><span
-                            style="font-family: 'Arial',sans-serif; color: #222222;">&nbsp; &nbsp; &nbsp;Only during the
-                            rule of the Muthamizharignar Kalaignar, people eagerly read and enjoyed the achievements of
-                            various departments through the Information and Public Relations Department of the
-                            Government of<span>&nbsp; </span>Tamil Nadu. The task of the
-                            Information and Public Relations Department is to take all the public welfare schemes of the
-                            Government which are implemented by it, to the people through newspapers and various other
-                            media.<span>&nbsp; </span>The Information and Public Relations
-                            Department functions as an incomparable and unparalleled arm of the Government, taking its
-                            purposeful announcements to the knowledge of the people, from the times the country was
-                            announced as a Republic, and even prior to it.</span></p>
-                        <p style="margin-bottom: 6.6pt; line-height: 106%; text-align: justify;" class="MsoNormal"><span
-                            style="font-size: 12.0pt; font-family: 'Arial',sans-serif;">&nbsp; &nbsp; Press Releases,
-                            Government Orders, press statements, welfare schemes and announcements of the Hon’ble Chief
-                            Minister are taken to the last man of the State by the Information and Public Relations
-                            Department through Newspapers and various other media, including social media, through its
-                            Information and Public Relations offices in various districts. In line with the words of
-                            Muthamizharignar Kalaignar that ‘He never likes rest’, our Hon’ble Chief Minister has ‘Hard
-                            work, hard work and hard work’ as his life and, has been working tirelessly for the welfare
-                            of the people by announcing various welfare schemes, according to his own statement, ‘I
-                            shall continue to work for you all’ and shall always be working for you all. The Information
-                            and Public Relations Department is publicizing these schemes throughout the State. The
-                            Information and Public Relations Department is functioning efficiently by taking the good
-                            deeds of the Hon’ble Chief Minister of Tamil Nadu, which he carries out through his
-                            continuous and tireless work, to the people, through its various wings.</span></p>
-                      </a-dynamic-content>
+                    <div id="R11556983055391229" class="content-container">
+                      <p>Loading content...</p>
                     </div>
                   </div>
                 </div>
+
                 <div class="row ">
                   <div class="col col-12 apex-col-auto col-start col-end">
                     <div class="t-CardsRegion u-colors" id="R23044199534646279" role="region" aria-label="Images">
@@ -1232,16 +1307,11 @@
                           </div>
                         </div>
                         <div data-label="Corporations" id="SR_COPPR">
-                          <div id="COPPR" class="">
+                          <div id="COPPR">
                             <div id="report_12478959953332504_catch">
                               <div class="t-Report t-Report--stretch t-Report--staticRowColors t-Report--rowHighlight"
                                 id="report_COPPR" data-region-id="COPPR">
                                 <div class="t-Report-wrap">
-                                  <table class="t-Report-pagination" role="presentation">
-                                    <tr>
-                                      <td></td>
-                                    </tr>
-                                  </table>
                                   <div class="t-Report-tableWrap">
                                     <table class="t-Report-report" id="report_table_COPPR" aria-label="Corporations">
                                       <thead>
@@ -1252,68 +1322,16 @@
                                           <th class="t-Report-colHead" align="left" id="PHONE">Phone</th>
                                         </tr>
                                       </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td class="t-Report-cell" headers="NAME"></td>
-                                          <td class="t-Report-cell" headers="DESIGNATION">Joint Director (Salem
-                                            Corporation)</td>
-                                          <td class="t-Report-cell" headers="PHONE">0427-2222659 </td>
-                                        </tr>
-                                        <tr>
-                                          <td class="t-Report-cell" headers="NAME">D.Senthil Kumar</td>
-                                          <td class="t-Report-cell" headers="DESIGNATION">Deputy Director (Greater
-                                            Chennai Corporation)</td>
-                                          <td class="t-Report-cell" headers="PHONE">25619456 &#x2F; 9445190944</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="t-Report-cell" headers="NAME">M.Bharathidasan</td>
-                                          <td class="t-Report-cell" headers="DESIGNATION"> PRO (Coimbatore Corporation)
-                                          </td>
-                                          <td class="t-Report-cell" headers="PHONE">0422-2398786 &#x2F; 9443799230</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="t-Report-cell" headers="NAME">V.Arumugachelvi</td>
-                                          <td class="t-Report-cell" headers="DESIGNATION">PRO (Tirunelveli Corporation)
-                                          </td>
-                                          <td class="t-Report-cell" headers="PHONE">9444998984</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="t-Report-cell" headers="NAME">S.Maheswaran</td>
-                                          <td class="t-Report-cell" headers="DESIGNATION">PRO (Madurai Corporation)</td>
-                                          <td class="t-Report-cell" headers="PHONE">0452-2538907 &#x2F; 9443739511</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="t-Report-cell" headers="NAME">P.Prabhu</td>
-                                          <td class="t-Report-cell" headers="DESIGNATION">PRO (Tambaram Corporation)
-                                          </td>
-                                          <td class="t-Report-cell" headers="PHONE">9962368905</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="t-Report-cell" headers="NAME"></td>
-                                          <td class="t-Report-cell" headers="DESIGNATION">PRO (Thiruppur Corporation)
-                                          </td>
-                                          <td class="t-Report-cell" headers="PHONE">0421-2242249</td>
-                                        </tr>
+                                      <tbody id="corporationTableBody">
+                                        <!-- Dynamic rows will be inserted here -->
                                       </tbody>
                                     </table>
                                   </div>
-                                  <div class="t-Report-links"></div>
-                                  <table class="t-Report-pagination t-Report-pagination--bottom" role="presentation">
-                                    <tr>
-                                      <td colspan="6" align="right">
-                                        <table role="presentation">
-                                          <tr>
-                                            <td class="pagination"></td>
-                                            <td class="pagination"></td>
-                                            <td nowrap="nowrap" class="pagination"><span
-                                                class="t-Report-paginationText">1 - 7</span></td>
-                                            <td class="pagination"></td>
-                                            <td class="pagination"></td>
-                                          </tr>
-                                        </table>
-                                      </td>
-                                    </tr>
-                                  </table>
+                                  <div class="pagination">
+                                    <button id="prevPage" class="disabled">Previous</button>
+                                    <span id="pageInfo"></span>
+                                    <button id="nextPage">Next</button>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1551,6 +1569,158 @@
     }); apex.pwa.publicKey = ''
     apex.pwa.init({ serviceWorkerPath: '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' });
   </script>
+
+  <script>
+    function showSuccessToast(message) {
+      const toastElement = document.getElementById('successToast');
+      const toastBody = document.getElementById('successMessage');
+
+      // Set the dynamic message
+      toastBody.textContent = message;
+
+      // Initialize and show the toast
+      const toast = new bootstrap.Toast(toastElement, {
+        autohide: true,
+        delay: 3000
+      });
+      toast.show();
+    }
+    function showErrorToast(message) {
+      const toastElement = document.getElementById('errorToast');
+      const toastBody = document.getElementById('errorMessage');
+
+      toastBody.textContent = message;
+
+      const toast = new bootstrap.Toast(toastElement, {
+        autohide: true,
+        delay: 3000
+      });
+      toast.show();
+    }
+
+    $(document).ready(function () {
+      $('#preloader').hide();
+
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+
+      $.ajax({
+        url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/about_us',
+        type: 'GET',
+        success: function (response) {
+          if (response.success === 1) {
+            let content = '';
+            response.data.forEach(item => {
+              content += `<p style="margin-bottom: 6.6pt; line-height: 106%; text-align: justify;" class="MsoNormal">
+                            ${item.description}
+                        </p>`;
+            });
+            $('#R11556983055391229').html(content);
+          } else {
+            $('#R11556983055391229').html('<p>Error retrieving data.</p>');
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error('Error:', error);
+          $('#R11556983055391229').html('<p>Failed to load content.</p>');
+        }
+      });
+
+      let data = [];
+      let currentPage = 1;
+      let rowsPerPage = 5;
+
+      function fetchData() {
+        $('#preloader').show(); // Ensure loader is shown during the fetch
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/corporation",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              currentPage = 1;
+              renderTable();
+            } else {
+              $("#corporationTableBody").html("<tr><td colspan='3'>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#corporationTableBody").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide(); // Hide loader after fetch completes
+          }
+        });
+      }
+
+      function renderTable() {
+        $('#preloader').show(); // Show loader when changing pages
+
+        let startIndex = (currentPage - 1) * rowsPerPage;
+        let endIndex = startIndex + rowsPerPage;
+        let paginatedData = data.slice(startIndex, endIndex);
+
+        let rows = "";
+        $.each(paginatedData, function (index, item) {
+          rows += `<tr>
+                    <td class="t-Report-cell">${item.name ? item.name : ""}</td>
+                    <td class="t-Report-cell">${item.designation}</td>
+                    <td class="t-Report-cell">${item.phone}</td>
+                </tr>`;
+        });
+
+        $("#corporationTableBody").html(rows);
+        updatePagination();
+
+        $('#preloader').hide(); // Hide loader after rendering
+      }
+
+      function updatePagination() {
+        let totalPages = Math.ceil(data.length / rowsPerPage);
+        $("#pageInfo").text(`Page ${currentPage} of ${totalPages}`);
+
+        if (currentPage === 1) {
+          $("#prevPage").addClass("disabled");
+        } else {
+          $("#prevPage").removeClass("disabled");
+        }
+
+        if (currentPage === totalPages || totalPages === 0) {
+          $("#nextPage").addClass("disabled");
+        } else {
+          $("#nextPage").removeClass("disabled");
+        }
+      }
+
+      $("#prevPage").click(function () {
+        if (currentPage > 1) {
+          currentPage--;
+          renderTable();
+        }
+      });
+
+      $("#nextPage").click(function () {
+        let totalPages = Math.ceil(data.length / rowsPerPage);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderTable();
+        }
+      });
+
+      fetchData();
+    });
+
+  </script>
 </body>
+
 
 </html>

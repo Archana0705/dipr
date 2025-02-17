@@ -14,7 +14,72 @@
   <link rel="stylesheet" type="text/css" href="assets/css/custom.min.css">
   <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
   <link rel="icon" href="assets/img/app-icon-32.png">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/toastr/toastr.min.css" rel="stylesheet">
   <style>
+    .toast-container {
+      right: 0.5%;
+    }
+
+    #successToast {
+      background: #198754 !important;
+    }
+
+    #errorToast {
+      background: #ff0000 !important;
+    }
+
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+
+
     /* .a-CardView-items {
       display: flex;
       flex-wrap: nowrap;
@@ -547,7 +612,35 @@
   <link rel="manifest"
     href="manifest.json_%3b%20filename_%3dUTF-8%27%27manifestf27b.json?v=24.1.1-41853896899929&amp;lang=en"
     crossorigin="use-credentials" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Toast -->
+  <div class="toast-container position-fixed p-3 custom_toast" x-data="transButtonComponent()">
+    <div id="errorToast" class="toast align-items-center text-bg-primary border-0 " role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <p id="errorMessage" class="mb-0"></p>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+    <div id="successToast" class="toast align-items-center text-bg-primary border-0 " role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <p id="successMessage" class="mb-0"></p>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+  <!-- Toast -->
+
+  <div id="preloader"></div>
 </head>
 
 <body
@@ -1297,13 +1390,13 @@
                           <div class="t-Region-buttons-left"></div>
                           <div class="t-Region-buttons-right"><button
                               class="t-Button t-Button--hot t-Button--large&#x20;t-Button--success" type="button"
-                              id="B33785327566427443"><span class="t-Button-label">Subscribe</span></button></div>
+                              id="subscribeBtn"><span class="t-Button-label">Subscribe</span></button></div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="col col-6 apex-col-auto col-end">
-                    <div class="t-Region scroll-container  t-Region--scrollBody" id="R39419570857585736" role="region"
+                    <div class="t-Region scroll-container t-Region--scrollBody" id="R39419570857585736" role="region"
                       aria-label="Daily Updates">
                       <div class="t-Region-header">
                         <div class="t-Region-headerItems t-Region-headerItems--title">
@@ -1311,18 +1404,14 @@
                           <h2 class="t-Region-title" id="R39419570857585736_heading" data-apex-heading="">Daily Updates
                           </h2>
                         </div>
-                        <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                            class="js-maximizeButtonContainer"></span></div>
+                        <div class="t-Region-headerItems t-Region-headerItems--buttons">
+                          <span class="js-maximizeButtonContainer"></span>
+                        </div>
                       </div>
                       <div class="t-Region-bodyWrap">
-                        <div class="t-Region-buttons t-Region-buttons--top">
-                          <div class="t-Region-buttons-left"></div>
-                          <div class="t-Region-buttons-right"></div>
-                        </div>
                         <div class="t-Region-body">
-                          <div class="t-Region-orderBy"></div>
                           <div class="container">
-                            <div class="row ">
+                            <div class="row">
                               <div class="col col-12 apex-col-auto col-start col-end">
                                 <div id="scroll-text" class="js-apex-region" aria-live="polite">
                                   <div id="report_39742443332377753_catch">
@@ -1330,83 +1419,19 @@
                                       class="t-Report t-Report--stretch t-Report--staticRowColors t-Report--rowHighlight t-Report--noBorders"
                                       id="report_scroll-text" data-region-id="scroll-text">
                                       <div class="t-Report-wrap">
-                                        <table class="t-Report-pagination" role="presentation">
-                                          <tbody>
-                                            <tr>
-                                              <td></td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
                                         <div class="t-Report-tableWrap">
                                           <table class="t-Report-report" id="report_table_scroll-text" aria-label="New">
                                             <thead>
                                               <tr>
-                                                <th class="t-Report-colHead" align="left" id="PRESS_NAME"></th>
+                                                <th class="t-Report-colHead" align="left" id="PRESS_NAME">Press Name
+                                                </th>
                                               </tr>
                                             </thead>
-                                            <tbody>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR PR NO - 1531 - HCM
-                                                  SOCIAL MEDIA MESSAGE - DATE - 27.9.2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR PR NO - 1532 - HCM
-                                                  Press Release - Memorandum submitted by HCM to Prime Minister -
-                                                  27.9.2024 Tamil.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR PR NO - 1533 - HCM
-                                                  Press Release-Condolence and Relief - CMPRF-Virudhunagar Road Acident
-                                                  -27-9-2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR PR NO - 1534 - HCM
-                                                  Press byte at Delhi - 27.09.2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR-P.R NO.-1540-Hon'ble
-                                                  Agriculture &amp; Farmers Welfare Minister Press Release-Review
-                                                  Meeting-Date 27.09.2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR-P.R No.-1535-EDII
-                                                  Press Release-Digital Marketing-English -Date 27.09.2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR-P.R No.-1537-EDII
-                                                  Press Release-One year Certificate Course on Entrepreneurship and
-                                                  Innovation-English -Date 27.09.2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR-P.R No.-1537-EDII
-                                                  Press Release-One year Certificate Course on Entrepreneurship and
-                                                  Innovation-Tamil -Date 27.09.2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR-P.R No.-1539-Hon'ble
-                                                  CM Twitter Message - CM visit to Thiru Sitaram Yechury House at Delhi
-                                                  - Date 27.9.2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR-P.R No.1535-EDII
-                                                  Press Release-Digital Marketing-Tamil-Date 27.09.2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR-P.R No.1536-Hon'ble
-                                                  CM Twitter Message - The Hindu News paper article - Going bullish on
-                                                  investment in Tamil Nadu -Date 27.9.2024.pdf</td>
-                                              </tr>
-                                              <tr>
-                                                <td class="t-Report-cell" headers="PRESS_NAME">DIPR-P.R No.1538-Hon'ble
-                                                  CM Twitter Message - CM met Congress Parliamentary Chairman Tmt Sonia
-                                                  Gandhi at Delhi - Date 27.9.2024.pdf</td>
-                                              </tr>
+                                            <tbody id="table-body">
+                                              <!-- Data will be inserted here dynamically -->
                                             </tbody>
                                           </table>
                                         </div>
-                                        <div class="t-Report-links"></div>
-                                        <table class="t-Report-pagination t-Report-pagination--bottom"
-                                          role="presentation"></table>
                                       </div>
                                     </div>
                                   </div>
@@ -1415,13 +1440,10 @@
                             </div>
                           </div>
                         </div>
-                        <div class="t-Region-buttons t-Region-buttons--bottom">
-                          <div class="t-Region-buttons-left"></div>
-                          <div class="t-Region-buttons-right"></div>
-                        </div>
                       </div>
                     </div>
                   </div>
+
                 </div>
                 <div class="row ">
                   <!-- onclick="apex.navigation.redirect(&#x27;\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Flogin&#x27;);" -->
@@ -1474,16 +1496,24 @@
     };
   </script>
 
+  <script src="assets/js/crypto-js.min.js"></script>
   <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery-ui.min.js"></script>
+
   <script src="assets/js/desktop_all.min.js"></script>
-  <script src="assets/js/widget.stickyWidget.min.js"></script>
   <script src="assets/js/theme42.min.js"></script>
-  <script src="assets/js/widget.apexTabs.min.js"></script>
-  <script src="assets/js/com.oracle.apex.carousel.min.js"></script>
-  <script src="assets/js/modelViewBase.min.js"></script>
-  <script src="assets/js/widget.templateReport.min.js"></script>
-  <script src="assets/js/widget.report.min.js"></script>
   <script src="assets/js/aos.js"></script>
+  <script src="assets/js/add.min.js"></script>
+  <script src="assets/js/widget.apexTabs.min.js"></script>
+  <script src="assets/js/widget.interactiveReport.min.js"></script>
+  <script src="assets/js/widget.iconList.min.js"></script>
+  <script src="assets/js/widget.stickyTableHeader.min.js"></script>
+  <script src="assets/js/widget.stickyWidget.min.js"></script>
+  <script src="assets/js/item.Colorpicker.min.js"></script>
+  <script src="assets/js/require.js"></script>
+  <script src="assets/js/requirejs.jetConfig.min.js"></script>
+  <script src="assets/js/jetCommonBundle.min.js"></script>
 
 
 
@@ -1591,6 +1621,8 @@
 
 
   </script>
+
+
   <script type="text/javascript">
     $(document).ready(function () {
       apex.jQuery(function () {
@@ -1646,8 +1678,49 @@
   </script>
 
   <script>
+    function showSuccessToast(message) {
+      const toastElement = document.getElementById('successToast');
+      const toastBody = document.getElementById('successMessage');
+
+      // Set the dynamic message
+      toastBody.textContent = message;
+
+      // Initialize and show the toast
+      const toast = new bootstrap.Toast(toastElement, {
+        autohide: true,
+        delay: 3000
+      });
+      toast.show();
+    }
+    // Function to show a error toast with a dynamic message
+    function showErrorToast(message) {
+      const toastElement = document.getElementById('errorToast');
+      const toastBody = document.getElementById('errorMessage');
+
+      // Set the dynamic message
+      toastBody.textContent = message;
+
+      // Initialize and show the toast
+      const toast = new bootstrap.Toast(toastElement, {
+        autohide: true,
+        delay: 3000
+      });
+      toast.show();
+    }
+
     $(document).ready(function () {
       debugger
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+
       $.ajax({
         url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/home",
         method: "GET",
@@ -1681,6 +1754,68 @@
         }
       });
     });
+
+    $.ajax({
+      url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/daily_updates',
+      method: 'GET',
+      success: function (response) {
+        if (response.success === 1) {
+          $('#table-body').empty();
+
+          $.each(response.data, function (index, item) {
+            const row = `<tr>
+                        <td class="t-Report-cell" headers="PRESS_NAME">${item.press_name}</td>
+                      </tr>`;
+            $('#table-body').append(row);
+          });
+        } else {
+          console.error('Error:', response.message);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error('AJAX Error:', error);
+      }
+    });
+
+    $('#subscribeBtn').on('click', async function () {
+      const name = $('#P1_YOUR_NAME').val().trim();
+      const email = $('#P1_YOUR_EMAIL').val().trim();
+
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (name === "" || email === "") {
+        showErrorToast("Please fill all required fields");
+      } else if (!emailPattern.test(email)) {
+        showErrorToast("Please enter a valid email address");
+      } else {
+        const formData = new FormData();
+        formData.append('user_name', name);
+        formData.append('email_id', email);
+
+        $.ajax({
+          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/add_subscription',
+          type: 'POST',
+          headers: {
+            'X-App-Key': 'j6ll!k@ttu',
+            'X-App-Name': 'tn jallikattu',
+          },
+          processData: false,
+          contentType: false,
+          data: formData,
+          success: function (response) {
+            console.log('Response:', response);
+            showSuccessToast("Subscription Added Successfully");
+            $('#P1_YOUR_NAME').val('');
+            $('#P1_YOUR_EMAIL').val('');
+          },
+          error: function (xhr, status, error) {
+            console.error('Error:', error);
+            showErrorToast("An error occurred while subscribing");
+          }
+        });
+      }
+    });
+
   </script>
 </body>
 
