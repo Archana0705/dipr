@@ -706,7 +706,7 @@
   <script>
     $(document).ready(function () {
       $('#preloader').hide();
-
+      var langSwitch = 'en';
       $(document).on({
         ajaxStart: function () {
           $('#preloader').show();
@@ -720,7 +720,7 @@
       function fetchData() {
         $('#preloader').show();
         $.ajax({
-          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/exhibition",
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/exhibition?lang=${langSwitch}`,
           type: "GET",
           dataType: "json",
           success: function (response) {
