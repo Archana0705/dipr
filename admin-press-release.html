@@ -17,6 +17,10 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/toastr/toastr.min.css" rel="stylesheet">
   <style>
+    .titlePos .t-Body-title {
+      position: unset !important;
+    }
+
     .toast-container {
       right: 0.5%;
     }
@@ -597,6 +601,36 @@
         top: -100%;
         /* Adjust this value to control scroll speed */
       }
+
+
+    }
+
+    #modal label {
+      color: #080000 !important;
+    }
+
+    #modal {
+      display: none;
+      /* Hidden by default */
+      padding: 20px;
+      background: #fff;
+      border: 0;
+      width: 720px;
+      box-shadow: none;
+      margin-top: 0.5rem;
+    }
+
+    .close-button {
+      cursor: pointer;
+    }
+
+    a.download-btn-upload {
+      text-decoration: none;
+      border: 1px solid;
+      display: block;
+      border-radius: 5px;
+      padding: .3rem;
+      text-align: center;
     }
   </style>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -646,6 +680,58 @@
   class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"
   id="t_PageBody">
   <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
+  <div id="modal" title="Upload">
+    <div class="modalWrap">
+      <div class="t-Form-inputContainer col col-12">
+        <div class="t-Form-itemWrapper file_wrap">
+          <a-file-upload id="File_upload" name="File_upload" required upload-type="FILE" display-style="NATIVE"
+            accept=".pdf,.jpg,.jpeg" size="60" download-link="true">
+            <input type="file" id="File_upload_input" aria-labelledby="File_upload_label" />
+            <div class="a-FileDrop&#x20;a-FileDrop--native">
+            </div>
+          </a-file-upload>
+        </div>
+
+        <!-- <div class="t-Region-buttons-right float-end">
+        <button class="t-Button t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight" id="uploadBtn"> Submit </button>
+      </div> -->
+      </div>
+      <div class="t-Form-inputContainer col col-12">
+        <div class="t-Form-itemWrapper file_wrap">
+          <div class="col col-6 apex-col-auto col-start">
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
+              id="Go_number">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Go_number" id="Go_number_LABEL" class="t-Form-label">GO Number</label>
+              </div>
+              <div class="t-Form-inputContainer col col-4">
+                <div class="t-Form-itemWrapper"><input type="text" pattern="^[0-9]{10}$" id="Go_number_input"
+                    name="Go_number" class="text_field&#x20;apex-item-text" value="" size="60" maxlength="10" />
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Go_number_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="t-Region-buttons-right float-end pad0">
+        <button
+          class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+          id="uploadBtn"> Submit </button>
+      </div>
+      <div class="t-Region-buttons-right float-end pad0">
+        <button
+          class="bg-danger text-white t-Button t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight close-button"
+          id="cancelBtn"> Cancel </button>
+      </div>
+    </div>
+  </div>
+
   <form role="none" action="wwv_flow.accept?p_context=info-prdept103/press-release/606351205798953" method="post"
     name="wwv_flow" id="wwvFlowForm" data-oj-binding-provider="none" novalidate autocomplete="off">
     <input type="hidden" name="p_flow_id" value="103" id="pFlowId" /><input type="hidden" name="p_flow_step_id"
@@ -657,6 +743,7 @@
       value="info-prdept103&#x2F;press-release&#x2F;606351205798953" id="pContext" /><input type="hidden"
       value="321960917154624410517901845536969678376" id="pSalt" />
     <header class="t-Header" id="t_Header" role="banner">
+
 
       <div class="t-Header-navBar">
 
@@ -807,9 +894,9 @@
       </div>
     </header>
 
-    <div class="t-Body">
+    <div class="t-Body ">
 
-      <div class="t-Body-main">
+      <div class="t-Body-main titlePos">
         <div class="t-Body-title" id="t_Body_title">
           <nav id="R34839297483869595" role="navigation" aria-label="Breadcrumb"
             class="t-BreadcrumbRegion t-BreadcrumbRegion--showBreadcrumb t-BreadcrumbRegion--useBreadcrumbTitle">
@@ -912,14 +999,17 @@
                               <div role="region" aria-label="Data&#x20;view&#x20;of&#x20;Press&#x20;Release"
                                 id="R34839964403869597_data_panel" class="a-IRR-reportView">
                                 <div class="a-IRR-tableContainer">
+
                                   <table
                                     aria-label="Press&#x20;Release,&#x20;Report&#x20;&#x3D;&#x20;Primary&#x20;Default,&#x20;View&#x20;&#x3D;&#x20;Report"
                                     class="a-IRR-table" id="34839996188869597">
                                     <tr>
-                                      <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK"><span
-                                          class="u-vh">Link</span></th>
+                                      <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
+                                        <span class="u-vh">Link</span>
+                                      </th>
                                       <th class="a-IRR-header u-tL" id="C11748439923991421"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="11748439923991421" href="#">Pr Date</a>
+                                          class="a-IRR-headerLink" data-column="11748439923991421" href="#">Pr
+                                          Date</a>
                                       </th>
                                       <th class="a-IRR-header u-tL" id="C11747689722991413"><a aria-haspopup="dialog"
                                           class="a-IRR-headerLink" data-column="11747689722991413" href="#">Language</a>
@@ -934,634 +1024,9 @@
                                           class="a-IRR-headerLink" data-column="37707553402077046" href="#">Uploaded
                                           Date</a></th>
                                     </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;82&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3p-CNNZyH0QMdXM8NRpLF8iA9V8mo5oCy15CFu4scF97ueOTVaYRv8dWSqHK4oY6RF3K0CzZB7tVyvixHeFz7ow&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;1&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR- P.R.NO.1796 -Hon&#x27;ble
-                                        Minister for YW &amp; SD - Thanks Giving to Hon&#x27;ble Chief Minister for
-                                        Giving high incentives - Press Release - Dt.01.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;81&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3pkFgHpoBP-NM1LeZaSq1g1GLuUyWyesjtv8fTYbboHt46NJz_s__6usIlTSFhI7My55aJbmmqfDp_iVIfp4AUg&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;1&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.P.R.NO.1795 - Hon&#x27;ble CM
-                                        Twitter Message - Mamannar PuliDevar Birthday - Date - 01.9.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;83&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;30JnWa900ngzjUdU0vk9muaLvioRX2kEKW4U64I4AjtfKklsrdZo8p7NYlMZP6tXf8K-4vVxoKQnkzFtlmkRhKQ&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;1&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR- P.R.NO.1797 -Hon&#x27;ble
-                                        Minister for YW &amp; SD - TN Champions Foundation - Press Release -
-                                        Dt.01.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;85&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3SvW_S7AZqqcZ4xXKNyU7pZ2eFp6REbRBl2vdrLkOjLubM6v3wi56U0B_aTveRtZpNodgYZNswspYROXXJwIyqA&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;2&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R NO.-1799-Hon&#x27;ble CM
-                                        Twitter Message - Greetings to Singapore President Thiru Tharman - Date 2.9.2023
-                                        pdf.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;87&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3X-LcaB29iP0bsmYdfH2zhXCHhgYa4DNeUPN_OWhpwdkyfg2IWOVY1uuE70J_71wVJw55yUzD3bAEUGQkfoFxUw&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;2&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR - P.R.NO.1801 - Hon&#x27;ble
-                                        Minister for Revenue &amp; Disaster Management - State Level Mock Exercise -
-                                        Press Release - Dt.02.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;89&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;38OhLeeDw1oA4WYBHujcngzDWmwFIZhYgyjVhmpjEWkaL7pOa7K6tdD-TyqQJxe8kY7PDqpEJqruxILojqaULqw&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;2&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR - P.R.NO.1803 - Tam Dev. Dept.
-                                        - Admission for M Phil in Tamil Literature - Press Release - Dt.02.09.2023.pdf
-                                      </td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;90&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3WeoSSjwyuwtExsTqV-PdVWNqtIEruWguaS6bNJypKXV5i8d9lwlr3ZJkW28KqY9eEcZjC7pHXlmNPhvdEgr0AA&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;2&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR - P.R.NO.1804 - Emp &amp;
-                                        Training Dept. - Application for All India Vocational Exam Invited - Press
-                                        Release - Dt.02.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;91&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3u9C8NjDLLoLYR147fePrlh9Xjr9QPeH3AR_OehjSEwGUb04Hq2e4SE-Nk_L5ASMoGtm1jT2bsFkwoTANM-mS9w&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;2&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR - P.R.NO.1805 - CS Press
-                                        Release - Collectors to Inspect Govt. Taluk Hospitals(English) -
-                                        Dt.02.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;93&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;33432JA9c3c7a7tNc4JyghgrI9PKsyO3_W33nCsusysZRObNA9SSgM9L2popMElO__Kxtl4PZEqNLxxRNG4x3eQ&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;2&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR -P.R.NO.1807 - CS Press
-                                        Release - NE Monsoon Flood Prevention Review Meeting - Dt.02.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;111&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3FF_E-VyIchYm4LuOIfz-zW__E2OwbI_KM6aUefusrrMTA9EA-SSsh0_P06mHaHhuETVmHQm1UQiJheOIvD6Kqg&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;5&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1824-Hon&#x27;ble CM
-                                        Press Release - Semmozhi Tamil Research Organisation - Kalignar Karunanidhi
-                                        Semmozhi Award -Date 5.9.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;113&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3DVot5sgbePHFkj-8p_PhOfYzF2urBFrQ_6dSqsSiycdtrW0xD6_Xf_ZwwnJ6_yE8k2nyZFszFwFxdYBpr0ubQw&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;5&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1826-Hon&#x27;ble CM
-                                        Twitter Message-V.O.C Birthday-Date 05.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;114&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3NIct4-Cff6LF9O4jPt-ybnYnaMoTRbPM1an-tfi3z89GBV7uoKxz_Or5umF4xtcH7pOdVPI9MVvwPTmqVNhcuw&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&##x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;5&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1827-Animal Husbandry,
-                                        Dairying, Fisheries and Fishermen Welfare Department-Press Release-Date
-                                        05.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;115&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3CeeQbot8SaHd0WAWkT_QgVIO3-FHCkFZdEfQGZa2hbJBw8jzkwnmmYGD7Nr6DeyRtuphI4XC1BZPWfBIlOQUlg&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;5&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.PR.NO.1828 - Hon&#x27;ble PWD
-                                        Minister Press Release - Date - 05.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;116&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3WoG8GdhAPvYtQwf7sPkFEVsN_ui5eVBNzJxZO_HeiTT5KflxnmyFAwTnf1HXXh8ogCWwmJVP3_mcx-KLCxDWxg&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;5&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.P.R.NO.1829 -Hon&#x27;ble CM
-                                        Press Release - Franklin Township Proclamation - Kalignar Centenary - Date -
-                                        5.9.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;117&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3OhrUoJ5v8tw4hbSjWgeUXR-MGvuxqcqQtxTwYWBuyTIKFPtRu6bj0WHZEvGojyHS6mnkxNB6HAGEuMhv2n5W0A&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;5&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.P.R.NO.1830 - Hon&#x27;ble
-                                        Tamil Development &amp; I and PR Minister Speech - Date - 05.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;118&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3stOrkDPgWHbe5RIJr9QKIc7drtoYLNn11pab6VF1kC8azL9i2VHGVpDmC7E-FhEVftkGTA1dphIAveM-6AXs1w&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;5&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.PR.NO.1831 - Department of
-                                        Museums - Press Release - Date - 05.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;119&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3_-BwWaf_DPc2Q6nFDjV8y7zUnHSNOIXYwZG1xzwxYIYvgs4mr9gFLvpY0owNCaXcA3UWKBidqyfZgVK6BzNe8A&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;6&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.PR.NO.1832 - CS Press Release
-                                        - Collectors to Inspect Govt - School Education - English - Date -
-                                        06.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;120&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3se8v9kBbfhur8KtOk_o4GBv_Bu9Vlig-DxQlB2PctniR3iFlc_IRKtd_ASYUwpLLfJKarBAlU0Wk3xrvcZfN_Q&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;6&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.P.R.NO.1833 - PWD Highways
-                                        Department Press Release - Date - 06.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;121&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3FrbDoV5aDYN3XMYF1TgU6HWKRsSR8fk70XxTrEMi-CpUEv8aGK-GZhyp0hSnKOkKgvKg8Q5QQkspGnSMy85exQ&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;6&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.P.R.NO.1834 -Hon&#x27;ble CM -
-                                        Press Release - Condolence and Relief - Sankagiri road accident - Date -
-                                        06.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;122&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3nrrofgeMHCZP7hzRP5l_dHb7mjedEfd_TUGU0sVM9k1iAa_GVAEcmSo6N8u7XoKvYlB-hqJx00YVzHkQzr1dYw&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;6&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.PR.NO.1835 - Hon&#x27;ble
-                                        Higher Education Minister Press Release - VC Search Committee - Date -
-                                        06.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;112&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;31tdyNOLemnMUY8UVB_eiHVqur5JkWWsG23I4_66tsjIP8eKwxKgYmO1868T5qDMplQjXKI1fPXs3g5iFsVExeg&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;5&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1825-Hon&#x27;ble CM
-                                        Press Release - Fisheries Dept - Fisheries Inspector Appt order - 5.9.2023.pdf
-                                      </td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;19&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;141&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3nOD7ud5QVt3GbmPte41rbYkQAxovnFsXJYsly4yyZJ_hIwZGl536wZ3mQ5iDjfrb1nmu8I13a7QPugwiPU3qPQ&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;1&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR - P.R.NO.1798 - Hon&#x27;ble
-                                        CM Twitter Message - Mumbai School Student Pranushka met CM - Dt.1.9.2023.pdf
-                                      </td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;143&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3JlmuyOCKkYH_oBljeUI3jtyB23J6kY6oiC9VnHtcXb124HO7V6UPJ2GIeyxhElnjBnvgoIqhMredswjJftskzA&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;7&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1837-Hon&#x27;ble CM
-                                        Press Release - Highways Dept - Bridges and Roads Inauguration - Date
-                                        7.9.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;151&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3XWIVZqZoZWUPqp8fOVkI0O5CAYkOGVrXh-HChlrBSE9RS4KvZgC6_96UdBdRhsp5wPRkb_dd-8HlDJ5YS1wIfg&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;8&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R NO.-1845-Hon&#x27;ble CM
-                                        Press Release - CF &amp; CP Dept - Building inauguration - Date 8.09.2023
-                                        pdf.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;152&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3wgZ1QelvQP9UV_v6Rv4Jv2Oha7rVOS6flvG8RE4yFplK6wFJWc1rLUBml4IuZ7kX11K7T5HJfJjQKKdWb09pWQ&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;8&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR PR NO - 1846 - H&amp;UD DEPT
-                                        ENGLISH PR - DATE - 8.9.2023 PR.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;153&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3x-Q7vMCb08PaAEmTrw-MabNSFdHcDM7e55uto61k4JOD1U8ZajMaYOpOkRAvucc3gJ48Gyge_gBlznWj-XFtsQ&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;8&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR PR NO - 1847 - Hon&#x27;ble CM
-                                        Condolence Message - Actor and Director Thiru Marimuthu Death - Date - 8.9.2023
-                                        PR.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;154&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3FlmuriNOagMNvSiBXsuqomB0qLi_KHaza-RktnC-PoqIIGj_d0s4cKhfBxsdd5og7iwSeZQ7Zl9-xKq8dRkQfw&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;8&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR PR NO - 1848 - Hon&#x27;ble CM
-                                        Speech - Kerala Media Academy - Media Meet 2023 - Date - 8.9.2023 PR.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;155&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3ebUcKMq5CJE-DoVMPJS0ZHrdnMaNSBH9nr9OjbHnA9SyiY76-TdWrGRibDr7RbirMBr0nkOEs57QfCJgqMHSFQ&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;8&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR PR NO - 1849 - HON&#x27;BLE CM
-                                        CONDOLENCE &amp; RELIEF PR - DATE - 8.9.2023 PR.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;163&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3N_GqW7UOMYNBQFwneUsDFoWpLNdL5d_WfWdXxq8ydLvJ6eJAvRMiBA70vzG7FTZa5IjVsidVGg68jxZFeqWJ_A&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;11&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.-1857-Hon&#x27;ble CM-
-                                        press release- emmanuel sekaranar-Date 11.09.2023 .pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;164&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3-0r_uF6tLFWvaQ5oqD7LX15owo9-sWG1yLmE2k4uWjDY2xaBwqOUkM7AVor_5-y0T2GiqMAVtcrCULPWIvjl_Q&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;11&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.-1858-Hon&#x27;ble CM
-                                        -Condolence and Relief- Thiruppathur road accident -Date 11.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;165&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3R4n3Tb7B8dLcCahEdGzhuZk9vCSBq12Xu0XWeBauEXb9LU-qx8GXk6OOvtIwxrAvXU9vAU_Vi4A0kPx7POmV2Q&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;11&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.-1859-Hon&#x27;ble CM
-                                        Twitter Message - Thyagi Immanuel Sekar Anniversary Day -Date 11.09.2023.pdf
-                                      </td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;166&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3ItUhnptyIIuF4qD5Jlhza5L-Y-7OVyxHnw6iQsgoXfDkk4XPvqWIMxzCgq5Gx-AWyG2INZkNiQ0HYWY4YsYFXg&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;11&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.-1860-Hon&#x27;ble Adi
-                                        Dravidar Welfare Minister -Press Release-Date 11.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;167&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3y8MHzfVY4xwD6Cc00rKBfalUfMmNS1s2mGhYRQrxuZu93SiBUGQEHpSe0S3mnZt4xVvqZrdx9KV5pRKcyDeYkg&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;11&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR PR NO - 1861 - Hon&#x27;ble CM
-                                        Press Release - Kalignar Magalir Urimai Thittam Review Meeting - Date -
-                                        11.9.2023 PR.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;171&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3hrqLw8UA5ctZ1LJSrlrddpmR638BTxGaoP-BmZvwnULkTFutsS-cOzxjRBA8-Et3YnpAtxfTfK_WrSUDDoJAzA&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;12&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1865-Hon&#x27;ble CM
-                                        Press Release - Industries Dept - Maxivision Super Speciality Eye Hospitals -MoU
-                                        -Date 12.9.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;172&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3RxiP-bVHQ5Co-usO21JQmuGWoNLmRJ2NIWW_WYqwfP_d7HYJ2v9p7gWY0poiEDOoQOta5_5uLeplrOqkIo6wmw&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;12&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1866-Civil Supplies and
-                                        Consumer Protection Department-Press Release-Date 12.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;178&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3LJObgqkhtk2XeUW13FL0sPJf6jP30xUnY07gQRurpuKCa1NCAL9ebRzyvhsKp_bKgoArS71WQ7zpzlSgoKucjQ&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;12&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR - P.R.NO.1872 - Hon&#x27;ble
-                                        CM Press Release - Collectors and Police Officials Conference -
-                                        Dt.12.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;179&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3eKDpQmkFnkJhx1SMD2w29-n9QR8RRFphSQkXYYJhgNXDlyzjqEPVC_ZkGtj3cVdj2b-ymUmVruu1MC1DDpDm7A&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;13&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.-1873-Hon&#x27;ble CM
-                                        Speech - MLA Thiru Thangapandian Son Marriage function -Date 13.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;180&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3sk3Jl2FKM3pzYw15QUvPHY9L3oAx4A7AFdXnGCmq4gEoqV_cz3l5rjL70kPFwcJjrJ8mUGGPpJpPcR75Xii2og&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;13&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R NO.-1874-TNStartup Press
-                                        Release-Startup Thamizha Reality Show -English-Date 13.09.2023 pdf.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;185&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3oWIE_UdYGC8Jv8un_kM1qTM73AOOuslQ1FSafgA3XYyfXlwEDdIcqki1KlWPi-R3bRijysNSQ1S85d17MCxn7g&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;14&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R NO.-1879-Hon&#x27;ble CM
-                                        DO Letter to Hon&#x27;ble Union External Affairs Minister (Fishermen
-                                        attack)-Date 14.09.2023 pdf.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;186&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3D9I5TBPCA8GNdqjmJhpUxN0hANCDYv_5RdwokLN45O3oNNvMnbXXwECQXFNyMsrSuO8i3Gw53Bp9hE2ZbutY8g&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;14&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.NO.1880 -BC &amp; MBC Dept
-                                        Press release -ELECTION FOR THE MEMBERS OF TAMIL NADU WAQF-English-Date
-                                        14.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;144&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3y2gJZ8tv1FXhFT6pgwgJO0cfoQPkoBChMDq-o99ksI7p-kKNpkvBQeah-IGQ3Ozxk6LNS73MS9Ivn7k4aDrG9w&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;7&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1838-Municipal
-                                        Administration and Water Supply Department-Press Release-Improvement of Water
-                                        suppy scheme-Date 07.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;142&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3-nKADjhq3Sezkp0ngBTdAkR3-7NFptwhStVEmPla7tX74bbq2SRG2fTtRB-vTHORB8bn8GqMCMFyQnx4J-DK8g&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;7&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1836-Hon&#x27;ble CM
-                                        Press Release - Social Welfare Dept - Building inauguration - Date 7.9.2023.pdf
-                                      </td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;145&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3cGbmpgbuUrO8Eg-2vTDuXXWVg7ZBN0tZYUgnqmcznA-ZOiFQ6JSRggyF2TaBxVngOXestTVGKLnncpDurdCFQA&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;7&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.1839-Hon&#x27;ble
-                                        Minister for Transport- Press Release-Date 07.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;146&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3K87x4juyG-gYQzk_JgQkrUWpyUg5rctAYJNzqeLoSKkhwpkEXrULVkv5lN2AQpH_7UTdtmW8uKPRxunkze36Ig&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;7&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.-1840-Hon&#x27;ble CM
-                                        Condolence Message - Death of SPG Arun Kumar Sinha-Date 07.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;148&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3XL0R3tCUOe0_MoW9EnmWpfVnxmIQq96og1sCZ-KIbFzy7DuG9t9E8l0Q69fY_VfEwvJGyQrsCJSNqB-pcH3-MQ&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;7&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.-1842-Hon&#x27;ble CM
-                                        Condolence and Relief - Avadi sewage workers death-Date 07.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;149&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3Uhc-4LZM1dO9dyI0-KDJBufcRfcE2alLujwDLx6xz3dxHwdW4UemC2XsVr2gv_6iUwLA5CCzrkAB0RVbnq08Ww&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;8&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R NO.-1843-Hon&#x27;ble CM
-                                        Press Release - I&amp;PR Dept - Rabindranath Tagore Statue unveiling at Ranimari
-                                        College -Date 8.9.2023 pdf.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;150&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3lFUHW1kPxxT78qLrsuFSueYQ4WQLV79rIXU1P3zKFCGLOhXI1RxaUheM_i78EVGVfcU4AezZMFQxi8TzdAyjLw&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;8&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R NO.-1844-Hon&#x27;ble CM
-                                        Press Release - Police Dept - VEERA Vehicle launch - Date 8.9.2023 pdf.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;157&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;31KMhZ26A82LxDjQa14expbyo5Mr_Kcd4OqUyZM5nUkWeRhJ5I0sejayt9dhn0uw9K2NLV1uHx6KxWONHKgoqDg&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;9&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR - P.R.NO. 1851 - Hon&#x27;ble
-                                        CM Twitter Message - Thiru R.M. Veerappan Birthday - Dt.9.9.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;158&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;3rFHwRyPgvUF8XX2I2yS7bQcNpZjYfuotbAapHDc_q7RGQb0F-6XICq2Fxkl0HQudRyq3UCMwgXSHs1RLTXS8iA&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;9&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR-P.R.No.-1852-CS Do Letter to
-                                        all District Collectors- to ensure safe drinking water supply to all-Press
-                                        Release English-Date 09.09.2023 PR.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
-                                    <tr>
-                                      <td class="a-IRR-linkCol u-tC" headers="R34839964403869597_LINK"><a
-                                          href="javascript&#x3A;apex.theme42.dialog&#x28;&#x27;&#x5C;u002Fords&#x5C;u002Fr&#x5C;u002Fdipr&#x5C;u002Finfo-prdept103&#x5C;u002Fpr-upload-documents&#x3F;p16_id_1&#x3D;159&#x5C;u0026clear&#x3D;CR,16&#x5C;u0026session&#x3D;606351205798953&#x5C;u0026cs&#x3D;35hDxzqxqP96zk5Lo6qH5XTnlX-MfCD45MAKDmBFBEndWopSa8qgsn881e9J7jelGUJuSlshdW-vSz7qVG_P0xw&#x5C;u0026dialogCs&#x3D;1J4ANlYby0mIH7bvjbwe4NpMHN2-X18caN9q2FDJyZ83KEUi7DB97MkQLYZ6jRVj0CAa-Ck4Kl3tMrqu2RQvoA&#x27;,&#x7B;title&#x3A;&#x27;PR&#x20;-&#x20;Upload&#x20;documents&#x27;,h&#x3A;&#x27;auto&#x27;,w&#x3A;&#x27;720&#x27;,mxw&#x3A;&#x27;960&#x27;,modal&#x3A;true,dialog&#x3A;null,dlgCls&#x3A;&#x27;t-Dialog-page--standard&#x20;&#x27;&#x2B;&#x27;&#x27;&#x7D;,&#x27;&#x27;,&#x27;&#x23;R34839964403869597&#x27;&#x29;"><span
-                                            role="img" aria-label="Edit" class="fa fa-edit" title="Edit"></span></a>
-                                      </td>
-                                      <td class=" u-tL" headers="C11748439923991421">9&#x2F;10&#x2F;2023</td>
-                                      <td class=" u-tL" headers="C11747689722991413">en</td>
-                                      <td class=" u-tL" headers="C37710503093077076">DIPR.P.R.NO.1853 - Forest
-                                        Department - Press Release - Date - 10.09.2023.pdf</td>
-                                      <td class=" u-tL" headers="C37707438775077045">DHIVAHAR</td>
-                                      <td class=" u-tL" headers="C37707553402077046">9&#x2F;20&#x2F;2023</td>
-                                    </tr>
+                                    <tbody id="pressReleaseTableBody">
+                                      <!-- Dynamic rows will be inserted here -->
+                                    </tbody>
                                   </table>
                                 </div>
                                 <div role="region" aria-label="Pagination&#x20;of&#x20;Press&#x20;Release"
@@ -1802,6 +1267,7 @@
 
     $(document).ready(function () {
       debugger
+      $('#preloader').hide();
       $(document).on({
         ajaxStart: function () {
           $('#preloader').show();
@@ -1813,61 +1279,64 @@
         }
       });
 
+      // });
+      $('#preloader').hide();
+      const userId = localStorage.getItem("role_id");
+      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/pressRelease/viewPressReleaseReport";
+      const tableBody = $("#pressReleaseTableBody");
+      // const state_customize_reportPayload = {
+      //     "id" : 2
+      // }
+      tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
       $.ajax({
-        url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/home",
-        method: "GET",
-        dataType: "json",
-        success: function (response) {
-          if (response.success && response.data.length > 0) {
-            response.data.forEach(function (item) {
-              let cardHtml = `
-                        <li class="a-CardView-item m-2">
-                            <a href="${item.page_name}.html">
-                                <div class="a-CardView has-title has-icon has-icon--top">
-                                    <div class="a-CardView-header text-center">
-                                        <div class="a-CardView-iconWrap">
-                                            <img src="assets/img/${item.file_name}" class="a-CardView-icon">
-                                        </div>
-                                        <div class="a-CardView-headerBody">
-                                            <h5>${item.list_name}</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>`;
-              $("#dynamic-cards").append(cardHtml);
-            });
-          } else {
-            $("#dynamic-cards").html("<p>No data available</p>");
-          }
+        url: apiUrl,
+        method: "POST",
+        headers: {
+          "X-APP-KEY": "pocso",
+          "X-APP-NAME": "pocso"
         },
-        error: function () {
-          $("#dynamic-cards").html("<p>Error loading data</p>");
+        //contentType: "application/json",
+        //data: JSON.stringify(state_customize_reportPayload),
+        success: function (response) {
+          const tableData = response.data;
+          tableBody.empty();
+
+          if (!tableData || tableData.length === 0) {
+            tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
+            return;
+          }
+
+          tableData.forEach(item => {
+            const newRow = `
+              <tr>
+              <td class="u-tL"><a id="open-modal-btn" href="javascript:void(0);"><i class="bi bi-pencil-square" id="open-modal-btn"></i></a></td>
+                <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
+                 <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
+                  <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.press_name) || 'N/A'}</td>
+                   <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
+                     <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_date) || 'N/A'}</td>
+              </tr>`;
+            tableBody.append(newRow);
+          });
+        },
+        error: function (xhr, status, error) {
+          console.error("Error fetching data: ", error);
+          tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
         }
       });
+
+      $('#open-modal-btn').on('click', async function () {
+        $("#modal").dialog("open");
+      });
+
+      $(".close-button").on("click", function () {
+        $("#modal").dialog("close");
+      });
+
+
     });
 
-    $.ajax({
-      url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/daily_updates',
-      method: 'GET',
-      success: function (response) {
-        if (response.success === 1) {
-          $('#table-body').empty();
 
-          $.each(response.data, function (index, item) {
-            const row = `<tr>
-                      <td class="t-Report-cell" headers="PRESS_NAME">${item.press_name}</td>
-                    </tr>`;
-            $('#table-body').append(row);
-          });
-        } else {
-          console.error('Error:', response.message);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.error('AJAX Error:', error);
-      }
-    });
 
 
   </script>
