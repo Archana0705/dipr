@@ -365,7 +365,16 @@
     <span class="t-Icon fa&#x20;fa-user" aria-hidden="true" ></span><span class="t-Button-label">nobody</span><span class="t-Button-badge"></span>
   </a>
 </li></ul></div> -->
-          <div class="t-Header-navBar--end"></div>
+          <div class="t-Header-navBar--end">
+            <div class="t-Form-inputContainer col col-null">
+              <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
+                  class="selectlist apex-item-select" data-native-menu="false" size="1">
+                  <option value="en">English</option>
+                  <option value="ta">Tamil</option>
+                </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
+                data-template-id="32751098700172723_ET"></span>
+            </div>
+          </div>
           <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
           <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
           <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
@@ -398,23 +407,23 @@
         <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
           <ul>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/home" title="" target="">Home</a></li>
+                class="a-MenuBar-label" href="index.html" title="" target="">Home</a></li>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/about_page" title="" target="">About Us</a>
+                class="a-MenuBar-label" href="about_page.html" title="" target="">About Us</a>
             </li>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/gallery1" title="" target="">Photo &#x2F;
+                class="a-MenuBar-label" href="gallery1.html" title="" target="">Photo &#x2F;
                 Video</a></li>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/press-release1" title="" target="">Press
+                class="a-MenuBar-label" href="press-release1.html" title="" target="">Press
                 Release &#x2F; Press Note</a></li>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/government-orders" title=""
-                target="">Government Orders</a></li>
+                class="a-MenuBar-label" href="government-orders.html" title="" target="">Government Orders</a></li>
+            <li class="a-MenuBar-item a-Menu--current" data-current="true" data-id="" data-disabled="" data-hide=""
+              data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="sections.html" title=""
+                target="">Sections</a></li>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/sections" title="" target="">Sections</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/download-forms" title="" target="">Download
+                class="a-MenuBar-label" href="download-forms.html" title="" target="">Download
                 Forms</a></li>
           </ul>
         </div>
@@ -591,17 +600,13 @@
   <script src="assets/js/widget.report.min.js"></script>
   <script src="assets/js/aos.js"></script>
 
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     apex.da.initDaEventList = function () {
       apex.da.gEventList = [
         { "triggeringElementType": "ITEM", "triggeringElement": "P0_LANGUAGE_SELECTION", "bindType": "bind", "executionType": "IMMEDIATE", "bindEventType": "change", "anyActionsFireOnInit": false, actionList: [{ "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, "waitForResult": true, javascriptFunction: apex.da.executePlSqlCode, "ajaxIdentifier": "REEgVFlQRX5-Mzc0OTQ3NjY4MDA1MDg5MzI\u002Fu5lMEWFL1hSUxVYt2I5qEVhlVf_nR1hmtuQBgot9tVVpO5TTo4YmO_FRmRZJicUHmoWoqlcbZrwO6B3tQaiBrg", "attribute01": "#P0_LANGUAGE_SELECTION", "attribute04": "N", "action": "NATIVE_EXECUTE_PLSQL_CODE" }] },
         { "triggeringElementType": "ITEM", "triggeringElement": "P0_LANGUAGE", "bindType": "bind", "executionType": "IMMEDIATE", "bindEventType": "change", "anyActionsFireOnInit": false, actionList: [{ "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, "waitForResult": true, javascriptFunction: apex.da.executePlSqlCode, "ajaxIdentifier": "REEgVFlQRX5-NDM0MzQzOTA5NTkyMjI3NTI\u002FDZTRaWo1FeyOhHE67bkprc3t0URD779-XJP8Fvqhd5anLePTQLh8SV-IV9TrKMWxYMzxd-a5MuMkEkokwGd6uw", "attribute01": "#P0_LANGUAGE", "attribute04": "N", "action": "NATIVE_EXECUTE_PLSQL_CODE" }, { "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, javascriptFunction: apex.da.submitPage, "attribute02": "Y", "action": "NATIVE_SUBMIT_PAGE" }] }];
     }
-  </script>
-
-
-
-
+  </script> -->
 
   <script type="text/javascript">
     apex.jQuery(function () {
@@ -656,7 +661,7 @@
   <script>
     $(document).ready(function () {
       $('#preloader').hide();
-
+      var langSwitch = 'en';
       $(document).on({
         ajaxStart: function () {
           $('#preloader').show();
@@ -670,7 +675,7 @@
       function fetchData() {
         $('#preloader').show();
         $.ajax({
-          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/field_publicity_desc",
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/field_publicity_desc?lang=${langSwitch}`,
           type: "GET",
           dataType: "json",
           success: function (response) {
@@ -679,6 +684,7 @@
               // currentPage = 1;
               // renderTable();
               const responseContainer = document.getElementById("field_publicityContainer");
+              responseContainer.innerHTML = "";
               responseContainer.innerHTML += data[0].get_field_publicity_description_field;
             } else {
               $("#field_publicityContainer").html("<tr><td colspan=''>No data available</td></tr>");
@@ -693,6 +699,16 @@
         });
       }
       fetchData();
+      document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
+        const selectedValue = this.value;
+        if (selectedValue === "en") {
+          langSwitch = "en";
+          fetchData();
+        } else {
+          langSwitch = "ta";
+          fetchData();
+        }
+      });
     })
   </script>
 </body>
