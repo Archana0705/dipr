@@ -238,11 +238,57 @@
         
         }
 
-        .first_image{
+        /* .first_image{
             position:
-        }
+        } */
 
-     
+        #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
 
 </style>
@@ -252,7 +298,7 @@
   
   
   <link rel="apple-touch-icon" href="r/dipr/103/files/static/v358/icons/app-icon-192.png" /><link rel="icon" href="r/dipr/103/files/static/v358/icons/app-icon-32.png" />
-  
+  <div id="preloader"></div>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="-1" /><meta http-equiv="Cache-Control" content="no-cache" /><meta name="theme-color" content="&#x23;000000" />
 <meta name="mobile-web-app-capable" content="yes" />
@@ -349,8 +395,8 @@
 <div class="layoutArea">
 <div class="column">
 <div title="Page 144" class="page">
-<div class="layoutArea">
-<div class="column">
+<div class="layoutArea" id="tn_mgr_responseContainer">
+<!-- <div class="column">
 <p><span style="color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp;Tamil Nadu Government M.G.R. Film and Television Institute is a leading Technical Training Institute educating Film Technology and techniques of Film Production and aesthetics of Art.</span></p>
 <p><span style="color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp;Tamil Nadu Government M.G.R. Film and Television Institute functions under the Information and Public Relations Department, Government of Tamil Nadu. This institute functions in an area of 15.25 acres. This is the one and only institute in India which offers Bachelor’s degree in film studies.</span></p>
 <p><span style="color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp;Tamil Nadu Government M.G.R. Film and Television Institute is a pioneer Institute and has carved its own niche in the filmmaking industry and organization. This Institute was functioning&nbsp;as part of the branch in the Central Polytechnic Institute from 1945. Thereafter, from 1960 onwards it emerged as a separate Institute. From 09.08.2021 onwards this Institute was renamed as “Tamil Nadu Government M.G.R. Film and Television Institute''.</span></p>
@@ -405,7 +451,7 @@
 </div>
 </div>
 </div>
-</div>
+</div> -->
 </div>
 </div>
 </div>
@@ -524,6 +570,47 @@ apex.event.trigger(apex.gPageContext$,'apexreadyend');
 apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
 </script>
 
+<script>
+  $(document).ready(function () {
+    $('#preloader').hide();
 
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+    function fetchData() {
+        $('#preloader').show();
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/tngov_mgr_film_inst_desc",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              // currentPage = 1;
+              // renderTable();
+              const responseContainer = document.getElementById("tn_mgr_responseContainer");
+              responseContainer.innerHTML += data[0].get_tn_gov_mgr_film_institute_description_mgr;
+            } else {
+              $("#tn_mgr_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#tn_mgr_responseContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      }
+      fetchData();
+  })
+</script>
 </body>
 </html>
