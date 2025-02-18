@@ -684,33 +684,61 @@
     <div class="modalWrap">
       <div class="t-Form-inputContainer col col-12">
         <div class="t-Form-itemWrapper file_wrap">
-          <a-file-upload id="File_upload" name="File_upload" required upload-type="FILE" display-style="NATIVE"
-            accept=".pdf,.jpg,.jpeg" size="60" download-link="true">
-            <input type="file" id="File_upload_input" aria-labelledby="File_upload_label" />
-            <div class="a-FileDrop&#x20;a-FileDrop--native">
-            </div>
-          </a-file-upload>
-        </div>
-
-        <!-- <div class="t-Region-buttons-right float-end">
-        <button class="t-Button t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight" id="uploadBtn"> Submit </button>
-      </div> -->
-      </div>
-      <div class="t-Form-inputContainer col col-12">
-        <div class="t-Form-itemWrapper file_wrap">
           <div class="col col-6 apex-col-auto col-start">
             <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Go_number">
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="Go_number" id="Go_number_LABEL" class="t-Form-label">GO Number</label>
+                <label for="Press_name" id="Press_name_LABEL">Press Name</label>
               </div>
-              <div class="t-Form-inputContainer col col-4">
-                <div class="t-Form-itemWrapper"><input type="text" pattern="^[0-9]{10}$" id="Go_number_input"
-                    name="Go_number" class="text_field&#x20;apex-item-text" value="" size="60" maxlength="10" />
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <textarea id="Press_name" class="form-control" rows="3" name="Press_name"
+                    class="text_field&#x20;apex-item-text" value="" size="70" maxlength="10"></textarea>
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Go_number_error_placeholder" class="a-Form-error"
+                  <span id="Press_name_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
+              id="Press_date">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_date" id="Press_date_LABEL">Date</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
+                    class="apex-item-text&#x20;apex-item-datepicker" name="P50_DATE_OF_FIR" size="30">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_date_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="pressLangugage" id="pressLangugage_LABEL">Language</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <div class="t-Form-itemWrapper">
+                    <select id="pressLangugage" name="pressLangugage" class="selectlist&#x20;apex-item-select"
+                      data-native-menu="false" size="1">
+                      <option value="" selected="selected">-Select-</option>
+                      <option value="en">English</option>
+                      <option value="ta">Tamil</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="pressLangugage_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -722,7 +750,7 @@
       <div class="t-Region-buttons-right float-end pad0">
         <button
           class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
-          id="uploadBtn"> Submit </button>
+          id="deleteBtn">Delete</button>
       </div>
       <div class="t-Region-buttons-right float-end pad0">
         <button
@@ -911,7 +939,8 @@
                   </ul>
                 </div>
                 <div class="t-BreadcrumbRegion-title">
-                  <h1 id="R34839297483869595_heading" class="t-BreadcrumbRegion-titleText" data-apex-heading>Breadcrumb
+                  <h1 id="R34839297483869595_heading" class="t-BreadcrumbRegion-titleText" data-apex-heading>
+                    Breadcrumb
                   </h1>
                 </div>
               </div>
@@ -1281,12 +1310,11 @@
 
       // });
       $('#preloader').hide();
+      let tableData;
+      let selectedId;
       const userId = localStorage.getItem("role_id");
       const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/pressRelease/viewPressReleaseReport";
       const tableBody = $("#pressReleaseTableBody");
-      // const state_customize_reportPayload = {
-      //     "id" : 2
-      // }
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
       $.ajax({
         url: apiUrl,
@@ -1298,7 +1326,7 @@
         //contentType: "application/json",
         //data: JSON.stringify(state_customize_reportPayload),
         success: function (response) {
-          const tableData = response.data;
+          tableData = response.data;
           tableBody.empty();
 
           if (!tableData || tableData.length === 0) {
@@ -1309,12 +1337,15 @@
           tableData.forEach(item => {
             const newRow = `
               <tr>
-              <td class="u-tL"><a id="open-modal-btn" href="javascript:void(0);"><i class="bi bi-pencil-square" id="open-modal-btn"></i></a></td>
-                <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
-                 <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
-                  <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.press_name) || 'N/A'}</td>
-                   <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
-                     <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_date) || 'N/A'}</td>
+              <td class="u-tL">   <a data-id="${item.id}" id="open-modal-btn" href="javascript:void(0);">
+        <i class="bi bi-pencil-square"></i>
+      </a></td>
+            
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.press_name) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_date) || 'N/A'}</td>
               </tr>`;
             tableBody.append(newRow);
           });
@@ -1325,13 +1356,78 @@
         }
       });
 
-      $('#open-modal-btn').on('click', async function () {
-        $("#modal").dialog("open");
+      $("#modal").dialog({
+        autoOpen: false,
+        modal: true,
+        closeOnEscape: true,
+        draggable: false,
+        width: 720,
+        resizable: false
+      });
+
+      // $("body").on("click", "#open-modal-btn", function () {
+      //   $("#modal").dialog("open");
+      // });
+
+      $("body").on("click", "#open-modal-btn", function () {
+        debugger
+        const pressId = $(this).data("id");
+        selectedId = $(this).data("id");
+        const selectedItem = tableData.find(item => item.id == pressId);
+
+        if (selectedItem) {
+          $("#Press_name").text(selectedItem.press_name || "");
+          $("#Press_date input").val(selectedItem.pr_date || "");
+          $("#pressLangugage").val(selectedItem.language || "").trigger("change");
+          $("#modal").dialog("open");
+        }
       });
 
       $(".close-button").on("click", function () {
         $("#modal").dialog("close");
       });
+
+      $("#deleteBtn").on("click", function () {
+        if (!selectedId) {
+          alert("No item selected for deletion.");
+          return;
+        }
+
+        if (confirm("Are you sure you want to delete this item?")) {
+          alert(selectedId)
+          deleteData(selectedId);
+        }
+      });
+
+      function deleteData(id) {
+        debugger
+        $('#preloader').show();
+        $.ajax({
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/pressRelease/deletePressReleaseForm`,
+          type: "POST",
+          dataType: "json",
+          contentType: "application/json",
+          data: JSON.stringify({
+            ID: id
+          }),
+          success: function (response) {
+            $('#preloader').hide();
+            if (response.success === 1) {
+              showSuccessToast("Data deleted successfully!");
+              location.reload();
+            } else {
+              showErrorToast("Error: " + response.message);
+            }
+          },
+          error: function (xhr, status, error) {
+            $('#preloader').hide();
+            console.error("AJAX Error:", error);
+            alert("Failed to delete data. Please try again.");
+          }
+        });
+      }
+
+
 
 
     });
