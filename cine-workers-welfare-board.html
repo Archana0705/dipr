@@ -209,9 +209,56 @@
       font-size: .9rem;
       }
       }
-      .first_image{
+      /* .first_image{
       position:
+      } */
+      #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
       }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
     </style>
     <link rel="stylesheet" href="r/dipr/103/files/theme/42/v87/10689188252099023.css" type="text/css" />
     <link rel="apple-touch-icon" href="r/dipr/103/files/static/v358/icons/app-icon-192.png" />
@@ -348,8 +395,8 @@
                                   <div class="layoutArea">
                                     <div class="column">
                                       <div title="Page 119" class="page">
-                                        <div class="layoutArea">
-                                          <div class="column">
+                                        <div class="layoutArea" id="cine_workers_responseContainer">
+                                          <!-- <div class="column">
                                             <p>&nbsp; &nbsp; &nbsp; &nbsp;Muthamizharignar Kalaignar informed that "several welfare boards were formed to safeguard the livelihood of labourers and welfare assistance was being provided to them" while speaking at the All India Cine workers conference on 09.10.2009. At that conference, he announced that a new Cine Workers Welfare Board would be formed for the welfare of Cine workers, including small screen workers, after considering the requests of the South Indian Artistes Association and the Tamil film industry.</p>
                                             <p>&nbsp; &nbsp; &nbsp; &nbsp;In continuation to his announcement, the Cine Workers Welfare Board was formed with the Minister for Information and Publicity as the President, the Director of Information and Public&nbsp;Relations Department as Member Secretary, and official and non-official members.</p>
                                             <div title="Page 120" class="page">
@@ -584,7 +631,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                          </div>
+                                          </div> -->
                                         </div>
                                       </div>
                                     </div>
@@ -696,6 +743,48 @@
       });
       });apex.pwa.publicKey = ''
       apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
+    </script>
+    <script>
+      $(document).ready(function () {
+        $('#preloader').hide();
+    
+          $(document).on({
+            ajaxStart: function () {
+              $('#preloader').show();
+              $("body").addClass("user_loading");
+            },
+            ajaxStop: function () {
+              $('#preloader').hide();
+              $("body").removeClass("user_loading");
+            }
+          });
+        function fetchData() {
+            $('#preloader').show();
+            $.ajax({
+              url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/cine_worker_welfare_board_desc",
+              type: "GET",
+              dataType: "json",
+              success: function (response) {
+                if (response.success === 1 && response.data.length > 0) {
+                  data = response.data;
+                  // currentPage = 1;
+                  // renderTable();
+                  const responseContainer = document.getElementById("cine_workers_responseContainer");
+                  responseContainer.innerHTML += data[0].get_cine_workers_welfare_board_description_welfare;
+                } else {
+                  $("#cine_workers_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
+                }
+              },
+              error: function () {
+                $("#cine_workers_responseContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+              },
+              complete: function () {
+                $('#preloader').hide();
+              }
+            });
+          }
+          fetchData();
+      })
     </script>
   </body>
 </html>
