@@ -237,17 +237,63 @@
         
         }
 
-        .first_image{
+        /* .first_image{
             position:
-        }
+        } */
 
-     
+        #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
 
 </style>
 
   <link rel="stylesheet" href="r/dipr/103/files/theme/42/v87/10689188252099023.css" type="text/css" />
-
+  <div id="preloader"></div>
   
   <link rel="stylesheet" href="%3Clink%20rel=%22stylesheet%22%20href=%22https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css%22%3E" type="text/css" />
 <style type="text/css">
@@ -360,12 +406,12 @@
 <div class="layoutArea">
 <div class="column">
 <div title="Page 62" class="page">
-<div class="layoutArea">
-<div class="column">
+<div class="layoutArea" id="social_media_responseContainer">
+<!-- <div class="column">
 <p>&nbsp; &nbsp; &nbsp; &nbsp;As per the guidance of the Hon’ble Chief Minister of Tamil Nadu, an announcement was made by Hon’ble Minister for Information and Publicity in the Tamil Nadu Legislative Assembly, during the Assembly session 2021–22 on 20.01.2022, and the ‘Social Media Section’ was created.</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;A separate Social Media Section had been created in the Department which deals with the updation of official Press Releases, news, achievements, photographs and programmes of the Hon’ble Chief Minister of Tamil Nadu on the Social Media platforms like Twitter, Instagram, Facebook and YouTube.</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;The Information regarding financial Budget and Agricultural Budget tabled this year had reached crores of people through SMS and Other Social Media Platform to their phone. We consider this a milestone for the Social Media Section with a greater pride.</p>
-</div>
+</div> -->
 </div>
 </div>
 </div>
@@ -550,6 +596,47 @@ apex.event.trigger(apex.gPageContext$,'apexreadyend');
 apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
 </script>
 
+<script>
+  $(document).ready(function () {
+    $('#preloader').hide();
 
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+    function fetchData() {
+        $('#preloader').show();
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/social_media_desc",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              // currentPage = 1;
+              // renderTable();
+              const responseContainer = document.getElementById("social_media_responseContainer");
+              responseContainer.innerHTML += data[0].get_social_media_description_social;
+            } else {
+              $("#social_media_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#social_media_responseContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      }
+      fetchData();
+  })
+</script>
 </body>
 </html>
