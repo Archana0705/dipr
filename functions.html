@@ -237,15 +237,61 @@
         
         }
 
-        .first_image{
+        /* .first_image{
             position:
-        }
+        } */
 
-     
+     \ #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
 
 </style>
-
+<div id="preloader"></div>
   <link rel="stylesheet" href="r/dipr/103/files/theme/42/v87/10689188252099023.css" type="text/css" />
 
   
@@ -351,8 +397,8 @@
 <div class="layoutArea">
 <div class="column">
 <div title="Page 36" class="page">
-<div class="layoutArea">
-<div class="column">
+<div class="layoutArea" id="fn_responseContainer">
+<!-- <div class="column">
 <p>&nbsp; &nbsp; &nbsp; &nbsp;The Government of Tamil Nadu celebrates the birth anniversaries and observes the death anniversaries of the leaders who fought for the freedom of our motherland India, the leaders worked towards the betterment of Tamil Nadu, the Tamil savants who contributed to our mother tongue which had gained classical language status in order to remember their ideals, principles and sacrifice to pass on the same to young generation.</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;Hon’ble Governor, Hon’ble Chief Minister, Hon’ble Ministers, Members of Parliament, Members of Legislative Assembly, Government officials and heirs of those leaders participate in these functions and pay respects to them by garlanding their statues and showering flower petals on their portraits. The Government also celebrates the birthday of the leaders and&nbsp;centenary celebrations, which are announced from time to time.</p>
 <div title="Page 37" class="page">
@@ -435,7 +481,7 @@
 </div>
 </div>
 </div>
-</div>
+</div> -->
 </div>
 </div>
 </div>
@@ -552,7 +598,48 @@ apex.event.trigger(apex.gPageContext$,'apexreadyend');
 });apex.pwa.publicKey = ''
 apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
 </script>
+<script>
+  $(document).ready(function () {
+    $('#preloader').hide();
 
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+    function fetchData() {
+        $('#preloader').show();
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/gov_fn_desc",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              // currentPage = 1;
+              // renderTable();
+              const responseContainer = document.getElementById("fn_responseContainer");
+              responseContainer.innerHTML += data[0].get_government_functions_description_gov_fun;
+            } else {
+              $("#fn_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#fn_responseContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      }
+      fetchData();
+  })
+</script>
 
 </body>
 </html>
