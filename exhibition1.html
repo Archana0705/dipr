@@ -372,7 +372,7 @@
             <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
                 class="selectlist apex-item-select" data-native-menu="false" size="1">
                 <option value="en">English</option>
-                <option value="ta" selected="selected">Tamil</option>
+                <option value="ta">Tamil</option>
               </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
               data-template-id="32751098700172723_ET"></span>
           </div>
@@ -733,6 +733,7 @@
               // currentPage = 1;
               // renderTable();
               const responseContainer = document.getElementById("exhi_responseContainer");
+              responseContainer.innerHTML = "";
               responseContainer.innerHTML += data[0].get_section_description_exhibition;
             } else {
               $("#exhi_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
@@ -747,15 +748,14 @@
         });
       }
       fetchData();
-
       document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
-
         const selectedValue = this.value;
-        alert(selectedValue);
         if (selectedValue === "en") {
           langSwitch = "en";
+          fetchData();
         } else {
           langSwitch = "ta";
+          fetchData();
         }
         // const targetElement = document.getElementById('interimDetails');
 
@@ -768,7 +768,7 @@
         // }
       });
     })
-
+    
   </script>
 </body>
 
