@@ -1006,80 +1006,141 @@
         }
       });
 
-      let allData = []; // Stores all data from API
-      let currentPage = 1;
-      const itemsPerPage = 2; // Number of items per page
-
-      function renderTable(page) {
-        $('#table-body').empty();
-        let start = (page - 1) * itemsPerPage;
-        let end = start + itemsPerPage;
-        let paginatedItems = allData.slice(start, end);
-
-        paginatedItems.forEach(item => {
-          const row = `<tr>
-                            <td class="t-Report-cell" headers="ATTACHMENT_NAME">
-                                <a href="#" onclick="alert('Clicked on ${item.press_name}')">${item.press_name}</a>
-                            </td>
-                        </tr>`;
-          $('#table-body').append(row);
-        });
-
-        renderPagination();
-      }
-
-      function renderPagination() {
-        $('#pagination').empty();
-        let totalPages = Math.ceil(allData.length / itemsPerPage);
-
-        // Previous Button
-        $('#pagination').append(
-          `<a href="#" class="${currentPage === 1 ? 'disabled' : ''}" onclick="changePage(${currentPage - 1})">Previous</a>`
-        );
-
-        // Page Numbers
-        for (let i = 1; i <= totalPages; i++) {
-          $('#pagination').append(
-            `<a href="#" class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</a>`
-          );
-        }
-
-        // Next Button
-        $('#pagination').append(
-          `<a href="#" class="${currentPage === totalPages ? 'disabled' : ''}" onclick="changePage(${currentPage + 1})">Next</a>`
-        );
-      }
-
-      function changePage(page) {
-        let totalPages = Math.ceil(allData.length / itemsPerPage);
-        if (page < 1 || page > totalPages) return; // Prevent out-of-bound pages
-        currentPage = page;
-        renderTable(currentPage);
-      }
-
-      function fetchData() {
-        $.ajax({
-          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/daily_updates`,
-          method: 'GET',
-          success: function (response) {
-            if (response.success === 1) {
-              allData = response.data;
-              renderTable(currentPage);
-            } else {
-              console.error('Error:', response.message);
-            }
-          },
-          error: function (xhr, status, error) {
-            console.error('AJAX Error:', error);
+      $.ajax({
+        url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/about_us',
+        type: 'GET',
+        success: function (response) {
+          if (response.success === 1) {
+            let content = '';
+            response.data.forEach(item => {
+              content += `<p style="margin-bottom: 6.6pt; line-height: 106%; text-align: justify;" class="MsoNormal">
+                            ${item.description}
+                        </p>`;
+            });
+            $('#R11556983055391229').html(content);
+          } else {
+            $('#R11556983055391229').html('<p>Error retrieving data.</p>');
           }
-        });
-      }
-
-      $(document).ready(function () {
-        fetchData();
+        },
+        error: function (xhr, status, error) {
+          console.error('Error:', error);
+          $('#R11556983055391229').html('<p>Failed to load content.</p>');
+        }
       });
 
+      $(document).ready(function () {
+        const apis = [
+          {
+            url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/corporation",
+            tableBodyId: "#corporationTableBody",
+            paginationInfoId: "#corporationPageInfo",
+            prevPageBtn: "#corporationPrevPage",
+            nextPageBtn: "#corporationNextPage",
+          },
+          {
+            url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/headquarters_data",
+            tableBodyId: "#headQuartersTableBody",
+            paginationInfoId: "#headQuartersPageInfo",
+            prevPageBtn: "#headQuartersPrevPage",
+            nextPageBtn: "#headQuartersNextPage",
+          },
+          {
+            url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/district_data",
+            tableBodyId: "#districtTableBody",
+            paginationInfoId: "#districtPageInfo",
+            prevPageBtn: "#districtPrevPage",
+            nextPageBtn: "#districtNextPage",
+          },
+        ];
+
+        const rowsPerPage = 5; // Items per page
+
+        apis.forEach((api) => fetchData(api));
+
+        function fetchData(api) {
+          let currentPage = 1;
+          let data = [];
+
+          $('#preloader').show(); // Show loader during fetch
+
+          $.ajax({
+            url: api.url,
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+              if (response.success === 1 && response.data.length > 0) {
+                data = response.data;
+                renderTable(data, currentPage, api);
+              } else {
+                $(api.tableBodyId).html("<tr><td colspan='3'>No data available</td></tr>");
+              }
+            },
+            error: function () {
+              $(api.tableBodyId).html("<tr><td colspan='3'>Error fetching data</td></tr>");
+            },
+            complete: function () {
+              $('#preloader').hide(); // Hide loader after fetch completes
+            },
+          });
+
+          // Render table with pagination
+          function renderTable(data, currentPage, api) {
+            $('#preloader').show();
+
+
+            let startIndex = (currentPage - 1) * rowsPerPage;
+            let paginatedData = data.slice(startIndex, startIndex + rowsPerPage);
+
+            let rows = paginatedData.map((item) => {
+              let extraColumn = "";
+
+              // Check if the current API is the third one
+              if (api.tableBodyId === "#districtTableBody" && item.district) {
+                extraColumn = `<td class="t-Report-cell">${item.district || "N/A"}</td>`;
+              }
+
+              return `
+              <tr>
+                ${extraColumn} 
+                <td class="t-Report-cell">${item.name || "N/A"}</td>
+                <td class="t-Report-cell">${item.designation || "N/A"}</td>
+                <td class="t-Report-cell">${item.phone || "N/A"}</td>
+                
+              </tr>`;
+            }).join("");
+
+            $(api.tableBodyId).html(rows);
+            updatePagination(data.length, currentPage, api);
+
+            $('#preloader').hide();
+          }
+
+          // Update pagination controls
+          function updatePagination(totalItems, currentPage, api) {
+            let totalPages = Math.ceil(totalItems / rowsPerPage);
+            $(api.paginationInfoId).text(`Page ${currentPage} of ${totalPages}`);
+
+            $(api.prevPageBtn).toggleClass("disabled", currentPage === 1);
+            $(api.nextPageBtn).toggleClass("disabled", currentPage === totalPages);
+
+            $(api.prevPageBtn).off("click").on("click", function () {
+              if (currentPage > 1) {
+                currentPage--;
+                renderTable(data, currentPage, api);
+              }
+            });
+
+            $(api.nextPageBtn).off("click").on("click", function () {
+              if (currentPage < totalPages) {
+                currentPage++;
+                renderTable(data, currentPage, api);
+              }
+            });
+          }
+        }
+      });
     });
+
   </script>
 </body>
 
