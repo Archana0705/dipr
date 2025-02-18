@@ -238,11 +238,57 @@
         
         }
 
-        .first_image{
+        /* .first_image{
             position:
-        }
+        } */
 
-     
+        #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
 
 </style>
@@ -263,6 +309,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <div id="preloader"></div>
 </head>
 <body class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"   id="t_PageBody">
 <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
@@ -352,8 +399,8 @@
 <div class="layoutArea">
 <div class="column">
 <div title="Page 63" class="page">
-<div class="layoutArea">
-<div class="column">
+<div class="layoutArea" id="tn_film_responseContainer">
+<!-- <div class="column">
 <p><span style="color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp;Tamil Nadu Films Division provides video coverage of all functions attended by the Hon’ble Chief Minister, Hon’ble Ministers, important dignitatrie, the proceedings of the Tamil Nadu Legislative Assembly, other Government programmes and also create awareness among the public regarding the welfare schemes announced by the Government.</span></p>
 <p><span style="color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp;All the video recordings of the various programmes which are done by Films division are sent as press clippings through the Tamil Nadu Films Division social media handles which is broadcasted throughout Tamil Nadu and is universally accessible to people around the world.</span></p>
 <p><span style="color: rgb(0, 0, 0);">&nbsp; &nbsp; &nbsp; &nbsp;The important Government Programmes are compiled as video news magazines with commentary and background music and sent to Arasu Cable TV, all District Information and Public Relations offices to be screened on LED screens, and on social media to create public awareness.</span></p>
@@ -384,7 +431,7 @@
 </div>
 </div>
 </div>
-</div>
+</div> -->
 </div>
 </div>
 </div>
@@ -501,7 +548,48 @@ apex.event.trigger(apex.gPageContext$,'apexreadyend');
 });apex.pwa.publicKey = ''
 apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
 </script>
+<script>
+  $(document).ready(function () {
+    $('#preloader').hide();
 
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+    function fetchData() {
+        $('#preloader').show();
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/tn_film_division_desc",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              // currentPage = 1;
+              // renderTable();
+              const responseContainer = document.getElementById("tn_film_responseContainer");
+              responseContainer.innerHTML += data[0].get_tamil_nadu_film_division_description_film;
+            } else {
+              $("#tn_film_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#tn_film_responseContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      }
+      fetchData();
+  })
+</script>
 
 </body>
 </html>
