@@ -15,6 +15,53 @@
     <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
     <link rel="icon" href="assets/img/app-icon-32.png">
     <style type="text/css">
+       #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      overflow: hidden;
+      background: #12121261;
+      /*width: 57%;*/
+      border-radius: 13px 35px;
+    }
+
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(53% - 30px);
+      border: 6px solid #f92020b8;
+      border-top-color: #e2eefd;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      -webkit-animation: animate-preloader 1s linear infinite;
+      animation: animate-preloader 1s linear infinite;
+      z-index: 9999;
+    }
+
+    @-webkit-keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
       @font-face {
           font-family: 'FontApex';
           src: url('../font/apex-5-icon-font.woff2') format('woff2'),
@@ -237,9 +284,9 @@
         
         }
 
-        .first_image{
+        /* .first_image{
             position:
-        }
+        } */
 
      
 
@@ -259,7 +306,7 @@
 <meta name="apple-mobile-web-app-title" content="Info&#x26;PRDept" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <link rel="manifest" href="&#x2F;ords&#x2F;r&#x2F;dipr&#x2F;info-prdept103&#x2F;manifest.json&#x3F;v&#x3D;24.1.1-41853896899929&#x26;lang&#x3D;en" crossorigin="use-credentials" />
-
+<div id="preloader"></div>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -351,8 +398,8 @@
 <div class="layoutArea">
 <div class="column">
 <div title="Page 115" class="page">
-<div class="layoutArea">
-<div class="column">
+<div class="layoutArea" id="journalist_responseContainer">
+<!-- <div class="column">
 <p>&nbsp; &nbsp; &nbsp; &nbsp;As per the guidance of the Hon’ble Chief Minister, an announcement was made by Hon’ble Minister for Information and Publicity in the Tamil Nadu Legislative Assembly, during the Assembly session 2021–22 on 06.09.2021, regarding the formation of a Journalist Welfare Board.</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;Accordingly, a Journalist Welfare Board has been constituted and the funds are determined to provide welfare assistance for various welfare schemes.</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;The Hon’ble Chief Minister has honoured the working journalists in Tamil Nadu by announcing them as front line workers for the first time, as a recognition to the selfless work rendered by them during the COVID pandemic.</p>
@@ -429,7 +476,7 @@
 </div>
 </div>
 </div>
-</div>
+</div> -->
 </div>
 </div>
 </div>
@@ -544,7 +591,48 @@ apex.event.trigger(apex.gPageContext$,'apexreadyend');
 });apex.pwa.publicKey = ''
 apex.pwa.init( { serviceWorkerPath:'\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' } );
 </script>
+<script>
+  $(document).ready(function () {
+    $('#preloader').hide();
 
+      $(document).on({
+        ajaxStart: function () {
+          $('#preloader').show();
+          $("body").addClass("user_loading");
+        },
+        ajaxStop: function () {
+          $('#preloader').hide();
+          $("body").removeClass("user_loading");
+        }
+      });
+    function fetchData() {
+        $('#preloader').show();
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/journalist_welfare_board_desc",
+          type: "GET",
+          dataType: "json",
+          success: function (response) {
+            if (response.success === 1 && response.data.length > 0) {
+              data = response.data;
+              // currentPage = 1;
+              // renderTable();
+              const responseContainer = document.getElementById("journalist_responseContainer");
+              responseContainer.innerHTML += data[0].get_journalist_welfare_board_description_journalist;
+            } else {
+              $("#journalist_responseContainer").html("<tr><td colspan=''>No data available</td></tr>");
+            }
+          },
+          error: function () {
+            $("#journalist_responseContainer").html("<tr><td colspan='3'>Error fetching data</td></tr>");
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      }
+      fetchData();
+  })
+</script>
 
 </body>
 </html>
