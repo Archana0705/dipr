@@ -1,1 +1,29 @@
+
+
+<div class="t-Form-inputContainer col col-null">
+  <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
+      class="selectlist apex-item-select" data-native-menu="false" size="1">
+      <option value="en">English</option>
+      <option value="ta">Tamil</option>
+    </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
+    data-template-id="32751098700172723_ET"></span>
+</div>
+
+
+var langSwitch = 'en';
+
+?lang=${langSwitch}
+
 responseContainer.innerHTML = "";
+
+document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
+  const selectedValue = this.value;
+  if (selectedValue === "en") {
+    langSwitch = "en";
+    fetchData();
+  } else {
+    langSwitch = "ta";
+    fetchData();
+  }
+});
+
