@@ -656,11 +656,17 @@
                                                         <div class="t-Region-buttons-left"><button
                                                                 class="t-Button t-Button--hot js-ignoreChange"
                                                                 type="button" id="B40914548286460140"><span
-                                                                    class="t-Button-label">Cancel</span></button></div>
+                                                                    class="t-Button-label">Cancel</span></button>
+                                                            <button
+                                                                class="delBtn t-Button t-Button--hot js-ignoreChange"
+                                                                type="button" id="B40914548286460140"><span
+                                                                    class="t-Button-label">Delete</span></button>
+                                                        </div>
                                                         <div class="t-Region-buttons-right"><button
                                                                 class="t-Button t-Button--hot " type="button"
                                                                 id="createBtn" onclick="registerNewData()"><span
-                                                                    class="t-Button-label">Create</span></button></div>
+                                                                    class="t-Button-label createSaveBTn">Create</span></button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -854,6 +860,7 @@
 
         $(document).ready(function () {
             debugger
+            $('.delBtn').hide();
             $('#preloader').hide();
             $(document).on({
                 ajaxStart: function () {
@@ -939,6 +946,11 @@
                     console.error('Error:', error);
                     showErrorToast("An unexpected error occurred.");
                 }
+            }
+            let params = window.location.search.substring(1);
+            if (params === 'editScreen') {
+                $('.createSaveBTn').text('Save');
+                $('.delBtn').show();
             }
         })
 
