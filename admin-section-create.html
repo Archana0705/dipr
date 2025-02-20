@@ -789,16 +789,6 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            ClassicEditor.create(document.querySelector("#P90_DESCRIPTION_1"))
-                .then(editor => {
-                    console.log("Editor initialized", editor);
-                })
-                .catch(error => console.error("CKEditor Error:", error));
-        });
-    </script>
-
-    <script>
         let editorInstance;
 
         ClassicEditor.create(document.querySelector("#P90_DESCRIPTION_1"))
