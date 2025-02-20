@@ -33,6 +33,18 @@
         type="text/css" />
 
     <style type="text/css">
+        .toast-container {
+            right: 0.5%;
+        }
+
+        #successToast {
+            background: #198754 !important;
+        }
+
+        #errorToast {
+            background: #ff0000 !important;
+        }
+
         #engSecContent tr td {
             text-align: left !important;
         }
@@ -793,11 +805,42 @@
 
         ClassicEditor.create(document.querySelector("#P90_DESCRIPTION_1"))
             .then(editor => {
-                editorInstance = editor; // Store the editor instance
+                editorInstance = editor;
             })
             .catch(error => console.error("CKEditor Error:", error));
     </script>
+
     <script>
+        function showSuccessToast(message) {
+            const toastElement = document.getElementById('successToast');
+            const toastBody = document.getElementById('successMessage');
+
+            // Set the dynamic message
+            toastBody.textContent = message;
+
+            // Initialize and show the toast
+            const toast = new bootstrap.Toast(toastElement, {
+                autohide: true,
+                delay: 3000
+            });
+            toast.show();
+        }
+        // Function to show a error toast with a dynamic message
+        function showErrorToast(message) {
+            const toastElement = document.getElementById('errorToast');
+            const toastBody = document.getElementById('errorMessage');
+
+            // Set the dynamic message
+            toastBody.textContent = message;
+
+            // Initialize and show the toast
+            const toast = new bootstrap.Toast(toastElement, {
+                autohide: true,
+                delay: 3000
+            });
+            toast.show();
+        }
+
         $(document).ready(function () {
             debugger
             $('#preloader').hide();
@@ -819,10 +862,18 @@
             const userId = localStorage.getItem("role_id");
 
             $("#createBtn").on("click", function () {
+
                 registerNewData();
             });
             async function registerNewData() {
                 debugger
+                if (editorInstance) {
+                    let editorData = editorInstance.getData();
+                    $("#output").html(editorData);
+                    console.log("CKEditor Data:", editorData);
+                } else {
+                    console.error("CKEditor is not initialized yet!");
+                }
                 function convertDateFormat(dateString) {
                     if (dateString === "") {
                         return "";
@@ -835,7 +886,7 @@
                 try {
                     var sectionName = document.getElementById('sectionName').value || "";
                     var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
-                    var richText = CKEDITOR.instances.P90_DESCRIPTION_1.getData();
+                    let editorData = editorInstance.getData();
 
                     // if (pressDate) {
                     //     var dateObj = new Date(pressDate);
@@ -845,19 +896,19 @@
                     //     pressDate = formattedDate;
                     // }
 
-                    var registrationPayload = {
+                    var sectionPayload = {
                         "p_ID": 123,
                         "V_NAME": sectionName,
-                        "V_DESC": "Latest updates on tech policies",
+                        "V_DESC": editorData,
                         "Current_User": "admin_user",
                         "LANGUAGE": pressLangugage,
-                        "PRESS_FILE": richText
+
                     };
 
                     return;
 
                     await $.ajax({
-                        url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/pressReleases/InsertPressReleaseForm',
+                        url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/insertStaticContentForm',
                         type: 'POST',
                         contentType: 'application/json',
                         data: JSON.stringify(registrationPayload),
