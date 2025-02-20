@@ -295,6 +295,32 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Toast -->
+    <div class="toast-container position-fixed p-3 custom_toast" x-data="transButtonComponent()">
+        <div id="errorToast" class="toast align-items-center text-bg-primary border-0 " role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <p id="errorMessage" class="mb-0"></p>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+        <div id="successToast" class="toast align-items-center text-bg-primary border-0 " role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <p id="successMessage" class="mb-0"></p>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+    <!-- Toast -->
+
+    <div id="preloader"></div>
 </head>
 
 <body
@@ -394,90 +420,75 @@
                 <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
                     <ul>
                         <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut=""
-                            data-icon=""><a class="a-MenuBar-label"
-                                href="/ords/r/dipr/info-prdept103/home?session=607396044452426" title=""
-                                target="">Home</a></li>
+                            data-icon=""><a class="a-MenuBar-label" href="../index.html" title="" target="">Home</a>
+                        </li>
                         <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut=""
-                            data-icon=""><a class="a-MenuBar-label"
-                                href="/ords/r/dipr/info-prdept103/about_page?session=607396044452426" title=""
-                                target="">About Us</a></li>
+                            data-icon=""><a class="a-MenuBar-label" href="../about_page.html" title="" target="">About
+                                Us</a></li>
                         <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut=""
-                            data-icon=""><a class="a-MenuBar-label"
-                                href="/ords/r/dipr/info-prdept103/gallery1?session=607396044452426" title=""
-                                target="">Photo &#x2F; Video</a></li>
+                            data-icon=""><a class="a-MenuBar-label" href="../gallery1.html" title="" target="">Photo
+                                &#x2F; Video</a></li>
                         <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut=""
-                            data-icon=""><a class="a-MenuBar-label"
-                                href="/ords/r/dipr/info-prdept103/press-release1?session=607396044452426" title=""
+                            data-icon=""><a class="a-MenuBar-label" href="../press-release1.html" title=""
                                 target="">Press Release &#x2F; Press Note</a></li>
                         <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut=""
-                            data-icon=""><a class="a-MenuBar-label"
-                                href="/ords/r/dipr/info-prdept103/government-orders?session=607396044452426" title=""
+                            data-icon=""><a class="a-MenuBar-label" href="../government-orders.html" title=""
                                 target="">Government Orders</a></li>
                         <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut=""
-                            data-icon=""><a class="a-MenuBar-label"
-                                href="/ords/r/dipr/info-prdept103/sections?session=607396044452426" title=""
+                            data-icon=""><a class="a-MenuBar-label" href="../sections.html" title=""
                                 target="">Sections</a></li>
                         <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut=""
-                            data-icon=""><a class="a-MenuBar-label"
-                                href="/ords/r/dipr/info-prdept103/download-forms?session=607396044452426" title=""
+                            data-icon=""><a class="a-MenuBar-label" href="../download-forms.html" title=""
                                 target="">Download Forms</a></li>
                         <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut=""
-                            data-icon=""><a class="a-MenuBar-label"
-                                href="/ords/r/dipr/info-prdept103/google-sheets-report?session=607396044452426" title=""
+                            data-icon=""><a class="a-MenuBar-label" href="../admin-google-sheets.html" title=""
                                 target="">Google Sheets - Report</a></li>
                         <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut=""
-                            data-icon=""><a class="a-MenuBar-label"
-                                href="/ords/r/dipr/info-prdept103/administration?session=607396044452426" title=""
-                                target="">Administration</a>
+                            data-icon=""><a class="a-MenuBar-label" href="" title="" target="">Administration</a>
                             <ul style="display: none">
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/photo-upload?session=607396044452426" title=""
-                                        target="">Photo&#x2F;Video Upload</a></li>
+                                        href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
+                                </li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/press-release?session=607396044452426"
-                                        title="" target="">Upload Press Release</a></li>
+                                        href="../admin-press-release.html" title="" target="">Upload Press Release</a>
+                                </li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/sections-content?session=607396044452426"
-                                        title="" target="">Sections Content</a></li>
+                                        href="../admin-section-content.html" title="" target="">Sections Content</a>
+                                </li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/goverment-orders?session=607396044452426"
-                                        title="" target="">Upload Government Orders</a></li>
+                                        href="../admin-goverment-orders.html" title="" target="">Upload Government
+                                        Orders</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/sections-data-report?session=607396044452426"
-                                        title="" target="">Sections Data Report</a></li>
+                                        href="../admin-sections-data-report.html" title="" target="">Sections Data
+                                        Report</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/forms-report?session=607396044452426" title=""
-                                        target="">Forms Report</a></li>
+                                        href="../admin-forms-report.html" title="" target="">Forms Report</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/memorial-video-report?session=607396044452426"
-                                        title="" target="">memorial_video_report</a></li>
+                                        href="../admin-memorial-video-report.html" title=""
+                                        target="">memorial_video_report</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/monuments?session=607396044452426" title=""
-                                        target="">Monuments</a></li>
+                                        href="../admin-monuments.html" title="" target="">Monuments</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/arangams?session=607396044452426" title=""
-                                        target="">Arangams</a></li>
+                                        href="../admin-arangams.html" title="" target="">Arangams</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/commemoration-pillars?session=607396044452426"
-                                        title="" target="">Commemoration Pillars</a></li>
+                                        href="../admin-commemoration-pillars.html" title="" target="">Commemoration
+                                        Pillars</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/commemoration-arch1?session=607396044452426"
-                                        title="" target="">Commemoration Arch</a></li>
+                                        href="../admin-commemoration-arch.html" title="" target="">Commemoration
+                                        Arch</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/department-pictures?session=607396044452426"
-                                        title="" target="">Department Pictures</a></li>
+                                        href="../admin-department-pictures.html" title="" target="">Department
+                                        Pictures</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/department-details?session=607396044452426"
-                                        title="" target="">Department Details</a></li>
+                                        href="../admin-department-details.html" title="" target="">Department
+                                        Details</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/conclusion-photos?session=607396044452426"
-                                        title="" target="">Conclusion_Photos</a></li>
+                                        href="../admin-conclusion-photos.html" title="" target="">Conclusion_Photos</a>
+                                </li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/google-sheets?session=607396044452426"
-                                        title="" target="">Google Sheets</a></li>
+                                        href="../admin-google-sheets.html" title="" target="">Google Sheets</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                                        href="/ords/r/dipr/info-prdept103/press-notes?session=607396044452426" title=""
-                                        target="">Upload Press Note</a></li>
+                                        href="../admin-press-notes.html" title="" target="">Upload Press Note</a></li>
                                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
                                         href="/ords/r/dipr/info-prdept103/add-district-pros?session=607396044452426"
                                         title="" target="">Add User</a></li>
@@ -485,7 +496,7 @@
                                         href="/ords/r/dipr/info-prdept103/navigation-list-entry?session=607396044452426"
                                         title="" target="">Navigation Menu Report</a></li>
                             </ul>
-                        </li>
+                        </li>   
                     </ul>
                 </div>
             </div>
