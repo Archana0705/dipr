@@ -715,7 +715,7 @@
             value="UDkwX0lEXzE6UDkwX0NSRUFURURfQlk6UDkwX0NSRUFURURfT046UDkwX1VQREFU.,RURfQlk6UDkwX1VQREFURURfT04&#x2F;Odp1t3oOYnyRGW0Obdg7mD1ocThm7PUfUBr4aRqekloCR0QmfG-jCkZaGgr-nN-GbDXjPapUzWWqE-qePLexiA" />
     </form>
 
-
+    <script src="../assets/js/crypto-js.min.js"></script>
     <script>
         var apex_img_dir = "https:\u002F\u002Fstatic.oracle.com\u002Fcdn\u002Fapex\u002F24.1.7\u002F";
         var apex = {
@@ -873,6 +873,7 @@
         }
 
         $(document).ready(function () {
+            var params;
             debugger
             $('.delBtn').hide();
             $('#preloader').hide();
@@ -960,8 +961,29 @@
                     showErrorToast("An unexpected error occurred.");
                 }
             }
-            let params = window.location.search.substring(1);
-            if (params === 'editScreen') {
+            params = window.location.search.substring(1);
+            if (params) {
+                debugger;
+                let decryptedData;
+                const secretKey = 'V7gN4dY8pT2xB3kRz';
+                const dataFromParams = CryptoJS.AES.decrypt(params, secretKey);
+                decryptedData = dataFromParams.toString(CryptoJS.enc.Utf8);
+                const paramObject = JSON.parse(decryptedData);
+                //$('#sectionName').find('option[value=""]').remove();
+                $('#sectionName').append($('<option>', {
+                    value: paramObject.sections_name,
+                    text: paramObject.sections_name,
+                    selected: true
+                }));
+                $('#pressCreateLangugage').append($('<option>', {
+                    value: paramObject.language,
+                    text: paramObject.language,
+                    selected: true
+                }));
+                var desc = paramObject.description;
+                if (CKEDITOR.instances['P90_DESCRIPTION_1']) {
+                    CKEDITOR.instances['P90_DESCRIPTION_1'].setData(desc);
+                }
                 $('.createSaveBTn').text('Save');
                 $('.delBtn').show();
             }
