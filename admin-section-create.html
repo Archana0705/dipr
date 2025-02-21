@@ -673,6 +673,10 @@
                                                                 class="t-Button t-Button--hot " type="button"
                                                                 id="createBtn" onclick="registerNewData()"><span
                                                                     class="t-Button-label createSaveBTn">Create</span></button>
+                                                            <button class="t-Button t-Button--hot " type="button"
+                                                                id="updateBtn""><span
+                                                                        class=" t-Button-label
+                                                                updateBtn">Save</span></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -874,6 +878,7 @@
 
         $(document).ready(function () {
             var params;
+            var paramObject;
             debugger
             $('.delBtn').hide();
             $('#preloader').hide();
@@ -930,7 +935,7 @@
                     // }
 
                     var sectionPayload = {
-                        "p_ID": 2211,
+                        "p_ID": 10011,
                         "V_NAME": sectionName,
                         "V_DESC": editorData,
                         "Current_User": "admin_user",
@@ -968,7 +973,7 @@
                 const secretKey = 'V7gN4dY8pT2xB3kRz';
                 const dataFromParams = CryptoJS.AES.decrypt(params, secretKey);
                 decryptedData = dataFromParams.toString(CryptoJS.enc.Utf8);
-                const paramObject = JSON.parse(decryptedData);
+                paramObject = JSON.parse(decryptedData);
                 //$('#sectionName').find('option[value=""]').remove();
                 $('#sectionName').append($('<option>', {
                     value: paramObject.sections_name,
@@ -981,12 +986,58 @@
                     selected: true
                 }));
                 var desc = paramObject.description;
-                if (CKEDITOR.instances['P90_DESCRIPTION_1']) {
-                    CKEDITOR.instances['P90_DESCRIPTION_1'].setData(desc);
-                }
-                $('.createSaveBTn').text('Save');
+                editorInstance.setData(desc);
+                $('#createBtn').hide();
                 $('.delBtn').show();
             }
+
+            $('.updateBtn').on('click', function () {
+                debugger;
+                const setId = paramObject.id;
+                const sectionName = $('#sectionName').val();
+                const description = editorInstance.getData();
+                const lang = $('#pressCreateLangugage').val();
+                const updatePayload = {
+                    "p_ID": setId,
+                    "SECTIONS_NAME": sectionName,
+                    "DESCRIPTION": description,
+                    "UPDATED_BY": "paramObject.updated_by",
+                    "LANGUAGE": lang
+                };
+                $.ajax({
+                    url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/updateStaticContentForm',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(updatePayload),
+                    success: function (response) {
+                        showSuccessToast("Updated Successfully");
+                        setTimeout(() => window.location.href = "../admin-section-content.html", 1000);
+                    },
+                    error: function (error) {
+                        showErrorToast("An error occurred during submission of data.");
+                    }
+                });
+            })
+
+            $('.delBtn').on('click', function () {
+                const setId = paramObject.id;
+                const DeletePayload = {
+                    "p_ID": setId
+                };
+                $.ajax({
+                    url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/deleteStaticContentForm',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(DeletePayload),
+                    success: function (response) {
+                        showSuccessToast("Deleted Successfully");
+                        setTimeout(() => window.location.href = "../admin-section-content.html", 1000);
+                    },
+                    error: function (error) {
+                        showErrorToast("An error occurred during submission of data.");
+                    }
+                });
+            })
         })
 
     </script>
