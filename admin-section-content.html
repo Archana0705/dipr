@@ -1143,6 +1143,7 @@
 				}
 			});
 			var tableDataEn;
+			var tableDataTa;
 			var selectedId;
 			$("#createNewBtn").on("click", function () {
 				window.location.href = "../admin-section-create.html"
@@ -1154,16 +1155,16 @@
 				url: apiUrlTa,
 				method: "POST",
 				success: function (response) {
-					const tableData = response.data;
+					tableDataTa = response.data;
 					tableBodyTa.empty();
-					if (!tableData || tableData.length === 0) {
+					if (!tableDataTa || tableDataTa.length === 0) {
 						tableBodyTa.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
 						return;
 					}
-					tableData.forEach(item => {
+					tableDataTa.forEach(item => {
 						const newRow = `
               <tr>
-              <td class="u-tL"><a id="open-modal-btn" href="javascript:void(0);"><i class="bi bi-pencil-square" id="open-modal-btn"></i></a></td>
+              <td class="u-tL"><a data-lang="TA" data-id="${item.id}" id="editIconClickEn" href="javascript:void(0);"><i class="bi bi-pencil-square"></i></a></td>
                 <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.sections_name) || 'N/A'}</td>
                  <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
                   <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.description) || 'N/A'}</td>
@@ -1217,9 +1218,15 @@
 			$("body").on("click", "#editIconClickEn", function (e) {
 				debugger;
 				e.preventDefault();
+				let selectedItem;
+				const dataLang = $(this).data("lang");
 				const editId = $(this).data("id");
 				selectedId = $(this).data("id");
-				const selectedItem = tableDataEn.find(item => item.id == editId);
+				if (dataLang === "TA") {
+					selectedItem = tableDataTa.find(item => item.id == editId);
+				} else {
+					selectedItem = tableDataEn.find(item => item.id == editId);
+				}
 				const secretKey = 'V7gN4dY8pT2xB3kRz';
 				let encryptedData = CryptoJS.AES.encrypt(JSON.stringify(selectedItem), secretKey).toString();
 				window.location.href = `../admin-section-create.html?${encryptedData}`;
