@@ -566,11 +566,13 @@
                                                                             <select id="sectionName" name="sectionName"
                                                                                 class="form-select form-control-sm w-50"
                                                                                 data-native-menu="false" size="1">
-                                                                                <option value="" selected="selected">
+                                                                                <option value="">
                                                                                     -Select-</option>
                                                                                 <option
                                                                                     value="Cine Workers Welfare Board">
                                                                                     Cine Workers Welfare Board</option>
+                                                                                <option value="Introduction">
+                                                                                    Introduction</option>
                                                                                 <option value="Conclusion">Conclusion
                                                                                 </option>
                                                                                 <option value="Exhibition">Exhibition
@@ -623,7 +625,7 @@
                                                                                 name="pressCreateLangugage"
                                                                                 class="form-select form-control-sm w-50"
                                                                                 data-native-menu="false" size="1">
-                                                                                <option value="" selected="selected">
+                                                                                <option value="">
                                                                                     -Select-</option>
                                                                                 <option value="en">English</option>
                                                                                 <option value="ta">Tamil</option>
@@ -973,17 +975,20 @@
                 const dataFromParams = CryptoJS.AES.decrypt(params, secretKey);
                 decryptedData = dataFromParams.toString(CryptoJS.enc.Utf8);
                 paramObject = JSON.parse(decryptedData);
-                //$('#sectionName').find('option[value=""]').remove();
-                $('#sectionName').append($('<option>', {
-                    value: paramObject.sections_name,
-                    text: paramObject.sections_name,
-                    selected: true
-                }));
-                $('#pressCreateLangugage').append($('<option>', {
-                    value: paramObject.language,
-                    text: paramObject.language,
-                    selected: true
-                }));
+                $('#sectionName option').each(function () {
+                    if ($(this).val() === paramObject.sections_name) {
+                        $(this).prop('selected', true);
+                    } else {
+                        $(this).prop('selected', false);
+                    }
+                });
+                $('#pressCreateLangugage option').each(function () {
+                    if ($(this).val() === paramObject.language) {
+                        $(this).prop('selected', true);
+                    } else {
+                        $(this).prop('selected', false);
+                    }
+                });
                 var desc = paramObject.description;
                 editorInstance.setData(desc);
                 $('#createBtn').hide();
