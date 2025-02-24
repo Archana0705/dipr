@@ -720,15 +720,28 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="Press_name" id="Press_name_LABEL">Order Name</label>
+                <label for="orderFile" id="orderFile_LABEL">Order Name</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <textarea id="Press_name" class="form-control" rows="3" name="Press_name"
-                    class="text_field&#x20;apex-item-text" value="" size="70" maxlength="10" readonly></textarea>
+                  <a-file-upload id="orderFileUpload" name="orderFileUpload" upload-type="FILE" display-style="NATIVE"
+                    accept=".pdf,.jpg,.jpeg" size="30" max-file-size="2048">
+                    <input type="file" id="orderFileUpload_input" name="orderFileUpload"
+                      class="text_field&#x20;apex-item-text" value="" maxlength="1000" />
+                    <div class="a-FileDrop a-FileDrop--native">
+                    </div>
+                  </a-file-upload>
+
+                </div>
+                <div class="t-Form-inputContainer col col-12">
+                  <div class="t-Form-itemWrapper" id="P86_INTERIM_COPY_LINK_CONTAINER">
+                    <!-- Download link will be injected dynamically -->
+                  </div>
+                  <span id="P86_INTERIM_COPY_error_placeholder" class="a-Form-error"
+                    data-template-id="333363771109036567_ET"></span>
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Press_name_error_placeholder" class="a-Form-error"
+                  <span id="orderFile_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -1452,107 +1465,6 @@
 
       // });
       $('#preloader').hide();
-      function formatDate(dateString) {
-        if (!dateString) return 'N/A';
-        let date = new Date(dateString);
-        return date.toLocaleDateString('en-GB'); // Formats as dd/MM/yyyy
-      }
-
-      $(document).ready(function () {
-        $("td.a-GV-cell").each(function () {
-          let text = $(this).text().trim();
-          if (text && text !== 'N/A' && !isNaN(Date.parse(text))) {
-            $(this).text(formatDate(text));
-          }
-        });
-      });
-
-      let tableData;
-      let selectedId;
-      const userId = localStorage.getItem("role_id");
-      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/viewReport";
-      const tableBody = $("#governmentOrdersTableBody");
-      tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
-      $.ajax({
-        url: apiUrl,
-        method: "POST",
-        success: function (response) {
-          tableData = response.data;
-          tableBody.empty();
-
-          if (!tableData || tableData.length === 0) {
-            tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
-            return;
-          }
-
-          tableData.forEach(item => {
-            const newRow = `
-              <tr>
-              <td class="u-tL">   <a data-id="${item.id}" id="open-modal-btn" href="javascript:void(0);">
-        <i class="bi bi-pencil-square"></i>
-      </a></td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.order_name) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.uploaded_on) || 'N/A'}</td>
-              </tr>`;
-            tableBody.append(newRow);
-          });
-        },
-        error: function (xhr, status, error) {
-          console.error("Error fetching data: ", error);
-          tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
-        }
-      });
-
-      $("#modal").dialog({
-        autoOpen: false,
-        modal: true,
-        closeOnEscape: true,
-        draggable: false,
-        width: 720,
-        resizable: false
-      });
-
-      $("#uploadModal").dialog({
-        autoOpen: false,
-        modal: true,
-        closeOnEscape: true,
-        draggable: false,
-        width: 720,
-        resizable: false
-      });
-
-      $("#upload-press-open-modal").on("click", function () {
-        $("#uploadModal").dialog("open");
-      })
-
-      $("body").on("click", "#open-modal-btn", function () {
-        debugger
-        const pressId = $(this).data("id");
-        selectedId = $(this).data("id");
-        const selectedItem = tableData.find(item => item.id == pressId);
-
-        if (selectedItem) {
-          $("#Press_name").text(selectedItem.order_name || "");
-          $("#Press_date input").val(selectedItem.go_date || "");
-          $("#pressLangugage").val(selectedItem.language || "").trigger("change");
-          $("#modal").dialog("open");
-        }
-      });
-
-      $(".close-button").on("click", function () {
-        $("#modal").dialog("close");
-      });
-
-      $("#uploadcancelBtn").on("click", function () {
-        $("#uploadModal").dialog("close");
-      });
-
-      $("#createUploadBtn").on("click", function () {
-        registerNewData();
-      });
 
       function checkFile(selector) {
         var fileInput = $(selector).find('input[type="file"]');
@@ -1603,6 +1515,158 @@
           }
         });
       }
+
+      function formatDate(dateString) {
+        if (!dateString) return 'N/A';
+        let date = new Date(dateString);
+        return date.toLocaleDateString('en-GB'); // Formats as dd/MM/yyyy
+      }
+
+      $(document).ready(function () {
+        $("td.a-GV-cell").each(function () {
+          let text = $(this).text().trim();
+          if (text && text !== 'N/A' && !isNaN(Date.parse(text))) {
+            $(this).text(formatDate(text));
+          }
+        });
+      });
+
+      let tableData;
+      let selectedId;
+      let orderName;
+      const userId = localStorage.getItem("role_id");
+      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/viewReport";
+      const tableBody = $("#governmentOrdersTableBody");
+      tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
+      $.ajax({
+        url: apiUrl,
+        method: "POST",
+        success: function (response) {
+          tableData = response.data;
+          tableBody.empty();
+
+          if (!tableData || tableData.length === 0) {
+            tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
+            return;
+          }
+
+          tableData.forEach(item => {
+            const newRow = `
+              <tr>
+              <td class="u-tL">   <a data-id="${item.id}" data-file="${item.orderName}" id="open-modal-btn" href="javascript:void(0);">
+        <i class="bi bi-pencil-square"></i>
+      </a></td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.order_name) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.uploaded_on) || 'N/A'}</td>
+              </tr>`;
+
+
+            tableBody.append(newRow);
+          });
+        },
+        error: function (xhr, status, error) {
+          console.error("Error fetching data: ", error);
+          tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
+        }
+      });
+
+      $("#modal").dialog({
+        autoOpen: false,
+        modal: true,
+        closeOnEscape: true,
+        draggable: false,
+        width: 720,
+        resizable: false
+      });
+
+      $("#uploadModal").dialog({
+        autoOpen: false,
+        modal: true,
+        closeOnEscape: true,
+        draggable: false,
+        width: 720,
+        resizable: false
+      });
+
+      $("#upload-press-open-modal").on("click", function () {
+        $("#uploadModal").dialog("open");
+      })
+
+      const createDownloadLink = (content, mimeType, filename) => {
+        if (!content) return "N/A";
+
+        try {
+          // Check if the content is a valid Base64 string
+          const isBase64 = (str) => {
+            try {
+              return btoa(atob(str)) === str; // Double check encoding & decoding works
+            } catch (err) {
+              return false; // If decoding fails, it's not Base64
+            }
+          };
+
+          if (isBase64(content)) {
+            // Decode Base64 content and create a blob
+            const byteCharacters = atob(content);
+            const byteNumbers = new Array(byteCharacters.length).fill(0).map((_, i) => byteCharacters.charCodeAt(i));
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+
+            return `<a href="${url}" download="${filename}" class="btn btn-sm btn-link">${filename}</a>`;
+          }
+
+          // If it's not Base64, assume it's a URL
+          return `<a href="${content}" target="_blank" class="btn btn-sm btn-link">${filename}</a>`;
+        } catch (error) {
+          console.error("Error creating download link:", error);
+          return "Invalid content";
+        }
+      };
+
+
+      $("body").on("click", "#open-modal-btn", function () {
+        debugger
+        const pressId = $(this).data("id");
+        selectedId = $(this).data("id");
+        orderName = $(this).data("file");
+        const selectedItem = tableData.find(item => item.id == pressId);
+
+        if (selectedItem) {
+          $("#Press_name").text(selectedItem.order_name || "");
+          $("#Press_date input").val(selectedItem.go_date || "");
+          $("#pressLangugage").val(selectedItem.language || "").trigger("change");
+          $("#modal").dialog("open");
+
+          const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
+          if (interimLinkContainer) {
+            const downloadLinkHTML = createDownloadLink(
+              selectedItem.order_name,
+              "application/pdf",
+              selectedItem.order_name
+            );
+            interimLinkContainer.innerHTML = downloadLinkHTML;
+          }
+        }
+      });
+
+
+
+      $(".close-button").on("click", function () {
+        $("#modal").dialog("close");
+      });
+
+      $("#uploadcancelBtn").on("click", function () {
+        $("#uploadModal").dialog("close");
+      });
+
+      $("#createUploadBtn").on("click", function () {
+        registerNewData();
+      });
+
       async function registerNewData() {
         debugger
         try {
@@ -1679,6 +1743,42 @@
           deleteData(selectedId);
         }
       });
+
+      $('#updateBtn').on('click', function () {
+        debugger
+        updateData(selectedId);
+      })
+
+      function updateData(id) {
+        debugger;
+
+        const lang = $('#pressLangugage').val();
+        const pressDate = $('#Press_create_date input').val();
+
+        checkFile('#pressFileUpload');
+        const updatePayload = {
+          "p_ID": selectedId,
+          "V_NAME": orderName,
+          "V_URL": orderName,
+          "Current_User": "admin",
+          "V_DESC": "Order Description",
+          "V_DATE": "2025-02-01",
+          "LANGUAGE": lang
+        };
+        $.ajax({
+          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/updatePressReleaseForm',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify(updatePayload),
+          success: function (response) {
+            showSuccessToast("Updated Successfully");
+            setTimeout(() => window.location.href = "../admin-goverment-orders.html", 1000);
+          },
+          error: function (error) {
+            showErrorToast("An error occurred during submission of data.");
+          }
+        });
+      }
 
       function deleteData(id) {
         debugger
