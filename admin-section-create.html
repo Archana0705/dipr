@@ -879,6 +879,7 @@
         }
 
         $(document).ready(function () {
+            $('#updateBtn').hide();
             var params;
             var paramObject;
             debugger
@@ -994,6 +995,7 @@
                 editorInstance.setData(desc);
                 $('#createBtn').hide();
                 $('.delBtn').show();
+                $('#updateBtn').show();
             }
 
             $('.updateBtn').on('click', function () {
