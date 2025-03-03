@@ -614,7 +614,6 @@
     crossorigin="use-credentials" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <!-- Toast -->
   <div class="toast-container position-fixed p-3 custom_toast" x-data="transButtonComponent()">
     <div id="errorToast" class="toast align-items-center text-bg-primary border-0 " role="alert" aria-live="assertive"
@@ -1508,8 +1507,7 @@
   <script src="assets/js/require.js"></script>
   <script src="assets/js/requirejs.jetConfig.min.js"></script>
   <script src="assets/js/jetCommonBundle.min.js"></script>
-
-
+  <script src="assets/js/global.js"></script>
 
   <script type="text/javascript">
     apex.da.initDaEventList = function () {
@@ -1747,28 +1745,28 @@
           $("#dynamic-cards").html("<p>Error loading data</p>");
         }
       });
-    });
 
-    $.ajax({
-      url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/daily_updates',
-      method: 'GET',
-      success: function (response) {
-        if (response.success === 1) {
-          $('#table-body').empty();
+      $.ajax({
+        url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/daily_updates',
+        method: 'GET',
+        success: function (response) {
+          if (response.success === 1) {
+            $('#table-body').empty();
 
-          $.each(response.data, function (index, item) {
-            const row = `<tr>
+            $.each(response.data, function (index, item) {
+              const row = `<tr>
                         <td class="t-Report-cell" headers="PRESS_NAME">${item.press_name}</td>
                       </tr>`;
-            $('#table-body').append(row);
-          });
-        } else {
-          console.error('Error:', response.message);
+              $('#table-body').append(row);
+            });
+          } else {
+            console.error('Error:', response.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error('AJAX Error:', error);
         }
-      },
-      error: function (xhr, status, error) {
-        console.error('AJAX Error:', error);
-      }
+      });
     });
 
     $('#subscribeBtn').on('click', async function () {
@@ -1789,10 +1787,6 @@
         $.ajax({
           url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/add_subscription',
           type: 'POST',
-          headers: {
-            'X-App-Key': 'j6ll!k@ttu',
-            'X-App-Name': 'tn jallikattu',
-          },
           processData: false,
           contentType: false,
           data: formData,

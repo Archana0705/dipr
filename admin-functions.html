@@ -720,47 +720,15 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="orderFile" id="orderFile_LABEL">Order Name</label>
+                <label for="Function_Date" id="Function_Date_LABEL">Date</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <a-file-upload id="orderFileUpload" name="orderFileUpload" upload-type="FILE" display-style="NATIVE"
-                    accept=".pdf,.jpg,.jpeg" size="30" max-file-size="2048">
-                    <input type="file" id="orderFileUpload_input" name="orderFileUpload"
-                      class="text_field&#x20;apex-item-text" value="" maxlength="1000" />
-                    <div class="a-FileDrop a-FileDrop--native">
-                    </div>
-                  </a-file-upload>
-
-                </div>
-                <div class="t-Form-inputContainer col col-12">
-                  <div class="t-Form-itemWrapper" id="P86_INTERIM_COPY_LINK_CONTAINER">
-                    <!-- Download link will be injected dynamically -->
-                  </div>
-                  <span id="P86_INTERIM_COPY_error_placeholder" class="a-Form-error"
-                    data-template-id="333363771109036567_ET"></span>
-                </div>
-                <div class="t-Form-itemAssistance">
-                  <span id="orderFile_error_placeholder" class="a-Form-error"
-                    data-template-id="70091003340642546032_ET"></span>
-                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Press_date">
-              <div class="t-Form-labelContainer col col-2">
-                <label for="Press_date" id="Press_date_LABEL">Date</label>
-              </div>
-              <div class="t-Form-inputContainer col col-6">
-                <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
+                  <input id="Function_Date" type="date" placeholder="Select Date" aria-haspopup="dialog"
                     class="apex-item-text&#x20;apex-item-datepicker" name="P50_DATE_OF_FIR" size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Press_date_error_placeholder" class="a-Form-error"
+                  <span id="Function_Date_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -769,26 +737,23 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="pressLangugage" id="pressLangugage_LABEL">Language</label>
+                <label for="functionDescription" id="functionDescription_LABEL">Language</label>
               </div>
-              <div class="t-Form-inputContainer col col-6">
+              <div class="t-Form-inputContainer col col-8">
                 <div class="t-Form-itemWrapper">
                   <div class="t-Form-itemWrapper">
-                    <select id="pressLangugage" name="pressLangugage" class="selectlist&#x20;apex-item-select"
-                      data-native-menu="false" size="1">
-                      <option value="" selected="selected">-Select-</option>
-                      <option value="en">English</option>
-                      <option value="ta">Tamil</option>
-                    </select>
+                    <textarea id="functionDescription" class="form-control w-100" rows="3"
+                      style="width: 500px !important;"></textarea>
                   </div>
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="pressLangugage_error_placeholder" class="a-Form-error"
+                  <span id="functionDescription_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -823,17 +788,17 @@
 
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Press_create_date">
+              id="Function_create_date">
               <div class="t-Form-labelContainer col col-2">
-                <label for="Press_create_date" id="Press_date_LABEL">Date</label>
+                <label for="Function_create_date" id="Function_Date_LABEL">Date</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog" name="Press_create_date"
+                  <input type="date" placeholder="Select Date" aria-haspopup="dialog" name="Function_create_date"
                     size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Press_create_date_error_placeholder" class="a-Form-error"
+                  <span id="Function_create_date_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -843,21 +808,17 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="pressCreateLangugage" id="pressCreateLangugage_LABEL">Language</label>
+                <label for="functionCreateDescription" id="functionCreateDescription_LABEL">Language</label>
               </div>
-              <div class="t-Form-inputContainer col col-6">
+              <div class="t-Form-inputContainer col col-8">
                 <div class="t-Form-itemWrapper">
                   <div class="t-Form-itemWrapper">
-                    <select id="pressCreateLangugage" name="pressCreateLangugage"
-                      class="selectlist&#x20;apex-item-select" data-native-menu="false" size="1">
-                      <option value="" selected="selected">-Select-</option>
-                      <option value="en">English</option>
-                      <option value="ta">Tamil</option>
-                    </select>
+                    <textarea id="functionCreateDescription" class="form-control w-100" rows="3"
+                      style="width: 500px !important;"></textarea>
                   </div>
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="pressCreateLangugage_error_placeholder" class="a-Form-error"
+                  <span id="functionCreateDescription_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -1076,30 +1037,7 @@
     <div class="t-Body ">
 
       <div class="t-Body-main titlePos">
-        <div class="t-Body-title" id="t_Body_title">
-          <nav id="R34839297483869595" role="navigation" aria-label="Breadcrumb"
-            class="t-BreadcrumbRegion t-BreadcrumbRegion--showBreadcrumb t-BreadcrumbRegion--useBreadcrumbTitle">
-            <div class="t-BreadcrumbRegion-top">
-              <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--start"></div>
-              <div class="t-BreadcrumbRegion-body">
-                <div class="t-BreadcrumbRegion-breadcrumb">
-                  <ul class="t-Breadcrumb ">
-                    <li class="t-Breadcrumb-item is-active" aria-current="page">
-                      <h1 class="t-Breadcrumb-label">Government Orders</h1>
-                    </li>
-                  </ul>
-                </div>
-                <div class="t-BreadcrumbRegion-title">
-                  <h1 id="R34839297483869595_heading" class="t-BreadcrumbRegion-titleText" data-apex-heading>
-                    Breadcrumb
-                  </h1>
-                </div>
-              </div>
-              <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--end"></div>
-            </div>
-            <div class="t-BreadcrumbRegion-bottom"></div>
-          </nav>
-        </div>
+
         <div class="t-Body-content" id="t_Body_content">
           <main id="main" class="t-Body-mainContent">
             <span id="APEX_SUCCESS_MESSAGE" data-template-id="33086037481442559_S"
@@ -1189,8 +1127,8 @@
                                         <span class="u-vh">Link</span>
                                       </th>
                                       <th class="a-IRR-header u-tL" id="C11748439923991421"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="11748439923991421" href="#">Pr
-                                          Date</a>
+                                          class="a-IRR-headerLink" data-column="11748439923991421" href="#">Day
+                                          Month</a>
                                       </th>
                                       <th class="a-IRR-header u-tL" id="C11747689722991413"><a aria-haspopup="dialog"
                                           class="a-IRR-headerLink" data-column="11747689722991413" href="#">Language</a>
@@ -1205,7 +1143,7 @@
                                           class="a-IRR-headerLink" data-column="37707553402077046" href="#">Uploaded
                                           Date</a></th>
                                     </tr>
-                                    <tbody id="governmentOrdersTableBody">
+                                    <tbody id="adminFunctionTableBody">
                                       <!-- Dynamic rows will be inserted here -->
                                     </tbody>
                                   </table>
@@ -1536,8 +1474,8 @@
       let selectedId;
       let orderName;
       const userId = localStorage.getItem("role_id");
-      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/viewReport";
-      const tableBody = $("#governmentOrdersTableBody");
+      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/sectionsDataReport/viewFunctionOrganisedChennai";
+      const tableBody = $("#adminFunctionTableBody");
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
       $.ajax({
         url: apiUrl,
@@ -1555,17 +1493,16 @@
           tableData.forEach(item => {
             const newRow = `
               <tr>
-              <td class="u-tL">   <a data-id="${item.id}" data-file="${item.order_name}" id="open-modal-btn" href="javascript:void(0);">
+              <td class="u-tL">   <a data-id="${item.slno}" data-file="${item.order_name}" id="open-modal-btn" href="javascript:void(0);">
         <i class="bi bi-pencil-square"></i>
       </a></td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.order_name) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.uploaded_on) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.day_month) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.functions) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_by) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_on) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.updated_by) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.updated_on) || 'N/A'}</td>
               </tr>`;
-
-
             tableBody.append(newRow);
           });
         },
@@ -1610,6 +1547,7 @@
             }
           };
 
+
           if (isBase64(content)) {
             // Decode Base64 content and create a blob
             const byteCharacters = atob(content);
@@ -1639,7 +1577,7 @@
 
       //   if (selectedItem) {
       //     $("#Press_name").text(selectedItem.order_name || "");
-      //     $("#Press_date input").val(selectedItem.go_date || "");
+      //     $("#Function_Date input").val(selectedItem.go_date || "");
       //     $("#pressLangugage").val(selectedItem.language || "").trigger("change");
       //     $("#modal").dialog("open");
 
@@ -1663,17 +1601,13 @@
 
         const pressId = $(this).data("id");
         selectedId = pressId;
-        orderName = $(this).data("file");
 
-        console.log("Selected ID:", selectedId);
-        console.log("Order Name:", orderName);
 
-        const selectedItem = tableData.find(item => item.id == pressId);
+        const selectedItem = tableData.find(item => item.slno == pressId);
 
         if (selectedItem) {
-          $("#Press_name").text(selectedItem.order_name || "");
-          $("#Press_date input").val(selectedItem.go_date || "");
-          $("#pressLangugage").val(selectedItem.language || "").trigger("change");
+          $("#Function_Date").val(selectedItem.day_month || "");
+          $("#functionDescription").val(selectedItem.functions || "").trigger("change");
           $("#modal").dialog("open");
 
           const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
@@ -1705,49 +1639,44 @@
         debugger
         try {
 
-          var pressDate = $('#Press_create_date input').val() || "";
-          // var formattedPressDate = convertDateFormat(pressDate);
-          var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
+          var functionDate = $('#Function_create_date input').val() || "";
+          // var formattedfunctionDate = convertDateFormat(functionDate);
+          var functionCreateDescription = document.getElementById('functionCreateDescription').value || "";
           let pressInputFile = null;
-          pressInputFile = await processFile('#pressFileUpload_input');
-          checkFile('#pressFileUpload');
-          // if (!polStn || !districtName || !ComplaintData || !complaintMadeBy || !firNo || !dateOfFIR || !childGender || !childDOB || !childAge || !nameOfGuardian) {
-          //   if (willingness === "Yes") {
-          //     if (!willingness || !willName || !willRelation || !willDate || !accName || !accNo || !bankName || !branchName || !ifsc) {
-          //       showErrorToast("Please fill in all required fields.");
-          //       return;
-          //     }
-          //   }
-          //   showErrorToast("Please fill in all required fields.");
-          //   return;
-          // }
 
-          if (pressDate) {
-            var dateObj = new Date(pressDate);
+
+          if (functionDate) {
+            var dateObj = new Date(functionDate);
             var formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
               ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
               dateObj.getFullYear();
-            pressDate = formattedDate;
+            functionDate = formattedDate;
           }
 
-          var governmentOrderPayload = {
-            "p_ID": 13456456,
-            "V_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "V_DESC": "Latest updates on tech policies",
-            "V_URL": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "Current_User": "admin_user",
-            "V_DATE": formattedDate,
-            "LANGUAGE": pressLangugage,
-            // "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
-            // "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            // "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+          var functionPayload = {
+            // "p_ID": 13456456,
+            // "V_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+            // "V_DESC": "Latest updates on tech policies",
+            // "V_URL": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+            // "Current_User": "admin_user",
+            // "V_DATE": formattedDate,
+            // "LANGUAGE": pressLangugage,
+            // // "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
+            // // "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+            // // "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+
+            "SLNO": 37457834,
+            "DAY_MONTH": functionDate,
+            "FUNCTIONS": functionCreateDescription,
+            "DISTRICT": "Chennai",
+            "LANGUAGE": "EN"
           };
 
           await $.ajax({
-            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/InsertPressReleaseForm',
+            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/sectionsDataReport/insertFucntionChennai',
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(governmentOrderPayload),
+            data: JSON.stringify(functionPayload),
             success: function (response) {
               // user_id.id = response.return_id;
               // Court_id.COURT_ID = response.return_id;
@@ -1778,39 +1707,18 @@
         }
       });
 
-      // $('#updateBtn').on('click', function () {
-      //   debugger;
-      //   const selectedRow = $('tr.selected'); // Ensure row is actually selected
-      //   if (!selectedRow.length) {
-      //     showErrorToast("No row selected for update.");
-      //     return;
-      //   }
-
-      //   // Correct way to get data-id and data-file
-      //   const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
-      //   const orderName = selectedRow.find('a#open-modal-btn').attr('data-file');
-
-      //   console.log("Selected ID:", selectedId);
-      //   console.log("Order Name:", orderName);
-
-      //   if (!selectedId || !orderName) {
-      //     showErrorToast("Failed to fetch required data for update.");
-      //     return;
-      //   }
-
-      //   updateData(selectedId, orderName);
-      // });
-
       $('#updateBtn').on('click', function () {
         debugger;
-        const selectedRow = $('tr.selected');
+        const selectedRow = $('tr.selected'); // Ensure row is actually selected
         if (!selectedRow.length) {
           showErrorToast("No row selected for update.");
           return;
         }
 
+        // Correct way to get data-id and data-file
         const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
-        let orderName = selectedRow.find('a#open-modal-btn').attr('data-file');
+        const orderName = selectedRow.find('a#open-modal-btn').attr('data-file');
+
 
         console.log("Selected ID:", selectedId);
         console.log("Order Name:", orderName);
@@ -1820,37 +1728,40 @@
           return;
         }
 
-        const orderFileInput = document.getElementById('orderFileUpload_input');
-        if (orderFileInput.files.length > 0) {
-          orderName = orderFileInput.files[0].name;
-        }
-
         updateData(selectedId, orderName);
       });
+
 
       async function updateData(id, file) {
         debugger;
 
         const lang = $('#pressLangugage').val();
-        const pressDate = $('#Press_create_date input').val();
-
+        const functionDate = $('#Function_Date').val();
+        const functionDes = $('#functionDescription').val();
         const updatePayload = {
-          "p_ID": id,
-          "V_NAME": file,
-          "V_URL": file,
-          "Current_User": "admin",
-          "V_DESC": "Order Description",
-          "V_DATE": "2025-02-01",
-          "LANGUAGE": lang
+          "SLNO": 221,
+          "DAY_MONTH": functionDate,
+          "FUNCTIONS": functionDes,
+          "DISTRICT": "admin",
+          "CREATED_BY": "2025-02-01",
+          "LANGUAGE": "EN"
         };
+
+        // "SLNO": 1,
+        //   "DAY_MONTH": "2025-02-06",
+        //     "FUNCTIONS": "Republic Day Celebration",
+        //       "DISTRICT": "Chennai",
+        //         "LANGUAGE": "EN",
+        //           "CREATED_BY" : "tester"
+
         $.ajax({
-          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/updatePressReleaseForm',
+          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/sectionsDataReport/updateFucntionChennai',
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(updatePayload),
           success: function (response) {
             showSuccessToast("Updated Successfully");
-            setTimeout(() => window.location.href = "../admin-goverment-orders.html", 1000);
+            setTimeout(() => window.location.href = "../admin-functions.html", 1000);
           },
           error: function (error) {
             showErrorToast("An error occurred during submission of data.");
@@ -1862,7 +1773,7 @@
         debugger
         $('#preloader').show();
         $.ajax({
-          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/deletePressReleaseForm`,
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/sectionsDataReport/deleteFucntionChennai`,
           type: "POST",
           dataType: "json",
           contentType: "application/json",

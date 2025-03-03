@@ -1322,7 +1322,7 @@
   <script src="../assets/vendor/datatable/dataTables.bootstrap5.min.js"></script>
   <script src="../assets/vendor/datatables-buttons/js/dataTables.buttons.min.js"></script>
   <script src="../assets/vendor/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-
+  <script src="../assets/js/global.js"></script>
   <script src="assets/js/jquery-ui.min.js"></script>
 
   <script src="assets/js/desktop_all.min.js"></script>
@@ -1338,6 +1338,8 @@
   <script src="assets/js/require.js"></script>
   <script src="assets/js/requirejs.jetConfig.min.js"></script>
   <script src="assets/js/jetCommonBundle.min.js"></script>
+
+
   <script type="text/javascript">
     apex.session.initTimeouts(300, { "idle_time_ms": 3595000, "life_time_ms": 28755000, "max_idle_time_ms": 3600000 }, '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome', '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome');
     apex.jQuery(function () {
@@ -1448,10 +1450,6 @@
       $.ajax({
         url: apiUrl,
         method: "POST",
-        headers: {
-          "X-APP-KEY": "pocso",
-          "X-APP-NAME": "pocso"
-        },
         //contentType: "application/json",
         //data: JSON.stringify(state_customize_reportPayload),
         success: function (response) {
