@@ -1394,7 +1394,7 @@
     $(document).ready(function () {
       debugger;
       $('#preloader').hide();
-      var langSwitch = 'en'; // Default language
+      var langSwitch = 'en';
 
       // Show preloader during AJAX requests
       $(document).on({
@@ -1417,7 +1417,7 @@
 
       function fetchData() {
         var viewPayload = {
-          "lang": langSwitch // Dynamic language
+          "lang": langSwitch
         };
 
         $.ajax({
@@ -1497,7 +1497,7 @@
           var pressPrice = $('#Press_create_price input').val() || "";
 
           var registrationPayload = {
-            "lang": langSwitch, // Dynamic language
+            "lang": langSwitch,
             "monthly_issue": pressName,
             "price": pressPrice,
             "created_by": "admin",
@@ -1552,7 +1552,7 @@
           "sno": id,
           "monthly_issue": name,
           "price": price,
-          "language": langSwitch, // Dynamic language
+          "language": langSwitch,
           "created_by": "admin",
           "updated_by": "editor"
         };
@@ -1592,7 +1592,7 @@
           contentType: "application/json",
           data: JSON.stringify({
             "sno": id,
-            "lang": langSwitch // Include language dynamically
+            "lang": langSwitch
           }),
           success: function (response) {
             $('#preloader').hide();
