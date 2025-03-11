@@ -705,7 +705,7 @@
   class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"
   id="t_PageBody">
   <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
-  <div id="modal" title="Upload">
+  <div id="modal" title="Price Details of Special Issues - Forms">
     <div class="modalWrap">
       <div class="t-Form-inputContainer col col-12">
         <div class="t-Form-itemWrapper file_wrap">
@@ -713,15 +713,15 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="Press_name" id="Press_name_LABEL">Press Name</label>
+                <label for="Press_course_name" id="Press_course_name_LABEL">Course Name</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <textarea id="Press_name" class="form-control" rows="3" name="Press_name"
-                    class="text_field&#x20;apex-item-text" value="" size="70" maxlength="10"></textarea>
+                  <input id="Press_course_name" class="form-control" rows="3" name="Press_year"
+                    class="text_field&#x20;apex-item-text" value="" size="70" />
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Press_name_error_placeholder" class="a-Form-error"
+                  <span id="Press_course_name_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -729,46 +729,76 @@
             </div>
 
             <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Press_date">
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="Press_date" id="Press_date_LABEL">Date</label>
+                <label for="Press_year" id="Press_year_LABEL">Year</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
-                    class="apex-item-text&#x20;apex-item-datepicker" name="P50_DATE_OF_FIR" size="30">
+                  <input type="number" id="Press_year" class="form-control" rows="3" name="Press_year"
+                    class="text_field&#x20;apex-item-text" value="" size="70" />
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Press_date_error_placeholder" class="a-Form-error"
+                  <span id="Press_year_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
               </div>
             </div>
+            <!-- 
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="pressLangugage" id="pressLangugage_LABEL">Language</label>
+                <label for="Press_created_by" id="Press_created_by_LABEL">Created By</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <div class="t-Form-itemWrapper">
-                    <select id="pressLangugage" name="pressLangugage" class="selectlist&#x20;apex-item-select"
-                      data-native-menu="false" size="1">
-                      <option value="" selected="selected">-Select-</option>
-                      <option value="en">English</option>
-                      <option value="ta">Tamil</option>
-                    </select>
-                  </div>
+                  <input id="Press_created_by" class="form-control" rows="3" name="Press_created_by"
+                    class="text_field&#x20;apex-item-text" value="" size="70" />
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="pressLangugage_error_placeholder" class="a-Form-error"
+                  <span id="Press_created_by_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
               </div>
             </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_created_on" id="Press_created_on_LABEL">Created On</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_created_on" class="form-control" rows="3" name="Press_created_on"
+                    class="text_field&#x20;apex-item-text" value="" size="70" />
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_created_on_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_updated_on" id="Press_updated_on_LABEL">Created By</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_updated_on" class="form-control" rows="3" name="Press_updated_on"
+                    class="text_field&#x20;apex-item-text" value="" size="70" />
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_updated_on_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -777,6 +807,9 @@
           class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
           id="deleteBtn">Delete</button>
       </div>
+      <button
+        class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+        id="updateBtn">Update</button>
       <div class="t-Region-buttons-right float-end pad0">
         <button
           class="bg-danger text-white t-Button t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight close-button"
@@ -785,30 +818,63 @@
     </div>
   </div>
 
-  <div id="uploadModal" title="Upload">
+  <div id="uploadModal" title="Price Details of Special Issues - Forms">
     <div class="modalWrap">
       <div class="t-Form-inputContainer col col-12">
         <div class="t-Form-itemWrapper file_wrap">
           <div class="col col-6 apex-col-auto col-start">
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
-
-
             </div>
-
             <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Press_create_date">
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="Press_create_date" id="Press_date_LABEL">Date</label>
+                <label for="Press_create_course_name" id="Press_create_course_name_LABEL">Course Name</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
-                    class="apex-item-text&#x20;apex-item-datepicker" name="Press_create_date" size="30">
+                  <input type="text" id="Press_create_course_name" class="form-control" rows="3"
+                    name="Press_create_course_name" class="text_field&#x20;apex-item-text" value="" size="70" />
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Press_create_date_error_placeholder" class="a-Form-error"
+                  <span id="Press_create_course_name_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_year" id="Press_create_year_LABEL">Year</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input type="number" id="Press_create_year" class="form-control" rows="3" name="Press_create_year"
+                    class="text_field&#x20;apex-item-text" value="" size="70" />
+
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_year_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_created_by" id="Press_create_created_by_LABEL">Created By</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_create_created_by" class="form-control" rows="3" name="Press_create_created_by"
+                    class="text_field&#x20;apex-item-text" value="" size="70" />
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_created_by_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -818,21 +884,15 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="pressCreateLangugage" id="pressCreateLangugage_LABEL">Language</label>
+                <label for="Press_create_created_on" id="Press_create_created_on_LABEL">Created On</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <div class="t-Form-itemWrapper">
-                    <select id="pressCreateLangugage" name="pressCreateLangugage"
-                      class="selectlist&#x20;apex-item-select" data-native-menu="false" size="1">
-                      <option value="" selected="selected">-Select-</option>
-                      <option value="en">English</option>
-                      <option value="ta">Tamil</option>
-                    </select>
-                  </div>
+                  <input id="Press_create_created_on" class="form-control" rows="3" name="Press_create_created_on"
+                    class="text_field&#x20;apex-item-text" value="" size="70" />
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="pressCreateLangugage_error_placeholder" class="a-Form-error"
+                  <span id="Press_create_created_on_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -842,25 +902,20 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="pressFileUpload" id="pressFileUpload_LABEL">File Upload</label>
+                <label for="Press_create_updated_on" id="Press_create_updated_on_LABEL">Created By</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <a-file-upload id="pressFileUpload" name="pressFileUpload" upload-type="FILE" display-style="NATIVE"
-                    accept=".pdf,.jpg,.jpeg" size="30" max-file-size="2048">
-                    <input type="file" id="pressFileUpload_input" name="pressFileUpload"
-                      class="text_field&#x20;apex-item-text" value="" maxlength="1000" />
-                    <div class="a-FileDrop a-FileDrop--native">
-                    </div>
-                  </a-file-upload>
+                  <input id="Press_create_updated_on" class="form-control" rows="3" name="Press_create_updated_on"
+                    class="text_field&#x20;apex-item-text" value="" size="70" />
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="pressFileUpload_error_placeholder" class="a-Form-error"
+                  <span id="Press_create_updated_on_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -1051,30 +1106,7 @@
     <div class="t-Body ">
 
       <div class="t-Body-main titlePos">
-        <div class="t-Body-title" id="t_Body_title">
-          <nav id="R34839297483869595" role="navigation" aria-label="Breadcrumb"
-            class="t-BreadcrumbRegion t-BreadcrumbRegion--showBreadcrumb t-BreadcrumbRegion--useBreadcrumbTitle">
-            <div class="t-BreadcrumbRegion-top">
-              <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--start"></div>
-              <div class="t-BreadcrumbRegion-body">
-                <div class="t-BreadcrumbRegion-breadcrumb">
-                  <ul class="t-Breadcrumb ">
-                    <li class="t-Breadcrumb-item is-active" aria-current="page">
-                      <h1 class="t-Breadcrumb-label">Press Release</h1>
-                    </li>
-                  </ul>
-                </div>
-                <div class="t-BreadcrumbRegion-title">
-                  <h1 id="R34839297483869595_heading" class="t-BreadcrumbRegion-titleText" data-apex-heading>
-                    Breadcrumb
-                  </h1>
-                </div>
-              </div>
-              <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--end"></div>
-            </div>
-            <div class="t-BreadcrumbRegion-bottom"></div>
-          </nav>
-        </div>
+
         <div class="t-Body-content" id="t_Body_content">
           <main id="main" class="t-Body-mainContent">
             <span id="APEX_SUCCESS_MESSAGE" data-template-id="33086037481442559_S"
@@ -1133,8 +1165,8 @@
                               <div role="region"
                                 aria-label="Buttons&#x20;next&#x20;to&#x20;search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
                                 class="a-IRR-buttons"><button class="t-Button t-Button--hot js-ignoreChange"
-                                  type="button" id="upload-press-open-modal"><span class="t-Button-label">Upload Press
-                                    Release</span></button></div>
+                                  type="button" id="upload-press-open-modal"><span class="t-Button-label">Create
+                                  </span></button></div>
                             </div>
                             <div id="R34839964403869597_content" class="a-IRR-content ">
                               <div id="R34839964403869597_dialog_js" class="a-IRR-dialogBody" style="display:none">
@@ -1162,22 +1194,22 @@
                                       <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
                                         <span class="u-vh">Link</span>
                                       </th>
-                                      <th class="a-IRR-header u-tL" id="C11748439923991421"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="11748439923991421" href="#">Pr
-                                          Date</a>
-                                      </th>
                                       <th class="a-IRR-header u-tL" id="C11747689722991413"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="11747689722991413" href="#">Language</a>
+                                          class="a-IRR-headerLink" data-column="11747689722991413" href="#">Course
+                                          Name</a>
+                                      </th>
+                                      <th class="a-IRR-header u-tL" id="C11748439923991421"><a aria-haspopup="dialog"
+                                          class="a-IRR-headerLink" data-column="11748439923991421" href="#">Year</a>
                                       </th>
                                       <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37710503093077076" href="#">Press
-                                          Name</a></th>
+                                          class="a-IRR-headerLink" data-column="37710503093077076" href="#">Created By
+                                        </a></th>
                                       <th class="a-IRR-header u-tL" id="C37707438775077045"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37707438775077045" href="#">Uploaded
-                                          By</a></th>
+                                          class="a-IRR-headerLink" data-column="37707438775077045" href="#">Created On
+                                        </a></th>
                                       <th class="a-IRR-header u-tL" id="C37707553402077046"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37707553402077046" href="#">Uploaded
-                                          Date</a></th>
+                                          class="a-IRR-headerLink" data-column="37707553402077046" href="#">Updated By
+                                        </a></th>
                                     </tr>
                                     <tbody id="pressReleaseTableBody">
                                       <!-- Dynamic rows will be inserted here -->
@@ -1444,7 +1476,7 @@
       let tableData;
       let selectedId;
       const userId = localStorage.getItem("role_id");
-      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/pressRelease/viewPressReleaseReport";
+      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/degreeCourses/viewReport";
       const tableBody = $("#pressReleaseTableBody");
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
       $.ajax({
@@ -1464,15 +1496,15 @@
           tableData.forEach(item => {
             const newRow = `
               <tr>
-              <td class="u-tL">   <a data-id="${item.id}" id="open-modal-btn" href="javascript:void(0);">
+              <td class="u-tL">   <a data-id="${item.slno}" id="open-modal-btn" href="javascript:void(0);">
         <i class="bi bi-pencil-square"></i>
       </a></td>
             
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.press_name) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_date) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.course_name) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.year) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_by) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_on) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.updated_on) || 'N/A'}</td>
               </tr>`;
             tableBody.append(newRow);
           });
@@ -1510,15 +1542,21 @@
       })
 
       $("body").on("click", "#open-modal-btn", function () {
-        debugger
+        debugger;
+        $("tr").removeClass("selected"); // Remove the selected class from any previously selected row
+        $(this).closest("tr").addClass("selected"); // Mark the clicked row as selected
+
         const pressId = $(this).data("id");
-        selectedId = $(this).data("id");
-        const selectedItem = tableData.find(item => item.id == pressId);
+        selectedId = pressId;
+        const selectedItem = tableData.find(item => item.slno == pressId);
 
         if (selectedItem) {
-          $("#Press_name").text(selectedItem.press_name || "");
-          $("#Press_date input").val(selectedItem.pr_date || "");
-          $("#pressLangugage").val(selectedItem.language || "").trigger("change");
+          $("#Press_course_name").val(selectedItem.course_name || ""); // Change `.text()` to `.val()` for input fields
+          $("#Press_year").val(selectedItem.year || "");
+          $("#Press_created_by").val(selectedItem.created_by || "");
+          $("#Press_created_on").val(selectedItem.created_on || "");
+          $("#Press_updated_on").val(selectedItem.updated_on || "");
+
           $("#modal").dialog("open");
         }
       });
@@ -1595,13 +1633,9 @@
         }
         debugger
         try {
+          var pressCoursename = document.getElementById('Press_create_course_name').value || "";
+          var pressYear = document.getElementById('Press_create_year').value || "";
 
-          var pressDate = $('#Press_create_date input').val() || "";
-          var formattedPressDate = convertDateFormat(pressDate);
-          var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
-          let pressInputFile = null;
-          pressInputFile = await processFile('#pressFileUpload_input');
-          checkFile('#pressFileUpload');
           // if (!polStn || !districtName || !ComplaintData || !complaintMadeBy || !firNo || !dateOfFIR || !childGender || !childDOB || !childAge || !nameOfGuardian) {
           //   if (willingness === "Yes") {
           //     if (!willingness || !willName || !willRelation || !willDate || !accName || !accNo || !bankName || !branchName || !ifsc) {
@@ -1613,37 +1647,24 @@
           //   return;
           // }
 
-          if (pressDate) {
-            var dateObj = new Date(pressDate);
-            var formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
-              ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
-              dateObj.getFullYear();
-            pressDate = formattedDate;
-          }
-
           var registrationPayload = {
-            "p_ID": 123,
-            "V_NAME": formattedDate,
-            "V_DESC": "Latest updates on tech policies",
-            "Current_User": "admin_user",
-            "LANGUAGE": pressLangugage,
-            "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
-            "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+            "COURSE_NAME": pressCoursename,
+            "YEAR": pressYear,
+            "CREATED_BY": "admin_user",
+            "LANGUAGE": "EN"
           };
 
-          return;
 
           await $.ajax({
-            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/pressReleases/InsertPressReleaseForm',
+            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/degreeCourses/insertDegreeCourses',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(registrationPayload),
             success: function (response) {
               // user_id.id = response.return_id;
               // Court_id.COURT_ID = response.return_id;
-              //showSuccessToast("Submitted Successfully");
-              // setTimeout(() => window.location.href = "../police/index.html", 1000);
+              showSuccessToast("Inserted Successfully");
+              setTimeout(() => window.location.href = "../admin-degree-courses-report.html", 1000);
             },
             error: function (error) {
               console.error('Error:', error);
@@ -1655,6 +1676,57 @@
           console.error('Error:', error);
           showErrorToast("An unexpected error occurred.");
         }
+      }
+
+      $('#updateBtn').on('click', function () {
+        debugger;
+        const selectedRow = $('tr.selected');
+        if (!selectedRow.length) {
+          showErrorToast("No row selected for update.");
+          return;
+        }
+
+        const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
+
+
+        console.log("Selected ID:", selectedId);
+
+        if (!selectedId) {
+          showErrorToast("Failed to fetch required data for update.");
+          return;
+        }
+
+
+        updateData(selectedId);
+      });
+
+
+      async function updateData(id) {
+        debugger;
+
+        const year = $('#Press_year').val();
+        const coursename = $('#Press_course_name').val();
+
+        const updatePayload = {
+          "SLNO": id,
+          "COURSE_NAME": coursename,
+          "YEAR": year,
+          "UPDATED_BY": "admin_user",
+          "LANGUAGE": "EN"
+        };
+        $.ajax({
+          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/degreeCourses/updateDegreeCourses',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify(updatePayload),
+          success: function (response) {
+            showSuccessToast("Updated Successfully");
+            setTimeout(() => window.location.href = "../admin-degree-courses-report.html", 1000);
+          },
+          error: function (error) {
+            showErrorToast("An error occurred during submission of data.");
+          }
+        });
       }
 
       $("#deleteBtn").on("click", function () {
@@ -1673,12 +1745,12 @@
         debugger
         $('#preloader').show();
         $.ajax({
-          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/pressRelease/deletePressReleaseForm`,
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/degreeCourses/deleteDegreeCourses`,
           type: "POST",
           dataType: "json",
           contentType: "application/json",
           data: JSON.stringify({
-            ID: id
+            "SLNO": id
           }),
           success: function (response) {
             $('#preloader').hide();
