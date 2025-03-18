@@ -38,13 +38,6 @@
   <link rel="stylesheet" href="https://static.oracle.com/cdn/apex/24.1.7/themes/theme_42/23.1/css/Core.min.css?v=24.1.7"
     type="text/css" />
   <style>
-    .t-Form-itemWrapper input[type="date"] {
-      width: 70%;
-      max-width: 300px;
-      padding: 8px;
-      font-size: 16px;
-    }
-
     .titlePos .t-Body-title {
       position: unset !important;
     }
@@ -712,15 +705,33 @@
   class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"
   id="t_PageBody">
   <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
-  <div id="modal" title="Upload">
+  <div id="modal" title="Special Publications">
     <div class="modalWrap">
       <div class="t-Form-inputContainer col col-12">
         <div class="t-Form-itemWrapper file_wrap">
           <div class="col col-6 apex-col-auto col-start">
+
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="orderFile" id="orderFile_LABEL">Order Name</label>
+                <label for="Press_file_name" id="Press_file_name_LABEL">File Name</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_file_name" class="form-control" type="text" name="Press_file_name"
+                    class="text_field&#x20;apex-item-text" value="" size="70" maxlength="10"></textarea>
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_file_name_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_files" id="Press_files_LABEL">File</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
@@ -731,7 +742,6 @@
                     <div class="a-FileDrop a-FileDrop--native">
                     </div>
                   </a-file-upload>
-
                 </div>
                 <div class="t-Form-inputContainer col col-12">
                   <div class="t-Form-itemWrapper" id="P86_INTERIM_COPY_LINK_CONTAINER">
@@ -741,78 +751,35 @@
                     data-template-id="333363771109036567_ET"></span>
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="orderFile_error_placeholder" class="a-Form-error"
+                  <span id="Press_files_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
               </div>
             </div>
 
-            <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Press_date">
-              <div class="t-Form-labelContainer col col-2">
-                <label for="Press_date" id="Press_date_LABEL">Date</label>
-              </div>
-              <div class="t-Form-inputContainer col col-6">
-                <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
-                    class="apex-item-text&#x20;apex-item-datepicker" name="P50_DATE_OF_FIR" size="30">
-                </div>
-                <div class="t-Form-itemAssistance">
-                  <span id="Press_date_error_placeholder" class="a-Form-error"
-                    data-template-id="70091003340642546032_ET"></span>
-                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
-              <div class="t-Form-labelContainer col col-2">
-                <label for="pressLangugage" id="pressLangugage_LABEL">Language</label>
-              </div>
-              <div class="t-Form-inputContainer col col-6">
-                <div class="t-Form-itemWrapper">
-                  <div class="t-Form-itemWrapper">
-                    <select id="pressLangugage" name="pressLangugage" class="selectlist&#x20;apex-item-select"
-                      data-native-menu="false" size="1">
-                      <option value="" selected="selected">-Select-</option>
-                      <option value="en">English</option>
-                      <option value="ta">Tamil</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="t-Form-itemAssistance">
-                  <span id="pressLangugage_error_placeholder" class="a-Form-error"
-                    data-template-id="70091003340642546032_ET"></span>
-                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
-                </div>
-              </div>
-            </div>
+
+
           </div>
         </div>
       </div>
-
       <div class="t-Region-buttons-right float-end pad0">
-        <div class="t-Region-buttons-right float-end pad0">
-          <button
-            class="t-Button bg-danger text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
-            id="deleteBtn">Delete</button>
-        </div>
         <button
           class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
-          id="updateBtn">Update</button>
+          id="deleteBtn">Delete</button>
       </div>
-
-      <div class="t-Region-buttons-right pad0" style="text-align: left;">
+      <button
+        class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+        id="updateBtn">Update</button>
+      <div class="t-Region-buttons-right float-end pad0">
         <button
           class="bg-danger text-white t-Button t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight close-button"
-          id="cancelBtn">Cancel</button>
+          id="cancelBtn"> Cancel </button>
       </div>
     </div>
   </div>
 
-  <div id="uploadModal" title="Upload">
+  <div id="uploadModal" title="Special Publications">
     <div class="modalWrap">
       <div class="t-Form-inputContainer col col-12">
         <div class="t-Form-itemWrapper file_wrap">
@@ -820,50 +787,6 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
             </div>
-
-            <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Press_create_date">
-              <div class="t-Form-labelContainer col col-2">
-                <label for="Press_create_date" id="Press_date_LABEL">Date</label>
-              </div>
-              <div class="t-Form-inputContainer col col-6">
-                <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog" name="Press_create_date"
-                    size="30">
-                </div>
-                <div class="t-Form-itemAssistance">
-                  <span id="Press_create_date_error_placeholder" class="a-Form-error"
-                    data-template-id="70091003340642546032_ET"></span>
-                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
-              <div class="t-Form-labelContainer col col-2">
-                <label for="pressCreateLangugage" id="pressCreateLangugage_LABEL">Language</label>
-              </div>
-              <div class="t-Form-inputContainer col col-6">
-                <div class="t-Form-itemWrapper">
-                  <div class="t-Form-itemWrapper">
-                    <select id="pressCreateLangugage" name="pressCreateLangugage"
-                      class="selectlist&#x20;apex-item-select" data-native-menu="false" size="1">
-                      <option value="" selected="selected">-Select-</option>
-                      <option value="en">English</option>
-                      <option value="ta">Tamil</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="t-Form-itemAssistance">
-                  <span id="pressCreateLangugage_error_placeholder" class="a-Form-error"
-                    data-template-id="70091003340642546032_ET"></span>
-                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
-                </div>
-              </div>
-            </div>
-
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
@@ -881,6 +804,25 @@
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="pressFileUpload_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
+              id="Press_create_file_name">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_file_name" id="Press_date_LABEL">File Name</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input placeholder="File Name" aria-haspopup="dialog" class="apex-item-text&#x20;apex-item-datepicker"
+                    name="Press_create_file_name" size="30">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_file_name_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -915,7 +857,7 @@
     <header class="t-Header" id="t_Header" role="banner">
 
 
-      <div class="t-Header-navBar">
+      <!-- <div class="t-Header-navBar">
 
         <div class="t-Header-navBar--start">
 
@@ -965,7 +907,6 @@
           <div class="t-Header-navBar--end"></div>
           <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
           <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
-          <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
           <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v397/instagram.jpeg"
               style="height:35px;" class="fa fa-twitter" target='_blank'>
             <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
@@ -973,8 +914,49 @@
 
         </div>
 
-      </div>
+      </div> -->
 
+      <div class="t-Header-navBar">
+
+        <div class="t-Header-navBar--start">
+
+          <!-- <div class="t-Header-navBar--end"><div class="t-Form-fieldContainer rel-col t-Form-fieldContainer--large t-Form-fieldContainer--normalDisplay apex-item-wrapper apex-item-wrapper--has-initial-value apex-item-wrapper--select-list" id="P0_LANGUAGE_CONTAINER"><div class="t-Form-labelContainer col col-null">
+  <label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
+  </div>
+  <div class="t-Form-inputContainer col col-null"><div class="t-Form-itemWrapper"><select  id="P0_LANGUAGE" name="P0_LANGUAGE" class="selectlist&#x20;apex-item-select" data-native-menu="false"  size="1" ><option value="en" selected="selected" >English</option>
+  <option value="ta">Tamil</option>
+  </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error" data-template-id="32751098700172723_ET"></span></div></div></div> 
+         <div class="t-Header-navBar--center"><ul class="t-NavigationBar " id="32861498506172843"><li class="t-NavigationBar-item a-pwaInstall">
+    <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install" title="" target="">
+      <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true" ></span><span class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
+    </a>
+  </li><li class="t-NavigationBar-item has-username">
+    <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#" title="" target="">
+      <span class="t-Icon fa&#x20;fa-user" aria-hidden="true" ></span><span class="t-Button-label">nobody</span><span class="t-Button-badge"></span>
+    </a>
+  </li></ul></div> -->
+          <div class="t-Header-navBar--end">
+            <div class="t-Form-inputContainer col col-null">
+              <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
+                  class="selectlist apex-item-select" data-native-menu="false" size="1">
+                  <option value="en">English</option>
+                  <option value="ta">Tamil</option>
+                </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
+                data-template-id="32751098700172723_ET"></span>
+            </div>
+          </div>
+
+          <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
+          <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
+          <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
+          <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v358/instagram.jpeg"
+              style="height:35px;" class="fa fa-twitter" target='_blank'>
+            <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
+
+
+        </div>
+
+      </div>
       <!-- <div class=" nobgcolor ">
 <img id="first_image" style=" height: 100%;" src = 'r/dipr/103/files/static/v397/left-png.png' > <span class="alignCenter"><center> Information and Public Relations Department </br> செய்தி – மக்கள் தொடர்புத்துறை </center></span>
     <img id="last_image" style=" height: 100%;" src = "r/dipr/103/files/static/v397/right-png.png" > 
@@ -1076,30 +1058,7 @@
     <div class="t-Body ">
 
       <div class="t-Body-main titlePos">
-        <div class="t-Body-title" id="t_Body_title">
-          <nav id="R34839297483869595" role="navigation" aria-label="Breadcrumb"
-            class="t-BreadcrumbRegion t-BreadcrumbRegion--showBreadcrumb t-BreadcrumbRegion--useBreadcrumbTitle">
-            <div class="t-BreadcrumbRegion-top">
-              <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--start"></div>
-              <div class="t-BreadcrumbRegion-body">
-                <div class="t-BreadcrumbRegion-breadcrumb">
-                  <ul class="t-Breadcrumb ">
-                    <li class="t-Breadcrumb-item is-active" aria-current="page">
-                      <h1 class="t-Breadcrumb-label">Government Orders</h1>
-                    </li>
-                  </ul>
-                </div>
-                <div class="t-BreadcrumbRegion-title">
-                  <h1 id="R34839297483869595_heading" class="t-BreadcrumbRegion-titleText" data-apex-heading>
-                    Breadcrumb
-                  </h1>
-                </div>
-              </div>
-              <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--end"></div>
-            </div>
-            <div class="t-BreadcrumbRegion-bottom"></div>
-          </nav>
-        </div>
+
         <div class="t-Body-content" id="t_Body_content">
           <main id="main" class="t-Body-mainContent">
             <span id="APEX_SUCCESS_MESSAGE" data-template-id="33086037481442559_S"
@@ -1158,9 +1117,8 @@
                               <div role="region"
                                 aria-label="Buttons&#x20;next&#x20;to&#x20;search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
                                 class="a-IRR-buttons"><button class="t-Button t-Button--hot js-ignoreChange"
-                                  type="button" id="upload-press-open-modal"><span class="t-Button-label">Upload
-                                    Government Orders
-                                  </span></button></div>
+                                  type="button" id="upload-press-open-modal"><span
+                                    class="t-Button-label">Create</span></button></div>
                             </div>
                             <div id="R34839964403869597_content" class="a-IRR-content ">
                               <div id="R34839964403869597_dialog_js" class="a-IRR-dialogBody" style="display:none">
@@ -1189,23 +1147,23 @@
                                         <span class="u-vh">Link</span>
                                       </th>
                                       <th class="a-IRR-header u-tL" id="C11748439923991421"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="11748439923991421" href="#">Pr
-                                          Date</a>
+                                          class="a-IRR-headerLink" data-column="11748439923991421" href="#">File
+                                          Name</a>
                                       </th>
                                       <th class="a-IRR-header u-tL" id="C11747689722991413"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="11747689722991413" href="#">Language</a>
+                                          class="a-IRR-headerLink" data-column="11747689722991413" href="#">File</a>
                                       </th>
-                                      <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37710503093077076" href="#">Order
-                                          Name</a></th>
                                       <th class="a-IRR-header u-tL" id="C37707438775077045"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37707438775077045" href="#">Uploaded
-                                          By</a></th>
+                                          class="a-IRR-headerLink" data-column="37707438775077045" href="#">Created On
+                                        </a></th>
+                                      <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
+                                          class="a-IRR-headerLink" data-column="37710503093077076" href="#">Created By
+                                        </a></th>
                                       <th class="a-IRR-header u-tL" id="C37707553402077046"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37707553402077046" href="#">Uploaded
-                                          Date</a></th>
+                                          class="a-IRR-headerLink" data-column="37707553402077046" href="#">Updated By
+                                        </a></th>
                                     </tr>
-                                    <tbody id="governmentOrdersTableBody">
+                                    <tbody id="pressReleaseTableBody">
                                       <!-- Dynamic rows will be inserted here -->
                                     </tbody>
                                   </table>
@@ -1348,7 +1306,7 @@
   <script src="../assets/vendor/datatable/dataTables.bootstrap5.min.js"></script>
   <script src="../assets/vendor/datatables-buttons/js/dataTables.buttons.min.js"></script>
   <script src="../assets/vendor/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-
+  <script src="../assets/js/global.js"></script>
   <script src="assets/js/jquery-ui.min.js"></script>
 
   <script src="assets/js/desktop_all.min.js"></script>
@@ -1364,7 +1322,8 @@
   <script src="assets/js/require.js"></script>
   <script src="assets/js/requirejs.jetConfig.min.js"></script>
   <script src="assets/js/jetCommonBundle.min.js"></script>
-  <script src="../assets/js/global.js"></script>
+
+
   <script type="text/javascript">
     apex.session.initTimeouts(300, { "idle_time_ms": 3595000, "life_time_ms": 28755000, "max_idle_time_ms": 3600000 }, '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome', '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome');
     apex.jQuery(function () {
@@ -1450,9 +1409,68 @@
       toast.show();
     }
 
+    function checkFile(selector) {
+      var fileInput = $(selector).find('input[type="file"]');
+      const validTypes = ['application/pdf', 'image/jpeg', 'image/jpg'];
+      const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+      var file = fileInput[0].files[0];
+
+      // Check if a file has been selected
+      if (file) {
+        // Check file type
+        if (!validTypes.includes(file.type)) {
+          errors = true;
+          $('#' + selector.replace('#', '') + '_error_placeholder').text('Invalid file type. Supported types are .pdf, .jpg, .jpeg.').css('color', 'red');
+          return;
+        }
+
+        // Check file size
+        if (file.size > maxSize) {
+          errors = true;
+          $('#' + selector.replace('#', '') + '_error_placeholder').text("File size exceeds the 2MB limit.").css('color', 'red');
+          return;
+        }
+      }
+    }
+    function processFile(selector) {
+      return new Promise((resolve, reject) => {
+        var fileInput = $(selector)[0];
+        var file = fileInput.files[0];
+        if (file === undefined) showErrorToast('Please upload all the required files');
+        if (file) {
+          const reader = new FileReader();
+          const fileData = {};
+
+          reader.onload = function (event) {
+            // File processed as Base64 string
+            fileData.fileBase64 = event.target.result.split(',')[1];
+            fileData.mimetype = file.type;
+            fileData.filename = file.name;
+
+            resolve(fileData); // Resolve the promise with fileData
+          };
+
+          reader.onerror = function (error) {
+            reject(error); // Reject the promise in case of error
+          };
+
+          reader.readAsDataURL(file); // Read the file as a data URL (Base64)
+        }
+      });
+    }
+
+    function formatDate(dateString) {
+      if (!dateString) return 'N/A';
+      let date = new Date(dateString);
+      return date.toLocaleDateString('en-GB'); // Formats as dd/MM/yyyy
+    }
+
     $(document).ready(function () {
-      debugger
+      debugger;
       $('#preloader').hide();
+      var langSwitch = 'en';
+
+      // Show preloader during AJAX requests
       $(document).on({
         ajaxStart: function () {
           $('#preloader').show();
@@ -1464,135 +1482,62 @@
         }
       });
 
-      // });
-      $('#preloader').hide();
-
-      function checkFile(selector) {
-        var fileInput = $(selector).find('input[type="file"]');
-        const validTypes = ['application/pdf', 'image/jpeg', 'image/jpg'];
-        const maxSize = 2 * 1024 * 1024; // 2MB in bytes
-        var file = fileInput[0].files[0];
-
-        // Check if a file has been selected
-        if (file) {
-          // Check file type
-          if (!validTypes.includes(file.type)) {
-            errors = true;
-            $('#' + selector.replace('#', '') + '_error_placeholder').text('Invalid file type. Supported types are .pdf, .jpg, .jpeg.').css('color', 'red');
-            return;
-          }
-
-          // Check file size
-          if (file.size > maxSize) {
-            errors = true;
-            $('#' + selector.replace('#', '') + '_error_placeholder').text("File size exceeds the 2MB limit.").css('color', 'red');
-            return;
-          }
-        }
-      }
-      function processFile(selector) {
-        return new Promise((resolve, reject) => {
-          var fileInput = $(selector)[0];
-          var file = fileInput.files[0];
-          if (file === undefined) showErrorToast('Please upload all the required files');
-          if (file) {
-            const reader = new FileReader();
-            const fileData = {};
-
-            reader.onload = function (event) {
-              // File processed as Base64 string
-              fileData.fileBase64 = event.target.result.split(',')[1];
-              fileData.mimetype = file.type;
-              fileData.filename = file.name;
-
-              resolve(fileData); // Resolve the promise with fileData
-            };
-
-            reader.onerror = function (error) {
-              reject(error); // Reject the promise in case of error
-            };
-
-            reader.readAsDataURL(file); // Read the file as a data URL (Base64)
-          }
-        });
-      }
-
-      function formatDate(dateString) {
-        if (!dateString) return 'N/A';
-        let date = new Date(dateString);
-        return date.toLocaleDateString('en-GB'); // Formats as dd/MM/yyyy
-      }
-
-      $(document).ready(function () {
-        $("td.a-GV-cell").each(function () {
-          let text = $(this).text().trim();
-          if (text && text !== 'N/A' && !isNaN(Date.parse(text))) {
-            $(this).text(formatDate(text));
-          }
-        });
-      });
-
       let tableData;
       let selectedId;
-      let orderName;
+      let fileName;
       const userId = localStorage.getItem("role_id");
-      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/viewReport";
-      const tableBody = $("#governmentOrdersTableBody");
+      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/monthlyMagazineSpecialPublications/publications";
+      const tableBody = $("#pressReleaseTableBody");
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
-      $.ajax({
-        url: apiUrl,
-        method: "POST",
-        success: function (response) {
-          tableData = response.data;
-          console.log("Table data" + tableData)
-          tableBody.empty();
 
-          if (!tableData || tableData.length === 0) {
-            tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
-            return;
+      function fetchData() {
+        var viewPayload = {
+          // "lang": langSwitch
+          "action": "fetch"
+        };
+
+        $.ajax({
+          url: apiUrl,
+          method: "POST",
+          contentType: 'application/json',
+          data: JSON.stringify(viewPayload),
+          success: function (response) {
+            tableData = response.data;
+            tableBody.empty();
+
+            if (!tableData || tableData.length === 0) {
+              tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
+              return;
+            }
+
+            tableData.forEach(item => {
+              const newRow = `
+            <tr>
+            <td class="u-tL">   
+              <a data-id="${item.slno}" data-file="${item.order_name}" id="open-modal-btn" href="javascript:void(0);">
+                <i class="bi bi-pencil-square"></i>
+              </a>
+            </td>
+            <td class="a-GV-cell u-tC is-readonly">${(item.file_name) || 'N/A'}</td>
+            <td class="a-GV-cell u-tC is-readonly">${(item.filename) || 'N/A'}</td>
+            <td class="a-GV-cell u-tC is-readonly">${(item.created_by) || 'N/A'}</td>
+            <td class="a-GV-cell u-tC is-readonly">${(item.created_on) || 'N/A'}</td>
+            <td class="a-GV-cell u-tC is-readonly">${(item.updated_on) || 'N/A'}</td>
+
+            </tr>`;
+              tableBody.append(newRow);
+            });
+          },
+          error: function () {
+            tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
           }
+        });
+      }
 
-          tableData.forEach(item => {
-            const newRow = `
-              <tr>
-              <td class="u-tL">   <a data-id="${item.id}" data-file="${item.order_name}" id="open-modal-btn" href="javascript:void(0);">
-        <i class="bi bi-pencil-square"></i>
-      </a></td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.order_name) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.uploaded_on) || 'N/A'}</td>
-              </tr>`;
+      fetchData();
 
-
-            tableBody.append(newRow);
-          });
-        },
-        error: function (xhr, status, error) {
-          console.error("Error fetching data: ", error);
-          tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
-        }
-      });
-
-      $("#modal").dialog({
-        autoOpen: false,
-        modal: true,
-        closeOnEscape: true,
-        draggable: false,
-        width: 720,
-        resizable: false
-      });
-
-      $("#uploadModal").dialog({
-        autoOpen: false,
-        modal: true,
-        closeOnEscape: true,
-        draggable: false,
-        width: 720,
-        resizable: false
-      });
-
+      $("#modal").dialog({ autoOpen: false, modal: true, width: 720, resizable: false });
+      $("#uploadModal").dialog({ autoOpen: false, modal: true, width: 720, resizable: false });
       $("#upload-press-open-modal").on("click", function () {
         $("#uploadModal").dialog("open");
       })
@@ -1629,65 +1574,32 @@
         }
       };
 
-
-      // $("body").on("click", "#open-modal-btn", function () {
-      //   debugger
-      //   const pressId = $(this).data("id");
-      //   selectedId = $(this).data("id");
-      //   orderName = $(this).data("file");
-      //   const selectedItem = tableData.find(item => item.id == pressId);
-
-      //   if (selectedItem) {
-      //     $("#Press_name").text(selectedItem.order_name || "");
-      //     $("#Press_date input").val(selectedItem.go_date || "");
-      //     $("#pressLangugage").val(selectedItem.language || "").trigger("change");
-      //     $("#modal").dialog("open");
-
-      //     const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
-      //     if (interimLinkContainer) {
-      //       const downloadLinkHTML = createDownloadLink(
-      //         selectedItem.order_name,
-      //         "application/pdf",
-      //         selectedItem.order_name
-      //       );
-      //       interimLinkContainer.innerHTML = downloadLinkHTML;
-      //     }
-      //   }
-      // });
-
       $("body").on("click", "#open-modal-btn", function () {
         debugger;
-        $("tr").removeClass("selected"); // Remove previously selected row
-        const selectedRow = $(this).closest("tr"); // Get clicked row
-        selectedRow.addClass("selected"); // Highlight the selected row
+        $("tr").removeClass("selected");
+        $(this).closest("tr").addClass("selected");
 
         const pressId = $(this).data("id");
         selectedId = pressId;
-        orderName = $(this).data("file");
-
-        console.log("Selected ID:", selectedId);
-        console.log("Order Name:", orderName);
-
-        const selectedItem = tableData.find(item => item.id == pressId);
+        fileName = $(this).data("file");
+        const selectedItem = tableData.find(item => item.slno == pressId);
 
         if (selectedItem) {
-          $("#Press_name").text(selectedItem.order_name || "");
-          $("#Press_date input").val(selectedItem.go_date || "");
-          $("#pressLangugage").val(selectedItem.language || "").trigger("change");
+          // $("#Press_files").val(selectedItem.file_name || "");
+          $("#Press_file_name").val(selectedItem.file_name || "");
           $("#modal").dialog("open");
-
           const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
           if (interimLinkContainer) {
             const downloadLinkHTML = createDownloadLink(
-              selectedItem.order_name,
+              selectedItem.filename,
               "application/pdf",
-              selectedItem.order_name
+              selectedItem.filename
             );
             interimLinkContainer.innerHTML = downloadLinkHTML;
           }
+
         }
       });
-
 
       $(".close-button").on("click", function () {
         $("#modal").dialog("close");
@@ -1702,104 +1614,43 @@
       });
 
       async function registerNewData() {
-        debugger
+        debugger;
         try {
-
-          var pressDate = $('#Press_create_date input').val() || "";
-          // var formattedPressDate = convertDateFormat(pressDate);
-          var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
+          var pressfile = $('#Press_create_file_name input').val() || "";
           let pressInputFile = null;
           pressInputFile = await processFile('#pressFileUpload_input');
           checkFile('#pressFileUpload');
-          // if (!polStn || !districtName || !ComplaintData || !complaintMadeBy || !firNo || !dateOfFIR || !childGender || !childDOB || !childAge || !nameOfGuardian) {
-          //   if (willingness === "Yes") {
-          //     if (!willingness || !willName || !willRelation || !willDate || !accName || !accNo || !bankName || !branchName || !ifsc) {
-          //       showErrorToast("Please fill in all required fields.");
-          //       return;
-          //     }
-          //   }
-          //   showErrorToast("Please fill in all required fields.");
-          //   return;
-          // }
 
-          if (pressDate) {
-            var dateObj = new Date(pressDate);
-            var formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
-              ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
-              dateObj.getFullYear();
-            pressDate = formattedDate;
-          }
+          var registrationPayload = {
+            "language": langSwitch,
+            "action": "insert",
+            "file_name": pressfile,
+            "mime_type": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+            "filename": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+            "created_by": "admin",
+            "updated_by": "admin",
+            "language": "en"
 
-          var governmentOrderPayload = {
-            "p_ID": 13456456,
-            "V_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "V_DESC": "Latest updates on tech policies",
-            "V_URL": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "Current_User": "admin_user",
-            "V_DATE": formattedDate,
-            "LANGUAGE": pressLangugage,
-            // "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
-            // "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            // "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
           };
 
           await $.ajax({
-            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/InsertPressReleaseForm',
+            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/monthlyMagazineSpecialPublications/publications',
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(governmentOrderPayload),
-            success: function (response) {
-              // user_id.id = response.return_id;
-              // Court_id.COURT_ID = response.return_id;
-              showSuccessToast("Submitted Successfully");
+            data: JSON.stringify(registrationPayload),
+            success: function () {
+              showSuccessToast("Inserted Successfully");
               setTimeout(() => window.location.href = "../admin-special-publication-report.html", 1000);
             },
-            error: function (error) {
-              console.error('Error:', error);
+            error: function () {
               showErrorToast("An error occurred during submission of data.");
             }
           });
-          await showSuccessToast('Data Submitted Successfully');
         } catch (error) {
           console.error('Error:', error);
           showErrorToast("An unexpected error occurred.");
         }
       }
-
-      $("#deleteBtn").on("click", function () {
-        if (!selectedId) {
-          alert("No item selected for deletion.");
-          return;
-        }
-
-        if (confirm("Are you sure you want to delete this item?")) {
-          alert(selectedId)
-          deleteData(selectedId);
-        }
-      });
-
-      // $('#updateBtn').on('click', function () {
-      //   debugger;
-      //   const selectedRow = $('tr.selected'); // Ensure row is actually selected
-      //   if (!selectedRow.length) {
-      //     showErrorToast("No row selected for update.");
-      //     return;
-      //   }
-
-      //   // Correct way to get data-id and data-file
-      //   const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
-      //   const orderName = selectedRow.find('a#open-modal-btn').attr('data-file');
-
-      //   console.log("Selected ID:", selectedId);
-      //   console.log("Order Name:", orderName);
-
-      //   if (!selectedId || !orderName) {
-      //     showErrorToast("Failed to fetch required data for update.");
-      //     return;
-      //   }
-
-      //   updateData(selectedId, orderName);
-      // });
 
       $('#updateBtn').on('click', function () {
         debugger;
@@ -1810,64 +1661,75 @@
         }
 
         const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
-        let orderName = selectedRow.find('a#open-modal-btn').attr('data-file');
 
-        console.log("Selected ID:", selectedId);
-        console.log("Order Name:", orderName);
-
-        if (!selectedId || !orderName) {
+        if (!selectedId) {
           showErrorToast("Failed to fetch required data for update.");
           return;
         }
 
         const orderFileInput = document.getElementById('orderFileUpload_input');
         if (orderFileInput.files.length > 0) {
-          orderName = orderFileInput.files[0].name;
+          fileName = orderFileInput.files[0].name;
         }
 
-        updateData(selectedId, orderName);
+        updateData(selectedId, fileName);
       });
 
       async function updateData(id, file) {
         debugger;
 
-        const lang = $('#pressLangugage').val();
-        const pressDate = $('#Press_create_date input').val();
+        const files = $('#Press_file_name').val();
+        // const filename = $('#orderFileUpload_input').val();
 
         const updatePayload = {
-          "p_ID": id,
-          "V_NAME": file,
-          "V_URL": file,
-          "Current_User": "admin",
-          "V_DESC": "Order Description",
-          "V_DATE": "2025-02-01",
-          "LANGUAGE": lang
+
+          "action": "update",
+          "slno": id,
+          "file_name": files,
+          "mime_type": "application/msword",
+          "filename": file,
+          "updated_by": "editor",
+          "language": langSwitch,
+          "language": "Tamil"
         };
+
+
         $.ajax({
-          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/updatePressReleaseForm',
+          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/monthlyMagazineSpecialPublications/publications',
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(updatePayload),
-          success: function (response) {
+          success: function () {
             showSuccessToast("Updated Successfully");
-            setTimeout(() => window.location.href = "../admin-goverment-orders.html", 1000);
+            setTimeout(() => window.location.href = "../admin-special-publication-report.html", 1000);
           },
-          error: function (error) {
+          error: function () {
             showErrorToast("An error occurred during submission of data.");
           }
         });
       }
 
+      $("#deleteBtn").on("click", function () {
+        if (!selectedId) {
+          alert("No item selected for deletion.");
+          return;
+        }
+
+        if (confirm("Are you sure you want to delete this item?")) {
+          deleteData(selectedId);
+        }
+      });
+
       function deleteData(id) {
-        debugger
+        debugger;
         $('#preloader').show();
         $.ajax({
-          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/deletePressReleaseForm`,
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/monthlyMagazineSpecialPublications/publications`,
           type: "POST",
-          dataType: "json",
           contentType: "application/json",
           data: JSON.stringify({
-            p_ID: id
+            "slno": id,
+            "action": "delete",
           }),
           success: function (response) {
             $('#preloader').hide();
@@ -1878,14 +1740,26 @@
               showErrorToast("Error: " + response.message);
             }
           },
-          error: function (xhr, status, error) {
+          error: function () {
             $('#preloader').hide();
-            console.error("AJAX Error:", error);
             alert("Failed to delete data. Please try again.");
           }
         });
       }
+
+      // Language change event
+      document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
+        const selectedValue = this.value;
+        if (selectedValue === "en") {
+          langSwitch = "en";
+          fetchData();
+        } else {
+          langSwitch = "ta";
+          fetchData();
+        }
+      });
     });
+
   </script>
 </body>
 
