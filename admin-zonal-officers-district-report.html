@@ -781,7 +781,7 @@
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
                   <input placeholder="zone" aria-haspopup="dialog" class="apex-item-text&#x20;apex-item-datepicker"
-                    name="Press_create_zone" size="30">
+                    name="Press_create_zone" id="Press_create_zone" size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="Press_create_zone_error_placeholder" class="a-Form-error"
@@ -838,7 +838,7 @@
     <header class="t-Header" id="t_Header" role="banner">
 
 
-      <div class="t-Header-navBar">
+      <!-- <div class="t-Header-navBar">
 
         <div class="t-Header-navBar--start">
 
@@ -888,7 +888,6 @@
           <div class="t-Header-navBar--end"></div>
           <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
           <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
-          <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
           <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v397/instagram.jpeg"
               style="height:35px;" class="fa fa-twitter" target='_blank'>
             <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
@@ -896,8 +895,49 @@
 
         </div>
 
-      </div>
+      </div> -->
 
+      <div class="t-Header-navBar">
+
+        <div class="t-Header-navBar--start">
+
+          <!-- <div class="t-Header-navBar--end"><div class="t-Form-fieldContainer rel-col t-Form-fieldContainer--large t-Form-fieldContainer--normalDisplay apex-item-wrapper apex-item-wrapper--has-initial-value apex-item-wrapper--select-list" id="P0_LANGUAGE_CONTAINER"><div class="t-Form-labelContainer col col-null">
+  <label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
+  </div>
+  <div class="t-Form-inputContainer col col-null"><div class="t-Form-itemWrapper"><select  id="P0_LANGUAGE" name="P0_LANGUAGE" class="selectlist&#x20;apex-item-select" data-native-menu="false"  size="1" ><option value="en" selected="selected" >English</option>
+  <option value="ta">Tamil</option>
+  </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error" data-template-id="32751098700172723_ET"></span></div></div></div> 
+         <div class="t-Header-navBar--center"><ul class="t-NavigationBar " id="32861498506172843"><li class="t-NavigationBar-item a-pwaInstall">
+    <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install" title="" target="">
+      <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true" ></span><span class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
+    </a>
+  </li><li class="t-NavigationBar-item has-username">
+    <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#" title="" target="">
+      <span class="t-Icon fa&#x20;fa-user" aria-hidden="true" ></span><span class="t-Button-label">nobody</span><span class="t-Button-badge"></span>
+    </a>
+  </li></ul></div> -->
+          <div class="t-Header-navBar--end">
+            <div class="t-Form-inputContainer col col-null">
+              <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
+                  class="selectlist apex-item-select" data-native-menu="false" size="1">
+                  <option value="en">English</option>
+                  <option value="ta">Tamil</option>
+                </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
+                data-template-id="32751098700172723_ET"></span>
+            </div>
+          </div>
+
+          <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
+          <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
+          <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
+          <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v358/instagram.jpeg"
+              style="height:35px;" class="fa fa-twitter" target='_blank'>
+            <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
+
+
+        </div>
+
+      </div>
       <!-- <div class=" nobgcolor ">
 <img id="first_image" style=" height: 100%;" src = 'r/dipr/103/files/static/v397/left-png.png' > <span class="alignCenter"><center> Information and Public Relations Department </br> செய்தி – மக்கள் தொடர்புத்துறை </center></span>
     <img id="last_image" style=" height: 100%;" src = "r/dipr/103/files/static/v397/right-png.png" > 
@@ -1352,6 +1392,8 @@
     $(document).ready(function () {
       debugger
       $('#preloader').hide();
+      var langSwitch = 'en';
+
       $(document).on({
         ajaxStart: function () {
           $('#preloader').show();
@@ -1368,44 +1410,53 @@
       let tableData;
       let selectedId;
       const userId = localStorage.getItem("role_id");
-      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/priceDetailsSpecialIssuesReport/viewReport";
+      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/zonalOfficerApi";
       const tableBody = $("#pressReleaseTableBody");
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
-      $.ajax({
-        url: apiUrl,
-        method: "POST",
-        //contentType: "application/json",
-        //data: JSON.stringify(state_customize_reportPayload),
-        success: function (response) {
-          tableData = response.data;
-          tableBody.empty();
 
-          if (!tableData || tableData.length === 0) {
-            tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
-            return;
-          }
+      function fetchData() {
+        var viewPayload = {
+          // "lang": langSwitch
+          "action": "fetch"
+        };
+        $.ajax({
+          url: apiUrl,
+          method: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(viewPayload),
+          success: function (response) {
+            tableData = response.data;
+            tableBody.empty();
 
-          tableData.forEach(item => {
-            const newRow = `
+            if (!tableData || tableData.length === 0) {
+              tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
+              return;
+            }
+
+            tableData.forEach(item => {
+              const newRow = `
               <tr>
               <td class="u-tL">   <a data-id="${item.slno}" id="open-modal-btn" href="javascript:void(0);">
         <i class="bi bi-pencil-square"></i>
       </a></td>
             
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.name) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.price) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.zone) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.districts) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_by) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_on) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.updated_on) || 'N/A'}</td>
               </tr>`;
-            tableBody.append(newRow);
-          });
-        },
-        error: function (xhr, status, error) {
-          console.error("Error fetching data: ", error);
-          tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
-        }
-      });
+              tableBody.append(newRow);
+            });
+          },
+          error: function (xhr, status, error) {
+            console.error("Error fetching data: ", error);
+            tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
+          }
+        });
+      }
+
+      fetchData();
 
       $("#modal").dialog({
         autoOpen: false,
@@ -1443,8 +1494,8 @@
         const selectedItem = tableData.find(item => item.slno == pressId);
 
         if (selectedItem) {
-          $("#Press_zone").val(selectedItem.name || ""); // Change `.text()` to `.val()` for input fields
-          $("#Press_district").val(selectedItem.price || "");
+          $("#Press_zone").val(selectedItem.zone || ""); // Change `.text()` to `.val()` for input fields
+          $("#Press_district").val(selectedItem.districts || "");
 
           $("#modal").dialog("open");
         }
@@ -1523,9 +1574,8 @@
         debugger
         try {
 
-          var pressName = document.getElementById('Press_create_monthly_issue').value || "";
-          var pressPrice = $('#Press_create_price input').val() || "";
-
+          var pressZone = $('#Press_create_zone').val() || "";
+          var pressDistrict = $('#Press_create_district').val() || "";
           // if (!polStn || !districtName || !ComplaintData || !complaintMadeBy || !firNo || !dateOfFIR || !childGender || !childDOB || !childAge || !nameOfGuardian) {
           //   if (willingness === "Yes") {
           //     if (!willingness || !willName || !willRelation || !willDate || !accName || !accNo || !bankName || !branchName || !ifsc) {
@@ -1538,16 +1588,18 @@
           // }
 
           var registrationPayload = {
-            "NAME": pressName,
-            "PRICE": pressPrice,
-            "CREATED_BY": "admin_user",
-            "UPDATED_BY": "admin_user",
-            "LANGUAGE": "en"
+
+            action: "insert",
+            zone: pressZone,
+            districts: pressDistrict,
+            created_by: "admin",
+            updated_by: "admin",
+            language: langSwitch
           };
 
 
           await $.ajax({
-            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/priceDetailsSpecialIssuesReport/insertSpecialIssuesPriceDetails',
+            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/zonalOfficerApi',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(registrationPayload),
@@ -1555,7 +1607,7 @@
               // user_id.id = response.return_id;
               // Court_id.COURT_ID = response.return_id;
               showSuccessToast("Inserted Successfully");
-              setTimeout(() => window.location.href = "../admin-price-details-of-special-issues.html", 1000);
+              setTimeout(() => window.location.href = "../admin-zonal-officers-district-report.html", 1000);
             },
             error: function (error) {
               console.error('Error:', error);
@@ -1595,25 +1647,25 @@
       async function updateData(id) {
         debugger;
 
-        const name = $('#Press_zone').val();
-        const price = $('#Press_district').val();
+        const zone = $('#Press_zone').val();
+        const district = $('#Press_district').val();
 
         const updatePayload = {
-          "SLNO": id,
-          "NAME": name,
-          "PRICE": price,
-          "CREATED_BY": "admin_user",
-          "UPDATED_BY": "admin_user",
-          "LANGUAGE": "EN"
+          action: "update",
+          slno: id,
+          zone: zone,
+          districts: district,
+          updated_by: "admin",
+          language: langSwitch
         };
         $.ajax({
-          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/priceDetailsSpecialIssuesReport/updateSpecialIssuesPriceDetails',
+          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/zonalOfficerApi',
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(updatePayload),
           success: function (response) {
             showSuccessToast("Updated Successfully");
-            setTimeout(() => window.location.href = "../admin-price-details-of-special-issues.html", 1000);
+            setTimeout(() => window.location.href = "../admin-zonal-officers-district-report.html", 1000);
           },
           error: function (error) {
             showErrorToast("An error occurred during submission of data.");
@@ -1637,12 +1689,13 @@
         debugger
         $('#preloader').show();
         $.ajax({
-          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/priceDetailsSpecialIssuesReport/deleteSpecialIssuesPriceDetails`,
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/zonalOfficerApi`,
           type: "POST",
           dataType: "json",
           contentType: "application/json",
           data: JSON.stringify({
-            "SLNO": id
+            "action": "delete",
+            "slno": id
           }),
           success: function (response) {
             $('#preloader').hide();
@@ -1661,7 +1714,21 @@
         });
       }
     });
+
+
+    document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
+      const selectedValue = this.value;
+      if (selectedValue === "en") {
+        langSwitch = "en";
+        fetchData();
+      } else {
+        langSwitch = "ta";
+        fetchData();
+      }
+    });
+
   </script>
+
 </body>
 
 </html>
