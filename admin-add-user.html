@@ -38,6 +38,16 @@
   <link rel="stylesheet" href="https://static.oracle.com/cdn/apex/24.1.7/themes/theme_42/23.1/css/Core.min.css?v=24.1.7"
     type="text/css" />
   <style>
+    .error-border {
+      border: 2px solid red !important;
+    }
+
+    .a-Form-error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+
     .titlePos .t-Body-title {
       position: unset !important;
     }
@@ -785,30 +795,65 @@
     </div>
   </div>
 
-  <div id="uploadModal" title="Upload">
+  <div id="uploadModal" title="ADD USER FORM">
     <div class="modalWrap">
       <div class="t-Form-inputContainer col col-12">
         <div class="t-Form-itemWrapper file_wrap">
           <div class="col col-6 apex-col-auto col-start">
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
-
-
+            </div>
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
+              id="Press_create_email">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_email" id="Press_email_LABEL">Email</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input placeholder="Email Id" aria-haspopup="dialog" class="apex-item-text&#x20;apex-item-datepicker"
+                    name="Press_create_email" size="30">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_email_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
             </div>
 
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Press_create_date">
+              id="Press_create_username">
               <div class="t-Form-labelContainer col col-2">
-                <label for="Press_create_date" id="Press_date_LABEL">Date</label>
+                <label for="Press_create_username" id="Press_username_LABEL">Username</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
-                    class="apex-item-text&#x20;apex-item-datepicker" name="Press_create_date" size="30">
+                  <input placeholder="username" aria-haspopup="dialog" class="apex-item-text&#x20;apex-item-datepicker"
+                    name="Press_create_username" size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Press_create_date_error_placeholder" class="a-Form-error"
+                  <span id="Press_create_username_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
+              id="Press_create_password">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_password" id="Press_password_LABEL">Password</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input placeholder="passsword" aria-haspopup="dialog" class="apex-item-text&#x20;apex-item-datepicker"
+                    name="Press_create_password" type="password" size="30">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_password_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -818,49 +863,86 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="pressCreateLangugage" id="pressCreateLangugage_LABEL">Language</label>
+                <label for="Press_create_role" id="Press_create_role_LABEL">Role</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
                   <div class="t-Form-itemWrapper">
-                    <select id="pressCreateLangugage" name="pressCreateLangugage"
-                      class="selectlist&#x20;apex-item-select" data-native-menu="false" size="1">
+                    <select id="Press_create_role" name="Press_create_role" class="selectlist&#x20;apex-item-select"
+                      data-native-menu="false" size="1">
                       <option value="" selected="selected">-Select-</option>
-                      <option value="en">English</option>
-                      <option value="ta">Tamil</option>
+                      <option value="district">District</option>
+                      <option value="districtpro">District PRO</option>
+                      <option value="prsection">PR Section</option>
+                      <option value="superadmin">Super Admin</option>
+                      <option value="viewreport">View Report</option>
                     </select>
                   </div>
                 </div>
+
+
                 <div class="t-Form-itemAssistance">
-                  <span id="pressCreateLangugage_error_placeholder" class="a-Form-error"
+                  <span id="Press_create_role_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
               </div>
             </div>
 
+
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="pressFileUpload" id="pressFileUpload_LABEL">File Upload</label>
+                <label for="P45_DISTRICT" id="P45_DISTRICT_LABEL">District</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <a-file-upload id="pressFileUpload" name="pressFileUpload" upload-type="FILE" display-style="NATIVE"
-                    accept=".pdf,.jpg,.jpeg" size="30" max-file-size="2048">
-                    <input type="file" id="pressFileUpload_input" name="pressFileUpload"
-                      class="text_field&#x20;apex-item-text" value="" maxlength="1000" />
-                    <div class="a-FileDrop a-FileDrop--native">
-                    </div>
-                  </a-file-upload>
+                  <div class="t-Form-itemWrapper">
+                    <select id="P45_DISTRICT" name="P45_DISTRICT" class="selectlist apex-item-select"
+                      data-native-menu="false" size="1">
+                      <option value="" selected="selected">-Select-</option>
+                      <option value="All Districts">All Districts</option>
+                      <option value="Chennai District">Chennai District</option>
+                      <option value="Coimbatore District">Coimbatore District</option>
+                      <option value="Cuddalore District">Cuddalore District</option>
+                      <option value="Dharmapuri District">Dharmapuri District</option>
+                      <option value="Dindigul District">Dindigul District</option>
+                      <option value="Erode District">Erode District</option>
+                      <option value="Kancheepuram District">Kancheepuram District</option>
+                      <option value="Kanniyakumari District">Kanniyakumari District</option>
+                      <option value="Kerala State">Kerala State</option>
+                      <option value="Krishnagiri District">Krishnagiri District</option>
+                      <option value="Madurai District">Madurai District</option>
+                      <option value="Mayiladuthurai District">Mayiladuthurai District</option>
+                      <option value="Namakkal District">Namakkal District</option>
+                      <option value="Ramanathapuram District">Ramanathapuram District</option>
+                      <option value="Salem District">Salem District</option>
+                      <option value="Salem District">Salem District</option>
+                      <option value="Sivagangai District">Sivagangai District</option>
+                      <option value="Tenkasi District">Tenkasi District</option>
+                      <option value="Thanjavur District">Thanjavur District</option>
+                      <option value="Theni District">Theni District</option>
+                      <option value="Thiruvarur District">Thiruvarur District</option>
+                      <option value="Thoothukudi District">Thoothukudi District</option>
+                      <option value="Tiruchirappalli District">Tiruchirappalli District</option>
+                      <option value="Tirunelveli District">Tirunelveli District</option>
+                      <option value="Tiruppur District">Tiruppur District</option>
+                      <option value="Vellore District">Vellore District</option>
+                      <option value="Viluppuram District">Viluppuram District</option>
+                      <option value="Virudhunagar District">Virudhunagar District</option>
+                    </select>
+                  </div>
                 </div>
+
+
                 <div class="t-Form-itemAssistance">
-                  <span id="pressFileUpload_error_placeholder" class="a-Form-error"
+                  <span id="Press_create_role_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -1347,9 +1429,10 @@
     }
   </script> -->
   <script src="../assets/vendor/datatable/jquery.dataTables.min.js"></script>
-  <script src="../assets/vendor/datatable/dataTables.bootstrap5.min.js"></script>
+  <!-- <script src="../assets/vendor/datatable/dataTables.bootstrap5.min.js"></script> -->
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/global.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
   <script type="text/javascript">
@@ -1613,65 +1696,51 @@
         });
       }
       async function registerNewData() {
-        function convertDateFormat(dateString) {
-          if (dateString === "") {
-            return "";
-          } else {
-            let [month, day, year] = dateString.split("/");
-            return `${day}-${month}-${year}`;
-          }
-        }
         debugger
+        const emailInput = $('#Press_create_email input').val() || "";
+        const passsword = $('#Press_create_username input').val() || "";
+        const username = $('#Press_create_password input').val() || "";
+        const role = document.getElementById('Press_create_role').value || "";
+        const district = document.getElementById('P45_DISTRICT').value || "";
+
+        const errorPlaceholder = document.getElementById("Press_create_email_error_placeholder");
+
+        const email = emailInput ? emailInput.trim() : "";
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        // Validate email field
+        if (!email) {
+          errorPlaceholder.textContent = "Email is required.";
+          return;
+        } else if (!emailPattern.test(email)) {
+          errorPlaceholder.textContent = "Invalid email format.";
+          return;
+        } else {
+          errorPlaceholder.textContent = "";
+
+        }
+
         try {
-
-          var pressDate = $('#Press_create_date input').val() || "";
-          var formattedPressDate = convertDateFormat(pressDate);
-          var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
-          let pressInputFile = null;
-          pressInputFile = await processFile('#pressFileUpload_input');
-          checkFile('#pressFileUpload');
-          // if (!polStn || !districtName || !ComplaintData || !complaintMadeBy || !firNo || !dateOfFIR || !childGender || !childDOB || !childAge || !nameOfGuardian) {
-          //   if (willingness === "Yes") {
-          //     if (!willingness || !willName || !willRelation || !willDate || !accName || !accNo || !bankName || !branchName || !ifsc) {
-          //       showErrorToast("Please fill in all required fields.");
-          //       return;
-          //     }
-          //   }
-          //   showErrorToast("Please fill in all required fields.");
-          //   return;
-          // }
-
-          if (pressDate) {
-            var dateObj = new Date(pressDate);
-            var formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
-              ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
-              dateObj.getFullYear();
-            pressDate = formattedDate;
-          }
-
           var registrationPayload = {
-            "p_ID": 123,
-            "V_NAME": formattedDate,
-            "V_DESC": "Latest updates on tech policies",
-            "Current_User": "admin_user",
-            "LANGUAGE": pressLangugage,
-            "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
-            "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+            "USERNAME": username,
+            "PASSWORD": passsword,
+            "EMAIL_ID": email,
+            "CREATED_BY": "test",
+            "ROLE": role,
+            "DISTRICT": district
           };
 
-          return;
 
           await $.ajax({
-            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/pressReleases/InsertPressReleaseForm',
+            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/signup',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(registrationPayload),
             success: function (response) {
               // user_id.id = response.return_id;
               // Court_id.COURT_ID = response.return_id;
-              //showSuccessToast("Submitted Successfully");
-              // setTimeout(() => window.location.href = "../police/index.html", 1000);
+              showSuccessToast("Created Successfully");
+              setTimeout(() => window.location.href = "../admin-add-user.html", 1000);
             },
             error: function (error) {
               console.error('Error:', error);
