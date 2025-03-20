@@ -16,13 +16,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  <link href="../assets/vendor/datatable/css/dataTables.css" rel="stylesheet">
+  <link href="assets/vendor/datatable/css/dataTables.css" rel="stylesheet">
   <!-- CSS File -->
-  <link rel="stylesheet" href="../assets/vendor/datatable/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="assets/vendor/datatable/dataTables.bootstrap5.min.css">
   <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/toastr/toastr.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/toastr/toastr.min.css" rel="stylesheet">
+
   <base href="/ords/" />
   <link rel="stylesheet"
     href="https://static.oracle.com/cdn/apex/24.1.7/libraries/oraclejet/16.0.10/css/libs/oj/16.0.10/redwood/oj-redwood-notag-min.css?v=24.1.7"
@@ -860,157 +861,151 @@
         <div class="t-Header-navBar--start">
 
           <div class="t-Header-navBar--end">
-            <div
-              class="t-Form-fieldContainer rel-col t-Form-fieldContainer--large t-Form-fieldContainer--normalDisplay apex-item-wrapper apex-item-wrapper--has-initial-value apex-item-wrapper--select-list"
-              id="P0_LANGUAGE_CONTAINER">
-              <div class="t-Form-labelContainer col col-null">
-                <label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
-              </div>
-              <div class="t-Form-inputContainer col col-null">
-                <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
-                    class="selectlist&#x20;apex-item-select" data-native-menu="false" size="1">
-                    <option value="en" selected="selected">English</option>
-                    <option value="ta">Tamil</option>
-                  </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
-                  data-template-id="32751098700172723_ET"></span>
-              </div>
+            <div class="t-Form-inputContainer col col-null">
+              <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
+                  class="selectlist apex-item-select" data-native-menu="false" size="1">
+                  <option value="en">English</option>
+                  <option value="ta">Tamil</option>
+                </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
+                data-template-id="32751098700172723_ET"></span>
             </div>
-          </div>
-          <div class="t-Header-navBar--center">
-            <ul class="t-NavigationBar " id="32861498506172843">
-              <li class="t-NavigationBar-item a-pwaInstall">
-                <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install"
-                  title="" target="">
-                  <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true"></span><span
-                    class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
-                </a>
-              </li>
-              <li class="t-NavigationBar-item has-username">
-                <button class="t-Button t-Button--icon t-Button t-Button--header t-Button--navBar" type="button"
-                  id="L33048349307174626" data-menu="menu_L33048349307174626" title="">
-                  <span class="t-Icon fa&#x20;fa-user" aria-hidden="true"></span><span
-                    class="t-Button-label">DHIVAHAR</span><span class="t-Button-badge"></span><span
-                    class="a-Icon icon-down-arrow" aria-hidden="true"></span>
-                </button>
-                <div class="t-NavigationBar-menu" style="display: none" id="menu_L33048349307174626">
-                  <ul>
-                    <li class="" data-current="false" data-icon="fa&#x20;fa-sign-out"><a
-                        href="apex_authentication.logout?p_app_id=103&p_session_id=606351205798953" title=""
-                        target="">Sign Out</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="t-Header-navBar--end"></div>
-          <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
-          <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
-          <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
-          <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v397/instagram.jpeg"
-              style="height:35px;" class="fa fa-twitter" target='_blank'>
-            <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
+            <div class="t-Header-navBar--center">
+              <ul class="t-NavigationBar " id="32861498506172843">
+                <li class="t-NavigationBar-item a-pwaInstall">
+                  <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install"
+                    title="" target="">
+                    <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true"></span><span
+                      class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
+                  </a>
+                </li>
+                <li class="t-NavigationBar-item has-username">
+                  <button class="t-Button t-Button--icon t-Button t-Button--header t-Button--navBar" type="button"
+                    id="L33048349307174626" data-menu="menu_L33048349307174626" title="">
+                    <span class="t-Icon fa&#x20;fa-user" aria-hidden="true"></span><span
+                      class="t-Button-label">DHIVAHAR</span><span class="t-Button-badge"></span><span
+                      class="a-Icon icon-down-arrow" aria-hidden="true"></span>
+                  </button>
+                  <div class="t-NavigationBar-menu" style="display: none" id="menu_L33048349307174626">
+                    <ul>
+                      <li class="" data-current="false" data-icon="fa&#x20;fa-sign-out"><a
+                          href="apex_authentication.logout?p_app_id=103&p_session_id=606351205798953" title=""
+                          target="">Sign Out</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="t-Header-navBar--end"></div>
+            <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
+            <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
+            <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
+            <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v397/instagram.jpeg"
+                style="height:35px;" class="fa fa-twitter" target='_blank'>
+              <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
 
+
+          </div>
 
         </div>
 
-      </div>
-
-      <!-- <div class=" nobgcolor ">
+        <!-- <div class=" nobgcolor ">
 <img id="first_image" style=" height: 100%;" src = 'r/dipr/103/files/static/v397/left-png.png' > <span class="alignCenter"><center> Information and Public Relations Department </br> செய்தி – மக்கள் தொடர்புத்துறை </center></span>
     <img id="last_image" style=" height: 100%;" src = "r/dipr/103/files/static/v397/right-png.png" > 
 
    </div> -->
-      <div class="nobgcolor">
-        <div class="widthFixed">
-          <!-- <img id="first_image" class="header-images" src="r/dipr/103/files/static/v397/left-png.png"> -->
-          <div class="center-text">
-            <center>Information and Public Relations Department <br> <span class="txtBlue">செய்தி – மக்கள்
-                தொடர்புத்துறை</span></center>
+        <div class="nobgcolor">
+          <div class="widthFixed">
+            <!-- <img id="first_image" class="header-images" src="r/dipr/103/files/static/v397/left-png.png"> -->
+            <div class="center-text">
+              <center>Information and Public Relations Department <br> <span class="txtBlue">செய்தி – மக்கள்
+                  தொடர்புத்துறை</span></center>
+            </div>
+            <!-- <img id="last_image" class="header-images" src="r/dipr/103/files/static/v397/right-png.png"> -->
           </div>
-          <!-- <img id="last_image" class="header-images" src="r/dipr/103/files/static/v397/right-png.png"> -->
         </div>
-      </div>
 
-      <div class="t-Header-nav">
-        <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
-          <ul>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../index.html" title="" target="">Home</a>
-            </li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../about_page.html" title="" target="">About
-                Us</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../gallery1.html" title="" target="">Photo
-                &#x2F; Video</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../press-release1.html" title="" target="">Press Release &#x2F; Press
-                Note</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../government-orders.html" title="" target="">Government Orders</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../sections.html" title="" target="">Sections</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../download-forms.html" title="" target="">Download Forms</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../admin-google-sheets.html" title="" target="">Google Sheets - Report</a>
-            </li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="" title="" target="">Administration</a>
-              <ul style="display: none">
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
-                </li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-press-release.html" title="" target="">Upload Press Release</a>
-                </li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-section-content.html" title="" target="">Sections Content</a>
-                </li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-goverment-orders.html" title="" target="">Upload Government
-                    Orders</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-sections-data-report.html" title="" target="">Sections Data
-                    Report</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-forms-report.html" title="" target="">Forms Report</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-memorial-video-report.html" title="" target="">memorial_video_report</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-monuments.html" title="" target="">Monuments</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-arangams.html" title="" target="">Arangams</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-commemoration-pillars.html" title="" target="">Commemoration
-                    Pillars</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-commemoration-arch.html" title="" target="">Commemoration
-                    Arch</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-department-pictures.html" title="" target="">Department
-                    Pictures</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-department-details.html" title="" target="">Department
-                    Details</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-conclusion-photos.html" title="" target="">Conclusion_Photos</a>
-                </li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-google-sheets.html" title="" target="">Google Sheets</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-press-notes.html" title="" target="">Upload Press Note</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="/ords/r/dipr/info-prdept103/add-district-pros?session=607396044452426" title="" target="">Add
-                    User</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="/ords/r/dipr/info-prdept103/navigation-list-entry?session=607396044452426" title=""
-                    target="">Navigation Menu Report</a></li>
-              </ul>
-            </li>
-          </ul>
+        <div class="t-Header-nav">
+          <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
+            <ul>
+              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  class="a-MenuBar-label" href="../index.html" title="" target="">Home</a>
+              </li>
+              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  class="a-MenuBar-label" href="../about_page.html" title="" target="">About
+                  Us</a></li>
+              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  class="a-MenuBar-label" href="../gallery1.html" title="" target="">Photo
+                  &#x2F; Video</a></li>
+              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  class="a-MenuBar-label" href="../press-release1.html" title="" target="">Press Release &#x2F; Press
+                  Note</a></li>
+              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  class="a-MenuBar-label" href="../government-orders.html" title="" target="">Government Orders</a></li>
+              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  class="a-MenuBar-label" href="../sections.html" title="" target="">Sections</a></li>
+              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  class="a-MenuBar-label" href="../download-forms.html" title="" target="">Download Forms</a></li>
+              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  class="a-MenuBar-label" href="../admin-google-sheets.html" title="" target="">Google Sheets -
+                  Report</a>
+              </li>
+              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  class="a-MenuBar-label" href="" title="" target="">Administration</a>
+                <ul style="display: none">
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
+                  </li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-press-release.html" title="" target="">Upload Press Release</a>
+                  </li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-section-content.html" title="" target="">Sections Content</a>
+                  </li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-goverment-orders.html" title="" target="">Upload Government
+                      Orders</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-sections-data-report.html" title="" target="">Sections Data
+                      Report</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-forms-report.html" title="" target="">Forms Report</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-memorial-video-report.html" title="" target="">memorial_video_report</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-monuments.html" title="" target="">Monuments</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-arangams.html" title="" target="">Arangams</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-commemoration-pillars.html" title="" target="">Commemoration
+                      Pillars</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-commemoration-arch.html" title="" target="">Commemoration
+                      Arch</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-department-pictures.html" title="" target="">Department
+                      Pictures</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-department-details.html" title="" target="">Department
+                      Details</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-conclusion-photos.html" title="" target="">Conclusion_Photos</a>
+                  </li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-google-sheets.html" title="" target="">Google Sheets</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="../admin-press-notes.html" title="" target="">Upload Press Note</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="/ords/r/dipr/info-prdept103/add-district-pros?session=607396044452426" title=""
+                      target="">Add
+                      User</a></li>
+                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                      href="/ords/r/dipr/info-prdept103/navigation-list-entry?session=607396044452426" title=""
+                      target="">Navigation Menu Report</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
     </header>
 
     <div class="t-Body ">
@@ -1122,25 +1117,28 @@
 
                                   <table
                                     aria-label="Press&#x20;Release,&#x20;Report&#x20;&#x3D;&#x20;Primary&#x20;Default,&#x20;View&#x20;&#x3D;&#x20;Report"
-                                    class="a-IRR-table" id="34839996188869597">
-                                    <tr>
-                                      <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
-                                        <span class="u-vh">Link</span>
-                                      </th>
+                                    class="a-IRR-table" id="pressReleaseTable">
+                                    <thead>
+                                      <tr>
+                                        <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
+                                          <span class="u-vh">Link</span>
+                                        </th>
 
-                                      <th class="a-IRR-header u-tL" id="C11747689722991413"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="11747689722991413" href="#">Language</a>
-                                      </th>
-                                      <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37710503093077076" href="#">Form
-                                          Name</a></th>
-                                      <th class="a-IRR-header u-tL" id="C37707438775077045"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37707438775077045" href="#">Uploaded
-                                          By</a></th>
-                                      <th class="a-IRR-header u-tL" id="C37707553402077046"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37707553402077046" href="#">Uploaded
-                                          Date</a></th>
-                                    </tr>
+                                        <th class="a-IRR-header u-tL" id="C11747689722991413"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="11747689722991413"
+                                            href="#">Language</a>
+                                        </th>
+                                        <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">Form
+                                            Name</a></th>
+                                        <th class="a-IRR-header u-tL" id="C37707438775077045"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37707438775077045" href="#">Uploaded
+                                            By</a></th>
+                                        <th class="a-IRR-header u-tL" id="C37707553402077046"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37707553402077046" href="#">Uploaded
+                                            Date</a></th>
+                                      </tr>
+                                    </thead>
                                     <tbody id="pressReleaseTableBody">
                                       <!-- Dynamic rows will be inserted here -->
                                     </tbody>
@@ -1277,30 +1275,10 @@
   </script> -->
 
 
-  <script src="assets/js/crypto-js.min.js"></script>
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/datatable/jquery.dataTables.min.js"></script>
-  <script src="../assets/vendor/datatable/dataTables.bootstrap5.min.js"></script>
-  <script src="../assets/vendor/datatables-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="../assets/vendor/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/global.js"></script>
-  <script src="assets/js/jquery-ui.min.js"></script>
-
-  <script src="assets/js/desktop_all.min.js"></script>
-  <script src="assets/js/theme42.min.js"></script>
-  <script src="assets/js/aos.js"></script>
-  <script src="assets/js/add.min.js"></script>
-  <script src="assets/js/widget.apexTabs.min.js"></script>
-  <script src="assets/js/widget.interactiveReport.min.js"></script>
-  <script src="assets/js/widget.iconList.min.js"></script>
-  <script src="assets/js/widget.stickyTableHeader.min.js"></script>
-  <script src="assets/js/widget.stickyWidget.min.js"></script>
-  <script src="assets/js/item.Colorpicker.min.js"></script>
-  <script src="assets/js/require.js"></script>
-  <script src="assets/js/requirejs.jetConfig.min.js"></script>
-  <script src="assets/js/jetCommonBundle.min.js"></script>
-
 
   <script type="text/javascript">
     apex.session.initTimeouts(300, { "idle_time_ms": 3595000, "life_time_ms": 28755000, "max_idle_time_ms": 3600000 }, '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome', '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome');
@@ -1414,22 +1392,26 @@
         "action": "fetch"
       };
 
-      $.ajax({
-        url: apiUrl,
-        method: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(viewPayload),
-        success: function (response) {
-          tableData = response.data;
-          tableBody.empty();
+      function fetchData() {
+        var viewPayload = {
+          "lang": langSwitch
+        };
+        $.ajax({
+          url: apiUrl,
+          method: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(viewPayload),
+          success: function (response) {
+            tableData = response.data;
+            tableBody.empty();
 
-          if (!tableData || tableData.length === 0) {
-            tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
-            return;
-          }
+            if (!tableData || tableData.length === 0) {
+              tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
+              return;
+            }
 
-          tableData.forEach(item => {
-            const newRow = `
+            tableData.forEach(item => {
+              const newRow = `
               <tr>
               <td class="u-tL">   <a data-id="${item.id}" id="open-modal-btn" href="javascript:void(0);">
         <i class="bi bi-pencil-square"></i>
@@ -1439,15 +1421,24 @@
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_by) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_date) || 'N/A'}</td>
               </tr>`;
-            tableBody.append(newRow);
-          });
-        },
-        error: function (xhr, status, error) {
-          console.error("Error fetching data: ", error);
-          tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
-        }
-      });
+              tableBody.append(newRow);
+            });
 
+            $("#pressReleaseTable").DataTable({
+              paging: true,
+              searching: true,
+              ordering: true,
+              order: [[0, 'asc']],
+              responsive: true,
+            });
+
+          },
+          error: function (xhr, status, error) {
+            console.error("Error fetching data: ", error);
+            tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
+          }
+        });
+      }
       $("#modal").dialog({
         autoOpen: false,
         modal: true,
@@ -1660,6 +1651,18 @@
           }
         });
       }
+
+      document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
+        const selectedValue = this.value;
+        if (selectedValue === "en") {
+          langSwitch = "en";
+          fetchData();
+        } else {
+          langSwitch = "ta";
+          fetchData();
+        }
+      });
+
     });
   </script>
 </body>

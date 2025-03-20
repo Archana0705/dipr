@@ -756,8 +756,8 @@
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
-                    class="apex-item-text&#x20;apex-item-datepicker" name="P50_DATE_OF_FIR" size="30">
+                  <input type="date" placeholder="Select Date" aria-haspopup="dialog" class="P50_DATE_OF_FIR"
+                    name="P50_DATE_OF_FIR" size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="Press_date_error_placeholder" class="a-Form-error"
@@ -829,8 +829,8 @@
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog" name="Press_create_date"
-                    size="30">
+                  <input type="date" id="press_create_date" placeholder="Select Date" aria-haspopup="dialog"
+                    name="Press_create_date" size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="Press_create_date_error_placeholder" class="a-Form-error"
@@ -1345,7 +1345,7 @@
 
 
   <script src="../assets/vendor/datatable/jquery.dataTables.min.js"></script>
-  <script src="../assets/vendor/datatable/dataTables.bootstrap5.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/global.js"></script>
   <script type="text/javascript">
@@ -1823,7 +1823,30 @@
         debugger;
 
         const lang = $('#pressLangugage').val();
-        const pressDate = $('#Press_create_date input').val();
+        var pressupdatedDt = $('#press_create_date').val();
+
+        console.log("Input Value Directly:", $('#press_create_date').val());
+        console.log("Using Vanilla JS:", document.getElementById('press_create_date')?.value);
+
+        let today = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
+        $('#press_create_date').val(today);
+        console.log("Default Date Set:", today);
+
+        let formattedDate = "";
+
+        if (pressupdatedDt) {
+          let dateObj = new Date(pressupdatedDt);
+          formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
+            ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
+            dateObj.getFullYear();
+        }
+
+        console.log("Formatted Date:", formattedDate); // Debugging
+
+        if (!formattedDate) {
+          showErrorToast("Date is missing. Please select a date before updating.");
+          return;
+        }
 
         const updatePayload = {
           "p_ID": id,
@@ -1831,9 +1854,12 @@
           "V_URL": file,
           "Current_User": "admin",
           "V_DESC": "Order Description",
-          "V_DATE": "2025-02-01",
+          "V_DATE": formattedDate,  // Ensure formattedDate is always defined
           "LANGUAGE": lang
         };
+
+        console.log("Payload being sent:", updatePayload); // Debugging
+
         $.ajax({
           url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/updatePressReleaseForm',
           type: 'POST',
@@ -1844,6 +1870,7 @@
             setTimeout(() => window.location.href = "../admin-goverment-orders.html", 1000);
           },
           error: function (error) {
+            console.error("Error:", error);
             showErrorToast("An error occurred during submission of data.");
           }
         });
