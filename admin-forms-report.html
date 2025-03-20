@@ -728,24 +728,7 @@
               </div>
             </div>
 
-            <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Press_date">
-              <div class="t-Form-labelContainer col col-2">
-                <label for="Press_date" id="Press_date_LABEL">Date</label>
-              </div>
-              <div class="t-Form-inputContainer col col-6">
-                <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
-                    class="apex-item-text&#x20;apex-item-datepicker" name="P50_DATE_OF_FIR" size="30">
-                </div>
-                <div class="t-Form-itemAssistance">
-                  <span id="Press_date_error_placeholder" class="a-Form-error"
-                    data-template-id="70091003340642546032_ET"></span>
-                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
-                </div>
-              </div>
-            </div>
+
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
@@ -796,24 +779,6 @@
 
             </div>
 
-            <div
-              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="Press_create_date">
-              <div class="t-Form-labelContainer col col-2">
-                <label for="Press_create_date" id="Press_date_LABEL">Date</label>
-              </div>
-              <div class="t-Form-inputContainer col col-6">
-                <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
-                    class="apex-item-text&#x20;apex-item-datepicker" name="Press_create_date" size="30">
-                </div>
-                <div class="t-Form-itemAssistance">
-                  <span id="Press_create_date_error_placeholder" class="a-Form-error"
-                    data-template-id="70091003340642546032_ET"></span>
-                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
-                </div>
-              </div>
-            </div>
 
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
@@ -1060,7 +1025,7 @@
                 <div class="t-BreadcrumbRegion-breadcrumb">
                   <ul class="t-Breadcrumb ">
                     <li class="t-Breadcrumb-item is-active" aria-current="page">
-                      <h1 class="t-Breadcrumb-label">Press Release</h1>
+                      <h1 class="t-Breadcrumb-label">Forms Report</h1>
                     </li>
                   </ul>
                 </div>
@@ -1133,8 +1098,8 @@
                               <div role="region"
                                 aria-label="Buttons&#x20;next&#x20;to&#x20;search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
                                 class="a-IRR-buttons"><button class="t-Button t-Button--hot js-ignoreChange"
-                                  type="button" id="upload-press-open-modal"><span class="t-Button-label">Upload Press
-                                    Release</span></button></div>
+                                  type="button" id="upload-press-open-modal"><span
+                                    class="t-Button-label">Create</span></button></div>
                             </div>
                             <div id="R34839964403869597_content" class="a-IRR-content ">
                               <div id="R34839964403869597_dialog_js" class="a-IRR-dialogBody" style="display:none">
@@ -1162,15 +1127,12 @@
                                       <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
                                         <span class="u-vh">Link</span>
                                       </th>
-                                      <th class="a-IRR-header u-tL" id="C11748439923991421"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="11748439923991421" href="#">Pr
-                                          Date</a>
-                                      </th>
+
                                       <th class="a-IRR-header u-tL" id="C11747689722991413"><a aria-haspopup="dialog"
                                           class="a-IRR-headerLink" data-column="11747689722991413" href="#">Language</a>
                                       </th>
                                       <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
-                                          class="a-IRR-headerLink" data-column="37710503093077076" href="#">Press
+                                          class="a-IRR-headerLink" data-column="37710503093077076" href="#">Form
                                           Name</a></th>
                                       <th class="a-IRR-header u-tL" id="C37707438775077045"><a aria-haspopup="dialog"
                                           class="a-IRR-headerLink" data-column="37707438775077045" href="#">Uploaded
@@ -1444,14 +1406,19 @@
       let tableData;
       let selectedId;
       const userId = localStorage.getItem("role_id");
-      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/pressRelease/viewPressReleaseReport";
+      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/tnforms";
       const tableBody = $("#pressReleaseTableBody");
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
+      var viewPayload = {
+        // "lang": langSwitch
+        "action": "fetch"
+      };
+
       $.ajax({
         url: apiUrl,
         method: "POST",
-        //contentType: "application/json",
-        //data: JSON.stringify(state_customize_reportPayload),
+        contentType: "application/json",
+        data: JSON.stringify(viewPayload),
         success: function (response) {
           tableData = response.data;
           tableBody.empty();
@@ -1467,11 +1434,9 @@
               <td class="u-tL">   <a data-id="${item.id}" id="open-modal-btn" href="javascript:void(0);">
         <i class="bi bi-pencil-square"></i>
       </a></td>
-            
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.press_name) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.form_name) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_by) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_date) || 'N/A'}</td>
               </tr>`;
             tableBody.append(newRow);
@@ -1516,8 +1481,7 @@
         const selectedItem = tableData.find(item => item.id == pressId);
 
         if (selectedItem) {
-          $("#Press_name").text(selectedItem.press_name || "");
-          $("#Press_date input").val(selectedItem.pr_date || "");
+          $("#Press_name").text(selectedItem.form_name || "");
           $("#pressLangugage").val(selectedItem.language || "").trigger("change");
           $("#modal").dialog("open");
         }
@@ -1595,9 +1559,6 @@
         }
         debugger
         try {
-
-          var pressDate = $('#Press_create_date input').val() || "";
-          var formattedPressDate = convertDateFormat(pressDate);
           var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
           let pressInputFile = null;
           pressInputFile = await processFile('#pressFileUpload_input');
@@ -1613,37 +1574,39 @@
           //   return;
           // }
 
-          if (pressDate) {
-            var dateObj = new Date(pressDate);
-            var formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
-              ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
-              dateObj.getFullYear();
-            pressDate = formattedDate;
-          }
+
 
           var registrationPayload = {
-            "p_ID": 123,
-            "V_NAME": formattedDate,
-            "V_DESC": "Latest updates on tech policies",
-            "Current_User": "admin_user",
-            "LANGUAGE": pressLangugage,
-            "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
-            "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+            // "p_ID": selectedId,
+            // "V_NAME": formattedDate,
+            // "V_DESC": "Latest updates on tech policies",
+            // "Current_User": "admin_user",
+            // "LANGUAGE": pressLangugage,
+            // "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
+            // "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+            // "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+
+
+            "action": "insert",
+            "id": 123,
+            "form_name": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+            "attachment_name": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
+            "uploaded_by": "admin",
+            "mime_type": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+            "language": pressLangugage
           };
 
-          return;
 
           await $.ajax({
-            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/pressReleases/InsertPressReleaseForm',
+            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/tnforms',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(registrationPayload),
             success: function (response) {
               // user_id.id = response.return_id;
               // Court_id.COURT_ID = response.return_id;
-              //showSuccessToast("Submitted Successfully");
-              // setTimeout(() => window.location.href = "../police/index.html", 1000);
+              showSuccessToast("Submitted Successfully");
+              setTimeout(() => window.location.href = "../admin-forms-report.html", 1000);
             },
             error: function (error) {
               console.error('Error:', error);
@@ -1673,12 +1636,13 @@
         debugger
         $('#preloader').show();
         $.ajax({
-          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/pressRelease/deletePressReleaseForm`,
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/tnforms`,
           type: "POST",
           dataType: "json",
           contentType: "application/json",
           data: JSON.stringify({
-            ID: id
+            "action": "delete",
+            "id": id
           }),
           success: function (response) {
             $('#preloader').hide();

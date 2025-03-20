@@ -971,10 +971,8 @@
       const toastElement = document.getElementById('successToast');
       const toastBody = document.getElementById('successMessage');
 
-      // Set the dynamic message
       toastBody.textContent = message;
 
-      // Initialize and show the toast
       const toast = new bootstrap.Toast(toastElement, {
         autohide: true,
         delay: 3000
@@ -1113,7 +1111,6 @@
 
             $(api.tableBodyId).html(rows);
             updatePagination(data.length, currentPage, api);
-
             $('#preloader').hide();
           }
 
