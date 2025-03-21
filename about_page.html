@@ -452,14 +452,11 @@
               <label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
             </div>
             <div class="t-Form-inputContainer col col-null">
-              <div class="t-Form-itemWrapper">
-                <select id="P0_LANGUAGE" name="P0_LANGUAGE" class="selectlist&#x20;apex-item-select"
-                  data-native-menu="false" size="1">
-                  <option value="en" selected="selected">English</option>
+              <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
+                  class="selectlist apex-item-select" data-native-menu="false" size="1">
+                  <option value="en">English</option>
                   <option value="ta">Tamil</option>
-                </select>
-              </div>
-              <span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
+                </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
                 data-template-id="32751098700172723_ET"></span>
             </div>
           </div>
@@ -1065,19 +1062,6 @@
       });
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-      debugger
-      const signOutButton = document.querySelector(".t-NavigationBar-menu a");
-
-      if (signOutButton) {
-        signOutButton.addEventListener("click", function (event) {
-          event.preventDefault();
-          localStorage.removeItem("role");
-          localStorage.removeItem("userAdminName");
-          window.location.href = "index.html";
-        });
-      }
-    });
 
   </script>
   <script type="text/javascript">
@@ -1166,7 +1150,7 @@
 
     $(document).ready(function () {
       $('#preloader').hide();
-
+      var langSwitch = 'en';
       $(document).on({
         ajaxStart: function () {
           $('#preloader').show();
@@ -1178,46 +1162,50 @@
         }
       });
 
-      $.ajax({
-        url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/about_us',
-        type: 'GET',
-        success: function (response) {
-          if (response.success === 1) {
-            let content = '';
-            response.data.forEach(item => {
-              content += `<p style="margin-bottom: 6.6pt; line-height: 106%; text-align: justify;" class="MsoNormal">
+      function fetchData() {
+        $('#preloader').show();
+        $.ajax({
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/about_us?lang=${langSwitch}`,
+          type: 'GET',
+          success: function (response) {
+            if (response.success === 1) {
+              let content = '';
+              response.data.forEach(item => {
+                content += `<p style="margin-bottom: 6.6pt; line-height: 106%; text-align: justify;" class="MsoNormal">
                             ${item.description}
                         </p>`;
-            });
-            $('#R11556983055391229').html(content);
-          } else {
-            $('#R11556983055391229').html('<p>Error retrieving data.</p>');
+              });
+              $('#R11556983055391229').html(content);
+            } else {
+              $('#R11556983055391229').html('<p>Error retrieving data.</p>');
+            }
+          },
+          error: function (xhr, status, error) {
+            console.error('Error:', error);
+            $('#R11556983055391229').html('<p>Failed to load content.</p>');
           }
-        },
-        error: function (xhr, status, error) {
-          console.error('Error:', error);
-          $('#R11556983055391229').html('<p>Failed to load content.</p>');
-        }
-      });
+        });
+      };
+      fetchData();
 
       $(document).ready(function () {
         const apis = [
           {
-            url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/corporation",
+            url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/corporation?lang=${langSwitch}`,
             tableBodyId: "#corporationTableBody",
             paginationInfoId: "#corporationPageInfo",
             prevPageBtn: "#corporationPrevPage",
             nextPageBtn: "#corporationNextPage",
           },
           {
-            url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/headquarters_data",
+            url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/headquarters_data?lang=${langSwitch}`,
             tableBodyId: "#headQuartersTableBody",
             paginationInfoId: "#headQuartersPageInfo",
             prevPageBtn: "#headQuartersPrevPage",
             nextPageBtn: "#headQuartersNextPage",
           },
           {
-            url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/district_data",
+            url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/aboutUs/district_data?lang=${langSwitch}`,
             tableBodyId: "#districtTableBody",
             paginationInfoId: "#districtPageInfo",
             prevPageBtn: "#districtPrevPage",
@@ -1310,6 +1298,17 @@
           }
         }
       });
+
+      document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
+        const selectedValue = this.value;
+        if (selectedValue === "en") {
+          langSwitch = "en";
+          fetchData();
+        } else {
+          langSwitch = "ta";
+          fetchData();
+        }
+      });
     });
     $(document).ready(function () {
       var role = localStorage.getItem("role");
@@ -1333,13 +1332,23 @@
       var appendSignout = '<div class="t-NavigationBar-menu showlink">' +
         '<ul>' +
         '<li>' +
-        '<a href="/index.html">Sign Out</a>' +
+        '<a href="/index.html" class="signOutBtn">Sign Out</a>' +
         '</li>' +
         '</ul>' +
         '</div>';
 
       $('.t-NavigationBar-item.has-username.shownav').append(appendSignout);
+
+      $(".signOutBtn").on("click", function () {
+        event.preventDefault();
+        localStorage.removeItem("role");
+        localStorage.removeItem("userAdminName");
+        window.location.href = "index.html";
+      });
     });
+
+
+
   </script>
 </body>
 
