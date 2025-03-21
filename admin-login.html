@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <title>Sections Content</title>
   <link rel="stylesheet" type="text/css" href="assets/css/Core.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/menu.css">
   <link rel="stylesheet" type="text/css" href="assets/css/Theme-Standard.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/font-apex.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/Coretheme.min.css">
@@ -1012,11 +1013,12 @@
                 class="a-MenuBar-label" href="../sections.html" title="" target="">Sections</a></li>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
                 class="a-MenuBar-label" href="../download-forms.html" title="" target="">Download Forms</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../admin-google-sheets.html" title="" target="">Google Sheets - Report</a>
+            <li class="a-MenuBar-item admin-menu-show" data-id="" data-disabled="" data-hide="" data-shortcut=""
+              data-icon=""><a class="a-MenuBar-label" href="../admin-google-sheets.html" title="" target="">Google
+                Sheets - Report</a>
             </li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="" title="" target="">Administration</a>
+            <li class="a-MenuBar-item admin-menu-show" data-id="" data-disabled="" data-hide="" data-shortcut=""
+              data-icon=""><a class="a-MenuBar-label" href="" title="" target="">Administration</a>
               <ul style="display: none">
                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
                     href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
@@ -1156,7 +1158,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="t-Login-buttons"><button class="t-Button t-Button--hot " type="button"
+                      <div class="t-Login-buttons"><button class="t-Button t-Button--hot signClick" type="button"
                           id="B32871041584172899"><span class="t-Button-label">Sign In</span></button><button
                           class="t-Button t-Button--hot " type="button" id="B22697085682097685"><span
                             class="t-Button-label">Forgot Password</span></button></div>
@@ -1305,6 +1307,39 @@
   </script>
 
   <script>
+    $(document).ready(function () {
+      $('.signClick').on('click', function () {
+        debugger;
+        var loguserName = $('#P9999_USERNAME').val();
+        var logPass = $('#P9999_PASSWORD').val();
+        var loginPayload = {
+          "user_name": loguserName,
+          "password": logPass
+        };
+        $.ajax({
+          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/login",
+          type: "POST",
+          contentType: 'application/json',
+          data: JSON.stringify(loginPayload),
+          success: function (response) {
+            if (response.success === 1) {
+              showSuccessToast("Login successfully!");
+              window.location.href = "/index.html";
+              localStorage.setItem("role", response.role);
+              localStorage.setItem("userAdminName", loguserName);
+            } else {
+              showErrorToast(response.message);
+            }
+          },
+          error: function () {
+
+          },
+          complete: function () {
+            $('#preloader').hide();
+          }
+        });
+      })
+    })
     function showSuccessToast(message) {
       const toastElement = document.getElementById('successToast');
       const toastBody = document.getElementById('successMessage');
