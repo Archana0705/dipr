@@ -718,7 +718,7 @@
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
                   <textarea id="Press_memorial" class="form-control" rows="3" name="Press_memorial"
-                    class="text_field&#x20;apex-item-text" value="" size="70" maxlength="10"></textarea>
+                    class="text_field&#x20;apex-item-text" value="" size="70"></textarea>
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="Press_memorial_error_placeholder" class="a-Form-error"
@@ -736,7 +736,7 @@
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
                   <textarea id="Press_place" class="form-control" rows="3" name="Press_place"
-                    class="text_field&#x20;apex-item-text" value="" size="70" maxlength="10"></textarea>
+                    class="text_field&#x20;apex-item-text" value="" size="70"></textarea>
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="Press_place_error_placeholder" class="a-Form-error"
@@ -786,25 +786,25 @@
 
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-              id="P50_CHARGE_SHEET_YES_NO_CONTAINER">
+              id="UPDATE_YES_NO_CONTAINER">
               <div class="t-Form-labelContainer col col-2">
-                <label for="P50_CHARGE_SHEET_YES_NO" id="P50_CHARGE_SHEET_YES_NO_LABEL" class="t-Form-label">Update
+                <label for="UPDATE_YES_NO" id="UPDATE_YES_NO_LABEL" class="t-Form-label">Update
                   Yes/No</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <div tabindex="-1" id="P50_CHARGE_SHEET_YES_NO" aria-labelledby="P50_CHARGE_SHEET_YES_NO_LABEL"
+                  <div tabindex="-1" id="UPDATE_YES_NO" aria-labelledby="UPDATE_YES_NO_LABEL"
                     class="radio_group&#x20;apex-item-group&#x20;apex-item-group--rc&#x20;apex-item-radio"
                     role="radiogroup" aria-orientation="vertical">
-                    <div class="apex-item-option"><input type="radio" id="P50_CHARGE_SHEET_YES_NO_0"
-                        name="P50_CHARGE_SHEET_YES_NO" data-display="Yes" value="Yes" required aria-label="Yes"><label
-                        class="u-radio" for="P50_CHARGE_SHEET_YES_NO_0" aria-hidden="true">Yes</label></div>
-                    <div class="apex-item-option"><input type="radio" id="P50_CHARGE_SHEET_YES_NO_1"
-                        name="P50_CHARGE_SHEET_YES_NO" data-display="No" value="No" required aria-label="No"><label
-                        class="u-radio" for="P50_CHARGE_SHEET_YES_NO_1" aria-hidden="true">No</label></div>
+                    <div class="apex-item-option"><input type="radio" id="UPDATE_YES_NO_0" name="UPDATE_YES_NO"
+                        data-display="Yes" value="Yes" required aria-label="Yes"><label class="u-radio"
+                        for="UPDATE_YES_NO_0" aria-hidden="true">Yes</label></div>
+                    <div class="apex-item-option"><input type="radio" id="UPDATE_YES_NO_1" name="UPDATE_YES_NO"
+                        data-display="No" value="No" required aria-label="No"><label class="u-radio"
+                        for="UPDATE_YES_NO_1" aria-hidden="true">No</label></div>
                   </div>
                 </div>
-                <span id="P50_CHARGE_SHEET_YES_NO_error_placeholder" class="a-Form-error"
+                <span id="UPDATE_YES_NO_error_placeholder" class="a-Form-error"
                   data-template-id="333363771109036567_ET"></span>
               </div>
             </div>
@@ -1687,9 +1687,9 @@
       // });
       $('.initChargeSheetHide').hide();
 
-      $('#P50_CHARGE_SHEET_YES_NO_CONTAINER input').on('click', function () {
-        var ChargesheetVal = $('input[id="P50_CHARGE_SHEET_YES_NO_0"]:checked').val();
-        if (ChargesheetVal === "Yes") {
+      $('#UPDATE_YES_NO_CONTAINER input').on('click', function () {
+        var UpdateYesNoVal = $('input[id="UPDATE_YES_NO_0"]:checked').val();
+        if (UpdateYesNoVal === "Yes") {
           $('.initChargeSheetHide').show();
         } else {
           $('.initChargeSheetHide').hide();
@@ -1707,7 +1707,7 @@
         const selectedItem = tableData.find(item => item.slno == pressId);
 
         if (selectedItem) {
-          $("#Press_memorial").text(selectedItem.memorial || "");
+          $("#Press_memorial").text(selectedItem.monuments || "");
           $("#Press_place").val(selectedItem.place || "");
           $("#Press_district").val(selectedItem.district || "");
           $("#Press_video_name").val(selectedItem.video_name || "");
@@ -1732,9 +1732,12 @@
         var fileInput = $(selector).find('input[type="file"]');
         var file = fileInput[0]?.files[0];
 
-        if (!file) {
-          showErrorToast("Please upload a video file.");
-          return false;
+        var UpdateYesNoVal = $('input[id="UPDATE_YES_NO_0"]:checked').val();
+        if (UpdateYesNoVal === "Yes") {
+          if (!file) {
+            showErrorToast("Please upload a video file.");
+            return false;
+          }
         }
 
         const validVideoTypes = ['video/mp4', 'video/mov', 'video/avi'];
@@ -1966,7 +1969,7 @@
         formData.append("place", $('#Press_place').val() || "");
         formData.append("updated_by", "admin");
         formData.append("district", $('#Press_district').val() || "");
-        formData.append("video_name", file.name);
+        formData.append("video_name", $('#Press_video_name').val() || "");
         formData.append("mime_type", file.type);
         formData.append("video_attachment_name", file);
         formData.append("language", lang);
