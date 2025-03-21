@@ -480,13 +480,13 @@
                 <span class="t-Button-badge"></span>
                 <span class="a-Icon icon-down-arrow" aria-hidden="true"></span>
               </button>
-              <div class="t-NavigationBar-menu showlink">
+              <!-- <div class="t-NavigationBar-menu showlink">
                 <ul>
                   <li>
                     <a href="#">Sign Out</a>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </li>
           </ul>
         </div>
@@ -1053,6 +1053,7 @@
       });
 
       $('.shownav').on('click', function (e) {
+        debugger;
         e.stopPropagation(); // Prevent closing when clicking inside
         $('.showlink').not($(this).find('.showlink')).removeClass('force-show'); // Close other dropdowns
         $(this).find('.showlink').toggleClass('force-show');
@@ -1323,11 +1324,21 @@
           if ($('#t_MenuNav_8').length) {
             $('#t_MenuNav_8').css('display', 'flex');
           }
+
           if ($('#t_MenuNav_7').length && $('#t_MenuNav_8').length) {
             clearInterval(interval);
           }
         }, 100);
       }
+      var appendSignout = '<div class="t-NavigationBar-menu showlink">' +
+        '<ul>' +
+        '<li>' +
+        '<a href="/index.html">Sign Out</a>' +
+        '</li>' +
+        '</ul>' +
+        '</div>';
+
+      $('.t-NavigationBar-item.has-username.shownav').append(appendSignout);
     });
   </script>
 </body>
