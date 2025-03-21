@@ -1074,8 +1074,8 @@
                     href="../admin-google-sheets.html" title="" target="">Google Sheets</a></li>
                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
                     href="../admin-press-notes.html" title="" target="">Upload Press Note</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-add-user.html" title="" target="">Add
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a href="../
+                    admin-add-user.html" title="" target="">Add
                     User</a></li>
                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
                     href="/ords/r/dipr/info-prdept103/navigation-list-entry?session=607396044452426" title=""
@@ -1347,7 +1347,7 @@
     }
   </script> -->
   <script src="../assets/vendor/datatable/jquery.dataTables.min.js"></script>
-  <script src="../assets/vendor/datatable/dataTables.bootstrap5.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/global.js"></script>
 
@@ -1660,7 +1660,6 @@
             "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
           };
 
-          return;
 
           await $.ajax({
             url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/pressReleases/InsertPressReleaseForm',
