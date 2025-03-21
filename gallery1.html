@@ -676,6 +676,56 @@
       }
     });
   </script>
+  <script type="text/javascript">
+    apex.jQuery(function () {
+      apex.page.init(this, function () {
+        try {
+          (function () { apex.widget.selectList("#P0_LANGUAGE", { "ajaxIdentifier": "SVRFTSBUWVBFfjUxMjB-MzgxODM5MDAxMjAxMjk3NDc\u002FfRk75vWgDmHLk9etT6bxc5Gy1UNNwht3tI3fJwwexIuaDrndw4QbqOy_UydDBDZ1f7y8RqppS4CPldV8PyZ1NQ" }); })();
+          (function () {
+            var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
+            if (e.hasClass("js-addActions")) {
+              apex.actions.addFromMarkup(e);
+            }
+            e.menu({
+              behaveLikeTabs: e.hasClass("js-tabLike"),
+              menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
+              menubar: true,
+              menubarOverflow: true,
+              callout: e.hasClass("js-menu-callout")
+            });
+          })();
+          (function () { apex.util.defineTemplates([{ "name": "APEX_CARDS_BEFORE", "template": "\u003Cul class=\u0022a-CardView-items #CARD_LAYOUT# #COMPONENT_CLASSES#\u0022\u003E\u000A", "args": [{ "name": "CARD_LAYOUT", "escape": "ATTR" }, { "name": "COMPONENT_CLASSES", "escape": "ATTR" }] }, { "name": "APEX_CARDS_CARD_35601571771332642", "template": "\u003Cli class=\u0022a-CardView-item \u0026APEX$ROW_STATE_CLASSES.\u0022 data-id=\u0022\u0026APEX$ROW_ID.\u0022 data-rownum=\u0022\u0026APEX$ROW_INDEX.\u0022\u003E\u000A\u003Cdiv class=\u0022a-CardView{if ?TITLE_HTML_EXPR\u002F} has-title{endif\u002F}{if ?ICON_INITIALS\u002F} has-icon has-icon--top{elseif ?ICON_IMAGE\u002F} has-icon has-icon--top{elseif ?ICON_CLASSES\u002F} has-icon has-icon--top{endif\u002F}{if APEX$ACTION_EXISTS\u002F} has-actions{endif\u002F}{if APEX$FULL_ACTION_EXISTS\u002F} has-actions--full{endif\u002F} #CARD_CLASSES#\u0022\u003E\u000A{if ?APEX$FULL_CARD_LINK\u002F}\u003Ca class=\u0022a-CardView-fullLink\u0022 href=\u0022#APEX$FULL_CARD_LINK#\u0022 #APEX$FULL_CARD_LINK_ATTR#\u003E\u003Cspan class=\u0022u-vh\u0022\u003E#TITLE_HTML_EXPR#\u003C\u002Fspan\u003E\u003C\u002Fa\u003E{endif\u002F}\u000A\u003Cdiv class=\u0022a-CardView-header\u0022\u003E\u000A\u003Cdiv class=\u0022a-CardView-iconWrap #ICON_POSITION#\u0022\u003E\u000A{if ?ICON_INITIALS\u002F}\u003Cspan class=\u0022a-CardView-initials u-color #ICON_CLASSES#\u0022 aria-hidden=\u0022true\u0022 title=\u0022#ICON_DESCRIPTION_ATTR#\u0022\u003E#ICON_INITIALS#\u003C\u002Fspan\u003E\u000A{elseif ?ICON_IMAGE\u002F}\u003Cimg class=\u0022a-CardView-iconImg #ICON_CLASSES#\u0022 src=\u0022#ICON_IMAGE#\u0022 alt=\u0022#ICON_DESCRIPTION_ATTR#\u0022 loading=\u0022lazy\u0022 \u002F\u003E\u000A{elseif ?ICON_CLASSES\u002F}\u003Cspan class=\u0022a-CardView-icon u-color #ICON_CLASSES#\u0022 aria-hidden=\u0022true\u0022 title=\u0022#ICON_DESCRIPTION_ATTR#\u0022\u003E\u003C\u002Fspan\u003E\u000A{endif\u002F}\u000A\u003C\u002Fdiv\u003E\u000A\u003Cdiv class=\u0022a-CardView-headerBody\u0022\u003E\u000A{if ?TITLE_HTML_EXPR\u002F}#TITLE_HTML_EXPR#{endif\u002F}\u000A{if ?SUB_TITLE\u002F}\u000A\u003Ch4 class=\u0022a-CardView-subTitle #SUB_TITLE_CLASSES#\u0022\u003E#SUB_TITLE#\u003C\u002Fh4\u003E\u000A{endif\u002F}\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fdiv\u003E\u000A{if APEX$BUTTON_ACTION_EXISTS\u002F}\u000A\u003Cdiv class=\u0022a-CardView-actions\u0022\u003E\u003Cdiv class=\u0022a-CardView-actionsPrimary\u0022\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\u0022a-CardView-actionsSecondary\u0022\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E{endif\u002F}\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fli\u003E\u000A", "args": [{ "name": "CARD_CLASSES", "escape": "ATTR" }, { "name": "APEX$FULL_CARD_LINK", "escape": "ATTR" }, { "name": "APEX$FULL_CARD_LINK_ATTR", "escape": "RAW" }, { "name": "TITLE_HTML_EXPR", "escape": "RAW" }, { "name": "ICON_POSITION", "escape": "ATTR" }, { "name": "ICON_CLASSES", "escape": "ATTR" }, { "name": "ICON_DESCRIPTION_ATTR", "escape": "ATTR" }, { "name": "ICON_INITIALS", "escape": "HTML" }, { "name": "ICON_IMAGE", "escape": "ATTR" }, { "name": "SUB_TITLE_CLASSES", "escape": "ATTR" }, { "name": "SUB_TITLE", "escape": "HTML" }] }, { "name": "APEX_CARDS_AFTER", "template": "\u003C\u002Ful\u003E" }]); apex.widget.templateReportRegionInit({ "regionId": "35601571771332642", "regionStaticId": "R35601571771332642", "regionType": "Cards", "ajaxIdentifier": "UkVHSU9OIFRZUEV-fjM1NjAxNTcxNzcxMzMyNjQy\u002FpxpcK76WzPRp7Sd1HIxgrLkWIhUoOHLLOHOh3Xb0xtl8MmDVrZihn6Nzwvvr3_eCJeL4_IY3sB7W9pHYfMWVrw", "itemsToSubmit": "#P0_LANGUAGE", "modelName": "R35601571771332642", "modelOptions": { "regionId": 35601571771332642, "paginationType": "progressive", "pageSize": 100, "identityField": "ID" }, "pagination": { "scroll": true, "showRange": false, "firstAndLastButtons": false, "hideSinglePage": true }, "footer": false, "hideEmptyFooter": true, "hasSize": false, "beforeTemplate": "{with\u002F}\u000ACARD_LAYOUT:=a-CardView-items--grid4col\u000ACOMPONENT_CLASSES:=\u000A{apply APEX_CARDS_BEFORE\u002F}", "recordTemplate": "{with\u002F}\u000ACARD_CLASSES:=\u000AAPEX$FULL_CARD_LINK:=\u0026\u0022APEX$FULL_CARD_LINK\u0022!RAW.\u000AAPEX$FULL_CARD_LINK_ATTR:=\u000ATITLE_HTML_EXPR:=\u003Ch5\u003E\u0026LIST_NAME.\u003C\u002Fh5\u003E\u000AICON_POSITION:=a-CardView-iconWrap--top\u000AICON_CLASSES:=\u000AICON_DESCRIPTION_ATTR:=\u000AICON_INITIALS:=\u0026\u0022APEX$_INITIALS\u0022!RAW.\u000AICON_IMAGE:=\u0026\u0022APEX$LIST_IMG_BLOB\u0022!RAW.\u000ASUB_TITLE_CLASSES:=\u000ASUB_TITLE:=\u000A{apply APEX_CARDS_CARD_35601571771332642\u002F}", "afterTemplate": "{with\u002F}\u000A{apply APEX_CARDS_AFTER\u002F}", "columns": [{ "ID": { "index": 0 }, "LIST_NAME": { "index": 1 }, "PAGE_NAME": { "index": 2 }, "LIST_IMG": { "index": 3 }, "APEX$LIST_IMG_BLOB": { "index": 4 }, "APEX$FULL_CARD_LINK": { "index": 5 }, "APEX$BUTTON_ACTION_EXISTS": { "index": 6 }, "APEX$FULL_ACTION_EXISTS": { "index": 7 }, "APEX$ACTION_EXISTS": { "index": 8 } }] }, gCard35601571771332642data); })();
+          (function () {
+            var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
+            if (e.hasClass("js-addActions")) {
+              apex.actions.addFromMarkup(e);
+            }
+            e.menu({
+              behaveLikeTabs: e.hasClass("js-tabLike"),
+              menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
+              menubar: true,
+              menubarOverflow: true,
+              callout: e.hasClass("js-menu-callout")
+            });
+          })();
+        } catch (e) { apex.debug.error(e) };
+        apex.item.waitForDelayLoadItems().done(function () {
+          try {
+            (function () {
+              apex.da.initDaEventList();
+              apex.da.init();
+            })();
+            apex.theme42.initializePage.noSideCol();
+
+            apex.page.warnOnUnsavedChanges();
+          } finally {
+            apex.event.trigger(apex.gPageContext$, 'apexreadyend');
+          };
+        });
+      });
+    }); apex.pwa.publicKey = ''
+    apex.pwa.init({ serviceWorkerPath: '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' });
+  </script>
 </body>
 
 </html>
