@@ -17,6 +17,59 @@
   <link rel="icon" href="assets/img/app-icon-32.png">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .showlink {
+      display: none !important;
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      z-index: 999;
+      min-width: 150px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .showlink.force-show {
+      display: block !important;
+    }
+
+    /* Force dropdown to show */
+    .t-NavigationBar-menu {
+      display: none !important;
+      position: absolute !important;
+      background: white !important;
+      border: 1px solid #ccc !important;
+      z-index: 9999 !important;
+      min-width: 150px !important;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* Show when force-show is applied */
+    .t-NavigationBar-menu.force-show {
+      display: block !important;
+    }
+
+    .t-NavigationBar-menu {
+      display: none;
+    }
+
+    .t-NavigationBar-menu.show {
+      display: block;
+    }
+
+    .t-NavigationBar-menu {
+      z-index: 9999;
+    }
+
+    .t-NavigationBar-menu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
   <style type="text/css">
     .toast-container {
       right: 0.5%;
@@ -420,11 +473,20 @@
                   class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
               </a>
             </li>
-            <li class="t-NavigationBar-item has-username">
-              <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#" title="" target="">
-                <span class="t-Icon fa&#x20;fa-user" aria-hidden="true"></span><span
-                  class="t-Button-label admin-name-change">nobody</span><span class="t-Button-badge"></span>
-              </a>
+            <li class="t-NavigationBar-item has-username shownav">
+              <button class="t-Button t-Button--icon t-Button--header t-Button--navBar" type="button">
+                <span class="t-Icon fa fa-user" aria-hidden="true"></span>
+                <span class="t-Button-label admin-name-change">Username</span>
+                <span class="t-Button-badge"></span>
+                <span class="a-Icon icon-down-arrow" aria-hidden="true"></span>
+              </button>
+              <div class="t-NavigationBar-menu showlink">
+                <ul>
+                  <li>
+                    <a href="#">Sign Out</a>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>
@@ -973,6 +1035,50 @@
   <script src="assets/js/aos.js"></script>
   <script src="assets/js/global.js"></script>
 
+
+  <!-- <script src="assets/js/crypto-js.min.js"></script>
+  <script src="assets/js/userRole.js"></script>
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery-ui.min.js"></script>
+  <script src="assets/vendor/datatable/jquery.dataTables.min.js"></script>
+  <script src="assets/js/global.js"></script> -->
+
+  <script>
+    $(document).ready(function () {
+
+
+      $("#adminLoginBtn").on("click", function () {
+        window.location.href = "../admin-login.html";
+      });
+
+      $('.shownav').on('click', function (e) {
+        e.stopPropagation(); // Prevent closing when clicking inside
+        $('.showlink').not($(this).find('.showlink')).removeClass('force-show'); // Close other dropdowns
+        $(this).find('.showlink').toggleClass('force-show');
+      });
+
+      // Click outside to hide dropdown
+      $(document).on('click', function () {
+        $('.showlink').removeClass('force-show');
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      debugger
+      const signOutButton = document.querySelector(".t-NavigationBar-menu a");
+
+      if (signOutButton) {
+        signOutButton.addEventListener("click", function (event) {
+          event.preventDefault();
+          localStorage.removeItem("role");
+          localStorage.removeItem("userAdminName");
+          window.location.href = "index.html";
+        });
+      }
+    });
+
+  </script>
   <script type="text/javascript">
     apex.jQuery(function () {
       apex.page.init(this, function () {

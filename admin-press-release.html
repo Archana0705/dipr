@@ -952,21 +952,6 @@
 
         <div class="t-Header-navBar--start">
 
-          <!-- <div class="t-Header-navBar--end"><div class="t-Form-fieldContainer rel-col t-Form-fieldContainer--large t-Form-fieldContainer--normalDisplay apex-item-wrapper apex-item-wrapper--has-initial-value apex-item-wrapper--select-list" id="P0_LANGUAGE_CONTAINER"><div class="t-Form-labelContainer col col-null">
-  <label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
-  </div>
-  <div class="t-Form-inputContainer col col-null"><div class="t-Form-itemWrapper"><select  id="P0_LANGUAGE" name="P0_LANGUAGE" class="selectlist&#x20;apex-item-select" data-native-menu="false"  size="1" ><option value="en" selected="selected" >English</option>
-  <option value="ta">Tamil</option>
-  </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error" data-template-id="32751098700172723_ET"></span></div></div></div> 
-         <div class="t-Header-navBar--center"><ul class="t-NavigationBar " id="32861498506172843"><li class="t-NavigationBar-item a-pwaInstall">
-    <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install" title="" target="">
-      <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true" ></span><span class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
-    </a>
-  </li><li class="t-NavigationBar-item has-username">
-    <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#" title="" target="">
-      <span class="t-Icon fa&#x20;fa-user" aria-hidden="true" ></span><span class="t-Button-label">nobody</span><span class="t-Button-badge"></span>
-    </a>
-  </li></ul></div> -->
           <div class="t-Header-navBar--end">
             <div class="t-Form-inputContainer col col-null">
               <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
@@ -976,6 +961,26 @@
                 </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
                 data-template-id="32751098700172723_ET"></span>
             </div>
+          </div>
+          <div class="t-Header-navBar--center">
+            <ul class="t-NavigationBar " id="32861498506172843">
+              <li class="t-NavigationBar-item a-pwaInstall">
+                <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install"
+                  title="" target="">
+                  <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true"></span><span
+                    class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
+                </a>
+              </li>
+              <li class="t-NavigationBar-item has-username">
+                <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#" title="" target="">
+                  <span class="t-Icon fa&#x20;fa-user" aria-hidden="true"></span><span
+                    class="t-Button-label admin-name-change">nobody</span><span class="t-Button-badge"></span>
+                </a>
+              </li>
+              <li class="t-NavigationBar-item signout">
+                <button>Sign out</button>
+              </li>
+            </ul>
           </div>
 
           <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
@@ -1737,6 +1742,27 @@
           fetchData();
         }
       });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      var role = localStorage.getItem("role");
+      var userAdminName = localStorage.getItem("userAdminName");
+      if (role) {
+        $('.admin-name-change').text(userAdminName);
+        $('.js-tabLike .admin-menu-show').css('display', 'block');
+        var interval = setInterval(function () {
+          if ($('#t_MenuNav_7').length) {
+            $('#t_MenuNav_7').css('display', 'flex');
+          }
+          if ($('#t_MenuNav_8').length) {
+            $('#t_MenuNav_8').css('display', 'flex');
+          }
+          if ($('#t_MenuNav_7').length && $('#t_MenuNav_8').length) {
+            clearInterval(interval);
+          }
+        }, 100);
+      }
     });
   </script>
 </body>

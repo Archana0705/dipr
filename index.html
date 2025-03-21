@@ -19,6 +19,59 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/toastr/toastr.min.css" rel="stylesheet">
   <style>
+    .showlink {
+      display: none !important;
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      z-index: 999;
+      min-width: 150px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .showlink.force-show {
+      display: block !important;
+    }
+
+    /* Force dropdown to show */
+    .t-NavigationBar-menu {
+      display: none !important;
+      position: absolute !important;
+      background: white !important;
+      border: 1px solid #ccc !important;
+      z-index: 9999 !important;
+      min-width: 150px !important;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* Show when force-show is applied */
+    .t-NavigationBar-menu.force-show {
+      display: block !important;
+    }
+
+    .t-NavigationBar-menu {
+      display: none;
+    }
+
+    .t-NavigationBar-menu.show {
+      display: block;
+    }
+
+    .t-NavigationBar-menu {
+      z-index: 9999;
+    }
+
+    .t-NavigationBar-menu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <style>
     .toast-container {
       right: 0.5%;
     }
@@ -647,7 +700,7 @@
   class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"
   id="t_PageBody">
   <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
-  <form role="none" action="wwv_flow.accept?p_context=info-prdept103/home/314438547945874" method="post" name="wwv_flow"
+  <!-- <form role="none" action="wwv_flow.accept?p_context=info-prdept103/home/314438547945874" method="post" name="wwv_flow"
     id="wwvFlowForm" data-oj-binding-provider="none" novalidate autocomplete="off">
     <input type="hidden" name="p_flow_id" value="103" id="pFlowId" /><input type="hidden" name="p_flow_step_id"
       value="1" id="pFlowStepId" /><input type="hidden" name="p_instance" value="314438547945874"
@@ -656,586 +709,598 @@
       id="pPageSubmissionId" /><input type="hidden" name="p_request" value="" id="pRequest" /><input type="hidden"
       name="p_reload_on_submit" value="S" id="pReloadOnSubmit" /><input type="hidden"
       value="info-prdept103&#x2F;home&#x2F;314438547945874" id="pContext" /><input type="hidden"
-      value="248363135144915187596166654107495689531" id="pSalt" />
-    <header class="t-Header" id="t_Header" role="banner">
-      <div class="t-Header-navBar">
-        <div class="t-Header-navBar--start">
-          <div class="t-Header-navBar--end">
-            <div
-              class="t-Form-fieldContainer rel-col t-Form-fieldContainer--large t-Form-fieldContainer--normalDisplay apex-item-wrapper apex-item-wrapper--has-initial-value apex-item-wrapper--select-list"
-              id="P0_LANGUAGE_CONTAINER">
-              <div class="t-Form-labelContainer col col-null">
-                <label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
+      value="248363135144915187596166654107495689531" id="pSalt" /> -->
+  <header class="t-Header" id="t_Header" role="banner">
+    <div class="t-Header-navBar">
+      <div class="t-Header-navBar--start">
+        <div class="t-Header-navBar--end">
+          <div
+            class="t-Form-fieldContainer rel-col t-Form-fieldContainer--large t-Form-fieldContainer--normalDisplay apex-item-wrapper apex-item-wrapper--has-initial-value apex-item-wrapper--select-list"
+            id="P0_LANGUAGE_CONTAINER">
+            <div class="t-Form-labelContainer col col-null">
+              <label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
+            </div>
+            <div class="t-Form-inputContainer col col-null">
+              <div class="t-Form-itemWrapper">
+                <select id="P0_LANGUAGE" name="P0_LANGUAGE" class="selectlist&#x20;apex-item-select"
+                  data-native-menu="false" size="1">
+                  <option value="en" selected="selected">English</option>
+                  <option value="ta">Tamil</option>
+                </select>
               </div>
-              <div class="t-Form-inputContainer col col-null">
-                <div class="t-Form-itemWrapper">
-                  <select id="P0_LANGUAGE" name="P0_LANGUAGE" class="selectlist&#x20;apex-item-select"
-                    data-native-menu="false" size="1">
-                    <option value="en" selected="selected">English</option>
-                    <option value="ta">Tamil</option>
-                  </select>
-                </div>
-                <span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
-                  data-template-id="32751098700172723_ET"></span>
-              </div>
+              <span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
+                data-template-id="32751098700172723_ET"></span>
             </div>
           </div>
-          <div class="t-Header-navBar--center">
-            <ul class="t-NavigationBar " id="32861498506172843">
-              <li class="t-NavigationBar-item a-pwaInstall">
-                <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install"
-                  title="" target="">
-                  <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true"></span><span
-                    class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
-                </a>
-              </li>
-              <li class="t-NavigationBar-item has-username">
-                <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#" title="" target="">
-                  <span class="t-Icon fa&#x20;fa-user" aria-hidden="true"></span><span
-                    class="t-Button-label admin-name-change">nobody</span><span class="t-Button-badge"></span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="t-Header-navBar--end"></div>
-          <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
-          <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
-          <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
-          <a href="https://www.instagram.com/tndipr"><img
-              src="https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/instagram.jpeg" style="height:35px;"
-              class="fa fa-twitter" target='_blank'>
-            <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
         </div>
+        <div class="t-Header-navBar--center">
+          <ul class="t-NavigationBar " id="32861498506172843">
+            <li class="t-NavigationBar-item a-pwaInstall">
+              <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install" title=""
+                target="">
+                <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true"></span><span
+                  class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
+              </a>
+            </li>
+            <li class="t-NavigationBar-item has-username shownav">
+              <button class="t-Button t-Button--icon t-Button--header t-Button--navBar" type="button">
+                <span class="t-Icon fa fa-user" aria-hidden="true"></span>
+                <span class="t-Button-label admin-name-change">Username</span>
+                <span class="t-Button-badge"></span>
+                <span class="a-Icon icon-down-arrow" aria-hidden="true"></span>
+              </button>
+
+              <div class="t-NavigationBar-menu showlink">
+                <ul>
+                  <li>
+                    <a href="#">Sign Out</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+
+
+        </div>
+        <div class="t-Header-navBar--end"></div>
+        <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
+        <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
+        <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
+        <a href="https://www.instagram.com/tndipr"><img
+            src="https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/instagram.jpeg" style="height:35px;"
+            class="fa fa-twitter" target='_blank'>
+          <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
       </div>
-      <!-- <div class=" nobgcolor ">
+    </div>
+    <!-- <div class=" nobgcolor ">
           <img id="first_image" style=" height: 100%;" src = 'r/dipr/103/files/static/v358/left-png.png' > <span class="alignCenter"><center> Information and Public Relations Department </br> செய்தி – மக்கள் தொடர்புத்துறை </center></span>
               <img id="last_image" style=" height: 100%;" src = "r/dipr/103/files/static/v358/right-png.png" > 
           
              </div> -->
-      <div class="nobgcolor">
-        <div class="widthFixed">
-          <img id="first_image" class="header-images" src="assets/img/left-png.png">
-          <div class="center-text">
-            <center>Information and Public Relations Department <br> <span class="txtBlue">செய்தி – மக்கள்
-                தொடர்புத்துறை</span></center>
-          </div>
-          <img id="last_image" class="header-images" src="assets/img/right-png.png">
+    <div class="nobgcolor">
+      <div class="widthFixed">
+        <img id="first_image" class="header-images" src="assets/img/left-png.png">
+        <div class="center-text">
+          <center>Information and Public Relations Department <br> <span class="txtBlue">செய்தி – மக்கள்
+              தொடர்புத்துறை</span></center>
         </div>
+        <img id="last_image" class="header-images" src="assets/img/right-png.png">
       </div>
-      <div class="t-Header-nav">
-        <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
-          <ul>
-            <li class="a-MenuBar-item a-Menu--current" data-current="true" data-id="" data-disabled="" data-hide=""
-              data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="index.html" title="" target="">Home</a>
-            </li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="about_page.html" title="" target="">About Us</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="gallery1.html" title="" target="">Photo &#x2F; Video</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="press-release1.html" title="" target="">Press Release &#x2F; Press
-                Note</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="government-orders.html" title="" target="">Government Orders</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="sections.html" title="" target="">Sections</a></li>
-            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="download-forms.html" title="" target="">Download Forms</a></li>
-            <li class="a-MenuBar-item admin-menu-show" data-id="" data-disabled="" data-hide="" data-shortcut=""
-              data-icon=""><a class="a-MenuBar-label" href="../admin-google-sheets.html" title="" target="">Google
-                Sheets - Report</a>
-            </li>
-            <li class="a-MenuBar-item admin-menu-show" data-id="" data-disabled="" data-hide="" data-shortcut=""
-              data-icon=""><a class="a-MenuBar-label" href="" title="" target="">Administration</a>
-              <ul style="display: none">
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
-                </li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-press-release.html" title="" target="">Upload Press Release</a>
-                </li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-section-content.html" title="" target="">Sections Content</a>
-                </li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-goverment-orders.html" title="" target="">Upload Government
-                    Orders</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-sections-data-report.html" title="" target="">Sections Data
-                    Report</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-forms-report.html" title="" target="">Forms Report</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-memorial-video-report.html" title="" target="">memorial_video_report</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-monuments.html" title="" target="">Monuments</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-arangams.html" title="" target="">Arangams</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-commemoration-pillars.html" title="" target="">Commemoration
-                    Pillars</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-commemoration-arch.html" title="" target="">Commemoration
-                    Arch</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-department-pictures.html" title="" target="">Department
-                    Pictures</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-department-details.html" title="" target="">Department
-                    Details</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-conclusion-photos.html" title="" target="">Conclusion_Photos</a>
-                </li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-google-sheets.html" title="" target="">Google Sheets</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="../admin-press-notes.html" title="" target="">Upload Press Note</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="/ords/r/dipr/info-prdept103/add-district-pros?session=607396044452426" title="" target="">Add
-                    User</a></li>
-                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                    href="/ords/r/dipr/info-prdept103/navigation-list-entry?session=607396044452426" title=""
-                    target="">Navigation Menu Report</a></li>
-              </ul>
-            </li>
-          </ul>
-          </ul>
-        </div>
+    </div>
+    <div class="t-Header-nav">
+      <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
+        <ul>
+          <li class="a-MenuBar-item a-Menu--current" data-current="true" data-id="" data-disabled="" data-hide=""
+            data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="index.html" title="" target="">Home</a>
+          </li>
+          <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+              class="a-MenuBar-label" href="about_page.html" title="" target="">About Us</a></li>
+          <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+              class="a-MenuBar-label" href="gallery1.html" title="" target="">Photo &#x2F; Video</a></li>
+          <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+              class="a-MenuBar-label" href="press-release1.html" title="" target="">Press Release &#x2F; Press
+              Note</a></li>
+          <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+              class="a-MenuBar-label" href="government-orders.html" title="" target="">Government Orders</a></li>
+          <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+              class="a-MenuBar-label" href="sections.html" title="" target="">Sections</a></li>
+          <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+              class="a-MenuBar-label" href="download-forms.html" title="" target="">Download Forms</a></li>
+          <li class="a-MenuBar-item admin-menu-show" data-id="" data-disabled="" data-hide="" data-shortcut=""
+            data-icon=""><a class="a-MenuBar-label" href="../admin-google-sheets.html" title="" target="">Google
+              Sheets - Report</a>
+          </li>
+          <li class="a-MenuBar-item admin-menu-show" data-id="" data-disabled="" data-hide="" data-shortcut=""
+            data-icon=""><a class="a-MenuBar-label" href="" title="" target="">Administration</a>
+            <ul style="display: none">
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
+              </li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-press-release.html" title="" target="">Upload Press Release</a>
+              </li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-section-content.html" title="" target="">Sections Content</a>
+              </li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-goverment-orders.html" title="" target="">Upload Government
+                  Orders</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-sections-data-report.html" title="" target="">Sections Data
+                  Report</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-forms-report.html" title="" target="">Forms Report</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-memorial-video-report.html" title="" target="">memorial_video_report</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-monuments.html" title="" target="">Monuments</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-arangams.html" title="" target="">Arangams</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-commemoration-pillars.html" title="" target="">Commemoration
+                  Pillars</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-commemoration-arch.html" title="" target="">Commemoration
+                  Arch</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-department-pictures.html" title="" target="">Department
+                  Pictures</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-department-details.html" title="" target="">Department
+                  Details</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-conclusion-photos.html" title="" target="">Conclusion_Photos</a>
+              </li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-google-sheets.html" title="" target="">Google Sheets</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="../admin-press-notes.html" title="" target="">Upload Press Note</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="/ords/r/dipr/info-prdept103/add-district-pros?session=607396044452426" title="" target="">Add
+                  User</a></li>
+              <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                  href="/ords/r/dipr/info-prdept103/navigation-list-entry?session=607396044452426" title=""
+                  target="">Navigation Menu Report</a></li>
+            </ul>
+          </li>
+        </ul>
+        </ul>
       </div>
-    </header>
-    <div class="t-Body">
-      <div class="t-Body-main">
-        <div class="t-Body-title" id="t_Body_title"></div>
-        <div class="t-Body-content" id="t_Body_content">
-          <main id="main" class="t-Body-mainContent">
-            <span id="APEX_SUCCESS_MESSAGE" data-template-id="12108757985365732_S"
-              class="apex-page-success u-hidden"></span><span id="APEX_ERROR_MESSAGE"
-              data-template-id="12108757985365732_E" class="apex-page-error u-hidden"></span>
-            <div class="t-Body-fullContent"></div>
-            <div class="t-Body-contentInner" id="home_container">
-              <div class="container">
-                <div class="row ">
-                  <div class="col col-12 apex-col-auto col-start col-end">
-                    <div id="R22879691196163085" class=""></div>
-                    <div
-                      class="t-Region t-Region--carousel js-cycle5s t-Region--carouselSlide i-h640 t-Region--removeHeader t-Region--hiddenOverflow"
-                      id="carousel" role="region" aria-label="Carousel">
-                      <div class="t-Region-header">
-                        <div class="t-Region-headerItems t-Region-headerItems--title">
-                          <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
-                          <h2 class="t-Region-title" id="carousel_heading" data-apex-heading>Carousel</h2>
-                        </div>
-                        <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                            class="js-maximizeButtonContainer"></span></div>
+    </div>
+  </header>
+  <div class="t-Body">
+    <div class="t-Body-main">
+      <div class="t-Body-title" id="t_Body_title"></div>
+      <div class="t-Body-content" id="t_Body_content">
+        <main id="main" class="t-Body-mainContent">
+          <span id="APEX_SUCCESS_MESSAGE" data-template-id="12108757985365732_S"
+            class="apex-page-success u-hidden"></span><span id="APEX_ERROR_MESSAGE"
+            data-template-id="12108757985365732_E" class="apex-page-error u-hidden"></span>
+          <div class="t-Body-fullContent"></div>
+          <div class="t-Body-contentInner" id="home_container">
+            <div class="container">
+              <div class="row ">
+                <div class="col col-12 apex-col-auto col-start col-end">
+                  <div id="R22879691196163085" class=""></div>
+                  <div
+                    class="t-Region t-Region--carousel js-cycle5s t-Region--carouselSlide i-h640 t-Region--removeHeader t-Region--hiddenOverflow"
+                    id="carousel" role="region" aria-label="Carousel">
+                    <div class="t-Region-header">
+                      <div class="t-Region-headerItems t-Region-headerItems--title">
+                        <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                        <h2 class="t-Region-title" id="carousel_heading" data-apex-heading>Carousel</h2>
                       </div>
-                      <div role="region" aria-label="Carousel" class="t-Region-bodyWrap">
-                        <div class="t-Region-buttons t-Region-buttons--top">
-                          <div class="t-Region-buttons-left"></div>
-                          <div class="t-Region-buttons-right"></div>
-                        </div>
-                        <div class="t-Region-body">
-                          <div class="t-Region-carouselRegions">
-                            <div data-label="Panel_1" id="SR_R11556433306391224">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11556433306391224" role="region" aria-label="Panel_1">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11556433306391224_heading" data-apex-heading>Panel_1
-                                    </h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                      <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                          class="js-maximizeButtonContainer"></span></div>
+                    </div>
+                    <div role="region" aria-label="Carousel" class="t-Region-bodyWrap">
+                      <div class="t-Region-buttons t-Region-buttons--top">
+                        <div class="t-Region-buttons-left"></div>
+                        <div class="t-Region-buttons-right"></div>
+                      </div>
+                      <div class="t-Region-body">
+                        <div class="t-Region-carouselRegions">
+                          <div data-label="Panel_1" id="SR_R11556433306391224">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11556433306391224" role="region" aria-label="Panel_1">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11556433306391224_heading" data-apex-heading>Panel_1
+                                  </h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_1.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 25.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_1.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 25.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_2" id="SR_R11555195637391211">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11555195637391211" role="region" aria-label="Panel_2">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11555195637391211_heading" data-apex-heading>Panel_2
-                                    </h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_2" id="SR_R11555195637391211">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11555195637391211" role="region" aria-label="Panel_2">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11555195637391211_heading" data-apex-heading>Panel_2
+                                  </h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_2.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 8.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_2.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 8.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_3" id="SR_R11972196368599426">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11972196368599426" role="region" aria-label="Panel_3">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11972196368599426_heading" data-apex-heading>Panel_3
-                                    </h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_3" id="SR_R11972196368599426">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11972196368599426" role="region" aria-label="Panel_3">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11972196368599426_heading" data-apex-heading>Panel_3
+                                  </h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_3.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 7.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_3.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 7.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_4" id="SR_R11555368264391213">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11555368264391213" role="region" aria-label="Panel_4">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11555368264391213_heading" data-apex-heading>Panel_4
-                                    </h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_4" id="SR_R11555368264391213">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11555368264391213" role="region" aria-label="Panel_4">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11555368264391213_heading" data-apex-heading>Panel_4
+                                  </h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_4.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 10.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_4.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 10.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_5" id="SR_R11555424688391214">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11555424688391214" role="region" aria-label="Panel_5">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11555424688391214_heading" data-apex-heading>Panel_5
-                                    </h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_5" id="SR_R11555424688391214">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11555424688391214" role="region" aria-label="Panel_5">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11555424688391214_heading" data-apex-heading>Panel_5
+                                  </h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_5.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 11.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_5.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 11.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_6" id="SR_R11555674321391216">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11555674321391216" role="region" aria-label="Panel_6">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11555674321391216_heading" data-apex-heading>Panel_6
-                                    </h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_6" id="SR_R11555674321391216">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11555674321391216" role="region" aria-label="Panel_6">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11555674321391216_heading" data-apex-heading>Panel_6
+                                  </h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_6.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 12.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_6.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 12.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_7" id="SR_R11555887980391218">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11555887980391218" role="region" aria-label="Panel_7">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11555887980391218_heading" data-apex-heading>Panel_7
-                                    </h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_7" id="SR_R11555887980391218">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11555887980391218" role="region" aria-label="Panel_7">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11555887980391218_heading" data-apex-heading>Panel_7
+                                  </h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_7.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 14.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_7.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 14.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_8" id="SR_R11555905344391219">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11555905344391219" role="region" aria-label="Panel_8">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11555905344391219_heading" data-apex-heading>Panel_8
-                                    </h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_8" id="SR_R11555905344391219">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11555905344391219" role="region" aria-label="Panel_8">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11555905344391219_heading" data-apex-heading>Panel_8
+                                  </h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_8.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 15.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_8.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 15.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_9" id="SR_R11556099374391220">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11556099374391220" role="region" aria-label="Panel_9">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11556099374391220_heading" data-apex-heading>Panel_9
-                                    </h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_9" id="SR_R11556099374391220">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11556099374391220" role="region" aria-label="Panel_9">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11556099374391220_heading" data-apex-heading>Panel_9
+                                  </h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_9.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 16.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_9.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 16.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_10" id="SR_R11556321187391223">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11556321187391223" role="region" aria-label="Panel_10">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11556321187391223_heading" data-apex-heading>
-                                      Panel_10</h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_10" id="SR_R11556321187391223">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11556321187391223" role="region" aria-label="Panel_10">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11556321187391223_heading" data-apex-heading>
+                                    Panel_10</h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_10.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 19.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_10.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 19.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_11" id="SR_R11971881102599423">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11971881102599423" role="region" aria-label="Panel_11">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11971881102599423_heading" data-apex-heading>
-                                      Panel_11</h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_11" id="SR_R11971881102599423">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11971881102599423" role="region" aria-label="Panel_11">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11971881102599423_heading" data-apex-heading>
+                                    Panel_11</h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_11.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 22.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_11.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 22.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_12" id="SR_R11971921549599424">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11971921549599424" role="region" aria-label="Panel_12">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11971921549599424_heading" data-apex-heading>
-                                      Panel_12</h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_12" id="SR_R11971921549599424">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11971921549599424" role="region" aria-label="Panel_12">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11971921549599424_heading" data-apex-heading>
+                                    Panel_12</h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_12.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 23.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_12.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 23.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
-                            <div data-label="Panel_13" id="SR_R11972057893599425">
-                              <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                                id="R11972057893599425" role="region" aria-label="Panel_13">
-                                <div class="t-Region-header">
-                                  <div class="t-Region-headerItems t-Region-headerItems--title">
-                                    <span class="t-Region-headerIcon"><span class="t-Icon "
-                                        aria-hidden="true"></span></span>
-                                    <h2 class="t-Region-title" id="R11972057893599425_heading" data-apex-heading>
-                                      Panel_13</h2>
-                                  </div>
-                                  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                                      class="js-maximizeButtonContainer"></span></div>
+                          </div>
+                          <div data-label="Panel_13" id="SR_R11972057893599425">
+                            <div class="t-Region i-h640 t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                              id="R11972057893599425" role="region" aria-label="Panel_13">
+                              <div class="t-Region-header">
+                                <div class="t-Region-headerItems t-Region-headerItems--title">
+                                  <span class="t-Region-headerIcon"><span class="t-Icon "
+                                      aria-hidden="true"></span></span>
+                                  <h2 class="t-Region-title" id="R11972057893599425_heading" data-apex-heading>
+                                    Panel_13</h2>
                                 </div>
-                                <div class="t-Region-bodyWrap">
-                                  <div class="t-Region-buttons t-Region-buttons--top">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
-                                  <div class="t-Region-body">
-                                    <div class="t-Region-orderBy"></div>
-                                    <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_13.jpg'>
-                                    <!-- <img src= 'r/dipr/103/files/static/v358/Frame 24.png'> -->
-                                  </div>
-                                  <div class="t-Region-buttons t-Region-buttons--bottom">
-                                    <div class="t-Region-buttons-left"></div>
-                                    <div class="t-Region-buttons-right"></div>
-                                  </div>
+                                <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                                    class="js-maximizeButtonContainer"></span></div>
+                              </div>
+                              <div class="t-Region-bodyWrap">
+                                <div class="t-Region-buttons t-Region-buttons--top">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
+                                </div>
+                                <div class="t-Region-body">
+                                  <div class="t-Region-orderBy"></div>
+                                  <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_13.jpg'>
+                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 24.png'> -->
+                                </div>
+                                <div class="t-Region-buttons t-Region-buttons--bottom">
+                                  <div class="t-Region-buttons-left"></div>
+                                  <div class="t-Region-buttons-right"></div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="t-Region-buttons t-Region-buttons--bottom">
-                          <div class="t-Region-buttons-left"></div>
-                          <div class="t-Region-buttons-right"></div>
-                        </div>
+                      </div>
+                      <div class="t-Region-buttons t-Region-buttons--bottom">
+                        <div class="t-Region-buttons-left"></div>
+                        <div class="t-Region-buttons-right"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- <div class="row ">
+              </div>
+              <!-- <div class="row ">
                   <div class="col col-12 apex-col-auto col-start col-end">
                     <div class="t-CardsRegion u-colors t-CardsRegion--styleB t-Region-orderBy--center"
                       id="R33195007429326677" role="region" aria-label="Cards">
@@ -1305,192 +1370,190 @@
                   </div>
                 </div> -->
 
-                <div class="row">
-                  <div class="col-12">
-                    <div class="t-CardsRegion" id="card-container">
-                      <ul class="a-CardView-items d-flex flex-wrap list-unstyled" id="dynamic-cards"></ul>
+              <div class="row">
+                <div class="col-12">
+                  <div class="t-CardsRegion" id="card-container">
+                    <ul class="a-CardView-items d-flex flex-wrap list-unstyled" id="dynamic-cards"></ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row ">
+                <div class="col col-12 apex-col-auto col-start col-end">
+                  <h3 class="k-heading">Visit Kalaingar Ulagam Museum with just one click!</h3>
+                  <h4 class="k-heading">கலைஞர் உலகம் அருங்காட்சியகத்தைப் பார்வையிட இப்போதே முன்பதிவு செய்யுங்கள்!</h4>
+                </div>
+              </div>
+              <div class="row k-ulagam">
+                <div class="col col-12 apex-col-auto col-start col-end">
+                  <div class="row">
+                    <img class="bg-banner-anime" src="assets/img/Group.svg">
+                    <img class="bg-banner" src="assets/img/k-bg.png">
+                    <div class="col-8 k-pic" style="opacity:1.2"><a href="https://eticket.kalaignarulagam.org/"
+                        target="_blank"><img src="assets/img/ulagam-kalai.svg"></a></div>
+                    <div class="col k-buttons">
+                      <a href="https://eticket.kalaignarulagam.org/bookingticket" target="_blank"><img
+                          src="assets/img/k-icon.svg"><span>Book Visitor Pass / நுழைவுச் சீட்டுப் பதிவு</span></a>
+                      <a href="https://eticket.kalaignarulagam.org/retrievepass" target="_blank"><img
+                          src="assets/img/k-icon.svg"><span>Retrieve Visitor Pass / நுழைவுச் சீட்டைத் தேடுக</span></a>
+                      <a href="https://eticket.kalaignarulagam.org/cancelpass" target="_blank"><img
+                          src="assets/img/k-icon.svg"><span>Cancel Visitor Pass / நுழைவுச் சீட்டை ரத்து
+                          செய்ய</span></a>
                     </div>
                   </div>
                 </div>
-                <div class="row ">
-                  <div class="col col-12 apex-col-auto col-start col-end">
-                    <h3 class="k-heading">Visit Kalaingar Ulagam Museum with just one click!</h3>
-                    <h4 class="k-heading">கலைஞர் உலகம் அருங்காட்சியகத்தைப் பார்வையிட இப்போதே முன்பதிவு செய்யுங்கள்!</h4>
-                  </div>
-                </div>
-                <div class="row k-ulagam">
-                  <div class="col col-12 apex-col-auto col-start col-end">
-                    <div class="row">
-                      <img class="bg-banner-anime" src="assets/img/Group.svg">
-                      <img class="bg-banner" src="assets/img/k-bg.png">
-                      <div class="col-8 k-pic" style="opacity:1.2"><a href="https://eticket.kalaignarulagam.org/"
-                          target="_blank"><img src="assets/img/ulagam-kalai.svg"></a></div>
-                      <div class="col k-buttons">
-                        <a href="https://eticket.kalaignarulagam.org/bookingticket" target="_blank"><img
-                            src="assets/img/k-icon.svg"><span>Book Visitor Pass / நுழைவுச் சீட்டுப் பதிவு</span></a>
-                        <a href="https://eticket.kalaignarulagam.org/retrievepass" target="_blank"><img
-                            src="assets/img/k-icon.svg"><span>Retrieve Visitor Pass / நுழைவுச் சீட்டைத் தேடுக</span></a>
-                        <a href="https://eticket.kalaignarulagam.org/cancelpass" target="_blank"><img
-                            src="assets/img/k-icon.svg"><span>Cancel Visitor Pass / நுழைவுச் சீட்டை ரத்து
-                            செய்ய</span></a>
+              </div>
+              <div class="row ">
+                <div class="col col-12 apex-col-auto col-start col-end">
+                  <div class="t-Region t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
+                    id="R27988931046325502" role="region" aria-label="New">
+                    <div class="t-Region-header">
+                      <div class="t-Region-headerItems t-Region-headerItems--title">
+                        <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                        <h2 class="t-Region-title" id="R27988931046325502_heading" data-apex-heading>New</h2>
+                      </div>
+                      <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                          class="js-maximizeButtonContainer"></span></div>
+                    </div>
+                    <div class="t-Region-bodyWrap">
+                      <div class="t-Region-buttons t-Region-buttons--top">
+                        <div class="t-Region-buttons-left"></div>
+                        <div class="t-Region-buttons-right"></div>
+                      </div>
+                      <div class="t-Region-body text-center">
+                        <div class="t-Region-orderBy"></div>
+                        <img class="middle" src="https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/DIPR_QR.png">
+                        <h4 class="k-heading">தென்னையில் பூச்சி, நோய் கட்டுப்பாடு, தென்னங்கன்று நடவு முறைகள்,
+                          ஊடுபயிர்கள் சாகுபடி, நீர் மற்றும் உரம் மேலாண்மை முறைகள் குறித்த கையேடு பதிவிறக்கம் செய்ய
+                          மற்றும் பகிர விரைவுத் துலங்கல் குறியீடு (QR Code)- ஐ ஸ்கேன் செய்யவும்.</h4>
+                      </div>
+                      <div class="t-Region-buttons t-Region-buttons--bottom">
+                        <div class="t-Region-buttons-left"></div>
+                        <div class="t-Region-buttons-right"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="row ">
-                  <div class="col col-12 apex-col-auto col-start col-end">
-                    <div class="t-Region t-Region--removeHeader js-removeLandmark t-Region--scrollBody"
-                      id="R27988931046325502" role="region" aria-label="New">
-                      <div class="t-Region-header">
-                        <div class="t-Region-headerItems t-Region-headerItems--title">
-                          <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
-                          <h2 class="t-Region-title" id="R27988931046325502_heading" data-apex-heading>New</h2>
-                        </div>
-                        <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                            class="js-maximizeButtonContainer"></span></div>
+              </div>
+              <div class="row ">
+                <div class="col col-6 apex-col-auto col-start">
+                  <div class="t-Region t-Region--scrollBody" id="R33784815856427438" role="region"
+                    aria-label="Subscription">
+                    <div class="t-Region-header">
+                      <div class="t-Region-headerItems t-Region-headerItems--title">
+                        <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                        <h2 class="t-Region-title" id="R33784815856427438_heading" data-apex-heading>Subscription</h2>
                       </div>
-                      <div class="t-Region-bodyWrap">
-                        <div class="t-Region-buttons t-Region-buttons--top">
-                          <div class="t-Region-buttons-left"></div>
-                          <div class="t-Region-buttons-right"></div>
-                        </div>
-                        <div class="t-Region-body text-center">
-                          <div class="t-Region-orderBy"></div>
-                          <img class="middle"
-                            src="https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/DIPR_QR.png">
-                          <h4 class="k-heading">தென்னையில் பூச்சி, நோய் கட்டுப்பாடு, தென்னங்கன்று நடவு முறைகள்,
-                            ஊடுபயிர்கள் சாகுபடி, நீர் மற்றும் உரம் மேலாண்மை முறைகள் குறித்த கையேடு பதிவிறக்கம் செய்ய
-                            மற்றும் பகிர விரைவுத் துலங்கல் குறியீடு (QR Code)- ஐ ஸ்கேன் செய்யவும்.</h4>
-                        </div>
-                        <div class="t-Region-buttons t-Region-buttons--bottom">
-                          <div class="t-Region-buttons-left"></div>
-                          <div class="t-Region-buttons-right"></div>
-                        </div>
-                      </div>
+                      <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                          class="js-maximizeButtonContainer"></span></div>
                     </div>
-                  </div>
-                </div>
-                <div class="row ">
-                  <div class="col col-6 apex-col-auto col-start">
-                    <div class="t-Region t-Region--scrollBody" id="R33784815856427438" role="region"
-                      aria-label="Subscription">
-                      <div class="t-Region-header">
-                        <div class="t-Region-headerItems t-Region-headerItems--title">
-                          <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
-                          <h2 class="t-Region-title" id="R33784815856427438_heading" data-apex-heading>Subscription</h2>
-                        </div>
-                        <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
-                            class="js-maximizeButtonContainer"></span></div>
+                    <div class="t-Region-bodyWrap">
+                      <div class="t-Region-buttons t-Region-buttons--top">
+                        <div class="t-Region-buttons-left"></div>
+                        <div class="t-Region-buttons-right"></div>
                       </div>
-                      <div class="t-Region-bodyWrap">
-                        <div class="t-Region-buttons t-Region-buttons--top">
-                          <div class="t-Region-buttons-left"></div>
-                          <div class="t-Region-buttons-right"></div>
-                        </div>
-                        <div class="t-Region-body">
-                          <div class="t-Region-orderBy"></div>
-                          <div class="container">
-                            <div class="row ">
-                              <div class="col col-12 apex-col-auto col-start col-end">
-                                <div
-                                  class="t-Form-fieldContainer t-Form-fieldContainer--floatingLabel  apex-item-wrapper apex-item-wrapper--has-placeholder apex-item-wrapper--text-field"
-                                  id="P1_YOUR_NAME_CONTAINER">
-                                  <div class="t-Form-labelContainer">
-                                    <label for="P1_YOUR_NAME" id="P1_YOUR_NAME_LABEL" class="t-Form-label"></label>
-                                  </div>
-                                  <div class="t-Form-inputContainer">
-                                    <div class="t-Form-itemWrapper"><input type="text" id="P1_YOUR_NAME"
-                                        name="P1_YOUR_NAME" placeholder="Name" class="text_field&#x20;apex-item-text"
-                                        value="" size="30" /></div>
-                                    <span id="P1_YOUR_NAME_error_placeholder" class="a-Form-error"
-                                      data-template-id="32751268491172723_ET"></span>
-                                  </div>
+                      <div class="t-Region-body">
+                        <div class="t-Region-orderBy"></div>
+                        <div class="container">
+                          <div class="row ">
+                            <div class="col col-12 apex-col-auto col-start col-end">
+                              <div
+                                class="t-Form-fieldContainer t-Form-fieldContainer--floatingLabel  apex-item-wrapper apex-item-wrapper--has-placeholder apex-item-wrapper--text-field"
+                                id="P1_YOUR_NAME_CONTAINER">
+                                <div class="t-Form-labelContainer">
+                                  <label for="P1_YOUR_NAME" id="P1_YOUR_NAME_LABEL" class="t-Form-label"></label>
                                 </div>
-                                <div
-                                  class="t-Form-fieldContainer t-Form-fieldContainer--floatingLabel  apex-item-wrapper apex-item-wrapper--has-placeholder apex-item-wrapper--text-field"
-                                  id="P1_YOUR_EMAIL_CONTAINER">
-                                  <div class="t-Form-labelContainer">
-                                    <label for="P1_YOUR_EMAIL" id="P1_YOUR_EMAIL_LABEL" class="t-Form-label"></label>
-                                  </div>
-                                  <div class="t-Form-inputContainer">
-                                    <div class="t-Form-itemWrapper"><input type="text" id="P1_YOUR_EMAIL"
-                                        name="P1_YOUR_EMAIL" placeholder="Email" class="text_field&#x20;apex-item-text"
-                                        value="" size="30" /></div>
-                                    <span id="P1_YOUR_EMAIL_error_placeholder" class="a-Form-error"
-                                      data-template-id="32751268491172723_ET"></span>
-                                  </div>
+                                <div class="t-Form-inputContainer">
+                                  <div class="t-Form-itemWrapper"><input type="text" id="P1_YOUR_NAME"
+                                      name="P1_YOUR_NAME" placeholder="Name" class="text_field&#x20;apex-item-text"
+                                      value="" size="30" /></div>
+                                  <span id="P1_YOUR_NAME_error_placeholder" class="a-Form-error"
+                                    data-template-id="32751268491172723_ET"></span>
+                                </div>
+                              </div>
+                              <div
+                                class="t-Form-fieldContainer t-Form-fieldContainer--floatingLabel  apex-item-wrapper apex-item-wrapper--has-placeholder apex-item-wrapper--text-field"
+                                id="P1_YOUR_EMAIL_CONTAINER">
+                                <div class="t-Form-labelContainer">
+                                  <label for="P1_YOUR_EMAIL" id="P1_YOUR_EMAIL_LABEL" class="t-Form-label"></label>
+                                </div>
+                                <div class="t-Form-inputContainer">
+                                  <div class="t-Form-itemWrapper"><input type="text" id="P1_YOUR_EMAIL"
+                                      name="P1_YOUR_EMAIL" placeholder="Email" class="text_field&#x20;apex-item-text"
+                                      value="" size="30" /></div>
+                                  <span id="P1_YOUR_EMAIL_error_placeholder" class="a-Form-error"
+                                    data-template-id="32751268491172723_ET"></span>
                                 </div>
                               </div>
                             </div>
-                            <div class="row ">
-                              <div class="col col-12 apex-col-auto col-start col-end">
-                                <div
-                                  class="t-Form-fieldContainer rel-col  apex-item-wrapper apex-item-wrapper--display-only"
-                                  id="P1_DESCRIPTION_CONTAINER">
-                                  <div class="t-Form-labelContainer col col-6">
-                                    <label for="P1_DESCRIPTION" id="P1_DESCRIPTION_LABEL" class="t-Form-label">Sign up
-                                      to receive updates by email News and Press Release!</label>
-                                  </div>
-                                  <div class="t-Form-inputContainer col col-6">
-                                    <div class="t-Form-itemWrapper"><input type="hidden" id="P1_DESCRIPTION"
-                                        name="P1_DESCRIPTION" value=""><input type="hidden" data-for="P1_DESCRIPTION"
-                                        value="M32UJkIgHEbkHptdZnj54VVaRIGwzl17fXj874iFIIJflNu7ZMrlXr-ggUirkswx1HbamOHsyxet2n0l2OC-aA"><span
-                                        id="P1_DESCRIPTION_DISPLAY" class="display_only&#x20;apex-item-display-only"
-                                        data-escape="true"></span></div>
-                                    <span id="P1_DESCRIPTION_error_placeholder" class="a-Form-error"
-                                      data-template-id="32751098700172723_ET"></span>
-                                  </div>
+                          </div>
+                          <div class="row ">
+                            <div class="col col-12 apex-col-auto col-start col-end">
+                              <div
+                                class="t-Form-fieldContainer rel-col  apex-item-wrapper apex-item-wrapper--display-only"
+                                id="P1_DESCRIPTION_CONTAINER">
+                                <div class="t-Form-labelContainer col col-6">
+                                  <label for="P1_DESCRIPTION" id="P1_DESCRIPTION_LABEL" class="t-Form-label">Sign up
+                                    to receive updates by email News and Press Release!</label>
+                                </div>
+                                <div class="t-Form-inputContainer col col-6">
+                                  <div class="t-Form-itemWrapper"><input type="hidden" id="P1_DESCRIPTION"
+                                      name="P1_DESCRIPTION" value=""><input type="hidden" data-for="P1_DESCRIPTION"
+                                      value="M32UJkIgHEbkHptdZnj54VVaRIGwzl17fXj874iFIIJflNu7ZMrlXr-ggUirkswx1HbamOHsyxet2n0l2OC-aA"><span
+                                      id="P1_DESCRIPTION_DISPLAY" class="display_only&#x20;apex-item-display-only"
+                                      data-escape="true"></span></div>
+                                  <span id="P1_DESCRIPTION_error_placeholder" class="a-Form-error"
+                                    data-template-id="32751098700172723_ET"></span>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="t-Region-buttons t-Region-buttons--bottom">
-                          <div class="t-Region-buttons-left"></div>
-                          <div class="t-Region-buttons-right"><button
-                              class="t-Button t-Button--hot t-Button--large&#x20;t-Button--success" type="button"
-                              id="subscribeBtn"><span class="t-Button-label">Subscribe</span></button></div>
-                        </div>
+                      </div>
+                      <div class="t-Region-buttons t-Region-buttons--bottom">
+                        <div class="t-Region-buttons-left"></div>
+                        <div class="t-Region-buttons-right"><button
+                            class="t-Button t-Button--hot t-Button--large&#x20;t-Button--success" type="button"
+                            id="subscribeBtn"><span class="t-Button-label">Subscribe</span></button></div>
                       </div>
                     </div>
                   </div>
-                  <div class="col col-6 apex-col-auto col-end">
-                    <div class="t-Region scroll-container t-Region--scrollBody" id="R39419570857585736" role="region"
-                      aria-label="Daily Updates">
-                      <div class="t-Region-header">
-                        <div class="t-Region-headerItems t-Region-headerItems--title">
-                          <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
-                          <h2 class="t-Region-title" id="R39419570857585736_heading" data-apex-heading="">Daily Updates
-                          </h2>
-                        </div>
-                        <div class="t-Region-headerItems t-Region-headerItems--buttons">
-                          <span class="js-maximizeButtonContainer"></span>
-                        </div>
+                </div>
+                <div class="col col-6 apex-col-auto col-end">
+                  <div class="t-Region scroll-container t-Region--scrollBody" id="R39419570857585736" role="region"
+                    aria-label="Daily Updates">
+                    <div class="t-Region-header">
+                      <div class="t-Region-headerItems t-Region-headerItems--title">
+                        <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                        <h2 class="t-Region-title" id="R39419570857585736_heading" data-apex-heading="">Daily Updates
+                        </h2>
                       </div>
-                      <div class="t-Region-bodyWrap">
-                        <div class="t-Region-body">
-                          <div class="container">
-                            <div class="row">
-                              <div class="col col-12 apex-col-auto col-start col-end">
-                                <div id="scroll-text" class="js-apex-region" aria-live="polite">
-                                  <div id="report_39742443332377753_catch">
-                                    <div
-                                      class="t-Report t-Report--stretch t-Report--staticRowColors t-Report--rowHighlight t-Report--noBorders"
-                                      id="report_scroll-text" data-region-id="scroll-text">
-                                      <div class="t-Report-wrap">
-                                        <div class="t-Report-tableWrap">
-                                          <table class="t-Report-report" id="report_table_scroll-text" aria-label="New">
-                                            <thead>
-                                              <tr>
-                                                <th class="t-Report-colHead" align="left" id="PRESS_NAME">Press Name
-                                                </th>
-                                              </tr>
-                                            </thead>
-                                            <tbody id="table-body">
-                                              <!-- Data will be inserted here dynamically -->
-                                            </tbody>
-                                          </table>
-                                        </div>
+                      <div class="t-Region-headerItems t-Region-headerItems--buttons">
+                        <span class="js-maximizeButtonContainer"></span>
+                      </div>
+                    </div>
+                    <div class="t-Region-bodyWrap">
+                      <div class="t-Region-body">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col col-12 apex-col-auto col-start col-end">
+                              <div id="scroll-text" class="js-apex-region" aria-live="polite">
+                                <div id="report_39742443332377753_catch">
+                                  <div
+                                    class="t-Report t-Report--stretch t-Report--staticRowColors t-Report--rowHighlight t-Report--noBorders"
+                                    id="report_scroll-text" data-region-id="scroll-text">
+                                    <div class="t-Report-wrap">
+                                      <div class="t-Report-tableWrap">
+                                        <table class="t-Report-report" id="report_table_scroll-text" aria-label="New">
+                                          <thead>
+                                            <tr>
+                                              <th class="t-Report-colHead" align="left" id="PRESS_NAME">Press Name
+                                              </th>
+                                            </tr>
+                                          </thead>
+                                          <tbody id="table-body">
+                                            <!-- Data will be inserted here dynamically -->
+                                          </tbody>
+                                        </table>
                                       </div>
                                     </div>
                                   </div>
@@ -1502,50 +1565,51 @@
                       </div>
                     </div>
                   </div>
+                </div>
 
-                </div>
-                <div class="row ">
-                  <!-- onclick="apex.navigation.redirect(&#x27;\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Flogin&#x27;);" -->
-                  <div class="col col-12 apex-col-auto col-start col-end"><button
-                      class="t-Button t-Button--hot js-ignoreChange" type="button" id="B39010034765536440"><span
-                        class="t-Button-label">Admin Login</span></button></div>
-                </div>
+              </div>
+              <div class="row ">
+                <!-- onclick="apex.navigation.redirect(&#x27;\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Flogin&#x27;);" -->
+                <div class="col col-12 apex-col-auto col-start col-end"><button
+                    class="t-Button t-Button--hot js-ignoreChange" type="button" id="B39010034765536440"><span
+                      class="t-Button-label" id="adminLoginBtn">Admin Login</span></button></div>
               </div>
             </div>
-          </main>
-          <footer class="t-Footer" id="t_Footer" role="contentinfo">
-            <div class="t-Footer-body">
-              <div class="t-Footer-content">
-                <div class="container">
-                  <div class="row ">
-                    <div class="col col-12 apex-col-auto col-start col-end">
-                      <div id="R11684238522218402" class="">Information & Public Relations Department, Secretariat,
-                        Chennai 600 009</div>
-                    </div>
+          </div>
+        </main>
+        <footer class="t-Footer" id="t_Footer" role="contentinfo">
+          <div class="t-Footer-body">
+            <div class="t-Footer-content">
+              <div class="container">
+                <div class="row ">
+                  <div class="col col-12 apex-col-auto col-start col-end">
+                    <div id="R11684238522218402" class="">Information & Public Relations Department, Secretariat,
+                      Chennai 600 009</div>
                   </div>
                 </div>
               </div>
-              <div class="t-Footer-apex">
-                <div class="t-Footer-version">
-                  <!--   <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav"><ul><li class="a-MenuBar-item a-Menu--current" data-current="true" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/home" title="" target="">Home</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/about_page" title="" target="">About Us</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/gallery1" title="" target="">Photo &#x2F; Video</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/press-release1" title="" target="">Press Release &#x2F; Press Note</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/government-orders" title="" target="">Government Orders</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/sections" title="" target="">Sections</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/download-forms" title="" target="">Download Forms</a></li></ul></div> -->
-                </div>
-                <div class="t-Footer-customize">
-                </div>
+            </div>
+            <div class="t-Footer-apex">
+              <div class="t-Footer-version">
+                <!--   <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav"><ul><li class="a-MenuBar-item a-Menu--current" data-current="true" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/home" title="" target="">Home</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/about_page" title="" target="">About Us</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/gallery1" title="" target="">Photo &#x2F; Video</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/press-release1" title="" target="">Press Release &#x2F; Press Note</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/government-orders" title="" target="">Government Orders</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/sections" title="" target="">Sections</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/download-forms" title="" target="">Download Forms</a></li></ul></div> -->
+              </div>
+              <div class="t-Footer-customize">
               </div>
             </div>
-            <div class="t-Footer-top">
-              <a href="#top" class="t-Footer-topButton" id="t_Footer_topButton" title="Start of page"
-                aria-label="Start of page"><span class="a-Icon icon-up-chevron" aria-hidden="true"></span></a>
-            </div>
-          </footer>
-        </div>
+          </div>
+          <div class="t-Footer-top">
+            <a href="#top" class="t-Footer-topButton" id="t_Footer_topButton" title="Start of page"
+              aria-label="Start of page"><span class="a-Icon icon-up-chevron" aria-hidden="true"></span></a>
+          </div>
+        </footer>
       </div>
     </div>
-    <div class="t-Body-inlineDialogs" id="t_Body_inlineDialogs"></div>
-    <input type="hidden" id="pPageFormRegionChecksums" value="&#x5B;&#x5D;">
-    <input type="hidden" id="pPageItemsRowVersion" value="" /><input type="hidden" id="pPageItemsProtected"
-      value="UDFfREVTQ1JJUFRJT04&#x2F;HuXLgQKpQDvhcWqLDwsRXkVEiWAp0Tz89doZO4Lnq4nO5j23tIheOm8f6NQ83l_PAXeqWSIdNxJ2g8-h8LdNxQ" />
-  </form>
+  </div>
+  <!-- <div class="t-Body-inlineDialogs" id="t_Body_inlineDialogs"></div> -->
+  <!-- <input type="hidden" id="pPageFormRegionChecksums" value="&#x5B;&#x5D;">
+  <input type="hidden" id="pPageItemsRowVersion" value="" /><input type="hidden" id="pPageItemsProtected"
+    value="UDFfREVTQ1JJUFRJT04&#x2F;HuXLgQKpQDvhcWqLDwsRXkVEiWAp0Tz89doZO4Lnq4nO5j23tIheOm8f6NQ83l_PAXeqWSIdNxJ2g8-h8LdNxQ" /> -->
+  <!-- </form> -->
 
   <script>
     var apex_img_dir = "https:\u002F\u002Fstatic.oracle.com\u002Fcdn\u002Fapex\u002F24.1.1\u002F";
@@ -1560,21 +1624,44 @@
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/jquery-ui.min.js"></script>
-
-  <script src="assets/js/desktop_all.min.js"></script>
-  <script src="assets/js/theme42.min.js"></script>
-  <script src="assets/js/aos.js"></script>
-  <script src="assets/js/add.min.js"></script>
-  <script src="assets/js/widget.apexTabs.min.js"></script>
-  <script src="assets/js/widget.interactiveReport.min.js"></script>
-  <script src="assets/js/widget.iconList.min.js"></script>
-  <script src="assets/js/widget.stickyTableHeader.min.js"></script>
-  <script src="assets/js/widget.stickyWidget.min.js"></script>
-  <script src="assets/js/item.Colorpicker.min.js"></script>
-  <script src="assets/js/require.js"></script>
-  <script src="assets/js/requirejs.jetConfig.min.js"></script>
-  <script src="assets/js/jetCommonBundle.min.js"></script>
+  <script src="assets/vendor/datatable/jquery.dataTables.min.js"></script>
   <script src="assets/js/global.js"></script>
+
+  <script>
+    $(document).ready(function () {
+
+
+      $("#adminLoginBtn").on("click", function () {
+        window.location.href = "../admin-login.html";
+      });
+
+      $('.shownav').on('click', function (e) {
+        e.stopPropagation(); // Prevent closing when clicking inside
+        $('.showlink').not($(this).find('.showlink')).removeClass('force-show'); // Close other dropdowns
+        $(this).find('.showlink').toggleClass('force-show');
+      });
+
+      // Click outside to hide dropdown
+      $(document).on('click', function () {
+        $('.showlink').removeClass('force-show');
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      debugger
+      const signOutButton = document.querySelector(".t-NavigationBar-menu a");
+
+      if (signOutButton) {
+        signOutButton.addEventListener("click", function (event) {
+          event.preventDefault();
+          localStorage.removeItem("role");
+          localStorage.removeItem("userAdminName");
+          window.location.href = "index.html";
+        });
+      }
+    });
+
+  </script>
 
   <script type="text/javascript">
     apex.da.initDaEventList = function () {
@@ -1788,6 +1875,7 @@
 
     $(document).ready(function () {
       debugger
+
       $(document).on({
         ajaxStart: function () {
           $('#preloader').show();
@@ -1890,6 +1978,13 @@
       }
     });
 
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      // Click to toggle dropdown
+
+    });
   </script>
 </body>
 
