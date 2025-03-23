@@ -1451,10 +1451,10 @@
       $('#preloader').hide();
 
       function checkFile(selector) {
-        var fileInput = $(selector).find('input[type="file"]');
+        var fileInput = $(selector)[0];
+        var file = fileInput.files[0];
         const validTypes = ['application/pdf', 'image/jpeg', 'image/jpg'];
         const maxSize = 2 * 1024 * 1024; // 2MB in bytes
-        var file = fileInput[0].files[0];
 
         // Check if a file has been selected
         if (file) {
@@ -1477,33 +1477,35 @@
         return new Promise((resolve, reject) => {
           var fileInput = $(selector)[0];
           var file = fileInput.files[0];
-          if (file === undefined) showErrorToast('Please upload all the required files');
-          if (file) {
-            const reader = new FileReader();
-            const fileData = {};
-
-            reader.onload = function (event) {
-              // File processed as Base64 string
-              fileData.fileBase64 = event.target.result.split(',')[1];
-              fileData.mimetype = file.type;
-              fileData.filename = file.name;
-
-              resolve(fileData); // Resolve the promise with fileData
-            };
-
-            reader.onerror = function (error) {
-              reject(error); // Reject the promise in case of error
-            };
-
-            reader.readAsDataURL(file); // Read the file as a data URL (Base64)
+          if (!file) {
+            resolve(null);
+            return;
           }
+
+          const reader = new FileReader();
+          const fileData = {};
+
+          reader.onload = function (event) {
+            // File processed as Base64 string
+            fileData.fileBase64 = event.target.result.split(',')[1];
+            fileData.mimetype = file.type;
+            fileData.filename = file.name;
+
+            resolve(fileData);
+          };
+
+          reader.onerror = function (error) {
+            reject(error);
+          };
+
+          reader.readAsDataURL(file);
         });
       }
 
       function formatDate(dateString) {
         if (!dateString) return 'N/A';
         let date = new Date(dateString);
-        return date.toLocaleDateString('en-GB'); // Formats as dd/MM/yyyy
+        return date.toLocaleDateString('en-GB');
       }
 
       $(document).ready(function () {
@@ -1677,8 +1679,45 @@
             interimLinkContainer.innerHTML = downloadLinkHTML;
           }
         }
+
+        // Clear file input when modal opens
+        $("#orderFileUpload_input").val("");
       });
 
+      $('#updateBtn').on('click', async function () {
+        debugger;
+        const selectedRow = $('tr.selected');
+        if (!selectedRow.length) {
+          showErrorToast("No row selected for update.");
+          return;
+        }
+
+        const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
+        let orderName = selectedRow.find('a#open-modal-btn').attr('data-file'); // Existing file name
+
+        console.log("Selected ID:", selectedId);
+        console.log("Existing Order Name:", orderName);
+
+        if (!selectedId) {
+          showErrorToast("Failed to fetch required data for update.");
+          return;
+        }
+
+        // Process file (returns null if no new file is uploaded)
+        let orderFileInput = await processFile('#orderFileUpload_input');
+
+        console.log("Newly Uploaded File:", orderFileInput);
+
+        // Use new file if uploaded, otherwise keep existing orderName
+        let finalOrderFile = orderFileInput ? orderFileInput : orderName;
+
+        if (!finalOrderFile) {
+          showErrorToast("Please upload a file.");
+          return;
+        }
+
+        updateData(selectedId, finalOrderFile);
+      });
 
       $(".close-button").on("click", function () {
         $("#modal").dialog("close");
@@ -1769,55 +1808,7 @@
         }
       });
 
-      // $('#updateBtn').on('click', function () {
-      //   debugger;
-      //   const selectedRow = $('tr.selected'); // Ensure row is actually selected
-      //   if (!selectedRow.length) {
-      //     showErrorToast("No row selected for update.");
-      //     return;
-      //   }
 
-      //   // Correct way to get data-id and data-file
-      //   const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
-      //   const orderName = selectedRow.find('a#open-modal-btn').attr('data-file');
-
-      //   console.log("Selected ID:", selectedId);
-      //   console.log("Order Name:", orderName);
-
-      //   if (!selectedId || !orderName) {
-      //     showErrorToast("Failed to fetch required data for update.");
-      //     return;
-      //   }
-
-      //   updateData(selectedId, orderName);
-      // });
-
-      $('#updateBtn').on('click', function () {
-        debugger;
-        const selectedRow = $('tr.selected');
-        if (!selectedRow.length) {
-          showErrorToast("No row selected for update.");
-          return;
-        }
-
-        const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
-        let orderName = selectedRow.find('a#open-modal-btn').attr('data-file');
-
-        console.log("Selected ID:", selectedId);
-        console.log("Order Name:", orderName);
-
-        if (!selectedId || !orderName) {
-          showErrorToast("Failed to fetch required data for update.");
-          return;
-        }
-
-        const orderFileInput = document.getElementById('orderFileUpload_input');
-        if (orderFileInput.files.length > 0) {
-          orderName = orderFileInput.files[0].name;
-        }
-
-        updateData(selectedId, orderName);
-      });
 
       async function updateData(id, file) {
         debugger;
