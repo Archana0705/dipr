@@ -764,6 +764,43 @@
       <div class="t-Form-inputContainer col col-12">
         <div class="t-Form-itemWrapper file_wrap">
           <div class="col col-6 apex-col-auto col-start">
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_listname" id="Press_listname_LABEL">List Name</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_listname" class="form-control text_field apex-item-text" name="Press_listname"
+                    value="" size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_listname_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_pagename" id="Press_pagename_LABEL">Page Name</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_pagename" class="form-control text_field apex-item-text" name="Press_pagename"
+                    value="" size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_pagename_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
@@ -775,7 +812,7 @@
                     display-style="NATIVE" size="30">
                     <input type="file" id="press_video_FileUpload_input" name="press_video_FileUpload"
                       class="text_field&#x20;apex-item-text" value=""
-                      accept="video/mp4, video/avi, video/mkv, video/webm, video/mov" maxlength="1000" />
+                      accept="image/png, image/jpeg, image/jpg, image/gif, image/webp" maxlength="1000" />
                     <div class="a-FileDrop a-FileDrop--native">
                     </div>
                   </a-file-upload>
@@ -795,24 +832,24 @@
               </div>
             </div>
 
+
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="Press_date" id="Press_date_LABEL">Pn Date</label>
+                <label for="Press_listType" id="Press_listType_LABEL">List Type</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input id="Press_date" class="form-control text_field apex-item-text" name="Press_date" type="date"
+                  <input id="Press_listType" class="form-control text_field apex-item-text" name="Press_listType"
                     value="" size="70">
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Press_date_error_placeholder" class="a-Form-error"
+                  <span id="Press_listType_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
               </div>
             </div>
-
 
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
@@ -865,15 +902,33 @@
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="Press_create_date" id="Press_create_date_LABEL">Pn Date</label>
+                <label for="Press_create_listname" id="Press_create_listname_LABEL">List Name</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input id="Press_create_date" class="form-control text_field apex-item-text" name="Press_create_date"
-                    type="date" value="" size="70">
+                  <input id="Press_create_listname" class="form-control text_field apex-item-text"
+                    name="Press_create_listname" value="" size="70">
                 </div>
                 <div class="t-Form-itemAssistance">
-                  <span id="Press_create_date_error_placeholder" class="a-Form-error"
+                  <span id="Press_create_listname_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_pagename" id="Press_create_pagename_LABEL">Page Name</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_create_pagename" class="form-control text_field apex-item-text"
+                    name="Press_create_pagename" value="" size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_pagename_error_placeholder" class="a-Form-error"
                     data-template-id="70091003340642546032_ET"></span>
                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                 </div>
@@ -884,15 +939,15 @@
             <div
               class="t-Form-fieldContainer rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
-                <label for="press_create_video_FileUpload" id="press_create_video_FileUpload_LABEL">File Upload</label>
+                <label for="press_create_video_FileUpload" id="press_create_video_FileUpload_LABEL">List Image</label>
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
                   <a-file-upload id="press_create_video_FileUpload" name="press_create_video_FileUpload"
                     upload-type="FILE" display-style="NATIVE" accept=".pdf,.jpg,.jpeg,video/*" size="30">
                     <input type="file" id="press_create_video_FileUpload_input" name="press_create_video_FileUpload"
-                      class="text_field&#x20;apex-item-text" value=""
-                      accept="video/mp4, video/avi, video/mkv, video/webm, video/mov" maxlength="1000" />
+                      class="text_field apex-item-text" value=""
+                      accept="image/png, image/jpeg, image/jpg, image/gif, image/webp" maxlength="1000" />
                     <div class="a-FileDrop a-FileDrop--native">
                     </div>
                   </a-file-upload>
@@ -905,6 +960,23 @@
               </div>
             </div>
 
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_listType" id="Press_create_listType_LABEL">List Type</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_create_listType" class="form-control text_field apex-item-text"
+                    name="Press_create_listType" value="" size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_listType_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
             <div
               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
               <div class="t-Form-labelContainer col col-2">
@@ -1291,23 +1363,17 @@
                                             href="#">Actions</a>
                                         </th>
                                         <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="37710503093077076"
-                                            href="#">Language</a>
-                                        </th>
-                                        <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">Pn
-                                            Date</a>
-                                        </th>
-                                        <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">Press Note
+                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">List
                                             Name</a>
                                         </th>
-                                        <th class="a-IRR-header u-tL" id="C37707553402077046"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="37707553402077046" href="#">Updated
-                                            By</a></th>
-                                        <th class="a-IRR-header u-tL" id="C37707553402077046"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="37707553402077046" href="#">Updated
-                                            On</a></th>
+                                        <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">Page
+                                            Name</a>
+                                        </th>
+                                        <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">List Type
+                                          </a>
+                                        </th>
                                       </tr>
                                     </thead>
                                     <tbody id="pressReleaseTableBody">
@@ -1690,11 +1756,12 @@
 
       function fetchData() {
         var viewPayload = {
-          "action": "fetch    ",
-          "table": "TN_PRESS_NOTES",
+          "action": "fetch",
+          "table": "GOVT_NAVIGATION_LIST",
           "filters": {
-            "language": langSwitch
+            "LANGUAGE": langSwitch
           }
+
         };
 
         $.ajax({
@@ -1723,11 +1790,9 @@
               <i class="bi bi-pencil-square"></i>
             </a>
           </td>
-           <td class="a-GV-cell u-tC is-readonly">${item.language || 'N/A'}</td>
-           <td class="a-GV-cell u-tC is-readonly">${item.pn_date || 'N/A'}</td>
-          <td class="a-GV-cell u-tC is-readonly">${item.press_note_name || 'N/A'}</td>
-          <td class="a-GV-cell u-tC is-readonly">${item.uploaded_by || 'N/A'}</td>
-          <td class="a-GV-cell u-tC is-readonly">${item.uploaded_on || 'N/A'}</td>
+           <td class="a-GV-cell u-tC is-readonly">${item.list_name || 'N/A'}</td>
+           <td class="a-GV-cell u-tC is-readonly">${item.page_name || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.list_type || 'N/A'}</td>
         </tr>`;
             });
 
@@ -1827,16 +1892,29 @@
 
 
         if (selectedItem) {
-          $("#Press_date").val(selectedItem.pn_date || "");
+          $("#Press_listname").val(selectedItem.list_name || "");
+          $("#Press_pagename").val(selectedItem.page_name || "");
+          $("#Press_listType").val(selectedItem.list_type || "");
           $('#pressLangugage').val(selectedItem.language || "")
           $("#modal").dialog("open");
+
+
+
+          // "id": 26,
+          //   "list_name": "Press Release",
+          //     "page_name": "press-release-section",
+          //       "list_img": "\\x5b756e737570706f72746564206461746120747970655d",
+          //         "list_type": "Sections",
+          //           "file_name": "PRESS-RELEASE.png",
+          //             "mime_type": "image\/png",
+          //               "language": "en"
 
           const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
           if (interimLinkContainer) {
             const downloadLinkHTML = createDownloadLink(
-              selectedItem.press_note_name,
-              selectedItem.mimetype,
-              selectedItem.press_note_name
+              selectedItem.file_name,
+              selectedItem.mime_type,
+              selectedItem.file_name
             );
             interimLinkContainer.innerHTML = downloadLinkHTML;
           }
@@ -1909,24 +1987,30 @@
       async function registerNewData() {
         debugger
         var role = localStorage.getItem("role");
-        var pndate = $('#Press_create_date').val() || 0;
+        var listname = $('#Press_create_listname').val() || 0;
+        var pagename = $('#Press_create_pagename').val() || 0;
+        var listType = $('#Press_create_listType').val() || 0;
         var language = $('#pressCreateLangugage').val() || 0;
 
         let pressInputFile = null;
         pressInputFile = await processFile('#press_create_video_FileUpload_input');
         checkFile('#press_create_video_FileUpload_input');
 
+        if (!pressInputFile) {
+          showErrorToast("Please Upload Image");
+          return
+        }
 
         var insertPayload = {
-
           "action": "insert",
-          "table": "TN_PRESS_NOTES",
-          "PRESS_NOTE_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-          "ATTACHMENT_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-          "MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
-          "PN_DATE": pndate,
-          "press_note_no": 3,
-          "language": language
+          "table": "GOVT_NAVIGATION_LIST",
+          "LIST_NAME": listname,
+          "PAGE_NAME": pagename,
+          "LIST_IMG": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+          "LIST_TYPE": listType,
+          "FILE_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+          "MIME_TYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+          "LANGUAGE": language
         };
 
 
@@ -1938,7 +2022,7 @@
           success: function (response) {
             if (response.success === 1) {
               showSuccessToast("Created successfully!");
-              setTimeout(() => window.location.href = "../admin-press-notes.html", 1000);
+              setTimeout(() => window.location.href = "../admin-navigation-list-entry.html", 1000);
             } else {
               showErrorToast(response.message);
             }
@@ -1974,21 +2058,24 @@
 
       async function updateData(id, filename, mimetype, fileBase64) {
         debugger;
-        const pndate = $('#Press_date').val();
-        var language = $('#pressCreateLangugage').val() || 0;
+        var language = $('#pressLangugage').val() || 0;
+        var listname = $("#Press_listname").val();
+        var pagename = $("#Press_pagename").val();
+        var listType = $("#Press_listType").val();
+
 
         let updatePayload = {
           "action": "update",
-          "table": "TN_PRESS_NOTES",
-          "PRESS_NOTE_NAME": filename,
-          "uploaded_by": "admin",
-          "ATTACHMENT_NAME": fileBase64,
-          "MIMETYPE": mimetype,
-          "PN_DATE": pndate,
-          "language": language,
+          "table": "GOVT_NAVIGATION_LIST",
+          "LIST_NAME": listname,
+          "PAGE_NAME": pagename,
+          "LIST_IMG": fileBase64,
+          "LIST_TYPE": listType,
+          "FILE_NAME": filename,
+          "MIME_TYPE": mimetype,
+          "LANGUAGE": language,
           "primary_key": "id",
-          "id": selectedId,
-          "press_note_no": 3
+          "id": id
         };
 
         if (fileBase64) {
@@ -2003,7 +2090,7 @@
           success: function (response) {
             if (response.success === 1) {
               showSuccessToast("Video uploaded successfully!");
-              setTimeout(() => window.location.href = "../admin-press-notes.html", 1000);
+              setTimeout(() => window.location.href = "../admin-navigation-list-entry.html", 1000);
             } else {
               showErrorToast(response.message);
             }
@@ -2036,7 +2123,7 @@
           contentType: "application/json",
           data: JSON.stringify({
             "action": "delete",
-            "table": "TN_PRESS_NOTES",
+            "table": "GOVT_NAVIGATION_LIST",
             "primary_key": "id",
             "id": id
 
