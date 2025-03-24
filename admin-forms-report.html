@@ -38,6 +38,60 @@
     type="text/css" />
   <link rel="stylesheet" href="https://static.oracle.com/cdn/apex/24.1.7/themes/theme_42/23.1/css/Core.min.css?v=24.1.7"
     type="text/css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/menu.css">
+  <style>
+    .showlink {
+      display: none !important;
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      z-index: 999;
+      min-width: 150px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .showlink.force-show {
+      display: block !important;
+    }
+
+    /* Force dropdown to show */
+    .t-NavigationBar-menu {
+      display: none !important;
+      position: absolute !important;
+      background: white !important;
+      border: 1px solid #ccc !important;
+      z-index: 9999 !important;
+      min-width: 150px !important;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* Show when force-show is applied */
+    .t-NavigationBar-menu.force-show {
+      display: block !important;
+    }
+
+    .t-NavigationBar-menu {
+      display: none;
+    }
+
+    .t-NavigationBar-menu.show {
+      display: block;
+    }
+
+    .t-NavigationBar-menu {
+      z-index: 9999;
+    }
+
+    .t-NavigationBar-menu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
   <style>
     .titlePos .t-Body-title {
       position: unset !important;
@@ -861,13 +915,20 @@
         <div class="t-Header-navBar--start">
 
           <div class="t-Header-navBar--end">
-            <div class="t-Form-inputContainer col col-null">
-              <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
-                  class="selectlist apex-item-select" data-native-menu="false" size="1">
-                  <option value="en">English</option>
-                  <option value="ta">Tamil</option>
-                </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
-                data-template-id="32751098700172723_ET"></span>
+            <div
+              class="t-Form-fieldContainer rel-col t-Form-fieldContainer--large t-Form-fieldContainer--normalDisplay apex-item-wrapper apex-item-wrapper--has-initial-value apex-item-wrapper--select-list"
+              id="P0_LANGUAGE_CONTAINER">
+              <div class="t-Form-labelContainer col col-null">
+                <label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
+              </div>
+              <div class="t-Form-inputContainer col col-null">
+                <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
+                    class="selectlist apex-item-select" data-native-menu="false" size="1">
+                    <option value="en">English</option>
+                    <option value="ta">Tamil</option>
+                  </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
+                  data-template-id="32751098700172723_ET"></span>
+              </div>
             </div>
             <div class="t-Header-navBar--center">
               <ul class="t-NavigationBar " id="32861498506172843">
@@ -878,132 +939,134 @@
                       class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
                   </a>
                 </li>
-                <li class="t-NavigationBar-item has-username">
-                  <button class="t-Button t-Button--icon t-Button t-Button--header t-Button--navBar" type="button"
-                    id="L33048349307174626" data-menu="menu_L33048349307174626" title="">
-                    <span class="t-Icon fa&#x20;fa-user" aria-hidden="true"></span><span
-                      class="t-Button-label">DHIVAHAR</span><span class="t-Button-badge"></span><span
-                      class="a-Icon icon-down-arrow" aria-hidden="true"></span>
+                <li class="t-NavigationBar-item has-username shownav">
+                  <button class="t-Button t-Button--icon t-Button--header t-Button--navBar" type="button">
+                    <span class="t-Icon fa fa-user" aria-hidden="true"></span>
+                    <span class="t-Button-label admin-name-change">Username</span>
+                    <span class="t-Button-badge"></span>
+                    <span class="a-Icon icon-down-arrow" aria-hidden="true"></span>
                   </button>
-                  <div class="t-NavigationBar-menu" style="display: none" id="menu_L33048349307174626">
+                  <!-- <div class="t-NavigationBar-menu showlink">
                     <ul>
-                      <li class="" data-current="false" data-icon="fa&#x20;fa-sign-out"><a
-                          href="apex_authentication.logout?p_app_id=103&p_session_id=606351205798953" title=""
-                          target="">Sign Out</a></li>
+                      <li>
+                        <a href="#">Sign Out</a>
+                      </li>
                     </ul>
-                  </div>
+                  </div> -->
                 </li>
               </ul>
             </div>
-            <div class="t-Header-navBar--end"></div>
-            <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
-            <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
-            <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
-            <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v397/instagram.jpeg"
-                style="height:35px;" class="fa fa-twitter" target='_blank'>
-              <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
-
 
           </div>
 
+          <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
+          <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
+          <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
+          <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v358/instagram.jpeg"
+              style="height:35px;" class="fa fa-twitter" target='_blank'>
+            <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
+
+
         </div>
 
-        <!-- <div class=" nobgcolor ">
+      </div>
+      <!-- <div class=" nobgcolor ">
 <img id="first_image" style=" height: 100%;" src = 'r/dipr/103/files/static/v397/left-png.png' > <span class="alignCenter"><center> Information and Public Relations Department </br> செய்தி – மக்கள் தொடர்புத்துறை </center></span>
     <img id="last_image" style=" height: 100%;" src = "r/dipr/103/files/static/v397/right-png.png" > 
 
    </div> -->
-        <div class="nobgcolor">
-          <div class="widthFixed">
-            <!-- <img id="first_image" class="header-images" src="r/dipr/103/files/static/v397/left-png.png"> -->
-            <div class="center-text">
-              <center>Information and Public Relations Department <br> <span class="txtBlue">செய்தி – மக்கள்
-                  தொடர்புத்துறை</span></center>
-            </div>
-            <!-- <img id="last_image" class="header-images" src="r/dipr/103/files/static/v397/right-png.png"> -->
+      <div class="nobgcolor">
+        <div class="widthFixed">
+          <!-- <img id="first_image" class="header-images" src="r/dipr/103/files/static/v397/left-png.png"> -->
+          <div class="center-text">
+            <center>Information and Public Relations Department <br> <span class="txtBlue">செய்தி – மக்கள்
+                தொடர்புத்துறை</span></center>
           </div>
+          <!-- <img id="last_image" class="header-images" src="r/dipr/103/files/static/v397/right-png.png"> -->
         </div>
+      </div>
 
-        <div class="t-Header-nav">
-          <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
-            <ul>
-              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                  class="a-MenuBar-label" href="../index.html" title="" target="">Home</a>
-              </li>
-              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                  class="a-MenuBar-label" href="../about_page.html" title="" target="">About
-                  Us</a></li>
-              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                  class="a-MenuBar-label" href="../gallery1.html" title="" target="">Photo
-                  &#x2F; Video</a></li>
-              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                  class="a-MenuBar-label" href="../press-release1.html" title="" target="">Press Release &#x2F; Press
-                  Note</a></li>
-              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                  class="a-MenuBar-label" href="../government-orders.html" title="" target="">Government Orders</a></li>
-              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                  class="a-MenuBar-label" href="../sections.html" title="" target="">Sections</a></li>
-              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                  class="a-MenuBar-label" href="../download-forms.html" title="" target="">Download Forms</a></li>
-              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                  class="a-MenuBar-label" href="../admin-google-sheets.html" title="" target="">Google Sheets -
-                  Report</a>
-              </li>
-              <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                  class="a-MenuBar-label" href="" title="" target="">Administration</a>
-                <ul style="display: none">
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
-                  </li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-press-release.html" title="" target="">Upload Press Release</a>
-                  </li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-section-content.html" title="" target="">Sections Content</a>
-                  </li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-goverment-orders.html" title="" target="">Upload Government
-                      Orders</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-sections-data-report.html" title="" target="">Sections Data
-                      Report</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-forms-report.html" title="" target="">Forms Report</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-memorial-video-report.html" title="" target="">memorial_video_report</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-monuments.html" title="" target="">Monuments</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-arangams.html" title="" target="">Arangams</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-commemoration-pillars.html" title="" target="">Commemoration
-                      Pillars</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-commemoration-arch.html" title="" target="">Commemoration
-                      Arch</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-department-pictures.html" title="" target="">Department
-                      Pictures</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-department-details.html" title="" target="">Department
-                      Details</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-conclusion-photos.html" title="" target="">Conclusion_Photos</a>
-                  </li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-google-sheets.html" title="" target="">Google Sheets</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-press-notes.html" title="" target="">Upload Press Note</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-add-user.html" title="" target="">Add
-                      User</a></li>
-                  <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                      href="../admin-navigation-list-entry.html" title="" target="">Navigation Menu Report</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+
+      <div class="t-Header-nav">
+        <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
+          <ul>
+            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                class="a-MenuBar-label" href="../index.html" title="" target="">Home</a>
+            </li>
+            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                class="a-MenuBar-label" href="../about_page.html" title="" target="">About Us</a></li>
+            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                class="a-MenuBar-label" href="../gallery1.html" title="" target="">Photo &#x2F; Video</a></li>
+            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                class="a-MenuBar-label" href="../press-release1.html" title="" target="">Press Release &#x2F; Press
+                Note</a></li>
+            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                class="a-MenuBar-label" href="../government-orders.html" title="" target="">Government Orders</a></li>
+            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                class="a-MenuBar-label" href="../sections.html" title="" target="">Sections</a></li>
+            <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                class="a-MenuBar-label" href="../download-forms.html" title="" target="">Download Forms</a></li>
+            <li class="a-MenuBar-item admin-menu-show" data-id="" data-disabled="" data-hide="" data-shortcut=""
+              data-icon=""><a class="a-MenuBar-label" href="../admin-google-sheets.html" title="" target="">Google
+                Sheets - Report</a>
+            </li>
+            <li class="a-MenuBar-item admin-menu-show a-Menu--current" data-current="true" data-id="" data-disabled=""
+              data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="" title=""
+                target="">Administration</a>
+              <ul style="display: none">
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
+                </li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-press-release.html" title="" target="">Upload Press Release</a>
+                </li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-section-content.html" title="" target="">Sections Content</a>
+                </li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-goverment-orders.html" title="" target="">Upload Government
+                    Orders</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-sections-data-report.html" title="" target="">Sections Data
+                    Report</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-forms-report.html" title="" target="">Forms Report</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-memorial-video-report.html" title="" target="">memorial_video_report</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-monuments.html" title="" target="">Monuments</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-arangams.html" title="" target="">Arangams</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-commemoration-pillars.html" title="" target="">Commemoration
+                    Pillars</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-commemoration-arch.html" title="" target="">Commemoration
+                    Arch</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-department-pictures.html" title="" target="">Department
+                    Pictures</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-department-details.html" title="" target="">Department
+                    Details</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-conclusion-photos.html" title="" target="">Conclusion_Photos</a>
+                </li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-google-sheets.html" title="" target="">Google Sheets</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-press-notes.html" title="" target="">Upload Press Note</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-add-user.html" title="" target="">Add
+                    User</a></li>
+                <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
+                    href="../admin-navigation-list-entry.html" title="" target="">Navigation Menu Report</a></li>
+              </ul>
+            </li>
+          </ul>
+          </ul>
         </div>
+      </div>
     </header>
 
     <div class="t-Body ">
@@ -1333,6 +1396,70 @@
   </script>
 
   <script>
+    $(document).ready(function () {
+      $("#adminLoginBtn").on("click", function () {
+        window.location.href = "../admin-login.html";
+      });
+
+      $('.shownav').on('click', function (e) {
+        debugger;
+        e.stopPropagation(); // Prevent closing when clicking inside
+        $('.showlink').not($(this).find('.showlink')).removeClass('force-show'); // Close other dropdowns
+        $(this).find('.showlink').toggleClass('force-show');
+      });
+
+      // Click outside to hide dropdown
+      $(document).on('click', function () {
+        $('.showlink').removeClass('force-show');
+      });
+    });
+
+
+  </script>
+  <script>
+    $(document).ready(function () {
+      var role;
+      debugger
+      role = localStorage.getItem("role");
+      var userAdminName = localStorage.getItem("userAdminName");
+      if (role) {
+        $('.admin-name-change').text(userAdminName);
+        $('.js-tabLike .admin-menu-show').css('display', 'block');
+        var interval = setInterval(function () {
+          if ($('#t_MenuNav_7').length) {
+            $('#t_MenuNav_7').css('display', 'flex');
+          }
+          if ($('#t_MenuNav_8').length) {
+            $('#t_MenuNav_8').css('display', 'flex');
+          }
+
+          if ($('#t_MenuNav_7').length && $('#t_MenuNav_8').length) {
+            clearInterval(interval);
+          }
+        }, 100);
+      }
+      var appendSignout = '<div class="t-NavigationBar-menu showlink">' +
+        '<ul>' +
+        '<li>' +
+        '<a href="../index.html" class="signOutBtn">Sign Out</a>' +
+        '</li>' +
+        '</ul>' +
+        '</div>';
+
+      $('.t-NavigationBar-item.has-username.shownav').append(appendSignout);
+
+      $(".signOutBtn").on("click", function () {
+        event.preventDefault();
+        localStorage.removeItem("role");
+        localStorage.removeItem("userAdminName");
+        window.location.href = "/index.html";
+      });
+    });
+
+  </script>
+
+
+  <script>
     function showSuccessToast(message) {
       const toastElement = document.getElementById('successToast');
       const toastBody = document.getElementById('successMessage');
@@ -1381,19 +1508,19 @@
       $('#preloader').hide();
       let tableData;
       let selectedId;
+      let dataTable;
       const userId = localStorage.getItem("role_id");
       const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/tnforms";
       const tableBody = $("#pressReleaseTableBody");
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
-      var viewPayload = {
-        // "lang": langSwitch
-        "action": "fetch"
-      };
 
       function fetchData() {
+        debugger
         var viewPayload = {
-          "lang": langSwitch
+          // "lang": langSwitch
+          "action": "fetch"
         };
+
         $.ajax({
           url: apiUrl,
           method: "POST",
@@ -1407,9 +1534,14 @@
               tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
               return;
             }
+            if ($.fn.DataTable.isDataTable("#pressReleaseTable")) {
+              $("#pressReleaseTable").DataTable().clear().destroy();
+            }
 
+
+            let tableRows = "";
             tableData.forEach(item => {
-              const newRow = `
+              tableRows += `
               <tr>
               <td class="u-tL">   <a data-id="${item.id}" id="open-modal-btn" href="javascript:void(0);">
         <i class="bi bi-pencil-square"></i>
@@ -1419,10 +1551,10 @@
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_by) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_date) || 'N/A'}</td>
               </tr>`;
-              tableBody.append(newRow);
             });
 
-            $("#pressReleaseTable").DataTable({
+            tableBody.html(tableRows);
+            dataTable = $("#pressReleaseTable").DataTable({
               paging: true,
               searching: true,
               ordering: true,
@@ -1437,6 +1569,8 @@
           }
         });
       }
+
+      fetchData();
       $("#modal").dialog({
         autoOpen: false,
         modal: true,
