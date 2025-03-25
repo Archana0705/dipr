@@ -1755,35 +1755,36 @@
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Name</label>
               <!-- <textarea class="form-control" rows="3"></textarea> -->
-              <input type="text" class="form-control">
+              <input id="Press_create_div_name" class="form-control" name="Press_create_div_name" value="" size="70">
             </div>
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Designation</label>
-              <!-- <textarea class="form-control" rows="3"></textarea> -->
-              <input type="text" class="form-control">
+              <input id="Press_create_div_designation" class="form-control" name="Press_create_div_designation" value=""
+                size="70">
             </div>
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Phone</label>
-              <!-- <textarea class="form-control" rows="3"></textarea> -->
-              <input type="number" class="form-control">
+              <input id="Press_create_div_phone" class="form-control" name="Press_create_div_phone" value="" size="70">
             </div>
             <div class="mb-2">
-              <label for="exampleInputPassword1" class="form-label">Division</label>
-              <!-- <textarea class="form-control" rows="3"></textarea> -->
-              <input type="text" class="form-control">
+              <label for="exampleInputPassword1" class="form-label">Phone</label>
+              <input id="Press_create_div_division" class="form-control" name="Press_create_div_division" value=""
+                size="70">
             </div>
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Select Langugae</label>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Select Langugae</option>
-                <option value="1">English</option>
-                <option value="2">Tamil</option>
+              <select id="pressCreateDivLangugage" class="form-select" name="pressCreateDivLangugage"
+                data-native-menu="false" size="1">
+                <option value="" selected="selected">-Select-</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
               </select>
             </div>
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Sequence</label>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Select Sequence</option>
+              <select id="pressCreateDivSequence" class="form-select" name="pressCreateDivSequence"
+                data-native-menu="false" size="1">
+                <option value="" selected="selected">-Select-</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
               </select>
@@ -1792,7 +1793,9 @@
         </div>
         <div class="modal-footer py-2">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Create</button>
+          <button
+            class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+            id="createUploadDivBtn">Create</button>
         </div>
       </div>
     </div>
@@ -3376,6 +3379,11 @@
         registerNewData();
       });
 
+      $("#createUploadDivBtn").on("click", function () {
+        registerDivData();
+      });
+
+
       function checkFile(selector) {
         var fileInput = $(selector)[0];
         var file = fileInput.files[0];
@@ -3444,6 +3452,48 @@
           "PHONE": phone,
           "LANGUAGE": language,
           "SEQUENCE": sequence
+        };
+
+
+        $.ajax({
+          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/commonApi',
+          type: 'POST',
+          contentType: 'application/json',
+          data: JSON.stringify(insertPayload),
+          success: function (response) {
+            if (response.success === 1) {
+              showSuccessToast("Created successfully!");
+              setTimeout(() => window.location.href = "../admin-department-details.html", 1000);
+            } else {
+              showErrorToast(response.message);
+            }
+          },
+          error: function () {
+            showErrorToast("Failed.");
+          }
+        });
+      }
+
+
+      async function registerDivData() {
+        debugger
+        var role = localStorage.getItem("role");
+        var name = $('#Press_create_div_name').val() || 0;
+        var designation = $('#Press_create_div_designation').val() || 0;
+        var phone = $('#Press_create_div_phone').val() || 0;
+        var division = $('#Press_create_div_division').val() || 0;
+        var language = $('#pressCreateDivLangugage').val() || 0;
+        var sequence = $('#pressCreatDivSequence').val() || 0;
+
+        var insertPayload = {
+          "action": "insert",
+          "table": "UNIT_OFFICERS",
+          "NAME": name,
+          "DESIGNATION": designation,
+          "PHONE": phone,
+          "LANGUAGE": language,
+          "SEQUENCE": sequence,
+          "DIVISION": division,
         };
 
 
