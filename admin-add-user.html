@@ -1361,22 +1361,25 @@
                                             class="a-IRR-headerLink" data-column="117484399239914210" href="#">Link</a>
                                         </th>
                                         <th class="a-IRR-header u-tL" id="C11748439923991421"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="11748439923991421" href="#">Pr
-                                            Date</a>
+                                            class="a-IRR-headerLink" data-column="11748439923991421"
+                                            href="#">Username</a>
                                         </th>
                                         <th class="a-IRR-header u-tL" id="C11747689722991413"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="11747689722991413"
-                                            href="#">Language</a>
+                                            class="a-IRR-headerLink" data-column="11747689722991413" href="#">Email
+                                            Id</a>
                                         </th>
                                         <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">Press
-                                            Name</a></th>
-                                        <th class="a-IRR-header u-tL" id="C37707438775077045"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="37707438775077045" href="#">Uploaded
+                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">Created
                                             By</a></th>
+                                        <th class="a-IRR-header u-tL" id="C37707438775077045"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37707438775077045" href="#">District
+                                          </a></th>
                                         <th class="a-IRR-header u-tL" id="C37707553402077046"><a aria-haspopup="dialog"
-                                            class="a-IRR-headerLink" data-column="37707553402077046" href="#">Uploaded
-                                            Date</a></th>
+                                            class="a-IRR-headerLink" data-column="37707553402077046" href="#">Role
+                                          </a></th>
+                                        <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">Created
+                                            On</a></th>
                                       </tr>
                                     </thead>
                                     <tbody id="pressReleaseTableBody">
@@ -1674,19 +1677,20 @@
       let tableData;
       let selectedId;
       const userId = localStorage.getItem("role_id");
-      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/pressRelease/viewPressReleaseReport";
+      const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/commonApi";
       const tableBody = $("#pressReleaseTableBody");
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
 
       function fetchData() {
         var viewPayload = {
-          "lang": langSwitch
+          "action": "fetch",
+          "table": "USER_LIST",
         };
         $.ajax({
           url: apiUrl,
           method: "POST",
-          //contentType: "application/json",
-          //data: JSON.stringify(state_customize_reportPayload),
+          contentType: "application/json",
+          data: JSON.stringify(viewPayload),
           success: function (response) {
             tableData = response.data;
             tableBody.empty();
@@ -1702,11 +1706,12 @@
               <td class="u-tL">   <a data-id="${item.id}" id="open-modal-btn" href="javascript:void(0);">
              <i class="bi bi-pencil-square"></i>
              </a></td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.pr_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.press_name) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_by) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_date) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.username) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.email_id) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_by) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.district) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.role) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_on) || 'N/A'}</td>
               </tr>`;
               tableBody.append(newRow);
             });
@@ -1783,8 +1788,8 @@
       async function registerNewData() {
         debugger
         const emailInput = $('#Press_create_email input').val() || "";
-        const passsword = $('#Press_create_username input').val() || "";
-        const username = $('#Press_create_password input').val() || "";
+        const passsword = $('#Press_create_password input').val() || "";
+        const username = $('#Press_create_username input').val() || "";
         const role = document.getElementById('Press_create_role').value || "";
         const district = document.getElementById('P45_DISTRICT').value || "";
 

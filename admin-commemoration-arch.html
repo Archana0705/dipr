@@ -1936,6 +1936,7 @@
           $("#Press_place").val(selectedItem.place || "");
           $("#Press_district").val(selectedItem.district || "");
           $("#Press_video_name").val(selectedItem.video_name || "");
+          $('#pressLangugage').val(selectedItem.language || "")
           $("#modal").dialog("open");
         }
       });
@@ -2027,11 +2028,12 @@
           return;
         }
 
-        var lang = document.getElementById('pressCreateLangugage').value || "";
+        var lang = document.getElementById('pressLangugage').value || "";
         // Create FormData and append video file
         let formData = new FormData();
         formData.append("action", "update");
         formData.append("slno", selectedId);
+        formData.append("table", "TN_COMMEMORATION_ARCH");
         formData.append("monuments", $('#Press_memorial').val() || "");
         formData.append("place", $('#Press_place').val() || "");
         formData.append("updated_by", "admin");

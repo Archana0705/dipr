@@ -2026,11 +2026,11 @@
           return;
         }
 
-        var lang = document.getElementById('pressCreateLangugage').value || "";
-        // Create FormData and append video file
+        var lang = document.getElementById('pressLangugage').value || "";
         let formData = new FormData();
         formData.append("action", "update");
         formData.append("slno", selectedId);
+        formData.append("table", "TN_COMMEMORATION_PILLARS");
         formData.append("monuments", $('#Press_memorial').val() || "");
         formData.append("place", $('#Press_place').val() || "");
         formData.append("updated_by", "admin");
@@ -2040,14 +2040,13 @@
           formData.append("mime_type", file.type);
           formData.append("video_attachment_name", file);
         } else {
-          formData.append("mime_type", ""); // Avoid empty parameter error
-          formData.append("video_attachment_name", ""); // Avoid empty parameter error
+          formData.append("mime_type", "");
+          formData.append("video_attachment_name", "");
         }
         formData.append("language", lang);
-
-        // Send FormData using AJAX
+        formData.append("upload_type", "video");
         $.ajax({
-          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/Monuments',
+          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/commonApi',
           type: 'POST',
           data: formData,
           processData: false,
