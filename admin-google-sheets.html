@@ -782,6 +782,7 @@
                 </div>
                 <div class="t-Form-inputContainer col col-12">
                   <div class="t-Form-itemWrapper" id="P86_INTERIM_COPY_LINK_CONTAINER">
+                    <a id="download-link" download="decoded_video.mp4">Download Video</a>
                     <!-- Download link will be injected dynamically -->
                   </div>
                   <span id="P86_INTERIM_COPY_error_placeholder" class="a-Form-error"
@@ -1593,6 +1594,7 @@
       toast.show();
     }
 
+
     $(document).ready(function () {
       debugger
       $('#preloader').hide();
@@ -1781,35 +1783,29 @@
       })
 
       const createDownloadLink = (content, mimeType, filename) => {
-        if (!content) return "N/A";
-
-        try {
-          // Check if the content is a valid Base64 string
-          const isBase64 = (str) => {
-            try {
-              return btoa(atob(str)) === str; // Double check encoding & decoding works
-            } catch (err) {
-              return false; // If decoding fails, it's not Base64
-            }
-          };
-
-          if (isBase64(content)) {
-            // Decode Base64 content and create a blob
-            const byteCharacters = atob(content);
-            const byteNumbers = new Array(byteCharacters.length).fill(0).map((_, i) => byteCharacters.charCodeAt(i));
-            const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], { type: mimeType });
-            const url = URL.createObjectURL(blob);
-
-            return `<a href="${url}" download="${filename}" class="btn btn-sm btn-link">${filename}</a>`;
-          }
-
-          // If it's not Base64, assume it's a URL
-          return `<a href="${content}" target="_blank" class="btn btn-sm btn-link">${filename}</a>`;
-        } catch (error) {
-          console.error("Error creating download link:", error);
-          return "Invalid content";
+        debugger
+        let base64Video = content
+        // Step 2: Remove the Base64 header if present
+        if (base64Video.includes('base64,')) {
+          base64Video = base64Video.split('base64,')[1];
         }
+
+        // Step 3: Decode the Base64 string into binary data
+        const byteCharacters = atob(base64Video); // Decode Base64
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+
+        // Step 4: Create a Blob from the binary data
+        const blob = new Blob([byteArray], { type: 'video/mp4' }); // Adjust MIME type if needed
+
+        // Step 5: Generate a URL for the Blob
+        const videoUrl = URL.createObjectURL(blob);
+
+
+        return `<a href="${videoUrl}" target="_blank" class="btn btn-sm btn-link">${filename}</a>`;
       };
 
       $("body").on("click", "#open-modal-btn", function () {
@@ -1824,10 +1820,11 @@
           $("#modal").dialog("open");
 
           const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
+
           if (interimLinkContainer) {
             const downloadLinkHTML = createDownloadLink(
-              selectedItem.filename,
-              "application/pdf",
+              selectedItem.attachment_name,
+              selectedItem.mimetype,
               selectedItem.filename
             );
             interimLinkContainer.innerHTML = downloadLinkHTML;
@@ -1912,9 +1909,8 @@
           "action": "insert",
           "table": "GOOGLE_SHEETS",
           "FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-          "ATTACHMENT_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+          "ATTACHMENT_NAME": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
           "MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
-          "UPLOADED_BY": "ddf",
           "DISTRICT": district
         };
 
@@ -1969,17 +1965,13 @@
           "action": "update",
           "table": "GOOGLE_SHEETS",
           "FILENAME": filename,
-          "ATTACHMENT_NAME": filename,
+          "ATTACHMENT_NAME": fileBase64,
           "MIMETYPE": mimetype,
-          "UPLOADED_BY": "ddf",
           "DISTRICT": district,
           "primary_key": "id",
           "id": id
         };
 
-        if (fileBase64) {
-          updatePayload.FILE_CONTENT = fileBase64;  // Only include if it's a new file
-        }
 
         $.ajax({
           url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/commonApi',

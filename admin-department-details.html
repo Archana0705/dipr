@@ -760,6 +760,249 @@
   class="t-PageBody t-PageBody--hideLeft t-PageBody--hideActions no-anim t-PageTemplate--standard   apex-top-nav apex-icons-fontapex apex-theme-vita-copy-2-copy-1"
   id="t_PageBody">
   <a href="#main" id="t_Body_skipToContent">Skip to Main Content</a>
+  <div id="modal" title="Upload">
+    <div class="modalWrap">
+      <div class="t-Form-inputContainer col col-12">
+        <div class="t-Form-itemWrapper file_wrap">
+          <div class="col col-6 apex-col-auto col-start">
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_name" id="Press_name_LABEL">Name</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_name" class="form-control text_field apex-item-text" name="Press_name" value=""
+                    size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_name_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_designation" id="Press_designation_LABEL">Designation</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_designation" class="form-control text_field apex-item-text" name="Press_designation"
+                    value="" size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_designation_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_phone" id="Press_phone_LABEL">Phone</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_phone" class="form-control text_field apex-item-text" name="Press_phone" value=""
+                    size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_phone_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="pressLangugage" id="pressLangugage_LABEL">Language</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <div class="t-Form-itemWrapper">
+                    <select id="pressLangugage" name="pressLangugage" class="selectlist&#x20;apex-item-select"
+                      data-native-menu="false" size="1">
+                      <option value="" selected="selected">-Select-</option>
+                      <option value="en">English</option>
+                      <option value="ta">Tamil</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="pressLangugage_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_sequence" id="Press_sequence_LABEL">Sequence</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_sequence" class="form-control text_field apex-item-text" name="Press_sequence"
+                    value="" size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_sequence_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="t-Region-buttons-right float-end pad0">
+        <button
+          class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+          id="deleteBtn">Delete</button>
+      </div>
+      <button
+        class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+        id="updateBtn">Update</button>
+      <div class="t-Region-buttons-right float-end pad0">
+        <button
+          class="bg-danger text-white t-Button t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight close-button"
+          id="cancelBtn"> Cancel </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="uploadModal" title="Upload">
+    <div class="modalWrap">
+      <div class="t-Form-inputContainer col col-12">
+        <div class="t-Form-itemWrapper file_wrap">
+          <div class="col col-6 apex-col-auto col-start">
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_listname" id="Press_create_listname_LABEL">List Name</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_create_listname" class="form-control text_field apex-item-text"
+                    name="Press_create_listname" value="" size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_listname_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_pagename" id="Press_create_pagename_LABEL">Page Name</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_create_pagename" class="form-control text_field apex-item-text"
+                    name="Press_create_pagename" value="" size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_pagename_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+
+            <div
+              class="t-Form-fieldContainer rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="press_create_video_FileUpload" id="press_create_video_FileUpload_LABEL">List Image</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <a-file-upload id="press_create_video_FileUpload" name="press_create_video_FileUpload"
+                    upload-type="FILE" display-style="NATIVE" accept=".pdf,.jpg,.jpeg,video/*" size="30">
+                    <input type="file" id="press_create_video_FileUpload_input" name="press_create_video_FileUpload"
+                      class="text_field apex-item-text" value=""
+                      accept="image/png, image/jpeg, image/jpg, image/gif, image/webp" maxlength="1000" />
+                    <div class="a-FileDrop a-FileDrop--native">
+                    </div>
+                  </a-file-upload>
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="press_create_video_FileUpload_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="Press_create_listType" id="Press_create_listType_LABEL">List Type</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <input id="Press_create_listType" class="form-control text_field apex-item-text"
+                    name="Press_create_listType" value="" size="70">
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="Press_create_listType_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+              <div class="t-Form-labelContainer col col-2">
+                <label for="pressCreateLangugage" id="pressCreateLangugage_LABEL">Language</label>
+              </div>
+              <div class="t-Form-inputContainer col col-6">
+                <div class="t-Form-itemWrapper">
+                  <div class="t-Form-itemWrapper">
+                    <select id="pressCreateLangugage" name="pressCreateLangugage"
+                      class="selectlist&#x20;apex-item-select" data-native-menu="false" size="1">
+                      <option value="" selected="selected">-Select-</option>
+                      <option value="en">English</option>
+                      <option value="ta">Tamil</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="t-Form-itemAssistance">
+                  <span id="pressLangugage_error_placeholder" class="a-Form-error"
+                    data-template-id="70091003340642546032_ET"></span>
+                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="t-Region-buttons-right float-end pad0">
+        <button
+          class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+          id="createUploadBtn">Create</button>
+      </div>
+      <div class="t-Region-buttons-right float-end pad0">
+        <button
+          class="bg-danger text-white t-Button t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight close-button"
+          id="uploadcancelBtn"> Cancel </button>
+      </div>
+    </div>
+  </div>
   <form role="none" action="wwv_flow.accept?p_context=info-prdept103/press-release/606223733787137" method="post"
     name="wwv_flow" id="wwvFlowForm" data-oj-binding-provider="none" novalidate autocomplete="off">
     <header class="t-Header" id="t_Header" role="banner">
@@ -1332,30 +1575,31 @@
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Name</label>
               <!-- <textarea class="form-control" rows="3"></textarea> -->
-              <input type="text" class="form-control">
+              <input id="Press_create_name" class="form-control" name="Press_create_name" value="" size="70">
             </div>
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Designation</label>
-              <!-- <textarea class="form-control" rows="3"></textarea> -->
-              <input type="text" class="form-control">
+              <input id="Press_create_designation" class="form-control" name="Press_create_designation" value=""
+                size="70">
             </div>
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Phone</label>
-              <!-- <textarea class="form-control" rows="3"></textarea> -->
-              <input type="number" class="form-control">
+              <input id="Press_create_phone" class="form-control" name="Press_create_phone" value="" size="70">
             </div>
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Select Langugae</label>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Select Langugae</option>
-                <option value="1">English</option>
-                <option value="2">Tamil</option>
+              <select id="pressCreateLangugage" class="form-select" name="pressCreateLangugage" data-native-menu="false"
+                size="1">
+                <option value="" selected="selected">-Select-</option>
+                <option value="en">English</option>
+                <option value="ta">Tamil</option>
               </select>
             </div>
             <div class="mb-2">
               <label for="exampleInputPassword1" class="form-label">Sequence</label>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Select Sequence</option>
+              <select id="pressCreateSequence" class="form-select" name="pressCreateSequence" data-native-menu="false"
+                size="1">
+                <option value="" selected="selected">-Select-</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
               </select>
@@ -1364,7 +1608,9 @@
         </div>
         <div class="modal-footer py-2">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Create</button>
+          <button
+            class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+            id="createUploadBtn">Create</button>
         </div>
       </div>
     </div>
@@ -2604,13 +2850,12 @@
 
 
         if (selectedItem) {
-          $("#Press_listname").val(selectedItem.list_name || "");
-          $("#Press_pagename").val(selectedItem.page_name || "");
-          $("#Press_listType").val(selectedItem.list_type || "");
+          $("#Press_name").val(selectedItem.name || "");
+          $("#Press_designation").val(selectedItem.designation || "");
+          $("#Press_phone").val(selectedItem.phone || "");
+          $("#Press_sequence").val(selectedItem.sequence || "");
           $('#pressLangugage').val(selectedItem.language || "")
           $("#modal").dialog("open");
-
-
 
           // "id": 26,
           //   "list_name": "Press Release",
@@ -2699,30 +2944,20 @@
       async function registerNewData() {
         debugger
         var role = localStorage.getItem("role");
-        var listname = $('#Press_create_listname').val() || 0;
-        var pagename = $('#Press_create_pagename').val() || 0;
-        var listType = $('#Press_create_listType').val() || 0;
+        var name = $('#Press_create_name').val() || 0;
+        var designation = $('#Press_create_designation').val() || 0;
+        var phone = $('#Press_create_phone').val() || 0;
         var language = $('#pressCreateLangugage').val() || 0;
-
-        let pressInputFile = null;
-        pressInputFile = await processFile('#press_create_video_FileUpload_input');
-        checkFile('#press_create_video_FileUpload_input');
-
-        if (!pressInputFile) {
-          showErrorToast("Please Upload Image");
-          return
-        }
+        var sequence = $('#pressCreateSequence').val() || 0;
 
         var insertPayload = {
           "action": "insert",
-          "table": "GOVT_NAVIGATION_LIST",
-          "LIST_NAME": listname,
-          "PAGE_NAME": pagename,
-          "LIST_IMG": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-          "LIST_TYPE": listType,
-          "FILE_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-          "MIME_TYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
-          "LANGUAGE": language
+          "table": "UNIT_OFFICERS",
+          "NAME": name,
+          "DESIGNATION": designation,
+          "PHONE": phone,
+          "LANGUAGE": language,
+          "SEQUENCE": sequence
         };
 
 
@@ -2734,13 +2969,13 @@
           success: function (response) {
             if (response.success === 1) {
               showSuccessToast("Created successfully!");
-              setTimeout(() => window.location.href = "../admin-navigation-list-entry.html", 1000);
+              setTimeout(() => window.location.href = "../admin-department-details.html", 1000);
             } else {
               showErrorToast(response.message);
             }
           },
           error: function () {
-            showErrorToast("Failed to upload video.");
+            showErrorToast("Failed.");
           }
         });
       }
@@ -2748,46 +2983,32 @@
       $('#updateBtn').on('click', async function () {
         debugger;
 
-
         if (!selectedId) {
           showErrorToast("Failed to fetch required data for update.");
           return;
         }
-
-        let orderFile = await processFile('#press_video_FileUpload_input');
-
-        let finalOrderFile = orderFile ? orderFile.filename : fileName;
-        let finalMimeType = orderFile ? orderFile.mimetype : null; // Default MIME type
-
-        if (!finalOrderFile) {
-          showErrorToast("Please upload a file.");
-          return;
-        }
-
-        updateData(selectedId, finalOrderFile, finalMimeType, orderFile ? orderFile.fileBase64 : null);
+        updateData(selectedId);
       });
 
 
-      async function updateData(id, filename, mimetype, fileBase64) {
+      async function updateData(id) {
         debugger;
         var language = $('#pressLangugage').val() || 0;
-        var listname = $("#Press_listname").val();
-        var pagename = $("#Press_pagename").val();
-        var listType = $("#Press_listType").val();
-
+        var name = $("#Press_name").val();
+        var designation = $("#Press_designation").val();
+        var phone = $("#Press_phone").val();
+        var sequence = $("#Press_sequence").val();
 
         let updatePayload = {
           "action": "update",
-          "table": "GOVT_NAVIGATION_LIST",
-          "LIST_NAME": listname,
-          "PAGE_NAME": pagename,
-          "LIST_IMG": fileBase64,
-          "LIST_TYPE": listType,
-          "FILE_NAME": filename,
-          "MIME_TYPE": mimetype,
+          "table": "UNIT_OFFICERS",
+          "ID": id,
+          "NAME": name,
+          "DESIGNATION": designation,
+          "PHONE": phone,
           "LANGUAGE": language,
-          "primary_key": "id",
-          "id": id
+          "SEQUENCE": sequence,
+          "primary_key": "id"
         };
 
         $.ajax({
@@ -2804,7 +3025,7 @@
             }
           },
           error: function () {
-            showErrorToast("Failed to upload video.");
+            showErrorToast(response.message);
           }
         });
       }
@@ -2831,7 +3052,7 @@
           contentType: "application/json",
           data: JSON.stringify({
             "action": "delete",
-            "table": "GOVT_NAVIGATION_LIST",
+            "table": "UNIT_OFFICERS",
             "primary_key": "id",
             "id": id
 
