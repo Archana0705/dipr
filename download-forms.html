@@ -648,7 +648,6 @@
               </div>
               <div class="t-Footer-apex">
                 <div class="t-Footer-version">
-                  <!--   <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav"><ul><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/home" title="" target="">Home</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/about_page" title="" target="">About Us</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/gallery1" title="" target="">Photo &#x2F; Video</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/press-release1" title="" target="">Press Release &#x2F; Press Note</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/government-orders" title="" target="">Government Orders</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/sections" title="" target="">Sections</a></li><li class="a-MenuBar-item a-Menu--current" data-current="true" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/download-forms" title="" target="">Download Forms</a></li></ul></div> -->
                 </div>
                 <div class="t-Footer-customize">
                 </div>
@@ -810,7 +809,10 @@
 
       paginatedItems.forEach(item => {
         const row = `<tr>
-                           <td><a href="https://tngis.tnega.org/uploads/${item.form_name}" target="_blank" style="text-decoration: none;">${item.form_name}</a></td>
+                           <td>
+ <a href="${API_BASE_URL}general/download/${item.id}" target="_blank" style="text-decoration: none;">
+          ${item.form_name}
+        </a>    </td>
                         </tr>`;
         $('#table-body').append(row);
       });
@@ -839,7 +841,7 @@
 
     function fetchData() {
       $.ajax({
-        url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/download_forms`,
+        url: `${API_BASE_URL}general/download_forms`,
         method: 'GET',
         success: function (response) {
           if (response.success === 1) {

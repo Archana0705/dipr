@@ -6,7 +6,6 @@
   <meta charset="utf-8">
   <title>Sections Content</title>
   <link rel="stylesheet" type="text/css" href="assets/css/Core.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/menu.css">
   <link rel="stylesheet" type="text/css" href="assets/css/Theme-Standard.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/font-apex.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/Coretheme.min.css">
@@ -17,13 +16,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  <link href="../assets/vendor/datatable/css/dataTables.css" rel="stylesheet">
+  <link href="assets/vendor/datatable/css/dataTables.css" rel="stylesheet">
   <!-- CSS File -->
-  <link rel="stylesheet" href="../assets/vendor/datatable/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="assets/vendor/datatable/dataTables.bootstrap5.min.css">
   <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/toastr/toastr.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/toastr/toastr.min.css" rel="stylesheet">
   <base href="/ords/" />
   <link rel="stylesheet"
     href="https://static.oracle.com/cdn/apex/24.1.7/libraries/oraclejet/16.0.10/css/libs/oj/16.0.10/redwood/oj-redwood-notag-min.css?v=24.1.7"
@@ -38,6 +37,61 @@
     type="text/css" />
   <link rel="stylesheet" href="https://static.oracle.com/cdn/apex/24.1.7/themes/theme_42/23.1/css/Core.min.css?v=24.1.7"
     type="text/css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/menu.css">
+  <style>
+    .showlink {
+      display: none !important;
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      z-index: 999;
+      min-width: 150px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .showlink.force-show {
+      display: block !important;
+    }
+
+    /* Force dropdown to show */
+    .t-NavigationBar-menu {
+      display: none !important;
+      position: absolute !important;
+      background: white !important;
+      border: 1px solid #ccc !important;
+      z-index: 9999 !important;
+      min-width: 150px !important;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* Show when force-show is applied */
+    .t-NavigationBar-menu.force-show {
+      display: block !important;
+    }
+
+    .t-NavigationBar-menu {
+      display: none;
+    }
+
+    .t-NavigationBar-menu.show {
+      display: block;
+    }
+
+    .t-NavigationBar-menu {
+      z-index: 9999;
+    }
+
+    .t-NavigationBar-menu {
+      display: none;
+      position: absolute;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+
   <style>
     .t-Form-itemWrapper input[type="date"] {
       width: 70%;
@@ -757,8 +811,8 @@
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
-                    class="apex-item-text&#x20;apex-item-datepicker" name="P50_DATE_OF_FIR" size="30">
+                  <input type="date" placeholder="Select Date" aria-haspopup="dialog" class="P50_DATE_OF_FIR"
+                    name="P50_DATE_OF_FIR" size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="Press_date_error_placeholder" class="a-Form-error"
@@ -830,8 +884,8 @@
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog" name="Press_create_date"
-                    size="30">
+                  <input type="date" id="press_create_date" placeholder="Select Date" aria-haspopup="dialog"
+                    name="Press_create_date" size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="Press_create_date_error_placeholder" class="a-Form-error"
@@ -929,45 +983,46 @@
               </div>
               <div class="t-Form-inputContainer col col-null">
                 <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
-                    class="selectlist&#x20;apex-item-select" data-native-menu="false" size="1">
-                    <option value="en" selected="selected">English</option>
+                    class="selectlist apex-item-select" data-native-menu="false" size="1">
+                    <option value="en">English</option>
                     <option value="ta">Tamil</option>
                   </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
                   data-template-id="32751098700172723_ET"></span>
               </div>
             </div>
+            <div class="t-Header-navBar--center">
+              <ul class="t-NavigationBar " id="32861498506172843">
+                <li class="t-NavigationBar-item a-pwaInstall">
+                  <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install"
+                    title="" target="">
+                    <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true"></span><span
+                      class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
+                  </a>
+                </li>
+                <li class="t-NavigationBar-item has-username shownav">
+                  <button class="t-Button t-Button--icon t-Button--header t-Button--navBar" type="button">
+                    <span class="t-Icon fa fa-user" aria-hidden="true"></span>
+                    <span class="t-Button-label admin-name-change">Username</span>
+                    <span class="t-Button-badge"></span>
+                    <span class="a-Icon icon-down-arrow" aria-hidden="true"></span>
+                  </button>
+                  <!-- <div class="t-NavigationBar-menu showlink">
+                    <ul>
+                      <li>
+                        <a href="#">Sign Out</a>
+                      </li>
+                    </ul>
+                  </div> -->
+                </li>
+              </ul>
+            </div>
+
           </div>
-          <div class="t-Header-navBar--center">
-            <ul class="t-NavigationBar " id="32861498506172843">
-              <li class="t-NavigationBar-item a-pwaInstall">
-                <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install"
-                  title="" target="">
-                  <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true"></span><span
-                    class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
-                </a>
-              </li>
-              <li class="t-NavigationBar-item has-username">
-                <button class="t-Button t-Button--icon t-Button t-Button--header t-Button--navBar" type="button"
-                  id="L33048349307174626" data-menu="menu_L33048349307174626" title="">
-                  <span class="t-Icon fa&#x20;fa-user" aria-hidden="true"></span><span
-                    class="t-Button-label">DHIVAHAR</span><span class="t-Button-badge"></span><span
-                    class="a-Icon icon-down-arrow" aria-hidden="true"></span>
-                </button>
-                <div class="t-NavigationBar-menu" style="display: none" id="menu_L33048349307174626">
-                  <ul>
-                    <li class="" data-current="false" data-icon="fa&#x20;fa-sign-out"><a
-                        href="apex_authentication.logout?p_app_id=103&p_session_id=606351205798953" title=""
-                        target="">Sign Out</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="t-Header-navBar--end"></div>
+
           <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
           <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
           <!--<a href="https://www.instagram.com/tndipr" class="fa fa-instagram"></a> -->
-          <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v397/instagram.jpeg"
+          <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v358/instagram.jpeg"
               style="height:35px;" class="fa fa-twitter" target='_blank'>
             <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
 
@@ -992,18 +1047,16 @@
         </div>
       </div>
 
-      <!-- <div class="t-Header-nav">
+      <div class="t-Header-nav">
         <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
           <ul>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
                 class="a-MenuBar-label" href="../index.html" title="" target="">Home</a>
             </li>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../about_page.html" title="" target="">About
-                Us</a></li>
+                class="a-MenuBar-label" href="../about_page.html" title="" target="">About Us</a></li>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
-                class="a-MenuBar-label" href="../gallery1.html" title="" target="">Photo
-                &#x2F; Video</a></li>
+                class="a-MenuBar-label" href="../gallery1.html" title="" target="">Photo &#x2F; Video</a></li>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
                 class="a-MenuBar-label" href="../press-release1.html" title="" target="">Press Release &#x2F; Press
                 Note</a></li>
@@ -1017,8 +1070,9 @@
               data-icon=""><a class="a-MenuBar-label" href="../admin-google-sheets.html" title="" target="">Google
                 Sheets - Report</a>
             </li>
-            <li class="a-MenuBar-item admin-menu-show" data-id="" data-disabled="" data-hide="" data-shortcut=""
-              data-icon=""><a class="a-MenuBar-label" href="" title="" target="">Administration</a>
+            <li class="a-MenuBar-item admin-menu-show a-Menu--current" data-current="true" data-id="" data-disabled=""
+              data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="" title=""
+                target="">Administration</a>
               <ul style="display: none">
                 <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
                     href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
@@ -1070,21 +1124,37 @@
               </ul>
             </li>
           </ul>
+          </ul>
         </div>
-      </div> -->
-
-      <div class="t-Header-nav">
-        <div id="globalNavbarContainer"></div>
-
       </div>
-
     </header>
 
     <div class="t-Body ">
 
       <div class="t-Body-main titlePos">
         <div class="t-Body-title" id="t_Body_title">
-
+          <nav id="R34839297483869595" role="navigation" aria-label="Breadcrumb"
+            class="t-BreadcrumbRegion t-BreadcrumbRegion--showBreadcrumb t-BreadcrumbRegion--useBreadcrumbTitle">
+            <div class="t-BreadcrumbRegion-top">
+              <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--start"></div>
+              <div class="t-BreadcrumbRegion-body">
+                <div class="t-BreadcrumbRegion-breadcrumb">
+                  <ul class="t-Breadcrumb ">
+                    <li class="t-Breadcrumb-item is-active" aria-current="page">
+                      <h1 class="t-Breadcrumb-label">Government Orders</h1>
+                    </li>
+                  </ul>
+                </div>
+                <div class="t-BreadcrumbRegion-title">
+                  <h1 id="R34839297483869595_heading" class="t-BreadcrumbRegion-titleText" data-apex-heading>
+                    Breadcrumb
+                  </h1>
+                </div>
+              </div>
+              <div class="t-BreadcrumbRegion-buttons t-BreadcrumbRegion-buttons--end"></div>
+            </div>
+            <div class="t-BreadcrumbRegion-bottom"></div>
+          </nav>
         </div>
         <div class="t-Body-content" id="t_Body_content">
           <main id="main" class="t-Body-mainContent">
@@ -1101,74 +1171,171 @@
                 </div>
                 <div class="row ">
                   <div class="col col-12 apex-col-auto col-start col-end">
-                    <div
-                      class="t-Login-region t-Form--stretchInputs t-Form--labelsAbove t-Login-region--headerHidden js-removeLandmark"
-                      id="R32868944394172888" role="region" aria-labelledby="R32868944394172888_heading">
-                      <div class="t-Login-header">
-                        <img class="t-Login-logo"
-                          src="r&#x2F;dipr&#x2F;103&#x2F;files&#x2F;static&#x2F;v397&#x2F;icons&#x2F;app-icon-512.png"
-                          alt="" data-app-icon />
-                        <span class="t-Login-logo " aria-hidden="true"></span>
-                        <h2 class="t-Login-title" id="R32868944394172888_heading" data-apex-heading>Info&PRDept</h2>
+                    <div id="R34839964403869597" role="region" aria-label="Press&#x20;Release" class="t-IRR-region ">
+                      <div class="t-Region-orderBy"></div>
+
+                      <div id="R34839964403869597_ir" class="a-IRR-container">
+                        <div id="R34839964403869597_worksheet_region" class="a-IRR" aria-live="polite">
+                          <div id="R34839964403869597_single_row_view" class="a-IRR-singleRowView"></div>
+                          <div id="R34839964403869597_full_view" class="a-IRR-fullView">
+                            <div id="R34839964403869597_actions_menu"></div>
+                            <div id="R34839964403869597_column_search_drop" class="a-IRR-colSearch"></div>
+                            <div id="R34839964403869597_toolbar" class="a-IRR-toolbar">
+                              <div role="search" aria-label="Search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
+                                id="R34839964403869597_toolbar_controls" class="a-IRR-controls">
+                                <div class="a-IRR-controlGroup a-IRR-controlGroup--search">
+                                  <div class="a-IRR-search"><input type="hidden"
+                                      id="R34839964403869597_column_search_current_column" />
+                                    <div class="a-IRR-colSelector"><button id="R34839964403869597_column_search_root"
+                                        data-menu="R34839964403869597_column_search_drop"
+                                        class="a-Button a-IRR-button a-IRR-button--colSearch a-Button--withIcon a-Button--noLabel"
+                                        title="Select&#x20;columns&#x20;to&#x20;search"
+                                        aria-label="Select&#x20;columns&#x20;to&#x20;search" type="button"><span
+                                          class="a-Icon icon-search" aria-hidden="true"></span><span
+                                          class="a-Icon icon-menu-drop-down" aria-hidden="true"></span></button></div>
+                                    <div class="a-IRR-searchFieldContainer"><input class="a-IRR-search-field"
+                                        id="R34839964403869597_search_field" title="Search Report" type="search"
+                                        size="30" maxlength="4000" value="" /></div>
+                                    <div class="a-IRR-searchButtonContainer"><button
+                                        id="R34839964403869597_search_button"
+                                        class="a-Button a-IRR-button a-IRR-button--search"
+                                        type="button"><span>Go</span></button></div>
+                                  </div>
+                                </div>
+                                <div class="a-IRR-controlGroup a-IRR-controlGroup--views"></div>
+                                <div class="a-IRR-controlGroup a-IRR-controlGroup--options"><input type="hidden"
+                                    id="R34839964403869597_row_select" value="50" />
+                                  <div class="a-IRR-actions"><button id="R34839964403869597_actions_button"
+                                      class="a-Button a-IRR-button a-IRR-button--actions" type="button"
+                                      data-menu="R34839964403869597_actions_menu">Actions<span aria-hidden="true"
+                                        class="a-Icon icon-menu-drop-down"></span></button></div>
+                                </div>
+                              </div>
+                              <div role="region"
+                                aria-label="Buttons&#x20;next&#x20;to&#x20;search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
+                                class="a-IRR-buttons"><button class="t-Button t-Button--hot js-ignoreChange"
+                                  type="button" id="upload-press-open-modal"><span class="t-Button-label">Upload
+                                    Government Orders
+                                  </span></button></div>
+                            </div>
+                            <div id="R34839964403869597_content" class="a-IRR-content ">
+                              <div id="R34839964403869597_dialog_js" class="a-IRR-dialogBody" style="display:none">
+                              </div><input type="hidden" id="R34839964403869597_worksheet_id"
+                                value="34839996188869597" />
+                              <input type="hidden" id="R34839964403869597_app_user" value="DHIVAHAR" />
+                              <input type="hidden" id="R34839964403869597_report_id" value="34873436359923276" />
+                              <input type="hidden" id="R34839964403869597_view_mode" value="REPORT" />
+                              <style id="R34839964403869597_worksheet_css" type="text/css">
+                              </style>
+                              <div role="region" aria-label="Chart&#x20;view&#x20;of&#x20;Press&#x20;Release"
+                                id="R34839964403869597_chart" class="a-IRR-chartView"></div>
+                              <div role="region" aria-label="Group&#x20;by&#x20;view&#x20;of&#x20;Press&#x20;Release"
+                                id="R34839964403869597_group_by" class="a-IRR-groupByView"></div>
+                              <div role="region" aria-label="Pivot&#x20;view&#x20;of&#x20;Press&#x20;Release"
+                                id="R34839964403869597_pivot" class="a-IRR-pivotView"></div>
+                              <div role="region" aria-label="Data&#x20;view&#x20;of&#x20;Press&#x20;Release"
+                                id="R34839964403869597_data_panel" class="a-IRR-reportView">
+                                <div class="a-IRR-tableContainer">
+
+                                  <table
+                                    aria-label="Press&#x20;Release,&#x20;Report&#x20;&#x3D;&#x20;Primary&#x20;Default,&#x20;View&#x20;&#x3D;&#x20;Report"
+                                    class="a-IRR-table" id="pressReleaseTable">
+                                    <thead>
+                                      <tr>
+                                        <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
+                                          <span class="u-vh">Link</span>
+                                        </th>
+                                        <th class="a-IRR-header u-tL" id="C11748439923991421"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="11748439923991421" href="#">Pr
+                                            Date</a>
+                                        </th>
+                                        <th class="a-IRR-header u-tL" id="C11747689722991413"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="11747689722991413"
+                                            href="#">Language</a>
+                                        </th>
+                                        <th class="a-IRR-header u-tL" id="C37710503093077076"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37710503093077076" href="#">Order
+                                            Name</a></th>
+                                        <th class="a-IRR-header u-tL" id="C37707438775077045"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37707438775077045" href="#">Uploaded
+                                            By</a></th>
+                                        <th class="a-IRR-header u-tL" id="C37707553402077046"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="37707553402077046" href="#">Uploaded
+                                            Date</a></th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="governmentOrdersTableBody">
+                                      <!-- Dynamic rows will be inserted here -->
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div role="region" aria-label="Pagination&#x20;of&#x20;Press&#x20;Release"
+                                  class="a-IRR-paginationWrap a-IRR-paginationWrap--bottom">
+                                  <ul class="a-IRR-pagination">
+                                    <li aria-hidden="true" class="a-IRR-pagination-item is-disabled"></li>
+                                    <li class="a-IRR-pagination-item"><span class="a-IRR-pagination-label"> 1 -
+                                        50</span></li>
+                                    <li class="a-IRR-pagination-item"><button type="button"
+                                        class="a-Button a-IRR-button a-IRR-button--pagination"
+                                        aria-controls="R34839964403869597" title="Next" aria-label="Next"
+                                        data-pagination="pgR_min_row=51max_rows=50rows_fetched=50"><span
+                                          class="a-Icon icon-right-chevron" aria-hidden="true"></span></button></li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div role="dialog" aria-label="Column&#x20;Actions" aria-modal="true" class="a-IRR-sortWidget"
+                          id="R34839964403869597_sort_widget" style="display:none;">
+                          <h1 class="u-vh" aria-roledescription="Visually&#x20;hidden&#x20;dialog&#x20;title">Column
+                            Actions</h1>
+                          <ul role="toolbar" class="a-IRR-sortWidget-actions"
+                            id="R34839964403869597_sort_widget_actions">
+                            <li role="none" class="a-IRR-sortWidget-actions-item"
+                              id="R34839964403869597_sort_widget_action_up"><button
+                                class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button"
+                                title="Sort&#x20;Ascending" aria-label="Sort&#x20;Ascending" data-option="up"><span
+                                  aria-hidden="true" class="a-Icon icon-irr-sort-asc"></span></button></li>
+                            <li role="none" class="a-IRR-sortWidget-actions-item"
+                              id="R34839964403869597_sort_widget_action_down"><button
+                                class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button"
+                                title="Sort&#x20;Descending" aria-label="Sort&#x20;Descending" data-option="down"><span
+                                  aria-hidden="true" class="a-Icon icon-irr-sort-desc"></span></button></li>
+                            <li role="none" class="a-IRR-sortWidget-actions-item"
+                              id="R34839964403869597_sort_widget_action_hide"><button
+                                class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button"
+                                title="Hide&#x20;Column" aria-label="Hide&#x20;Column" data-option="hide"><span
+                                  aria-hidden="true" class="a-Icon icon-irr-remove-col"></span></button></li>
+                            <li role="none" class="a-IRR-sortWidget-actions-item"
+                              id="R34839964403869597_sort_widget_action_break"><button
+                                class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button"
+                                title="Control&#x20;Break" aria-label="Control&#x20;Break" data-option="break"><span
+                                  aria-hidden="true" class="a-Icon icon-irr-control-break"></span></button></li>
+                            <li role="none" class="a-IRR-sortWidget-actions-item"
+                              id="R34839964403869597_sort_widget_action_help"><button
+                                class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Help"
+                                aria-label="Help" data-option="help" aria-pressed="false"><span aria-hidden="true"
+                                  class="a-Icon icon-irr-help"></span></button></li>
+                            <li role="none" class="a-IRR-sortWidget-actions-item"
+                              id="R34839964403869597_sort_widget_action_computation"><button
+                                class="a-Button a-IRR-button a-IRR-sortWidget-button" type="button" title="Compute"
+                                aria-label="Compute" data-option="computation"><span aria-hidden="true"
+                                  class="a-Icon icon-irr-calculator"></span></button></li>
+                          </ul>
+                          <div role="region" aria-label="Help" class="a-IRR-sortWidget-help"
+                            id="R34839964403869597_sort_widget_help"></div>
+                          <div role="search" class="a-IRR-sortWidget-search" id="R34839964403869597_sort_widget_search">
+                            <label for="R34839964403869597_sort_widget_search_field"><span aria-hidden="true"
+                                class="a-IRR-sortWidget-searchLabel"></span><span
+                                class="u-vh">Search</span></label><input
+                              id="R34839964403869597_sort_widget_search_field" class="a-IRR-sortWidget-searchField"
+                              type="text" placeholder="Filter..." />
+                            <div role="group" aria-label="Filter&#x20;suggestions" class="a-IRR-sortWidget-rows"
+                              id="R34839964403869597_sort_widget_rows"></div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="t-Login-body">
-                        <div
-                          class="t-Form-fieldContainer t-Form-fieldContainer--hiddenLabel rel-col  apex-item-wrapper apex-item-wrapper--has-placeholder apex-item-wrapper--text-field apex-item-wrapper--has-icon"
-                          id="P9999_USERNAME_CONTAINER">
-                          <div class="t-Form-labelContainer t-Form-labelContainer--hiddenLabel col col-null">
-                            <label for="P9999_USERNAME" id="P9999_USERNAME_LABEL"
-                              class="t-Form-label u-VisuallyHidden">Username</label>
-                          </div>
-                          <div class="t-Form-inputContainer col col-null">
-                            <div class="t-Form-itemWrapper"><input type="text" id="P9999_USERNAME" name="P9999_USERNAME"
-                                placeholder="Username" class="text_field&#x20;apex-item-text&#x20;apex-item-has-icon"
-                                autocomplete="username" value="" size="40" maxlength="100"
-                                data-trim-spaces="NONE" /><span class="apex-item-icon fa&#x20;fa-user"
-                                aria-hidden="true"></span></div><span id="P9999_USERNAME_error_placeholder"
-                              class="a-Form-error" data-template-id="32751039808172722_ET"></span>
-                          </div>
-                        </div>
-                        <div
-                          class="t-Form-fieldContainer t-Form-fieldContainer--hiddenLabel rel-col  apex-item-wrapper apex-item-wrapper--has-placeholder apex-item-wrapper--password apex-item-wrapper--has-icon"
-                          id="P9999_PASSWORD_CONTAINER">
-                          <div class="t-Form-labelContainer t-Form-labelContainer--hiddenLabel col col-null">
-                            <label for="P9999_PASSWORD" id="P9999_PASSWORD_LABEL"
-                              class="t-Form-label u-VisuallyHidden">Password</label>
-                          </div>
-                          <div class="t-Form-inputContainer col col-null">
-                            <div class="t-Form-itemWrapper"><input type="password" name="P9999_PASSWORD" size="40"
-                                maxlength="100" value="" id="P9999_PASSWORD" placeholder="Password"
-                                class="password&#x20;apex-item-text&#x20;apex-item-has-icon"
-                                autocomplete="current-password"
-                                onkeypress="return apex.submit({request:'P9999_PASSWORD',submitIfEnter:event})" /><span
-                                class="apex-item-icon fa&#x20;fa-key" aria-hidden="true"></span></div><span
-                              id="P9999_PASSWORD_error_placeholder" class="a-Form-error"
-                              data-template-id="32751039808172722_ET"></span>
-                          </div>
-                        </div>
-                        <div
-                          class="t-Form-fieldContainer t-Form-fieldContainer--hiddenLabel rel-col  apex-item-wrapper apex-item-wrapper--single-checkbox"
-                          id="P9999_REMEMBER_CONTAINER">
-                          <div class="t-Form-labelContainer t-Form-labelContainer--hiddenLabel col col-null">
-                            <label for="P9999_REMEMBER" id="P9999_REMEMBER_LABEL"
-                              class="t-Form-label u-VisuallyHidden">Remember username</label>
-                          </div>
-                          <div class="t-Form-inputContainer col col-null">
-                            <div class="t-Form-itemWrapper">
-                              <div class="apex-item-single-checkbox"><input type="hidden" name="P9999_REMEMBER"
-                                  id="P9999_REMEMBER_HIDDENVALUE" value="N"><input type="checkbox" id="P9999_REMEMBER"
-                                  aria-label="Remember&#x20;username" data-unchecked-value="N" value="Y" /></div>
-                            </div><span id="P9999_REMEMBER_error_placeholder" class="a-Form-error"
-                              data-template-id="32751039808172722_ET"></span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="t-Login-buttons"><button class="t-Button t-Button--hot signClick" type="button"
-                          id="B32871041584172899"><span class="t-Button-label">Sign In</span></button><button
-                          class="t-Button t-Button--hot " type="button" id="B22697085682097685"><span
-                            class="t-Button-label">Forgot Password</span></button></div>
-                      <div class="t-Login-links"></div>
-                      <div class="t-Login-subRegions"></div>
                     </div>
                   </div>
                 </div>
@@ -1233,73 +1400,126 @@
   </script> -->
 
 
-  <script src="assets/js/crypto-js.min.js"></script>
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/datatable/jquery.dataTables.min.js"></script>
-  <script src="../assets/vendor/datatable/dataTables.bootstrap5.min.js"></script>
-  <script src="../assets/vendor/datatables-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="../assets/vendor/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-
-  <script src="assets/js/jquery-ui.min.js"></script>
-
-  <script src="assets/js/desktop_all.min.js"></script>
-  <script src="assets/js/theme42.min.js"></script>
-  <script src="assets/js/aos.js"></script>
-  <script src="assets/js/add.min.js"></script>
-  <script src="assets/js/widget.apexTabs.min.js"></script>
-  <script src="assets/js/widget.interactiveReport.min.js"></script>
-  <script src="assets/js/widget.iconList.min.js"></script>
-  <script src="assets/js/widget.stickyTableHeader.min.js"></script>
-  <script src="assets/js/widget.stickyWidget.min.js"></script>
-  <script src="assets/js/item.Colorpicker.min.js"></script>
-  <script src="assets/js/require.js"></script>
-  <script src="assets/js/requirejs.jetConfig.min.js"></script>
-  <script src="assets/js/jetCommonBundle.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/global.js"></script>
+  <script type="text/javascript">
+    apex.session.initTimeouts(300, { "idle_time_ms": 3595000, "life_time_ms": 28755000, "max_idle_time_ms": 3600000 }, '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome', '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome');
+    apex.jQuery(function () {
+      apex.page.init(this, function () {
+        try {
+          (function () { apex.widget.selectList("#P0_LANGUAGE", { "ajaxIdentifier": "SVRFTSBUWVBFfjUxMjB-MzgxODM5MDAxMjAxMjk3NDc\u002FqNARaPF5gDXj9vUg6HNb_-Nu7WF-ASygDaMOVVhb1z-Xe7rng6WDpJFQfSGfA0_eq-mm9wm0mx3CjUGl7mhFpA" }); })();
+          (function () {
+            var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
+            if (e.hasClass("js-addActions")) {
+              apex.actions.addFromMarkup(e);
+            }
+            e.menu({
+              behaveLikeTabs: e.hasClass("js-tabLike"),
+              menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
+              menubar: true,
+              menubarOverflow: true,
+              callout: e.hasClass("js-menu-callout")
+            });
+          })();
+          (function () { apex.jQuery('#R34839964403869597_ir').interactiveReport({ "regionId": "R34839964403869597", "helpLink": "wwv_flow_utilities.show_ir_help?p_app_id=103\u0026p_worksheet_id=34839996188869597\u0026p_lang=en", "lazyLoading": false, "ajaxIdentifier": "UkVHSU9OIFRZUEV-fjM0ODM5OTY0NDAzODY5NTk3\u002F1h3h-l5ziaqoxBpLrM_KI3v-d4OwVtIuxt1TSsxJyOGdiCAdZBq79n5zvLnQCHpEsHHZ-J2ehCjC2LIAqbL57A" }); })();
+          (function () {
+            var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
+            if (e.hasClass("js-addActions")) {
+              apex.actions.addFromMarkup(e);
+            }
+            e.menu({
+              behaveLikeTabs: e.hasClass("js-tabLike"),
+              menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
+              menubar: true,
+              menubarOverflow: true,
+              callout: e.hasClass("js-menu-callout")
+            });
+          })();
+        } catch (e) { apex.debug.error(e) };
+        apex.item.waitForDelayLoadItems().done(function () {
+          try {
+            (function () {
+              apex.da.initDaEventList();
+              apex.da.init();
+            })();
+            apex.theme42.initializePage.noSideCol();
 
-  <script>
-    $(function () {
-      $("#globalNavbarContainer").load("/assets/js/globalNavbar.html", function () {
-        // Once loaded, attach the JS logic
-        $.getScript("/assets/js/globalNavbar.js");
+            apex.page.warnOnUnsavedChanges();
+          } finally {
+            apex.event.trigger(apex.gPageContext$, 'apexreadyend');
+          };
+        });
       });
-    });
+    }); apex.pwa.publicKey = ''
+    apex.pwa.pushSubscriptions = [
+    ]
+    apex.pwa.init({ serviceWorkerPath: '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.7-44329441868468\u0026lang=en' });
   </script>
   <script>
     $(document).ready(function () {
-      $('.signClick').on('click', function () {
-        debugger;
-        var loguserName = $('#P9999_USERNAME').val();
-        var logPass = $('#P9999_PASSWORD').val();
-        var loginPayload = {
-          "user_name": loguserName,
-          "password": logPass
-        };
-        $.ajax({
-          url: "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/login",
-          type: "POST",
-          contentType: 'application/json',
-          data: JSON.stringify(loginPayload),
-          success: function (response) {
-            if (response.success === 1) {
-              showSuccessToast("Login successfully!");
-              window.location.href = "/index.html";
-              localStorage.setItem("role", response.role);
-              localStorage.setItem("userAdminName", loguserName);
-            } else {
-              showErrorToast(response.message);
-            }
-          },
-          error: function () {
+      $("#adminLoginBtn").on("click", function () {
+        window.location.href = "../admin-login.html";
+      });
 
-          },
-          complete: function () {
-            $('#preloader').hide();
+      $('.shownav').on('click', function (e) {
+        debugger;
+        e.stopPropagation(); // Prevent closing when clicking inside
+        $('.showlink').not($(this).find('.showlink')).removeClass('force-show'); // Close other dropdowns
+        $(this).find('.showlink').toggleClass('force-show');
+      });
+
+      // Click outside to hide dropdown
+      $(document).on('click', function () {
+        $('.showlink').removeClass('force-show');
+      });
+    });
+
+
+  </script>
+  <script>
+    $(document).ready(function () {
+      var role;
+      debugger
+      role = localStorage.getItem("role");
+      var userAdminName = localStorage.getItem("userAdminName");
+      if (role) {
+        $('.admin-name-change').text(userAdminName);
+        $('.js-tabLike .admin-menu-show').css('display', 'block');
+        var interval = setInterval(function () {
+          if ($('#t_MenuNav_7').length) {
+            $('#t_MenuNav_7').css('display', 'flex');
           }
-        });
-      })
-    })
+          if ($('#t_MenuNav_8').length) {
+            $('#t_MenuNav_8').css('display', 'flex');
+          }
+
+          if ($('#t_MenuNav_7').length && $('#t_MenuNav_8').length) {
+            clearInterval(interval);
+          }
+        }, 100);
+      }
+      var appendSignout = '<div class="t-NavigationBar-menu showlink">' +
+        '<ul>' +
+        '<li>' +
+        '<a href="../index.html" class="signOutBtn">Sign Out</a>' +
+        '</li>' +
+        '</ul>' +
+        '</div>';
+
+      $('.t-NavigationBar-item.has-username.shownav').append(appendSignout);
+
+      $(".signOutBtn").on("click", function () {
+        event.preventDefault();
+        localStorage.removeItem("role");
+        localStorage.removeItem("userAdminName");
+        window.location.href = "/index.html";
+      });
+    });
+
+  </script>
+  <script>
     function showSuccessToast(message) {
       const toastElement = document.getElementById('successToast');
       const toastBody = document.getElementById('successMessage');
@@ -1348,10 +1568,10 @@
       $('#preloader').hide();
 
       function checkFile(selector) {
-        var fileInput = $(selector).find('input[type="file"]');
+        var fileInput = $(selector)[0];
+        var file = fileInput.files[0];
         const validTypes = ['application/pdf', 'image/jpeg', 'image/jpg'];
         const maxSize = 2 * 1024 * 1024; // 2MB in bytes
-        var file = fileInput[0].files[0];
 
         // Check if a file has been selected
         if (file) {
@@ -1374,372 +1594,432 @@
         return new Promise((resolve, reject) => {
           var fileInput = $(selector)[0];
           var file = fileInput.files[0];
-          if (file === undefined) showErrorToast('Please upload all the required files');
-          if (file) {
-            const reader = new FileReader();
-            const fileData = {};
-
-            reader.onload = function (event) {
-              // File processed as Base64 string
-              fileData.fileBase64 = event.target.result.split(',')[1];
-              fileData.mimetype = file.type;
-              fileData.filename = file.name;
-
-              resolve(fileData); // Resolve the promise with fileData
-            };
-
-            reader.onerror = function (error) {
-              reject(error); // Reject the promise in case of error
-            };
-
-            reader.readAsDataURL(file); // Read the file as a data URL (Base64)
+          if (!file) {
+            resolve(null);
+            return;
           }
+
+          const reader = new FileReader();
+          const fileData = {};
+
+          reader.onload = function (event) {
+            // File processed as Base64 string
+            fileData.fileBase64 = event.target.result.split(',')[1];
+            fileData.mimetype = file.type;
+            fileData.filename = file.name;
+
+            resolve(fileData);
+          };
+
+          reader.onerror = function (error) {
+            reject(error);
+          };
+
+          reader.readAsDataURL(file);
         });
       }
 
       function formatDate(dateString) {
         if (!dateString) return 'N/A';
         let date = new Date(dateString);
-        return date.toLocaleDateString('en-GB'); // Formats as dd/MM/yyyy
+        return date.toLocaleDateString('en-GB');
       }
-
-      $(document).ready(function () {
-        $("td.a-GV-cell").each(function () {
-          let text = $(this).text().trim();
-          if (text && text !== 'N/A' && !isNaN(Date.parse(text))) {
-            $(this).text(formatDate(text));
-          }
-        });
-      });
-
+      debugger
       let tableData;
       let selectedId;
       let orderName;
+      let dataTable;
       const userId = localStorage.getItem("role_id");
       const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/viewReport";
       const tableBody = $("#governmentOrdersTableBody");
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
-      $.ajax({
-        url: apiUrl,
-        method: "POST",
-        success: function (response) {
-          tableData = response.data;
-          console.log("Table data" + tableData)
-          tableBody.empty();
+      function fetchData() {
+        $.ajax({
+          url: apiUrl,
+          method: "POST",
+          success: function (response) {
+            tableData = response.data;
+            console.log("Table data" + tableData)
 
-          if (!tableData || tableData.length === 0) {
-            tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
-            return;
-          }
+            if (!tableData || tableData.length === 0) {
+              tableBody.html('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
+              return;
+            }
+            if ($.fn.DataTable.isDataTable("#pressReleaseTable")) {
+              $("#pressReleaseTable").DataTable().clear().destroy();
+            }
 
-          tableData.forEach(item => {
-            const newRow = `
-              <tr>
+            let tableRows = "";
+            tableData.forEach(item => {
+              tableRows += `
+              < tr >
               <td class="u-tL">   <a data-id="${item.id}" data-file="${item.order_name}" id="open-modal-btn" href="javascript:void(0);">
-        <i class="bi bi-pencil-square"></i>
-      </a></td>
+                <i class="bi bi-pencil-square"></i>
+              </a></td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.order_name) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.uploaded_on) || 'N/A'}</td>
-              </tr>`;
-
-
-            tableBody.append(newRow);
-          });
-        },
-        error: function (xhr, status, error) {
-          console.error("Error fetching data: ", error);
-          tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
-        }
-      });
-
-      $("#modal").dialog({
-        autoOpen: false,
-        modal: true,
-        closeOnEscape: true,
-        draggable: false,
-        width: 720,
-        resizable: false
-      });
-
-      $("#uploadModal").dialog({
-        autoOpen: false,
-        modal: true,
-        closeOnEscape: true,
-        draggable: false,
-        width: 720,
-        resizable: false
-      });
-
-      $("#upload-press-open-modal").on("click", function () {
-        $("#uploadModal").dialog("open");
-      })
-
-      const createDownloadLink = (content, mimeType, filename) => {
-        if (!content) return "N/A";
-
-        try {
-          // Check if the content is a valid Base64 string
-          const isBase64 = (str) => {
-            try {
-              return btoa(atob(str)) === str; // Double check encoding & decoding works
-            } catch (err) {
-              return false; // If decoding fails, it's not Base64
-            }
-          };
-
-          if (isBase64(content)) {
-            // Decode Base64 content and create a blob
-            const byteCharacters = atob(content);
-            const byteNumbers = new Array(byteCharacters.length).fill(0).map((_, i) => byteCharacters.charCodeAt(i));
-            const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], { type: mimeType });
-            const url = URL.createObjectURL(blob);
-
-            return `<a href="${url}" download="${filename}" class="btn btn-sm btn-link">${filename}</a>`;
+              </tr > `;
+            });
+            tableBody.html(tableRows);
+            dataTable = $("#pressReleaseTable").DataTable({
+              paging: true,
+              searching: true,
+              ordering: true,
+              order: [[0, 'asc']],
+              responsive: true,
+            });
+          },
+          error: function (xhr, status, error) {
+            console.error("Error fetching data: ", error);
+            tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
           }
-
-          // If it's not Base64, assume it's a URL
-          return `<a href="${content}" target="_blank" class="btn btn-sm btn-link">${filename}</a>`;
-        } catch (error) {
-          console.error("Error creating download link:", error);
-          return "Invalid content";
-        }
-      };
+        });
+      }
+    });
 
 
-      $("body").on("click", "#open-modal-btn", function () {
-        debugger;
-        $("tr").removeClass("selected"); // Remove previously selected row
-        const selectedRow = $(this).closest("tr"); // Get clicked row
-        selectedRow.addClass("selected"); // Highlight the selected row
+    $("#modal").dialog({
+      autoOpen: false,
+      modal: true,
+      closeOnEscape: true,
+      draggable: false,
+      width: 720,
+      resizable: false
+    });
 
-        const pressId = $(this).data("id");
-        selectedId = pressId;
-        orderName = $(this).data("file");
+    $("#uploadModal").dialog({
+      autoOpen: false,
+      modal: true,
+      closeOnEscape: true,
+      draggable: false,
+      width: 720,
+      resizable: false
+    });
 
-        console.log("Selected ID:", selectedId);
-        console.log("Order Name:", orderName);
+    $("#upload-press-open-modal").on("click", function () {
+      $("#uploadModal").dialog("open");
+    })
 
-        const selectedItem = tableData.find(item => item.id == pressId);
+    const createDownloadLink = (content, mimeType, filename) => {
+      if (!content) return "N/A";
 
-        if (selectedItem) {
-          $("#Press_name").text(selectedItem.order_name || "");
-          $("#Press_date input").val(selectedItem.go_date || "");
-          $("#pressLangugage").val(selectedItem.language || "").trigger("change");
-          $("#modal").dialog("open");
-
-          const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
-          if (interimLinkContainer) {
-            const downloadLinkHTML = createDownloadLink(
-              selectedItem.order_name,
-              "application/pdf",
-              selectedItem.order_name
-            );
-            interimLinkContainer.innerHTML = downloadLinkHTML;
+      try {
+        // Check if the content is a valid Base64 string
+        const isBase64 = (str) => {
+          try {
+            return btoa(atob(str)) === str; // Double check encoding & decoding works
+          } catch (err) {
+            return false; // If decoding fails, it's not Base64
           }
+        };
+
+        if (isBase64(content)) {
+          // Decode Base64 content and create a blob
+          const byteCharacters = atob(content);
+          const byteNumbers = new Array(byteCharacters.length).fill(0).map((_, i) => byteCharacters.charCodeAt(i));
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: mimeType });
+          const url = URL.createObjectURL(blob);
+
+          return `< a href = "${url}" download = "${filename}" class="btn btn-sm btn-link" > ${filename}</a > `;
         }
-      });
+
+        // If it's not Base64, assume it's a URL
+        return `< a href = "${content}" target = "_blank" class="btn btn-sm btn-link" > ${filename}</a > `;
+      } catch (error) {
+        console.error("Error creating download link:", error);
+        return "Invalid content";
+      }
+    };
 
 
-      $(".close-button").on("click", function () {
-        $("#modal").dialog("close");
-      });
+    // $("body").on("click", "#open-modal-btn", function () {
+    //   debugger
+    //   const pressId = $(this).data("id");
+    //   selectedId = $(this).data("id");
+    //   orderName = $(this).data("file");
+    //   const selectedItem = tableData.find(item => item.id == pressId);
 
-      $("#uploadcancelBtn").on("click", function () {
-        $("#uploadModal").dialog("close");
-      });
+    //   if (selectedItem) {
+    //     $("#Press_name").text(selectedItem.order_name || "");
+    //     $("#Press_date input").val(selectedItem.go_date || "");
+    //     $("#pressLangugage").val(selectedItem.language || "").trigger("change");
+    //     $("#modal").dialog("open");
 
-      $("#createUploadBtn").on("click", function () {
-        registerNewData();
-      });
+    //     const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
+    //     if (interimLinkContainer) {
+    //       const downloadLinkHTML = createDownloadLink(
+    //         selectedItem.order_name,
+    //         "application/pdf",
+    //         selectedItem.order_name
+    //       );
+    //       interimLinkContainer.innerHTML = downloadLinkHTML;
+    //     }
+    //   }
+    // });
 
-      async function registerNewData() {
-        debugger
-        try {
+    $("body").on("click", "#open-modal-btn", function () {
+      debugger;
+      $("tr").removeClass("selected"); // Remove previously selected row
+      const selectedRow = $(this).closest("tr"); // Get clicked row
+      selectedRow.addClass("selected"); // Highlight the selected row
 
-          var pressDate = $('#Press_create_date input').val() || "";
-          // var formattedPressDate = convertDateFormat(pressDate);
-          var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
-          let pressInputFile = null;
-          pressInputFile = await processFile('#pressFileUpload_input');
-          checkFile('#pressFileUpload');
-          // if (!polStn || !districtName || !ComplaintData || !complaintMadeBy || !firNo || !dateOfFIR || !childGender || !childDOB || !childAge || !nameOfGuardian) {
-          //   if (willingness === "Yes") {
-          //     if (!willingness || !willName || !willRelation || !willDate || !accName || !accNo || !bankName || !branchName || !ifsc) {
-          //       showErrorToast("Please fill in all required fields.");
-          //       return;
-          //     }
-          //   }
-          //   showErrorToast("Please fill in all required fields.");
-          //   return;
-          // }
+      const pressId = $(this).data("id");
+      selectedId = pressId;
+      orderName = $(this).data("file");
 
-          if (pressDate) {
-            var dateObj = new Date(pressDate);
-            var formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
-              ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
-              dateObj.getFullYear();
-            pressDate = formattedDate;
-          }
+      console.log("Selected ID:", selectedId);
+      console.log("Order Name:", orderName);
 
-          var governmentOrderPayload = {
-            "p_ID": 13456456,
-            "V_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "V_DESC": "Latest updates on tech policies",
-            "V_URL": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "Current_User": "admin_user",
-            "V_DATE": formattedDate,
-            "LANGUAGE": pressLangugage,
-            // "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
-            // "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            // "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
-          };
+      const selectedItem = tableData.find(item => item.id == pressId);
 
-          await $.ajax({
-            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/InsertPressReleaseForm',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(governmentOrderPayload),
-            success: function (response) {
-              // user_id.id = response.return_id;
-              // Court_id.COURT_ID = response.return_id;
-              showSuccessToast("Submitted Successfully");
-              setTimeout(() => window.location.href = "../admin-special-publication-report.html", 1000);
-            },
-            error: function (error) {
-              console.error('Error:', error);
-              showErrorToast("An error occurred during submission of data.");
-            }
-          });
-          await showSuccessToast('Data Submitted Successfully');
-        } catch (error) {
-          console.error('Error:', error);
-          showErrorToast("An unexpected error occurred.");
+      if (selectedItem) {
+        $("#Press_name").text(selectedItem.order_name || "");
+        $("#Press_date input").val(selectedItem.go_date || "");
+        $("#pressLangugage").val(selectedItem.language || "").trigger("change");
+        $("#modal").dialog("open");
+
+        const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
+        if (interimLinkContainer) {
+          const downloadLinkHTML = createDownloadLink(
+            selectedItem.order_name,
+            "application/pdf",
+            selectedItem.order_name
+          );
+          interimLinkContainer.innerHTML = downloadLinkHTML;
         }
       }
 
-      $("#deleteBtn").on("click", function () {
-        if (!selectedId) {
-          alert("No item selected for deletion.");
-          return;
+      // Clear file input when modal opens
+      $("#orderFileUpload_input").val("");
+    });
+
+    $('#updateBtn').on('click', async function () {
+      debugger;
+      const selectedRow = $('tr.selected');
+      if (!selectedRow.length) {
+        showErrorToast("No row selected for update.");
+        return;
+      }
+
+      const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
+      let orderName = selectedRow.find('a#open-modal-btn').attr('data-file'); // Existing file name
+
+      console.log("Selected ID:", selectedId);
+      console.log("Existing Order Name:", orderName);
+
+      if (!selectedId) {
+        showErrorToast("Failed to fetch required data for update.");
+        return;
+      }
+
+      // Process file (returns null if no new file is uploaded)
+      let orderFileInput = await processFile('#orderFileUpload_input');
+
+      console.log("Newly Uploaded File:", orderFileInput);
+
+      // Use new file if uploaded, otherwise keep existing orderName
+      let finalOrderFile = orderFileInput ? orderFileInput : orderName;
+
+      if (!finalOrderFile) {
+        showErrorToast("Please upload a file.");
+        return;
+      }
+
+      updateData(selectedId, finalOrderFile);
+    });
+
+    $(".close-button").on("click", function () {
+      $("#modal").dialog("close");
+    });
+
+    $("#uploadcancelBtn").on("click", function () {
+      $("#uploadModal").dialog("close");
+    });
+
+    $("#createUploadBtn").on("click", function () {
+      registerNewData();
+    });
+
+    async function registerNewData() {
+      debugger
+      try {
+
+        var pressDate = $('#Press_create_date input').val() || "";
+        // var formattedPressDate = convertDateFormat(pressDate);
+        var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
+        let pressInputFile = null;
+        pressInputFile = await processFile('#pressFileUpload_input');
+        checkFile('#pressFileUpload_input');
+        // if (!polStn || !districtName || !ComplaintData || !complaintMadeBy || !firNo || !dateOfFIR || !childGender || !childDOB || !childAge || !nameOfGuardian) {
+        //   if (willingness === "Yes") {
+        //     if (!willingness || !willName || !willRelation || !willDate || !accName || !accNo || !bankName || !branchName || !ifsc) {
+        //       showErrorToast("Please fill in all required fields.");
+        //       return;
+        //     }
+        //   }
+        //   showErrorToast("Please fill in all required fields.");
+        //   return;
+        // }
+
+        if (pressDate) {
+          var dateObj = new Date(pressDate);
+          var formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
+            ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
+            dateObj.getFullYear();
+          pressDate = formattedDate;
         }
 
-        if (confirm("Are you sure you want to delete this item?")) {
-          alert(selectedId)
-          deleteData(selectedId);
-        }
-      });
-
-      // $('#updateBtn').on('click', function () {
-      //   debugger;
-      //   const selectedRow = $('tr.selected'); // Ensure row is actually selected
-      //   if (!selectedRow.length) {
-      //     showErrorToast("No row selected for update.");
-      //     return;
-      //   }
-
-      //   // Correct way to get data-id and data-file
-      //   const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
-      //   const orderName = selectedRow.find('a#open-modal-btn').attr('data-file');
-
-      //   console.log("Selected ID:", selectedId);
-      //   console.log("Order Name:", orderName);
-
-      //   if (!selectedId || !orderName) {
-      //     showErrorToast("Failed to fetch required data for update.");
-      //     return;
-      //   }
-
-      //   updateData(selectedId, orderName);
-      // });
-
-      $('#updateBtn').on('click', function () {
-        debugger;
-        const selectedRow = $('tr.selected');
-        if (!selectedRow.length) {
-          showErrorToast("No row selected for update.");
-          return;
-        }
-
-        const selectedId = selectedRow.find('a#open-modal-btn').attr('data-id');
-        let orderName = selectedRow.find('a#open-modal-btn').attr('data-file');
-
-        console.log("Selected ID:", selectedId);
-        console.log("Order Name:", orderName);
-
-        if (!selectedId || !orderName) {
-          showErrorToast("Failed to fetch required data for update.");
-          return;
-        }
-
-        const orderFileInput = document.getElementById('orderFileUpload_input');
-        if (orderFileInput.files.length > 0) {
-          orderName = orderFileInput.files[0].name;
-        }
-
-        updateData(selectedId, orderName);
-      });
-
-      async function updateData(id, file) {
-        debugger;
-
-        const lang = $('#pressLangugage').val();
-        const pressDate = $('#Press_create_date input').val();
-
-        const updatePayload = {
-          "p_ID": id,
-          "V_NAME": file,
-          "V_URL": file,
-          "Current_User": "admin",
-          "V_DESC": "Order Description",
-          "V_DATE": "2025-02-01",
-          "LANGUAGE": lang
+        var governmentOrderPayload = {
+          "V_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+          "V_DESC": "Latest updates on tech policies",
+          "V_URL": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+          "Current_User": "admin_user",
+          "V_DATE": formattedDate,
+          "LANGUAGE": pressLangugage,
+          // "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
+          // "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+          // "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
         };
-        $.ajax({
-          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/updatePressReleaseForm',
+
+        await $.ajax({
+          url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/InsertPressReleaseForm',
           type: 'POST',
           contentType: 'application/json',
-          data: JSON.stringify(updatePayload),
+          data: JSON.stringify(governmentOrderPayload),
           success: function (response) {
-            showSuccessToast("Updated Successfully");
+            // user_id.id = response.return_id;
+            // Court_id.COURT_ID = response.return_id;
+            showSuccessToast("Submitted Successfully");
             setTimeout(() => window.location.href = "../admin-goverment-orders.html", 1000);
           },
           error: function (error) {
+            console.error('Error:', error);
             showErrorToast("An error occurred during submission of data.");
           }
         });
+        await showSuccessToast('Data Submitted Successfully');
+      } catch (error) {
+        console.error('Error:', error);
+        showErrorToast("An unexpected error occurred.");
       }
 
-      function deleteData(id) {
-        debugger
-        $('#preloader').show();
-        $.ajax({
-          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/deletePressReleaseForm`,
-          type: "POST",
-          dataType: "json",
-          contentType: "application/json",
-          data: JSON.stringify({
-            p_ID: id
-          }),
-          success: function (response) {
-            $('#preloader').hide();
-            if (response.success === 1) {
-              showSuccessToast("Data deleted successfully!");
-              location.reload();
-            } else {
-              showErrorToast("Error: " + response.message);
-            }
-          },
-          error: function (xhr, status, error) {
-            $('#preloader').hide();
-            console.error("AJAX Error:", error);
-            alert("Failed to delete data. Please try again.");
-          }
-        });
+    }
+
+    $("#deleteBtn").on("click", function () {
+      if (!selectedId) {
+        alert("No item selected for deletion.");
+        return;
       }
+
+      if (confirm("Are you sure you want to delete this item?")) {
+        alert(selectedId)
+        deleteData(selectedId);
+      }
+    });
+
+
+
+    async function updateData(id, file) {
+      debugger;
+
+      const lang = $('#pressLangugage').val();
+      var pressupdatedDt = $('#press_create_date').val();
+
+      console.log("Input Value Directly:", $('#press_create_date').val());
+      console.log("Using Vanilla JS:", document.getElementById('press_create_date')?.value);
+
+      let today = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
+      $('#press_create_date').val(today);
+      console.log("Default Date Set:", today);
+
+      let formattedDate = "";
+
+      if (pressupdatedDt) {
+        let dateObj = new Date(pressupdatedDt);
+        formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
+          ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
+          dateObj.getFullYear();
+      }
+
+      console.log("Formatted Date:", formattedDate); // Debugging
+
+      if (!formattedDate) {
+        showErrorToast("Date is missing. Please select a date before updating.");
+        return;
+      }
+
+      const updatePayload = {
+        "p_ID": id,
+        "V_NAME": file,
+        
+        "V_URL": file,
+        "Current_User": "admin",
+        "V_DESC": "Order Description",
+        "V_DATE": formattedDate,  // Ensure formattedDate is always defined
+        "LANGUAGE": lang
+      };
+
+      console.log("Payload being sent:", updatePayload); // Debugging
+
+      $.ajax({
+        url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/updatePressReleaseForm',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(updatePayload),
+        success: function (response) {
+          showSuccessToast("Updated Successfully");
+          setTimeout(() => window.location.href = "../admin-goverment-orders.html", 1000);
+        },
+        error: function (error) {
+          console.error("Error:", error);
+          showErrorToast("An error occurred during submission of data.");
+        }
+      });
+    }
+
+    function deleteData(id) {
+      debugger
+      $('#preloader').show();
+      $.ajax({
+        url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/deletePressReleaseForm`,
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify({
+          p_ID: id
+        }),
+        success: function (response) {
+          $('#preloader').hide();
+          if (response.success === 1) {
+            showSuccessToast("Data deleted successfully!");
+            location.reload();
+          } else {
+            showErrorToast("Error: " + response.message);
+          }
+        },
+        error: function (xhr, status, error) {
+          $('#preloader').hide();
+          console.error("AJAX Error:", error);
+          alert("Failed to delete data. Please try again.");
+        }
+      });
+    }
+
+    document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
+      const selectedValue = this.value;
+      if (selectedValue === "en") {
+        langSwitch = "en";
+        fetchData();
+      } else {
+        langSwitch = "ta";
+        fetchData();
+      }
+    });
+    });
     });
   </script>
 </body>

@@ -1208,41 +1208,14 @@
                             <div id="R34839964403869597_actions_menu"></div>
                             <div id="R34839964403869597_column_search_drop" class="a-IRR-colSearch"></div>
                             <div id="R34839964403869597_toolbar" class="a-IRR-toolbar">
-                              <div role="search" aria-label="Search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
-                                id="R34839964403869597_toolbar_controls" class="a-IRR-controls">
-                                <div class="a-IRR-controlGroup a-IRR-controlGroup--search">
-                                  <div class="a-IRR-search"><input type="hidden"
-                                      id="R34839964403869597_column_search_current_column" />
-                                    <div class="a-IRR-colSelector"><button id="R34839964403869597_column_search_root"
-                                        data-menu="R34839964403869597_column_search_drop"
-                                        class="a-Button a-IRR-button a-IRR-button--colSearch a-Button--withIcon a-Button--noLabel"
-                                        title="Select&#x20;columns&#x20;to&#x20;search"
-                                        aria-label="Select&#x20;columns&#x20;to&#x20;search" type="button"><span
-                                          class="a-Icon icon-search" aria-hidden="true"></span><span
-                                          class="a-Icon icon-menu-drop-down" aria-hidden="true"></span></button></div>
-                                    <div class="a-IRR-searchFieldContainer"><input class="a-IRR-search-field"
-                                        id="R34839964403869597_search_field" title="Search Report" type="search"
-                                        size="30" maxlength="4000" value="" /></div>
-                                    <div class="a-IRR-searchButtonContainer"><button
-                                        id="R34839964403869597_search_button"
-                                        class="a-Button a-IRR-button a-IRR-button--search"
-                                        type="button"><span>Go</span></button></div>
-                                  </div>
-                                </div>
-                                <div class="a-IRR-controlGroup a-IRR-controlGroup--views"></div>
-                                <div class="a-IRR-controlGroup a-IRR-controlGroup--options"><input type="hidden"
-                                    id="R34839964403869597_row_select" value="50" />
-                                  <div class="a-IRR-actions"><button id="R34839964403869597_actions_button"
-                                      class="a-Button a-IRR-button a-IRR-button--actions" type="button"
-                                      data-menu="R34839964403869597_actions_menu">Actions<span aria-hidden="true"
-                                        class="a-Icon icon-menu-drop-down"></span></button></div>
-                                </div>
+
+                              <div style="display: flex; justify-content: flex-end; width: 100%;">
+                                <button class="t-Button t-Button--hot js-ignoreChange" type="button"
+                                  id="upload-press-open-modal">
+                                  <span class="t-Button-label">Upload Press Release</span>
+                                </button>
                               </div>
-                              <div role="region"
-                                aria-label="Buttons&#x20;next&#x20;to&#x20;search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
-                                class="a-IRR-buttons"><button class="t-Button t-Button--hot js-ignoreChange"
-                                  type="button" id="upload-press-open-modal"><span class="t-Button-label">Upload Press
-                                    Release</span></button></div>
+
                             </div>
                             <div id="R34839964403869597_content" class="a-IRR-content ">
                               <div id="R34839964403869597_dialog_js" class="a-IRR-dialogBody" style="display:none">
@@ -1405,8 +1378,8 @@
       libVersions: { cropperJs: "1.6.1", domPurify: "3.1.6", fontapex: "2.3", fullcalendar: "6.1.11", hammer: "2.0.8", jquery: "3.6.4", jqueryUi: "1.13.2", maplibre: "4.0.1", markedJs: "12.0.1", prismJs: "1.29.0", oraclejet: "16.0.10", tinymce: "6.8.4", turndown: "7.1.3", monacoEditor: "0.47.0", lessJs: "4.2.0" }
     };
   </script>
-  <script src="https://static.oracle.com/cdn/apex/24.1.7/libraries/apex/minified/desktop_all.min.js?v=24.1.7"></script>
-  <script src="wwv_flow.js_messages?p_app_id=103&p_lang=en&p_version=24.1.7-44329441868468"></script>
+  <!-- <script src="https://static.oracle.com/cdn/apex/24.1.7/libraries/apex/minified/desktop_all.min.js?v=24.1.7"></script>
+  <script src="wwv_flow.js_messages?p_app_id=103&p_lang=en&p_version=24.1.7-44329441868468"></script> -->
 
   <!-- <script type="text/javascript">
     apex.da.initDaEventList = function () {
@@ -1415,11 +1388,12 @@
         { "triggeringElementType": "ITEM", "triggeringElement": "P0_LANGUAGE", "bindType": "bind", "executionType": "IMMEDIATE", "bindEventType": "change", "anyActionsFireOnInit": false, actionList: [{ "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, "waitForResult": true, javascriptFunction: apex.da.executePlSqlCode, "ajaxIdentifier": "REEgVFlQRX5-NDM0MzQzOTA5NTkyMjI3NTI\u002Fpa3Aj0lYJUNZTKs0aczMu8B_oFdXmzoD930MKT_4t73jEPkRk6hQfmqg_bR5yB--NgceL9krPyBLr302jlUkag", "attribute01": "#P0_LANGUAGE", "attribute04": "N", "action": "NATIVE_EXECUTE_PLSQL_CODE" }, { "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, javascriptFunction: apex.da.submitPage, "attribute02": "Y", "action": "NATIVE_SUBMIT_PAGE" }] }];
     }
   </script> -->
+  <script src="../assets/js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="../assets/js/desktop_all.min.js"></script>
   <script src="../assets/vendor/datatable/jquery.dataTables.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/global.js"></script>
-
+  <script src="../assets/js/fileValidator.js"></script>
 
   <script type="text/javascript">
     apex.session.initTimeouts(300, { "idle_time_ms": 3595000, "life_time_ms": 28755000, "max_idle_time_ms": 3600000 }, '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome', '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome');
@@ -1481,13 +1455,11 @@
       });
 
       $('.shownav').on('click', function (e) {
-        debugger;
-        e.stopPropagation(); // Prevent closing when clicking inside
-        $('.showlink').not($(this).find('.showlink')).removeClass('force-show'); // Close other dropdowns
+        e.stopPropagation();
+        $('.showlink').not($(this).find('.showlink')).removeClass('force-show');
         $(this).find('.showlink').toggleClass('force-show');
       });
 
-      // Click outside to hide dropdown
       $(document).on('click', function () {
         $('.showlink').removeClass('force-show');
       });
@@ -1500,6 +1472,13 @@
       var role;
       debugger
       role = localStorage.getItem("role");
+      $('#pressFileUpload_input').on('change', function () {
+        const validation = validateFile(this);
+        if (!validation.valid) {
+          alert(validation.error);
+          $(this).val(''); // Clear the invalid file
+        }
+      });
       var userAdminName = localStorage.getItem("userAdminName");
       if (role) {
         $('.admin-name-change').text(userAdminName);
@@ -1750,6 +1729,7 @@
         });
       }
       async function registerNewData() {
+        var role = localStorage.getItem("role");
         function convertDateFormat(dateString) {
           if (dateString === "") {
             return "";
@@ -1787,14 +1767,13 @@
           }
 
           var registrationPayload = {
-            "p_ID": 123,
-            "V_NAME": formattedDate,
-            "V_DESC": "Latest updates on tech policies",
-            "Current_User": "admin_user",
-            "LANGUAGE": pressLangugage,
-            "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
-            "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+            "PRESS_FILE_NAME": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
+            "UPLOADED_BY": role,
+            "PRESS_RELEASE_NO": "PR12345",
+            "PRESS_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+            "MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
+            "PR_DATE": formattedDate,
+            "LANGUAGE": pressLangugage
           };
 
 

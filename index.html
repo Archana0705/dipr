@@ -811,7 +811,8 @@
               Sheets - Report</a>
           </li>
           <li class="a-MenuBar-item admin-menu-show" data-id="" data-disabled="" data-hide="" data-shortcut=""
-            data-icon=""><a class="a-MenuBar-label" href="" title="" target="">Administration</a>
+            data-icon="">
+            <a class="a-MenuBar-label" href="" title="" target="">Administration</a>
             <ul style="display: none">
               <li data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
                   href="../admin-photo-upload.html" title="" target="">Photo&#x2F;Video Upload</a>
@@ -1010,7 +1011,6 @@
                                 <div class="t-Region-body">
                                   <div class="t-Region-orderBy"></div>
                                   <img src='https://dipr.tn.gov.in/ords/r/dipr/103/files/static/v358/Panel_4.jpg'>
-                                  <!-- <img src= 'r/dipr/103/files/static/v358/Frame 10.png'> -->
                                 </div>
                                 <div class="t-Region-buttons t-Region-buttons--bottom">
                                   <div class="t-Region-buttons-left"></div>
@@ -1590,7 +1590,6 @@
             </div>
             <div class="t-Footer-apex">
               <div class="t-Footer-version">
-                <!--   <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav"><ul><li class="a-MenuBar-item a-Menu--current" data-current="true" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/home" title="" target="">Home</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/about_page" title="" target="">About Us</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/gallery1" title="" target="">Photo &#x2F; Video</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/press-release1" title="" target="">Press Release &#x2F; Press Note</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/government-orders" title="" target="">Government Orders</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/sections" title="" target="">Sections</a></li><li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a class="a-MenuBar-label" href="/ords/r/dipr/info-prdept103/download-forms" title="" target="">Download Forms</a></li></ul></div> -->
               </div>
               <div class="t-Footer-customize">
               </div>
@@ -1636,15 +1635,62 @@
   <script src="assets/js/widget.report.min.js"></script>
   <script src="assets/js/aos.js"></script>
   <script src="assets/js/global.js"></script>
-
-
-
   <script type="text/javascript">
-    apex.da.initDaEventList = function () {
-      apex.da.gEventList = [
-        { "triggeringElementType": "ITEM", "triggeringElement": "P0_LANGUAGE_SELECTION", "bindType": "bind", "executionType": "IMMEDIATE", "bindEventType": "change", "anyActionsFireOnInit": false, actionList: [{ "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, "waitForResult": true, javascriptFunction: apex.da.executePlSqlCode, "ajaxIdentifier": "REEgVFlQRX5-Mzc0OTQ3NjY4MDA1MDg5MzI\u002FYL0mL5cX9ZeVJHWerlTq1g632WjP-MfE46JHbznp1Y0tz6vQ--xhgao_4NaKhn87uiXl7_P_XI1Xy_8Qw9KoYg", "attribute01": "#P0_LANGUAGE_SELECTION", "attribute04": "N", "action": "NATIVE_EXECUTE_PLSQL_CODE" }] },
-        { "triggeringElementType": "ITEM", "triggeringElement": "P0_LANGUAGE", "bindType": "bind", "executionType": "IMMEDIATE", "bindEventType": "change", "anyActionsFireOnInit": false, actionList: [{ "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, "waitForResult": true, javascriptFunction: apex.da.executePlSqlCode, "ajaxIdentifier": "REEgVFlQRX5-NDM0MzQzOTA5NTkyMjI3NTI\u002FhEEg-dqZnSDc-EGwd6bMGSm1eSYj5smo6uimBZs4FNKOtnZmw6EjXyiAP2KRGFac9LPqx0ffn1-gmAPb045IBA", "attribute01": "#P0_LANGUAGE", "attribute04": "N", "action": "NATIVE_EXECUTE_PLSQL_CODE" }, { "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, javascriptFunction: apex.da.submitPage, "attribute02": "Y", "action": "NATIVE_SUBMIT_PAGE" }] }];
-    }
+    apex.jQuery(function () {
+      apex.page.init(this, function () {
+        try {
+          (function () { apex.widget.selectList("#P0_LANGUAGE", { "ajaxIdentifier": "SVRFTSBUWVBFfjUxMjB-MzgxODM5MDAxMjAxMjk3NDc\u002FfRk75vWgDmHLk9etT6bxc5Gy1UNNwht3tI3fJwwexIuaDrndw4QbqOy_UydDBDZ1f7y8RqppS4CPldV8PyZ1NQ" }); })();
+          (function () {
+            var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
+            if (e.hasClass("js-addActions")) {
+              apex.actions.addFromMarkup(e);
+            }
+            e.menu({
+              behaveLikeTabs: e.hasClass("js-tabLike"),
+              menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
+              menubar: true,
+              menubarOverflow: true,
+              callout: e.hasClass("js-menu-callout")
+            });
+          })();
+          (function () { apex.util.defineTemplates([{ "name": "APEX_CARDS_BEFORE", "template": "\u003Cul class=\u0022a-CardView-items #CARD_LAYOUT# #COMPONENT_CLASSES#\u0022\u003E\u000A", "args": [{ "name": "CARD_LAYOUT", "escape": "ATTR" }, { "name": "COMPONENT_CLASSES", "escape": "ATTR" }] }, { "name": "APEX_CARDS_CARD_23044199534646279", "template": "\u003Cli class=\u0022a-CardView-item \u0026APEX$ROW_STATE_CLASSES.\u0022 data-id=\u0022\u0026APEX$ROW_ID.\u0022 data-rownum=\u0022\u0026APEX$ROW_INDEX.\u0022\u003E\u000A\u003Cdiv class=\u0022a-CardView{if ?TITLE_HTML_EXPR\u002F} has-title{endif\u002F}{if ?SUB_TITLE_HTML_EXPR\u002F} has-subtitle{endif\u002F}{if ?MEDIA\u002F} has-media has-media--first has-media--widescreen has-media--fit{endif\u002F}{if APEX$ACTION_EXISTS\u002F} has-actions{endif\u002F}{if APEX$FULL_ACTION_EXISTS\u002F} has-actions--full{endif\u002F} #CARD_CLASSES#\u0022\u003E\u000A{if ?MEDIA\u002F}\u000A\u003Cdiv class=\u0022a-CardView-media #MEDIA_POSITION# #MEDIA_APPEARANCE# #MEDIA_SIZING# #MEDIA_CLASSES#\u0022\u003E\u000A\u003Cimg class=\u0022a-CardView-mediaImg\u0022 src=\u0022#MEDIA#\u0022 alt=\u0022\u0022 loading=\u0022lazy\u0022 \u002F\u003E\u003C\u002Fdiv\u003E\u000A{endif\u002F}\u000A\u003Cdiv class=\u0022a-CardView-header\u0022\u003E\u000A\u003Cdiv class=\u0022a-CardView-headerBody\u0022\u003E\u000A{if ?TITLE_HTML_EXPR\u002F}#TITLE_HTML_EXPR#{endif\u002F}\u000A{if ?SUB_TITLE_HTML_EXPR\u002F}\u000A#SUB_TITLE_HTML_EXPR#{endif\u002F}\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fli\u003E\u000A", "args": [{ "name": "CARD_CLASSES", "escape": "ATTR" }, { "name": "MEDIA_POSITION", "escape": "ATTR" }, { "name": "MEDIA_APPEARANCE", "escape": "ATTR" }, { "name": "MEDIA_SIZING", "escape": "ATTR" }, { "name": "MEDIA_CLASSES", "escape": "ATTR" }, { "name": "MEDIA", "escape": "ATTR" }, { "name": "TITLE_HTML_EXPR", "escape": "RAW" }, { "name": "SUB_TITLE_HTML_EXPR", "escape": "RAW" }] }, { "name": "APEX_CARDS_AFTER", "template": "\u003C\u002Ful\u003E" }]); apex.widget.templateReportRegionInit({ "regionId": "23044199534646279", "regionStaticId": "R23044199534646279", "regionType": "Cards", "ajaxIdentifier": "UkVHSU9OIFRZUEV-fjIzMDQ0MTk5NTM0NjQ2Mjc5\u002F-6jw55lALidxlEVNFkpVPmxQRPfzl4dkiQvkN-KfPAnW-dyrPHuVJ6viAEHeKSP0tH1TdyAMCPk1cAreedfXvg", "itemsToSubmit": "#P0_LANGUAGE", "modelName": "R23044199534646279", "modelOptions": { "regionId": 23044199534646279, "paginationType": "progressive", "pageSize": 100, "identityField": "ID" }, "pagination": { "scroll": true, "showRange": false, "firstAndLastButtons": false, "hideSinglePage": true }, "footer": false, "hideEmptyFooter": true, "hasSize": false, "beforeTemplate": "{with\u002F}\u000ACARD_LAYOUT:=a-CardView-items--grid4col\u000ACOMPONENT_CLASSES:=\u000A{apply APEX_CARDS_BEFORE\u002F}", "recordTemplate": "{with\u002F}\u000ACARD_CLASSES:=\u000AMEDIA_POSITION:=a-CardView-media--first\u000AMEDIA_APPEARANCE:=a-CardView-media--widescreen\u000AMEDIA_SIZING:=a-CardView-media--fit\u000AMEDIA_CLASSES:=img\u000AMEDIA:=\u0026\u0022APEX$FILE_BLOB_BLOB\u0022!RAW.\u000ATITLE_HTML_EXPR:=\u003Ccenter\u003E\u003Ch4\u003E\u003Cb\u003E\u0026NAME.\u003C\u002Fb\u003E\u003C\u002Fh4\u003E \u003C\u002Fcenter\u003E\u000ASUB_TITLE_HTML_EXPR:=\u003Ccenter\u003E\u003Ch5\u003E \u0026DESIGNATION. \u003C\u002Fh5\u003E\u003C\u002Fcenter\u003E\u000A{apply APEX_CARDS_CARD_23044199534646279\u002F}", "afterTemplate": "{with\u002F}\u000A{apply APEX_CARDS_AFTER\u002F}", "columns": [{ "ID": { "index": 0 }, "FILE_BLOB": { "index": 1 }, "DESIGNATION": { "index": 2 }, "NAME": { "index": 3 }, "APEX$FILE_BLOB_BLOB": { "index": 4 }, "APEX$BUTTON_ACTION_EXISTS": { "index": 5 }, "APEX$FULL_ACTION_EXISTS": { "index": 6 }, "APEX$ACTION_EXISTS": { "index": 7 } }] }, gCard23044199534646279data); })();
+          (function () { apex.widget.report.init("R39420365043585743", "UkVHSU9OIFRZUEV-fjM5NDIwMzY1MDQzNTg1NzQz\u002FSdiuOnqDIMj5_hUnc7npQd_klqaZ9bpO8lDYx8iUK4Fryn4ONTZ3rNLJxv3GrktCqMkKH8yN01xWd6i07CvIMg", { "pageItems": "#P0_LANGUAGE", "lazyLoading": false, "internalRegionId": "39420365043585743" }); })();
+          (function () { apex.widget.report.init("R39420909762585749", "UkVHSU9OIFRZUEV-fjM5NDIwOTA5NzYyNTg1NzQ5\u002FHXB1hiNAXCZSiPKlkELdJUGmORP-s8aarVY_aS3Jsz0u_jTOXsUX84oNkSksDFiXllFXaZoUWch6Jv7lKlPEnA", { "pageItems": "#P0_LANGUAGE", "lazyLoading": false, "internalRegionId": "39420909762585749" }); })();
+          (function () { apex.widget.report.init("R39422891780585769", "UkVHSU9OIFRZUEV-fjM5NDIyODkxNzgwNTg1NzY5\u002FWEE--9FKl4a9WWHFsDc3XXSOMWCa3TOfV-s-lzgR5hIlp4pQx3LPj10_vXm3W_sumI0LpvvK2ntx7kT4duChDA", { "pageItems": "#P0_LANGUAGE", "lazyLoading": false, "internalRegionId": "39422891780585769" }); })();
+          (function () { apex.widget.report.init("R39422235655585762", "UkVHSU9OIFRZUEV-fjM5NDIyMjM1NjU1NTg1NzYy\u002FH37qPVECSTJDacMRcnGza4hs44MfNlXUpwiYi9ZZt_VAwqzxOPa5H3alHOCmGTnaY2jFeWc6D5w0Hk4nmXaYrw", { "pageItems": "#P0_LANGUAGE", "lazyLoading": false, "internalRegionId": "39422235655585762" }); })();
+          (function () { apex.widget.report.init("R39421649193585756", "UkVHSU9OIFRZUEV-fjM5NDIxNjQ5MTkzNTg1NzU2\u002Fi73Fud3ESoEeFHd4zl5sVnkcb9OrEti8BrpRrqj5pRWPy20AviMDfydkAdRZ-miGmGSwHO0_JFDOzEvs9nJKRg", { "pageItems": "#P0_LANGUAGE", "lazyLoading": false, "internalRegionId": "39421649193585756" }); })();
+          (function () { apex.widget.report.init("COPPR", "UkVHSU9OIFRZUEV-fjEyNDc4OTU5OTUzMzMyNTA0\u002FsCgHJS1SII3NRqyJCyb5RMW1ldeIW8ZW-pPNQ8yZGthgiuQJF2iQJfu-RiWA5Dvi1gjdCLXcix_u9hjohrUNlw", { "pageItems": "#P0_LANGUAGE", "lazyLoading": false, "internalRegionId": "12478959953332504" }); })();
+          (function () { apex.widget.report.init("R12482337643332538", "UkVHSU9OIFRZUEV-fjEyNDgyMzM3NjQzMzMyNTM4\u002FsCnloh373VcZOoyN9EfSCjm2NsU6rjTVnp4qQpXDbSjGkK1-GHmozFOgN35z9T3RXTWm4nxUBq6u_Pr9Bla5Dw", { "pageItems": "#P0_LANGUAGE", "lazyLoading": false, "internalRegionId": "12482337643332538" }); })();
+          (function () {
+            var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
+            if (e.hasClass("js-addActions")) {
+              apex.actions.addFromMarkup(e);
+            }
+            e.menu({
+              behaveLikeTabs: e.hasClass("js-tabLike"),
+              menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
+              menubar: true,
+              menubarOverflow: true,
+              callout: e.hasClass("js-menu-callout")
+            });
+          })();
+        } catch (e) { apex.debug.error(e) };
+        apex.item.waitForDelayLoadItems().done(function () {
+          try {
+            (function () {
+              apex.da.initDaEventList();
+              apex.da.init();
+            })();
+            apex.theme42.initializePage.noSideCol();
+
+            apex.page.warnOnUnsavedChanges();
+          } finally {
+            apex.event.trigger(apex.gPageContext$, 'apexreadyend');
+          };
+        });
+      });
+    }); apex.pwa.publicKey = ''
+    apex.pwa.init({ serviceWorkerPath: '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' });
   </script>
   <script>
     $(document).ready(function () {
@@ -1668,61 +1714,6 @@
     });
 
 
-  </script>
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      apex.jQuery(function () {
-        apex.page.init(this, function () {
-          try {
-            (function () { apex.widget.selectList("#P0_LANGUAGE", { "ajaxIdentifier": "SVRFTSBUWVBFfjUxMjB-MzgxODM5MDAxMjAxMjk3NDc\u002FfRk75vWgDmHLk9etT6bxc5Gy1UNNwht3tI3fJwwexIuaDrndw4QbqOy_UydDBDZ1f7y8RqppS4CPldV8PyZ1NQ" }); })();
-            (function () {
-              var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
-              if (e.hasClass("js-addActions")) {
-                apex.actions.addFromMarkup(e);
-              }
-              e.menu({
-                behaveLikeTabs: e.hasClass("js-tabLike"),
-                menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
-                menubar: true,
-                menubarOverflow: true,
-                callout: e.hasClass("js-menu-callout")
-              });
-            })();
-            (function () { apex.util.defineTemplates([{ "name": "APEX_CARDS_BEFORE", "template": "\u003Cul class=\u0022a-CardView-items #CARD_LAYOUT# #COMPONENT_CLASSES#\u0022\u003E\u000A", "args": [{ "name": "CARD_LAYOUT", "escape": "ATTR" }, { "name": "COMPONENT_CLASSES", "escape": "ATTR" }] }, { "name": "APEX_CARDS_CARD_33195007429326677", "template": "\u003Cli class=\u0022a-CardView-item \u0026APEX$ROW_STATE_CLASSES.\u0022 data-id=\u0022\u0026APEX$ROW_ID.\u0022 data-rownum=\u0022\u0026APEX$ROW_INDEX.\u0022\u003E\u000A\u003Cdiv class=\u0022a-CardView{if ?TITLE_HTML_EXPR\u002F} has-title{endif\u002F}{if ?ICON_INITIALS\u002F} has-icon has-icon--top{elseif ?ICON_IMAGE\u002F} has-icon has-icon--top{elseif ?ICON_CLASSES\u002F} has-icon has-icon--top{endif\u002F}{if APEX$ACTION_EXISTS\u002F} has-actions{endif\u002F}{if APEX$FULL_ACTION_EXISTS\u002F} has-actions--full{endif\u002F} #CARD_CLASSES#\u0022\u003E\u000A{if ?APEX$FULL_CARD_LINK\u002F}\u003Ca class=\u0022a-CardView-fullLink\u0022 href=\u0022#APEX$FULL_CARD_LINK#\u0022 #APEX$FULL_CARD_LINK_ATTR#\u003E\u003Cspan class=\u0022u-vh\u0022\u003E#TITLE_HTML_EXPR#\u003C\u002Fspan\u003E\u003C\u002Fa\u003E{endif\u002F}\u000A\u003Cdiv class=\u0022a-CardView-header\u0022\u003E\u000A\u003Cdiv class=\u0022a-CardView-iconWrap #ICON_POSITION#\u0022\u003E\u000A{if ?ICON_INITIALS\u002F}\u003Cspan class=\u0022a-CardView-initials u-color #ICON_CLASSES#\u0022 aria-hidden=\u0022true\u0022 title=\u0022#ICON_DESCRIPTION_ATTR#\u0022\u003E#ICON_INITIALS#\u003C\u002Fspan\u003E\u000A{elseif ?ICON_IMAGE\u002F}\u003Cimg class=\u0022a-CardView-iconImg #ICON_CLASSES#\u0022 src=\u0022#ICON_IMAGE#\u0022 alt=\u0022#ICON_DESCRIPTION_ATTR#\u0022 loading=\u0022lazy\u0022 \u002F\u003E\u000A{elseif ?ICON_CLASSES\u002F}\u003Cspan class=\u0022a-CardView-icon u-color #ICON_CLASSES#\u0022 aria-hidden=\u0022true\u0022 title=\u0022#ICON_DESCRIPTION_ATTR#\u0022\u003E\u003C\u002Fspan\u003E\u000A{endif\u002F}\u000A\u003C\u002Fdiv\u003E\u000A\u003Cdiv class=\u0022a-CardView-headerBody\u0022\u003E\u000A{if ?TITLE_HTML_EXPR\u002F}#TITLE_HTML_EXPR#{endif\u002F}\u000A{if ?SUB_TITLE\u002F}\u000A\u003Ch4 class=\u0022a-CardView-subTitle #SUB_TITLE_CLASSES#\u0022\u003E#SUB_TITLE#\u003C\u002Fh4\u003E\u000A{endif\u002F}\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fdiv\u003E\u000A{if APEX$BUTTON_ACTION_EXISTS\u002F}\u000A\u003Cdiv class=\u0022a-CardView-actions\u0022\u003E\u003Cdiv class=\u0022a-CardView-actionsPrimary\u0022\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\u0022a-CardView-actionsSecondary\u0022\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E{endif\u002F}\u000A\u003C\u002Fdiv\u003E\u000A\u003C\u002Fli\u003E\u000A", "args": [{ "name": "CARD_CLASSES", "escape": "ATTR" }, { "name": "APEX$FULL_CARD_LINK", "escape": "ATTR" }, { "name": "APEX$FULL_CARD_LINK_ATTR", "escape": "RAW" }, { "name": "TITLE_HTML_EXPR", "escape": "RAW" }, { "name": "ICON_POSITION", "escape": "ATTR" }, { "name": "ICON_CLASSES", "escape": "ATTR" }, { "name": "ICON_DESCRIPTION_ATTR", "escape": "ATTR" }, { "name": "ICON_INITIALS", "escape": "HTML" }, { "name": "ICON_IMAGE", "escape": "ATTR" }, { "name": "SUB_TITLE_CLASSES", "escape": "ATTR" }, { "name": "SUB_TITLE", "escape": "HTML" }] }, { "name": "APEX_CARDS_AFTER", "template": "\u003C\u002Ful\u003E" }]); apex.widget.templateReportRegionInit({ "regionId": "33195007429326677", "regionStaticId": "R33195007429326677", "regionType": "Cards", "ajaxIdentifier": "UkVHSU9OIFRZUEV-fjMzMTk1MDA3NDI5MzI2Njc3\u002Fm-8hDRjVihgE7YSUMkb-2m4XyIdyS1kEVnOmexq3cloxgawqJxxMDa8NtKsdVGCSdlblPRYpFn88oGaxHKTeMg", "modelName": "R33195007429326677", "modelOptions": { "regionId": 33195007429326677, "paginationType": "progressive", "pageSize": 100, "identityField": "ID" }, "pagination": { "scroll": true, "showRange": false, "firstAndLastButtons": false, "hideSinglePage": true }, "footer": false, "hideEmptyFooter": true, "hasSize": false, "beforeTemplate": "{with\u002F}\u000ACARD_LAYOUT:=a-CardView-items--grid4col\u000ACOMPONENT_CLASSES:=\u000A{apply APEX_CARDS_BEFORE\u002F}", "recordTemplate": "{with\u002F}\u000ACARD_CLASSES:=\u000AAPEX$FULL_CARD_LINK:=\u0026\u0022APEX$FULL_CARD_LINK\u0022!RAW.\u000AAPEX$FULL_CARD_LINK_ATTR:=\u000ATITLE_HTML_EXPR:=\u003Ch5\u003E\u0026LIST_NAME.\u003C\u002Fh5\u003E\u000AICON_POSITION:=a-CardView-iconWrap--top\u000AICON_CLASSES:=\u000AICON_DESCRIPTION_ATTR:=\u000AICON_INITIALS:=\u0026\u0022APEX$_INITIALS\u0022!RAW.\u000AICON_IMAGE:=\u0026\u0022APEX$LIST_IMG_BLOB\u0022!RAW.\u000ASUB_TITLE_CLASSES:=\u000ASUB_TITLE:=\u000A{apply APEX_CARDS_CARD_33195007429326677\u002F}", "afterTemplate": "{with\u002F}\u000A{apply APEX_CARDS_AFTER\u002F}", "columns": [{ "ID": { "index": 0 }, "LIST_NAME": { "index": 1 }, "PAGE_NAME": { "index": 2 }, "LIST_IMG": { "index": 3 }, "APEX$LIST_IMG_BLOB": { "index": 4 }, "APEX$FULL_CARD_LINK": { "index": 5 }, "APEX$BUTTON_ACTION_EXISTS": { "index": 6 }, "APEX$FULL_ACTION_EXISTS": { "index": 7 }, "APEX$ACTION_EXISTS": { "index": 8 } }] }, gCard33195007429326677data); })();
-            (function () { apex.widget.report.init("scroll-text", "UkVHSU9OIFRZUEV-fjM5NzQyNDQzMzMyMzc3NzUz\u002FKBI_ChqVwQurpqmz0chLz3gAQPlZWfUlZwtczsXu2KXHWbISYF57t2_oPXEMuc2fBANjDAkBYunzfzjRHfSQPw", { "lazyLoading": true, "internalRegionId": "39742443332377753" }); })();
-            (function () {
-              var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
-              if (e.hasClass("js-addActions")) {
-                apex.actions.addFromMarkup(e);
-              }
-              e.menu({
-                behaveLikeTabs: e.hasClass("js-tabLike"),
-                menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
-                menubar: true,
-                menubarOverflow: true,
-                callout: e.hasClass("js-menu-callout")
-              });
-            })();
-          } catch (e) { apex.debug.error(e) };
-          apex.item.waitForDelayLoadItems().done(function () {
-            try {
-              (function () {
-                apex.da.initDaEventList();
-                apex.da.init();
-              })();
-              apex.theme42.initializePage.noSideCol();
-
-              apex.page.warnOnUnsavedChanges();
-            } finally {
-              apex.event.trigger(apex.gPageContext$, 'apexreadyend');
-            };
-          });
-        });
-      }); apex.pwa.publicKey = ''
-      apex.pwa.init({ serviceWorkerPath: '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.1-41853896899929\u0026lang=en' });
-    });
   </script>
 
   <script>

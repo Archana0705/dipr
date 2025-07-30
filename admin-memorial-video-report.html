@@ -1940,8 +1940,8 @@
 
       async function registerNewData() {
         debugger
-        let fileInput = $('#press_create_video_FileUpload_input')[0]; // Get file input
-        let file = fileInput.files[0]; // Get selected file
+        let fileInput = $('#press_create_video_FileUpload_input')[0];
+        let file = fileInput.files[0];
 
         if (!file) {
           showErrorToast("Please select a video file.");
@@ -1961,29 +1961,42 @@
           return;
         }
 
-        // Create FormData and append video file
-        let formData = new FormData();
-        formData.append("action", "insert");
-        formData.append("slno", 12);
-        formData.append("memorial", $('#Press_create_memorial').val() || "");
-        formData.append("place", $('#Press_create_place').val() || "");
-        formData.append("created_by", "admin");
-        formData.append("created_on", "2025-03-17");
-        formData.append("updated_by", "admin");
-        formData.append("updated_on", "2025-03-17");
-        formData.append("district", $('#Press_create_district').val() || "");
-        formData.append("video_name", $('#Press_create_video_name').val() || "");
-        formData.append("mime_type", file.type);
-        formData.append("video_attachment", file);
-        formData.append("language", "en");
-
+        // // Create FormData and append video file
+        // let formData = new FormData();
+        // formData.append("action", "insert");
+        // formData.append("slno", 12);
+        // formData.append("memorial", $('#Press_create_memorial').val() || "");
+        // formData.append("place", $('#Press_create_place').val() || "");
+        // formData.append("created_by", "admin");
+        // formData.append("created_on", "2025-03-17");
+        // formData.append("updated_by", "admin");
+        // formData.append("updated_on", "2025-03-17");
+        // formData.append("district", $('#Press_create_district').val() || "");
+        // formData.append("video_name", $('#Press_create_video_name').val() || "");
+        // formData.append("mime_type", file.type);
+        // formData.append("video_attachment", file);
+        // formData.append("language", "en");
+        const payload = {
+          action: "insert",
+          slno: 12,
+          memorial: $('#Press_create_memorial').val() || "",
+          place: $('#Press_create_place').val() || "",
+          created_by: "admin",
+          created_on: "2025-03-17",
+          updated_by: "admin",
+          updated_on: "2025-03-17",
+          district: $('#Press_create_district').val() || "",
+          video_name: $('#Press_create_video_name').val() || "",
+          mime_type: file.type,
+          video_attachment_name: file.name,
+          video_attachment: file,
+          language: "en"
+        }
         // Send FormData using AJAX
         $.ajax({
           url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/tnMemorial',
           type: 'POST',
-          data: formData,
-          processData: false,
-          contentType: false,
+          data: JSON.stringify(payload),
           success: function (response) {
             showSuccessToast("Video uploaded successfully!");
           },

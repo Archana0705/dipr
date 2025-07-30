@@ -774,8 +774,7 @@
                   <a-file-upload id="press_video_FileUpload" name="press_video_FileUpload" upload-type="FILE"
                     display-style="NATIVE" size="30">
                     <input type="file" id="press_video_FileUpload_input" name="press_video_FileUpload"
-                      class="text_field&#x20;apex-item-text" value=""
-                      accept="video/mp4, video/avi, video/mkv, video/webm, video/mov" maxlength="1000" />
+                      class="text_field&#x20;apex-item-text" value="" accept=".pdf,.jpg,.jpeg" maxlength="1000" />
                     <div class="a-FileDrop a-FileDrop--native">
                     </div>
                   </a-file-upload>
@@ -891,8 +890,7 @@
                   <a-file-upload id="press_create_video_FileUpload" name="press_create_video_FileUpload"
                     upload-type="FILE" display-style="NATIVE" accept=".pdf,.jpg,.jpeg,video/*" size="30">
                     <input type="file" id="press_create_video_FileUpload_input" name="press_create_video_FileUpload"
-                      class="text_field&#x20;apex-item-text" value=""
-                      accept="video/mp4, video/avi, video/mkv, video/webm, video/mov" maxlength="1000" />
+                      class="text_field&#x20;apex-item-text" value="" accept=".pdf,.jpg,.jpeg" maxlength="1000" />
                     <div class="a-FileDrop a-FileDrop--native">
                     </div>
                   </a-file-upload>
@@ -1767,35 +1765,28 @@
       })
 
       const createDownloadLink = (content, mimeType, filename) => {
-        if (!content) return "N/A";
+        let base64File = content;
 
-        try {
-          // Check if the content is a valid Base64 string
-          const isBase64 = (str) => {
-            try {
-              return btoa(atob(str)) === str; // Double check encoding & decoding works
-            } catch (err) {
-              return false; // If decoding fails, it's not Base64
-            }
-          };
-
-          if (isBase64(content)) {
-            // Decode Base64 content and create a blob
-            const byteCharacters = atob(content);
-            const byteNumbers = new Array(byteCharacters.length).fill(0).map((_, i) => byteCharacters.charCodeAt(i));
-            const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], { type: mimeType });
-            const url = URL.createObjectURL(blob);
-
-            return `<a href="${url}" download="${filename}" class="btn btn-sm btn-link">${filename}</a>`;
-          }
-
-          // If it's not Base64, assume it's a URL
-          return `<a href="${content}" target="_blank" class="btn btn-sm btn-link">${filename}</a>`;
-        } catch (error) {
-          console.error("Error creating download link:", error);
-          return "Invalid content";
+        // Remove Base64 header if present
+        if (base64File.includes('base64,')) {
+          base64File = base64File.split('base64,')[1];
         }
+
+        // Decode Base64 string into binary data
+        const byteCharacters = atob(base64File);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+
+        // Create a Blob from the binary data
+        const blob = new Blob([byteArray], { type: mimeType });
+
+        // Generate a URL for the Blob
+        const fileUrl = URL.createObjectURL(blob);
+
+        return `<a href="${fileUrl}" download="${filename}" class="btn btn-sm btn-link">${filename}</a>`;
       };
 
       $("body").on("click", "#open-modal-btn", function () {
@@ -1902,7 +1893,7 @@
           "action": "insert",
           "table": "TN_PRESS_NOTES",
           "PRESS_NOTE_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-          "ATTACHMENT_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+          "ATTACHMENT_NAME": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
           "MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
           "PN_DATE": pndate,
           "press_note_no": 3,
@@ -1924,7 +1915,7 @@
             }
           },
           error: function () {
-            showErrorToast("Failed to upload video.");
+            showErrorToast("Failed!");
           }
         });
       }

@@ -91,15 +91,7 @@
       border-radius: 5px;
     }
   </style>
-
   <style>
-    .t-Form-itemWrapper input[type="date"] {
-      width: 70%;
-      max-width: 300px;
-      padding: 8px;
-      font-size: 16px;
-    }
-
     .titlePos .t-Body-title {
       position: unset !important;
     }
@@ -786,7 +778,6 @@
                     <div class="a-FileDrop a-FileDrop--native">
                     </div>
                   </a-file-upload>
-
                 </div>
                 <div class="t-Form-inputContainer col col-12">
                   <div class="t-Form-itemWrapper" id="P86_INTERIM_COPY_LINK_CONTAINER">
@@ -811,8 +802,8 @@
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" placeholder="Select Date" aria-haspopup="dialog" class="P50_DATE_OF_FIR"
-                    name="P50_DATE_OF_FIR" size="30">
+                  <input type="date" id="Press_date" placeholder="Select Date" aria-haspopup="dialog"
+                    class="apex-item-text&#x20;apex-item-datepicker" name="Press_date" size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="Press_date_error_placeholder" class="a-Form-error"
@@ -847,22 +838,18 @@
           </div>
         </div>
       </div>
-
       <div class="t-Region-buttons-right float-end pad0">
-        <div class="t-Region-buttons-right float-end pad0">
-          <button
-            class="t-Button bg-danger text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
-            id="deleteBtn">Delete</button>
-        </div>
+        <button
+          class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+          id="deleteBtn">Delete</button>
         <button
           class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
           id="updateBtn">Update</button>
       </div>
-
-      <div class="t-Region-buttons-right pad0" style="text-align: left;">
+      <div class="t-Region-buttons-right float-end pad0">
         <button
           class="bg-danger text-white t-Button t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight close-button"
-          id="cancelBtn">Cancel</button>
+          id="cancelBtn"> Cancel </button>
       </div>
     </div>
   </div>
@@ -884,8 +871,8 @@
               </div>
               <div class="t-Form-inputContainer col col-6">
                 <div class="t-Form-itemWrapper">
-                  <input type="date" id="press_create_date" placeholder="Select Date" aria-haspopup="dialog"
-                    name="Press_create_date" size="30">
+                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
+                    class="apex-item-text&#x20;apex-item-datepicker" name="Press_create_date" size="30">
                 </div>
                 <div class="t-Form-itemAssistance">
                   <span id="Press_create_date_error_placeholder" class="a-Form-error"
@@ -970,6 +957,65 @@
     <header class="t-Header" id="t_Header" role="banner">
 
 
+      <!-- <div class="t-Header-navBar">
+
+        <div class="t-Header-navBar--start">
+
+          <div class="t-Header-navBar--end">
+            <div
+              class="t-Form-fieldContainer rel-col t-Form-fieldContainer--large t-Form-fieldContainer--normalDisplay apex-item-wrapper apex-item-wrapper--has-initial-value apex-item-wrapper--select-list"
+              id="P0_LANGUAGE_CONTAINER">
+              <div class="t-Form-labelContainer col col-null">
+                <label for="P0_LANGUAGE" id="P0_LANGUAGE_LABEL" class="t-Form-label"></label>
+              </div>
+              <div class="t-Form-inputContainer col col-null">
+                <div class="t-Form-itemWrapper"><select id="P0_LANGUAGE" name="P0_LANGUAGE"
+                    class="selectlist&#x20;apex-item-select" data-native-menu="false" size="1">
+                    <option value="en" selected="selected">English</option>
+                    <option value="ta">Tamil</option>
+                  </select></div><span id="P0_LANGUAGE_error_placeholder" class="a-Form-error"
+                  data-template-id="32751098700172723_ET"></span>
+              </div>
+            </div>
+          </div>
+          <div class="t-Header-navBar--center">
+            <ul class="t-NavigationBar " id="32861498506172843">
+              <li class="t-NavigationBar-item a-pwaInstall">
+                <a class="t-Button t-Button--icon t-Button--header t-Button--navBar" href="#action$a-pwa-install"
+                  title="" target="">
+                  <span class="t-Icon fa&#x20;fa-cloud-download" aria-hidden="true"></span><span
+                    class="t-Button-label">Install App</span><span class="t-Button-badge"></span>
+                </a>
+              </li>
+              <li class="t-NavigationBar-item has-username">
+                <button class="t-Button t-Button--icon t-Button t-Button--header t-Button--navBar" type="button"
+                  id="L33048349307174626" data-menu="menu_L33048349307174626" title="">
+                  <span class="t-Icon fa&#x20;fa-user" aria-hidden="true"></span><span
+                    class="t-Button-label">DHIVAHAR</span><span class="t-Button-badge"></span><span
+                    class="a-Icon icon-down-arrow" aria-hidden="true"></span>
+                </button>
+                <div class="t-NavigationBar-menu" style="display: none" id="menu_L33048349307174626">
+                  <ul>
+                    <li class="" data-current="false" data-icon="fa&#x20;fa-sign-out"><a
+                        href="apex_authentication.logout?p_app_id=103&p_session_id=606351205798953" title=""
+                        target="">Sign Out</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="t-Header-navBar--end"></div>
+          <a href="https://www.facebook.com/TNDIPR" class="fa fa-facebook" target='_blank'></a>
+          <a href="https://twitter.com/TNDIPRNEWS" class="fa fa-twitter " target='_blank'></a>
+          <a href="https://www.instagram.com/tndipr"><img src="r/dipr/103/files/static/v397/instagram.jpeg"
+              style="height:35px;" class="fa fa-twitter" target='_blank'>
+            <a href="https://www.youtube.com/c/tndipr21" class="fa fa-youtube" target='_blank'></a>
+
+
+        </div>
+
+      </div> -->
+
       <div class="t-Header-navBar">
 
         <div class="t-Header-navBar--start">
@@ -1031,11 +1077,6 @@
 
       </div>
 
-      <!-- <div class=" nobgcolor ">
-<img id="first_image" style=" height: 100%;" src = 'r/dipr/103/files/static/v397/left-png.png' > <span class="alignCenter"><center> Information and Public Relations Department </br> செய்தி – மக்கள் தொடர்புத்துறை </center></span>
-    <img id="last_image" style=" height: 100%;" src = "r/dipr/103/files/static/v397/right-png.png" > 
-
-   </div> -->
       <div class="nobgcolor">
         <div class="widthFixed">
           <!-- <img id="first_image" class="header-images" src="r/dipr/103/files/static/v397/left-png.png"> -->
@@ -1046,7 +1087,6 @@
           <!-- <img id="last_image" class="header-images" src="r/dipr/103/files/static/v397/right-png.png"> -->
         </div>
       </div>
-
       <div class="t-Header-nav">
         <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
           <ul>
@@ -1214,9 +1254,8 @@
                               <div role="region"
                                 aria-label="Buttons&#x20;next&#x20;to&#x20;search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
                                 class="a-IRR-buttons"><button class="t-Button t-Button--hot js-ignoreChange"
-                                  type="button" id="upload-press-open-modal"><span class="t-Button-label">Upload
-                                    Government Orders
-                                  </span></button></div>
+                                  type="button" id="upload-press-open-modal"><span
+                                    class="t-Button-label">Create</span></button></div>
                             </div>
                             <div id="R34839964403869597_content" class="a-IRR-content ">
                               <div id="R34839964403869597_dialog_js" class="a-IRR-dialogBody" style="display:none">
@@ -1242,8 +1281,11 @@
                                     class="a-IRR-table" id="pressReleaseTable">
                                     <thead>
                                       <tr>
-                                        <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
-                                          <span class="u-vh">Link</span>
+                                        <!-- <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
+                                        <span class="u-vh">Link</span>
+                                      </th> -->
+                                        <th class="a-IRR-header u-tL" id="C117484399239914210"><a aria-haspopup="dialog"
+                                            class="a-IRR-headerLink" data-column="117484399239914210" href="#">Link</a>
                                         </th>
                                         <th class="a-IRR-header u-tL" id="C11748439923991421"><a aria-haspopup="dialog"
                                             class="a-IRR-headerLink" data-column="11748439923991421" href="#">Pr
@@ -1264,24 +1306,12 @@
                                             Date</a></th>
                                       </tr>
                                     </thead>
-                                    <tbody id="governmentOrdersTableBody">
+                                    <tbody id="pressReleaseTableBody">
                                       <!-- Dynamic rows will be inserted here -->
                                     </tbody>
                                   </table>
                                 </div>
-                                <div role="region" aria-label="Pagination&#x20;of&#x20;Press&#x20;Release"
-                                  class="a-IRR-paginationWrap a-IRR-paginationWrap--bottom">
-                                  <ul class="a-IRR-pagination">
-                                    <li aria-hidden="true" class="a-IRR-pagination-item is-disabled"></li>
-                                    <li class="a-IRR-pagination-item"><span class="a-IRR-pagination-label"> 1 -
-                                        50</span></li>
-                                    <li class="a-IRR-pagination-item"><button type="button"
-                                        class="a-Button a-IRR-button a-IRR-button--pagination"
-                                        aria-controls="R34839964403869597" title="Next" aria-label="Next"
-                                        data-pagination="pgR_min_row=51max_rows=50rows_fetched=50"><span
-                                          class="a-Icon icon-right-chevron" aria-hidden="true"></span></button></li>
-                                  </ul>
-                                </div>
+
                               </div>
                             </div>
                           </div>
@@ -1398,12 +1428,12 @@
         { "triggeringElementType": "ITEM", "triggeringElement": "P0_LANGUAGE", "bindType": "bind", "executionType": "IMMEDIATE", "bindEventType": "change", "anyActionsFireOnInit": false, actionList: [{ "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, "waitForResult": true, javascriptFunction: apex.da.executePlSqlCode, "ajaxIdentifier": "REEgVFlQRX5-NDM0MzQzOTA5NTkyMjI3NTI\u002Fpa3Aj0lYJUNZTKs0aczMu8B_oFdXmzoD930MKT_4t73jEPkRk6hQfmqg_bR5yB--NgceL9krPyBLr302jlUkag", "attribute01": "#P0_LANGUAGE", "attribute04": "N", "action": "NATIVE_EXECUTE_PLSQL_CODE" }, { "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, javascriptFunction: apex.da.submitPage, "attribute02": "Y", "action": "NATIVE_SUBMIT_PAGE" }] }];
     }
   </script> -->
-
-
   <script src="../assets/vendor/datatable/jquery.dataTables.min.js"></script>
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/global.js"></script>
+
+
   <script type="text/javascript">
     apex.session.initTimeouts(300, { "idle_time_ms": 3595000, "life_time_ms": 28755000, "max_idle_time_ms": 3600000 }, '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome', '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome');
     apex.jQuery(function () {
@@ -1519,6 +1549,7 @@
     });
 
   </script>
+
   <script>
     function showSuccessToast(message) {
       const toastElement = document.getElementById('successToast');
@@ -1553,6 +1584,7 @@
     $(document).ready(function () {
       debugger
       $('#preloader').hide();
+      var langSwitch = 'en';
       $(document).on({
         ajaxStart: function () {
           $('#preloader').show();
@@ -1563,129 +1595,96 @@
           $("body").removeClass("user_loading");
         }
       });
+      const createDownloadLink = (content, mimeType, filename) => {
+        let base64Data = content;
 
-      // });
-      $('#preloader').hide();
-
-      function checkFile(selector) {
-        var fileInput = $(selector)[0];
-        var file = fileInput.files[0];
-        const validTypes = ['application/pdf', 'image/jpeg', 'image/jpg'];
-        const maxSize = 2 * 1024 * 1024; // 2MB in bytes
-
-        // Check if a file has been selected
-        if (file) {
-          // Check file type
-          if (!validTypes.includes(file.type)) {
-            errors = true;
-            $('#' + selector.replace('#', '') + '_error_placeholder').text('Invalid file type. Supported types are .pdf, .jpg, .jpeg.').css('color', 'red');
-            return;
-          }
-
-          // Check file size
-          if (file.size > maxSize) {
-            errors = true;
-            $('#' + selector.replace('#', '') + '_error_placeholder').text("File size exceeds the 2MB limit.").css('color', 'red');
-            return;
-          }
+        // Remove Base64 header if present
+        if (base64Data.includes('base64,')) {
+          base64Data = base64Data.split('base64,')[1];
         }
-      }
-      function processFile(selector) {
-        return new Promise((resolve, reject) => {
-          var fileInput = $(selector)[0];
-          var file = fileInput.files[0];
-          if (!file) {
-            resolve(null);
-            return;
-          }
 
-          const reader = new FileReader();
-          const fileData = {};
+        // Decode Base64 string into binary data
+        const byteCharacters = atob(base64Data);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
 
-          reader.onload = function (event) {
-            // File processed as Base64 string
-            fileData.fileBase64 = event.target.result.split(',')[1];
-            fileData.mimetype = file.type;
-            fileData.filename = file.name;
+        // Create a Blob from binary data
+        const blob = new Blob([byteArray], { type: mimeType });
 
-            resolve(fileData);
-          };
+        // Generate a URL for the Blob
+        const fileUrl = URL.createObjectURL(blob);
 
-          reader.onerror = function (error) {
-            reject(error);
-          };
+        // Return a downloadable link
+        return `<a href="${fileUrl}" download="${filename}" class="btn btn-sm btn-link">${filename}</a>`;
+      };
 
-          reader.readAsDataURL(file);
-        });
-      }
-
-      function formatDate(dateString) {
-        if (!dateString) return 'N/A';
-        let date = new Date(dateString);
-        return date.toLocaleDateString('en-GB');
-      }
-
-      $(document).ready(function () {
-        $("td.a-GV-cell").each(function () {
-          let text = $(this).text().trim();
-          if (text && text !== 'N/A' && !isNaN(Date.parse(text))) {
-            $(this).text(formatDate(text));
-          }
-        });
-      });
-
+      $('#preloader').hide();
       let tableData;
       let selectedId;
-      let orderName;
       let dataTable;
       const userId = localStorage.getItem("role_id");
       const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/viewReport";
-      const tableBody = $("#governmentOrdersTableBody");
+      const tableBody = $("#pressReleaseTableBody");
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
-      $.ajax({
-        url: apiUrl,
-        method: "POST",
-        success: function (response) {
-          tableData = response.data;
-          console.log("Table data" + tableData)
-          tableBody.empty();
 
-          if (!tableData || tableData.length === 0) {
-            tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
-            return;
-          }
-          if ($.fn.DataTable.isDataTable("#pressReleaseTable")) {
-            $("#pressReleaseTable").DataTable().clear().destroy();
-          }
+      function fetchData() {
+        var viewPayload = {
+          "lang": langSwitch
+        };
+        $.ajax({
+          url: apiUrl,
+          method: "POST",
+          //contentType: "application/json",
+          //data: JSON.stringify(state_customize_reportPayload),
+          success: function (response) {
+            tableData = response.data;
+            tableBody.empty();
 
-          let tableRows = "";
-          tableData.forEach(item => {
-            tableRows += `
-              < tr >
-              <td class="u-tL">   <a data-id="${item.id}" data-file="${item.order_name}" id="open-modal-btn" href="javascript:void(0);">
-        <i class="bi bi-pencil-square"></i>
-      </a></td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
+            if (!tableData || tableData.length === 0) {
+              tableBody.append('<tr><td colspan="9" class="text-center">No Data Found</td></tr>');
+              return;
+            }
+
+            if ($.fn.DataTable.isDataTable("#pressReleaseTable")) {
+              $("#pressReleaseTable").DataTable().clear().destroy();
+            }
+
+            let tableRows = "";
+            tableData.forEach(item => {
+              tableRows += `
+              <tr>
+              <td class="u-tL">   <a data-id="${item.id}"  data-file="${item.order_name}" i id="open-modal-btn" href="javascript:void(0);">
+             <i class="bi bi-pencil-square"></i>
+             </a></td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.go_date) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
               <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.order_name) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.go_date) || 'N/A'}</td>
-              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${formatDate(item.uploaded_on) || 'N/A'}</td>
-              </tr > `;
-          });
-          tableBody.html(tableRows);
-          dataTable = $("#pressReleaseTable").DataTable({
-            paging: true,
-            searching: true,
-            ordering: true,
-            order: [[0, 'asc']],
-            responsive: true,
-          });
-        },
-        error: function (xhr, status, error) {
-          console.error("Error fetching data: ", error);
-          tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
-        }
-      });
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_by) || 'N/A'}</td>
+              <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.uploaded_date) || 'N/A'}</td>
+            
+              </tr>`;
+            });
+            tableBody.html(tableRows);
+            dataTable = $("#pressReleaseTable").DataTable({
+              paging: true,
+              searching: true,
+              ordering: true,
+              order: [[0, 'asc']],
+              responsive: true,
+            });
+
+          },
+          error: function (xhr, status, error) {
+            console.error("Error fetching data: ", error);
+            tableBody.html('<tr><td colspan="9" class="text-center">Failed to load data</td></tr>');
+          }
+        });
+      }
+
+      fetchData();
 
       $("#modal").dialog({
         autoOpen: false,
@@ -1705,67 +1704,14 @@
         resizable: false
       });
 
+      // $("body").on("click", "#open-modal-btn", function () {
+      //   $("#modal").dialog("open");
+      // });
+
       $("#upload-press-open-modal").on("click", function () {
         $("#uploadModal").dialog("open");
       })
-
-      const createDownloadLink = (content, mimeType, filename) => {
-        if (!content) return "N/A";
-
-        try {
-          // Check if the content is a valid Base64 string
-          const isBase64 = (str) => {
-            try {
-              return btoa(atob(str)) === str; // Double check encoding & decoding works
-            } catch (err) {
-              return false; // If decoding fails, it's not Base64
-            }
-          };
-
-          if (isBase64(content)) {
-            // Decode Base64 content and create a blob
-            const byteCharacters = atob(content);
-            const byteNumbers = new Array(byteCharacters.length).fill(0).map((_, i) => byteCharacters.charCodeAt(i));
-            const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], { type: mimeType });
-            const url = URL.createObjectURL(blob);
-
-            return `< a href = "${url}" download = "${filename}" class="btn btn-sm btn-link" > ${filename}</a > `;
-          }
-
-          // If it's not Base64, assume it's a URL
-          return `< a href = "${content}" target = "_blank" class="btn btn-sm btn-link" > ${filename}</a > `;
-        } catch (error) {
-          console.error("Error creating download link:", error);
-          return "Invalid content";
-        }
-      };
-
-
-      // $("body").on("click", "#open-modal-btn", function () {
-      //   debugger
-      //   const pressId = $(this).data("id");
-      //   selectedId = $(this).data("id");
-      //   orderName = $(this).data("file");
-      //   const selectedItem = tableData.find(item => item.id == pressId);
-
-      //   if (selectedItem) {
-      //     $("#Press_name").text(selectedItem.order_name || "");
-      //     $("#Press_date input").val(selectedItem.go_date || "");
-      //     $("#pressLangugage").val(selectedItem.language || "").trigger("change");
-      //     $("#modal").dialog("open");
-
-      //     const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
-      //     if (interimLinkContainer) {
-      //       const downloadLinkHTML = createDownloadLink(
-      //         selectedItem.order_name,
-      //         "application/pdf",
-      //         selectedItem.order_name
-      //       );
-      //       interimLinkContainer.innerHTML = downloadLinkHTML;
-      //     }
-      //   }
-      // });
+      
 
       $("body").on("click", "#open-modal-btn", function () {
         debugger;
@@ -1783,7 +1729,6 @@
         const selectedItem = tableData.find(item => item.id == pressId);
 
         if (selectedItem) {
-          $("#Press_name").text(selectedItem.order_name || "");
           $("#Press_date input").val(selectedItem.go_date || "");
           $("#pressLangugage").val(selectedItem.language || "").trigger("change");
           $("#modal").dialog("open");
@@ -1838,108 +1783,17 @@
         updateData(selectedId, finalOrderFile);
       });
 
-      $(".close-button").on("click", function () {
-        $("#modal").dialog("close");
-      });
-
-      $("#uploadcancelBtn").on("click", function () {
-        $("#uploadModal").dialog("close");
-      });
-
-      $("#createUploadBtn").on("click", function () {
-        registerNewData();
-      });
-
-      async function registerNewData() {
-        debugger
-        try {
-
-          var pressDate = $('#Press_create_date input').val() || "";
-          // var formattedPressDate = convertDateFormat(pressDate);
-          var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
-          let pressInputFile = null;
-          pressInputFile = await processFile('#pressFileUpload_input');
-          checkFile('#pressFileUpload');
-          // if (!polStn || !districtName || !ComplaintData || !complaintMadeBy || !firNo || !dateOfFIR || !childGender || !childDOB || !childAge || !nameOfGuardian) {
-          //   if (willingness === "Yes") {
-          //     if (!willingness || !willName || !willRelation || !willDate || !accName || !accNo || !bankName || !branchName || !ifsc) {
-          //       showErrorToast("Please fill in all required fields.");
-          //       return;
-          //     }
-          //   }
-          //   showErrorToast("Please fill in all required fields.");
-          //   return;
-          // }
-
-          if (pressDate) {
-            var dateObj = new Date(pressDate);
-            var formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
-              ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
-              dateObj.getFullYear();
-            pressDate = formattedDate;
-          }
-
-          var governmentOrderPayload = {
-            "p_ID": 13456456,
-            "V_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "V_DESC": "Latest updates on tech policies",
-            "V_URL": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            "Current_User": "admin_user",
-            "V_DATE": formattedDate,
-            "LANGUAGE": pressLangugage,
-            // "PRESS_FILE": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
-            // "PRESS_FILE_FILENAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
-            // "PRESS_FILE_MIMETYPE": pressInputFile && pressInputFile.mimetype ? pressInputFile.mimetype : null,
-          };
-
-          await $.ajax({
-            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/InsertPressReleaseForm',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(governmentOrderPayload),
-            success: function (response) {
-              // user_id.id = response.return_id;
-              // Court_id.COURT_ID = response.return_id;
-              showSuccessToast("Submitted Successfully");
-              setTimeout(() => window.location.href = "../admin-special-publication-report.html", 1000);
-            },
-            error: function (error) {
-              console.error('Error:', error);
-              showErrorToast("An error occurred during submission of data.");
-            }
-          });
-          await showSuccessToast('Data Submitted Successfully');
-        } catch (error) {
-          console.error('Error:', error);
-          showErrorToast("An unexpected error occurred.");
-        }
-      }
-
-      $("#deleteBtn").on("click", function () {
-        if (!selectedId) {
-          alert("No item selected for deletion.");
-          return;
-        }
-
-        if (confirm("Are you sure you want to delete this item?")) {
-          alert(selectedId)
-          deleteData(selectedId);
-        }
-      });
-
-
-
       async function updateData(id, file) {
         debugger;
 
         const lang = $('#pressLangugage').val();
-        var pressupdatedDt = $('#press_create_date').val();
+        var pressupdatedDt = $('#Press_date').val();
 
-        console.log("Input Value Directly:", $('#press_create_date').val());
-        console.log("Using Vanilla JS:", document.getElementById('press_create_date')?.value);
+        console.log("Input Value Directly:", $('#Prress_date').val());
+        console.log("Using Vanilla JS:", document.getElementById('Press_date')?.value);
 
-        let today = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
-        $('#press_create_date').val(today);
+        let today = new Date().toISOString().split('T')[0];
+        $('#Press_date').val(today);
         console.log("Default Date Set:", today);
 
         let formattedDate = "";
@@ -1960,8 +1814,8 @@
 
         const updatePayload = {
           "p_ID": id,
-          "V_NAME": file,
-          "V_URL": file,
+          "V_NAME": file.filename,
+          "V_URL": file.fileBase64,
           "Current_User": "admin",
           "V_DESC": "Order Description",
           "V_DATE": formattedDate,  // Ensure formattedDate is always defined
@@ -1986,16 +1840,162 @@
         });
       }
 
+
+      $(".close-button").on("click", function () {
+        $("#modal").dialog("close");
+      });
+
+      $("#uploadcancelBtn").on("click", function () {
+        $("#uploadModal").dialog("close");
+      });
+
+      $("#createUploadBtn").on("click", function () {
+        registerNewData();
+      });
+
+      function checkFile(selector) {
+        var fileInput = $(selector);
+        const validTypes = ['application/pdf', 'image/jpeg', 'image/jpg'];
+        const maxSize = 2 * 1024 * 1024; // 2MB in bytes
+        var file = fileInput[0].files[0];
+
+        // Check if a file has been selected
+        if (file) {
+          // Check file type
+          if (!validTypes.includes(file.type)) {
+            errors = true;
+            $('#' + selector.replace('#', '') + '_error_placeholder').text('Invalid file type. Supported types are .pdf, .jpg, .jpeg.').css('color', 'red');
+            return;
+          }
+
+          // Check file size
+          if (file.size > maxSize) {
+            errors = true;
+            $('#' + selector.replace('#', '') + '_error_placeholder').text("File size exceeds the 2MB limit.").css('color', 'red');
+            return;
+          }
+        }
+      }
+      function processFile(selector) {
+        return new Promise((resolve, reject) => {
+          var fileInput = $(selector)[0];
+          var file = fileInput.files[0];
+          if (file === undefined) showErrorToast('Please upload all the required files');
+          if (file) {
+            const reader = new FileReader();
+            const fileData = {};
+
+            reader.onload = function (event) {
+              // File processed as Base64 string
+              fileData.fileBase64 = event.target.result.split(',')[1];
+              fileData.mimetype = file.type;
+              fileData.filename = file.name;
+
+              resolve(fileData); // Resolve the promise with fileData
+            };
+
+            reader.onerror = function (error) {
+              reject(error); // Reject the promise in case of error
+            };
+
+            reader.readAsDataURL(file); // Read the file as a data URL (Base64)
+          }
+        });
+      }
+      async function registerNewData() {
+        var role = localStorage.getItem("role");
+        function convertDateFormat(dateString) {
+          if (dateString === "") {
+            return "";
+          } else {
+            let [month, day, year] = dateString.split("/");
+            return `${day}-${month}-${year}`;
+          }
+        }
+        debugger
+        try {
+
+          var pressDate = $('#Press_create_date input').val() || "";
+          var formattedPressDate = convertDateFormat(pressDate);
+          var pressLangugage = document.getElementById('pressCreateLangugage').value || "";
+          let pressInputFile = null;
+          pressInputFile = await processFile('#pressFileUpload_input');
+          checkFile('#pressFileUpload_input');
+          // if (!polStn || !districtName || !ComplaintData || !complaintMadeBy || !firNo || !dateOfFIR || !childGender || !childDOB || !childAge || !nameOfGuardian) {
+          //   if (willingness === "Yes") {
+          //     if (!willingness || !willName || !willRelation || !willDate || !accName || !accNo || !bankName || !branchName || !ifsc) {
+          //       showErrorToast("Please fill in all required fields.");
+          //       return;
+          //     }
+          //   }
+          //   showErrorToast("Please fill in all required fields.");
+          //   return;
+          // }
+
+          if (pressDate) {
+            var dateObj = new Date(pressDate);
+            var formattedDate = ("0" + dateObj.getDate()).slice(-2) + "-" +
+              ("0" + (dateObj.getMonth() + 1)).slice(-2) + "-" +
+              dateObj.getFullYear();
+            pressDate = formattedDate;
+          }
+
+          var registrationPayload = {
+            "V_NAME": pressInputFile && pressInputFile.filename ? pressInputFile.filename : null,
+            "V_DESC": "Latest updates on tech policies",
+            "V_URL": pressInputFile && pressInputFile.fileBase64 ? pressInputFile.fileBase64 : null,
+            "Current_User": role,
+            "V_DATE": formattedDate,
+            "LANGUAGE": pressLangugage,
+          };
+
+
+          await $.ajax({
+            url: 'https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/InsertPressReleaseForm',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(registrationPayload),
+            success: function (response) {
+              // user_id.id = response.return_id;
+              // Court_id.COURT_ID = response.return_id;
+              showSuccessToast("Submitted Successfully");
+              setTimeout(() => window.location.href = "../admin-goverment-orders.html", 1000);
+            },
+            error: function (error) {
+              console.error('Error:', error);
+              showErrorToast("An error occurred during submission of data.");
+            }
+          });
+          await showSuccessToast('Data Submitted Successfully');
+        } catch (error) {
+          showErrorToast("An unexpected error occurred.");
+        }
+      }
+
+
+
+      $("#deleteBtn").on("click", function () {
+        if (!selectedId) {
+          alert("No item selected for deletion.");
+          return;
+        }
+
+        if (confirm("Are you sure you want to delete this item?")) {
+          alert(selectedId)
+          deleteData(selectedId);
+        }
+      });
+
       function deleteData(id) {
         debugger
         $('#preloader').show();
         $.ajax({
-          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/governmentOrders/deletePressReleaseForm`,
+          url: `https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/pressRelease/deletePressReleaseForm`,
           type: "POST",
           dataType: "json",
           contentType: "application/json",
           data: JSON.stringify({
-            p_ID: id
+            ID: id
           }),
           success: function (response) {
             $('#preloader').hide();
@@ -2014,6 +2014,7 @@
         });
       }
 
+      // Language change event
       document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
         const selectedValue = this.value;
         if (selectedValue === "en") {
@@ -2024,6 +2025,27 @@
           fetchData();
         }
       });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      var role = localStorage.getItem("role");
+      var userAdminName = localStorage.getItem("userAdminName");
+      if (role) {
+        $('.admin-name-change').text(userAdminName);
+        $('.js-tabLike .admin-menu-show').css('display', 'block');
+        var interval = setInterval(function () {
+          if ($('#t_MenuNav_7').length) {
+            $('#t_MenuNav_7').css('display', 'flex');
+          }
+          if ($('#t_MenuNav_8').length) {
+            $('#t_MenuNav_8').css('display', 'flex');
+          }
+          if ($('#t_MenuNav_7').length && $('#t_MenuNav_8').length) {
+            clearInterval(interval);
+          }
+        }, 100);
+      }
     });
   </script>
 </body>
