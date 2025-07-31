@@ -677,11 +677,11 @@
                                     <div role="region"
                                       aria-label="Buttons&#x20;next&#x20;to&#x20;search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
                                       class="a-IRR-buttons"><button class="t-Button t-Button--hot js-ignoreChange"
-                                        type="button" id="upload-press-open-modal"><span
+                                        type="button" id="create-image-open-modal"><span
                                           class="t-Button-label">Create</span></button></div>
                                   </div>
 
-                                  <div id="uploadModal" title="Upload">
+                                  <div id="uploadImageModal" title="Upload">
                                     <div class="modalWrap">
                                       <div class="t-Form-inputContainer col col-12">
                                         <div class="t-Form-itemWrapper file_wrap">
@@ -747,7 +747,7 @@
                                                   <a-file-upload id="pressFileUpload" name="pressFileUpload"
                                                     upload-type="FILE" display-style="NATIVE" accept=".pdf,.jpg,.jpeg"
                                                     size="30" max-file-size="2048">
-                                                    <input type="file" id="pressFileUpload_input" name="pressFileUpload"
+                                                    <input type="file" id="imageUpload_input" name="pressFileUpload"
                                                       class="text_field&#x20;apex-item-text" value=""
                                                       maxlength="1000" />
                                                     <div class="a-FileDrop a-FileDrop--native">
@@ -802,39 +802,35 @@
                                         <table
                                           aria-label="English&#x20;Section&#x20;Content,&#x20;Report&#x20;&#x3D;&#x20;Primary&#x20;Default,&#x20;View&#x20;&#x3D;&#x20;Report"
                                           class="a-IRR-table" id="">
-                                          <tr>
-                                            <th class="a-IRR-header a-IRR-header--linkCol" id="R35581918997104461_LINK">
-                                              <span class="u-vh">Link</span>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C35602786286332654"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="35602786286332654" href="#">Sections
-                                                Name</a></th>
-                                            <th class="a-IRR-header u-tL" id="C35603400752332660"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="35603400752332660" href="#">Language</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C35602870908332655"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="35602870908332655" href="#">Description</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C35602968463332656"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="35602968463332656" href="#">Created By</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C35603131569332657"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="35603131569332657" href="#">Created On</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C35603197642332658"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="35603197642332658" href="#">Updated By</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C35603330296332659"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="35603330296332659" href="#">Updated On</a>
-                                            </th>
-                                          </tr>
+                                          <thead>
+                                            <tr>
+                                              <!-- <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
+                                        <span class="u-vh">Link</span>
+                                      </th> -->
+                                              <th class="a-IRR-header u-tL" id="C117484399239914210"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="117484399239914210" href="#"></a>
+                                              </th>
+                                              <th class="a-IRR-header u-tL" id="C11748439923991421"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="11748439923991421" href="#">File Name
+                                                </a>
+                                              </th>
+                                              <th class="a-IRR-header u-tL" id="C11748439923991421"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="11748439923991421" href="#">Language
+                                                </a>
+                                              </th>
+                                              <th class="a-IRR-header u-tL" id="C11747689722991413"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="11747689722991413" href="#">Created By</a>
+                                              </th>
+                                              <th class="a-IRR-header u-tL" id="C37710503093077076"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="37710503093077076" href="#">Created On
+                                                </a></th>
+                                            </tr>
+                                          </thead>
                                           <tbody id="engSecContent" class="">
                                           </tbody>
 
@@ -975,8 +971,104 @@
                                     <div role="region"
                                       aria-label="Buttons&#x20;next&#x20;to&#x20;search&#x20;bar&#x20;of&#x20;Press&#x20;Release"
                                       class="a-IRR-buttons"><button class="t-Button t-Button--hot js-ignoreChange"
-                                        type="button" id="upload-press-open-modal"><span
-                                          class="t-Button-label">Create</span></button></div>
+                                        type="button" id="create-video-open-modal"><span class="t-Button-label">Create
+                                          video</span></button></div>
+                                  </div>
+
+                                  <div id="uploadVideoModal" title="Upload">
+                                    <div class="modalWrap">
+                                      <div class="t-Form-inputContainer col col-12">
+                                        <div class="t-Form-itemWrapper file_wrap">
+                                          <div class="col col-6 apex-col-auto col-start">
+                                            <div
+                                              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+                                            </div>
+
+                                            <div
+                                              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
+                                              id="Press_create_date">
+                                              <div class="t-Form-labelContainer col col-2">
+                                                <label for="Press_create_date" id="Press_date_LABEL">Date</label>
+                                              </div>
+                                              <div class="t-Form-inputContainer col col-6">
+                                                <div class="t-Form-itemWrapper">
+                                                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
+                                                    class="apex-item-text&#x20;apex-item-datepicker"
+                                                    name="Press_create_date" size="30">
+                                                </div>
+                                                <div class="t-Form-itemAssistance">
+                                                  <span id="Press_create_date_error_placeholder" class="a-Form-error"
+                                                    data-template-id="70091003340642546032_ET"></span>
+                                                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div
+                                              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+                                              <div class="t-Form-labelContainer col col-2">
+                                                <label for="pressCreateLangugage"
+                                                  id="pressCreateLangugage_LABEL">Language</label>
+                                              </div>
+                                              <div class="t-Form-inputContainer col col-6">
+                                                <div class="t-Form-itemWrapper">
+                                                  <div class="t-Form-itemWrapper">
+                                                    <select id="pressCreateLangugage" name="pressCreateLangugage"
+                                                      class="selectlist&#x20;apex-item-select" data-native-menu="false"
+                                                      size="1">
+                                                      <option value="" selected="selected">-Select-</option>
+                                                      <option value="en">English</option>
+                                                      <option value="ta">Tamil</option>
+                                                    </select>
+                                                  </div>
+                                                </div>
+                                                <div class="t-Form-itemAssistance">
+                                                  <span id="pressCreateLangugage_error_placeholder" class="a-Form-error"
+                                                    data-template-id="70091003340642546032_ET"></span>
+                                                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div
+                                              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+                                              <div class="t-Form-labelContainer col col-2">
+                                                <label for="pressFileUpload" id="pressFileUpload_LABEL">File
+                                                  Upload</label>
+                                              </div>
+                                              <div class="t-Form-inputContainer col col-6">
+                                                <div class="t-Form-itemWrapper">
+                                                  <a-file-upload id="pressFileUpload" name="pressFileUpload"
+                                                    upload-type="FILE" display-style="NATIVE" accept=".pdf,.jpg,.jpeg"
+                                                    size="30" max-file-size="2048">
+                                                    <input type="file" id="imageUpload_input" name="pressFileUpload"
+                                                      class="text_field&#x20;apex-item-text" value=""
+                                                      maxlength="1000" />
+                                                    <div class="a-FileDrop a-FileDrop--native">
+                                                    </div>
+                                                  </a-file-upload>
+                                                </div>
+                                                <div class="t-Form-itemAssistance">
+                                                  <span id="pressFileUpload_error_placeholder" class="a-Form-error"
+                                                    data-template-id="70091003340642546032_ET"></span>
+                                                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="t-Region-buttons-right float-end pad0">
+                                        <button
+                                          class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
+                                          id="createUploadBtn">Create</button>
+                                      </div>
+                                      <div class="t-Region-buttons-right float-end pad0">
+                                        <button
+                                          class="bg-danger text-white t-Button t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight close-button"
+                                          id="uploadcancelBtn"> Cancel </button>
+                                      </div>
+                                    </div>
                                   </div>
                                   <div id="R37495048146508935_content" class="a-IRR-content ">
                                     <div id="R37495048146508935_dialog_js" class="a-IRR-dialogBody"
@@ -1004,39 +1096,35 @@
                                         <table
                                           aria-label="Tamil&#x20;Section&#x20;Content,&#x20;Report&#x20;&#x3D;&#x20;Primary&#x20;Default,&#x20;View&#x20;&#x3D;&#x20;Report"
                                           class="a-IRR-table" id="37495116023508936">
-                                          <tr>
-                                            <th class="a-IRR-header a-IRR-header--linkCol" id="R37495048146508935_LINK">
-                                              <span class="u-vh">Link</span>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C37495366797508938"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="37495366797508938" href="#">Sections
-                                                Name</a></th>
-                                            <th class="a-IRR-header u-tL" id="C37495448283508939"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="37495448283508939" href="#">Description</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C37495475173508940"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="37495475173508940" href="#">Created By</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C37495598085508941"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="37495598085508941" href="#">Created On</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C37495719490508942"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="37495719490508942" href="#">Updated By</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C37495820277508943"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="37495820277508943" href="#">Updated On</a>
-                                            </th>
-                                            <th class="a-IRR-header u-tL" id="C37495930119508944"><a
-                                                aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                data-column="37495930119508944" href="#">Language</a>
-                                            </th>
-                                          </tr>
+                                          <thead>
+                                            <tr>
+                                              <!-- <th class="a-IRR-header a-IRR-header--linkCol" id="R34839964403869597_LINK">
+                                        <span class="u-vh">Link</span>
+                                      </th> -->
+                                              <th class="a-IRR-header u-tL" id="C117484399239914210"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="117484399239914210" href="#"></a>
+                                              </th>
+                                              <th class="a-IRR-header u-tL" id="C11748439923991421"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="11748439923991421" href="#">File Name
+                                                </a>
+                                              </th>
+                                              <th class="a-IRR-header u-tL" id="C11748439923991421"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="11748439923991421" href="#">Language
+                                                </a>
+                                              </th>
+                                              <th class="a-IRR-header u-tL" id="C11747689722991413"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="11747689722991413" href="#">Created By</a>
+                                              </th>
+                                              <th class="a-IRR-header u-tL" id="C37710503093077076"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="37710503093077076" href="#">Created On
+                                                </a></th>
+                                            </tr>
+                                          </thead>
                                           <tbody id="TASecCon"></tbody>
                                         </table>
                                       </div>
@@ -1185,6 +1273,9 @@
         { "triggeringElementType": "ITEM", "triggeringElement": "P0_LANGUAGE", "bindType": "bind", "executionType": "IMMEDIATE", "bindEventType": "change", "anyActionsFireOnInit": false, actionList: [{ "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, "waitForResult": true, javascriptFunction: apex.da.executePlSqlCode, "ajaxIdentifier": "REEgVFlQRX5-NDM0MzQzOTA5NTkyMjI3NTI\u002FJ2g8B7z7JUkQKjYpbNaK0sFr1fgITZpeOnRDdq_x03HgohaUI4BlPmF8-wRUv8rNRSl1Mxk20te9VTxPgDn2IQ", "attribute01": "#P0_LANGUAGE", "attribute04": "N", "action": "NATIVE_EXECUTE_PLSQL_CODE" }, { "eventResult": true, "executeOnPageInit": false, "stopExecutionOnError": true, javascriptFunction: apex.da.submitPage, "attribute02": "Y", "action": "NATIVE_SUBMIT_PAGE" }] }];
     }
   </script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Load toast layout and auth check -->
+  <script src="../assets/js/toastUtil.js"></script>
 
   <script>
     $(document).ready(function () {
@@ -1345,12 +1436,23 @@
       $("#createNewBtn").on("click", function () {
         window.location.href = "../admin-section-create.html"
       });
-      const apiUrlTa = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/section/viewStaticContentReportTA";
+      const apiUrlTa = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/commonApi";
       const tableBodyTa = $("#TASecCon");
       tableBodyTa.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
+
+
+      var videoPayload = {
+        "action": "fetch",
+        "table": "GOVT_ATTACHMENTS",
+        "filters": {
+          "LANGUAGE": langSwitch
+        },
+      };
+
       $.ajax({
         url: apiUrlTa,
         method: "POST",
+        data: JSON.stringify(videoPayload),
         success: function (response) {
           tableDataTa = response.data;
           tableBodyTa.empty();
@@ -1361,15 +1463,16 @@
           tableDataTa.forEach(item => {
             const newRow = `
               <tr>
-              <td class="u-tL"><a data-lang="TA" data-id="${item.id}" id="editIconClickEn" href="javascript:void(0);"><i class="bi bi-pencil-square"></i></a></td>
-                <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.sections_name) || 'N/A'}</td>
-                 <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.language) || 'N/A'}</td>
-                  <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.description) || 'N/A'}</td>
-                   <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_by) || 'N/A'}</td>
-                     <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.created_on) || 'N/A'}</td>
-                     <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.updated_by) || 'N/A'}</td>
-                     <td tabindex="-1" role="gridcell" class="a-GV-cell u-tC is-readonly">${(item.updated_on) || 'N/A'}</td>
-              </tr>`;
+          <td class="u-tL">
+            <a data-id="${item.slno}" id="open-modal-btn" href="javascript:void(0);">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+          </td>
+          <td class="a-GV-cell u-tC is-readonly">${item.file_name || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.language || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.created_by || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.created_on || 'N/A'}</td>
+        </tr>`;
             tableBodyTa.append(newRow);
           });
         },
@@ -1380,7 +1483,7 @@
 
       });
 
-      $("#uploadModal").dialog({
+      $("#uploadImageModal").dialog({
         autoOpen: false,
         modal: true,
         closeOnEscape: true,
@@ -1389,8 +1492,8 @@
         resizable: false
       });
 
-      $("#upload-press-open-modal").on("click", function () {
-        $("#uploadModal").dialog("open");
+      $("#create-image-open-modal").on("click", function () {
+        $("#uploadImageModal").dialog("open");
       })
 
       $("body").on("click", "#open-modal-btn", function () {
@@ -1425,15 +1528,71 @@
         }
 
         // Clear file input when modal opens
-        $("#orderFileUpload_input").val("");
+        $("#imageUpload_input").val("");
       });
 
       $("#uploadcancelBtn").on("click", function () {
-        $("#uploadModal").dialog("close");
+        $("#uploadImageModal").dialog("close");
       });
 
+      async function uploadGovtVideo() {
+        debugger;
+        let fileInput = $('#imageUpload_input')[0];
+        let file = fileInput.files[0];
+
+        if (!file) {
+          showErrorToast("Please select a video file.");
+          return;
+        }
+
+        // Validate file
+        const validVideoTypes = ['video/mp4', 'video/mov', 'video/avi'];
+        const maxVideoSize = 5 * 1024 * 1024; // 5MB limit
+
+        if (!validVideoTypes.includes(file.type)) {
+          showErrorToast("Invalid file type. Supported types: .mp4, .mov, .avi.");
+          return;
+        }
+
+        if (file.size > maxVideoSize) {
+          showErrorToast("File size exceeds the 5MB limit.");
+          return;
+        }
+
+        const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/GovtAttachmentVideo";
+
+        let formData = new FormData();
+        formData.append("p_ID", "189");
+        formData.append("V_NAME", $('#video_name').val() || "test");
+        formData.append("V_DESC", $('#video_desc').val() || "Sample Description");
+        formData.append("V_URL", $('#video_url').val() || "https://example.com/sample.mp4");
+        formData.append("Current_User", $('#current_user').val() || "admin");
+        formData.append("V_DATE", $('#video_date').val() || new Date().toISOString().split("T")[0]);
+        formData.append("LANGUAGE", langSwitch || "en");
+        formData.append("video_attachment", file);
+        console.log(formData)
+        $.ajax({
+          url: apiUrl,
+          type: 'POST',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            if (response.success === 1) {
+              showSuccessToast("Video uploaded successfully!");
+              setTimeout(() => window.location.href = "../admin-govtvideo.html", 1000);
+            } else {
+              showErrorToast(response.message || "Upload failed.");
+            }
+          },
+          error: function () {
+            showErrorToast("Failed to upload video.");
+          }
+        });
+      }
+
       $("#createUploadBtn").on("click", function () {
-        registerNewData();
+        uploadGovtVideo();
       });
 
       const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/commonApi";
@@ -1442,7 +1601,7 @@
 
       var viewPayload = {
         "action": "fetch",
-        "table": "TN_COMMEMORATION_ARCH",
+        "table": "GOVT_ATTACHMENTS",
         "filters": {
           "LANGUAGE": langSwitch
         },
@@ -1467,14 +1626,10 @@
               <i class="bi bi-pencil-square"></i>
             </a>
           </td>
-          <td class="a-GV-cell u-tC is-readonly">${item.commemoration_arch || 'N/A'}</td>
-          <td class="a-GV-cell u-tC is-readonly">${item.place || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.file_name || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.language || 'N/A'}</td>
           <td class="a-GV-cell u-tC is-readonly">${item.created_by || 'N/A'}</td>
           <td class="a-GV-cell u-tC is-readonly">${item.created_on || 'N/A'}</td>
-          <td class="a-GV-cell u-tC is-readonly">${item.updated_by || 'N/A'}</td>
-          <td class="a-GV-cell u-tC is-readonly">${item.updated_on || 'N/A'}</td>
-          <td class="a-GV-cell u-tC is-readonly">${item.district || 'N/A'}</td>
-          <td class="a-GV-cell u-tC is-readonly">${item.language || 'N/A'}</td>
         </tr>`;
             tableBody.append(newRow);
           });
@@ -1485,25 +1640,116 @@
         }
       });
 
+      $("#uploadVideoModal").dialog({
+        autoOpen: false,
+        modal: true,
+        closeOnEscape: true,
+        draggable: false,
+        width: 720,
+        resizable: false
+      });
 
+      $("#create-video-open-modal").on("click", function () {
+        $("#uploadImageModal").dialog("open");
+      })
 
-
-
-      $("body").on("click", "#editIconClickEn", function (e) {
+      $("body").on("click", "#open-modal-btn", function () {
         debugger;
-        e.preventDefault();
-        let selectedItem;
-        const dataLang = $(this).data("lang");
-        const editId = $(this).data("id");
-        selectedId = $(this).data("id");
-        if (dataLang === "TA") {
-          selectedItem = tableDataTa.find(item => item.id == editId);
-        } else {
-          selectedItem = tableDataEn.find(item => item.id == editId);
+        $("tr").removeClass("selected"); // Remove previously selected row
+        const selectedRow = $(this).closest("tr"); // Get clicked row
+        selectedRow.addClass("selected"); // Highlight the selected row
+
+        const pressId = $(this).data("id");
+        selectedId = pressId;
+        orderName = $(this).data("file");
+
+        console.log("Selected ID:", selectedId);
+        console.log("Order Name:", orderName);
+
+        const selectedItem = tableData.find(item => item.id == pressId);
+
+        if (selectedItem) {
+          $("#Press_date input").val(selectedItem.go_date || "");
+          $("#pressLangugage").val(selectedItem.language || "").trigger("change");
+          $("#modal").dialog("open");
+
+          const interimLinkContainer = document.getElementById("P86_INTERIM_COPY_LINK_CONTAINER");
+          if (interimLinkContainer) {
+            const downloadLinkHTML = createDownloadLink(
+              selectedItem.order_name,
+              "application/pdf",
+              selectedItem.order_name
+            );
+            interimLinkContainer.innerHTML = downloadLinkHTML;
+          }
         }
-        const secretKey = 'V7gN4dY8pT2xB3kRz';
-        let encryptedData = CryptoJS.AES.encrypt(JSON.stringify(selectedItem), secretKey).toString();
-        window.location.href = `../admin-section-create.html?${encryptedData}`;
+
+        // Clear file input when modal opens
+        $("#imageUpload_input").val("");
+      });
+
+      $("#uploadcancelBtn").on("click", function () {
+        $("#uploadImageModal").dialog("close");
+      });
+
+      async function uploadGovtVideo() {
+        debugger;
+        let fileInput = $('#imageUpload_input')[0];
+        let file = fileInput.files[0];
+
+        if (!file) {
+          showErrorToast("Please select a video file.");
+          return;
+        }
+
+        // Validate file
+        const validVideoTypes = ['video/mp4', 'video/mov', 'video/avi'];
+        const maxVideoSize = 5 * 1024 * 1024; // 5MB limit
+
+        if (!validVideoTypes.includes(file.type)) {
+          showErrorToast("Invalid file type. Supported types: .mp4, .mov, .avi.");
+          return;
+        }
+
+        if (file.size > maxVideoSize) {
+          showErrorToast("File size exceeds the 5MB limit.");
+          return;
+        }
+
+        const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/GovtAttachmentVideo";
+
+        let formData = new FormData();
+        formData.append("p_ID", "189");
+        formData.append("V_NAME", $('#video_name').val() || "test");
+        formData.append("V_DESC", $('#video_desc').val() || "Sample Description");
+        formData.append("V_URL", $('#video_url').val() || "https://example.com/sample.mp4");
+        formData.append("Current_User", $('#current_user').val() || "admin");
+        formData.append("V_DATE", $('#video_date').val() || new Date().toISOString().split("T")[0]);
+        formData.append("LANGUAGE", langSwitch || "en");
+        formData.append("video_attachment", file);
+        console.log(formData)
+        $.ajax({
+          url: apiUrl,
+          type: 'POST',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            if (response.success === 1) {
+              showSuccessToast("Video uploaded successfully!");
+              setTimeout(() => window.location.href = "../admin-govtvideo.html", 1000);
+            } else {
+              showErrorToast(response.message || "Upload failed.");
+            }
+          },
+          error: function () {
+            showErrorToast("Failed to upload video.");
+          }
+        });
+      }
+
+      $("#createUploadBtn").on("click", function () {
+        uploadGovtVideo();
       });
 
       document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
