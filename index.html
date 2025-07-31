@@ -20,17 +20,23 @@
   <link href="assets/vendor/toastr/toastr.min.css" rel="stylesheet">
   <style>
     body {
-      overflow-x: hidden; 
+      overflow-x: hidden;
+    }
+
+    div#card-container {
+      display: none;
     }
 
     .a-CardView-headerBody h5 {
-    font-size: .875rem;
-    margin-block-end: .5rem;
-    text-decoration: none;
-}
-.a-CardView-items a {
-    text-decoration: none;
-}
+      font-size: .875rem;
+      margin-block-end: .5rem;
+      text-decoration: none;
+    }
+
+    .a-CardView-items a {
+      text-decoration: none;
+    }
+
     .showlink {
       display: none !important;
       position: absolute;
@@ -889,94 +895,100 @@
             class="apex-page-success u-hidden"></span><span id="APEX_ERROR_MESSAGE"
             data-template-id="12108757985365732_E" class="apex-page-error u-hidden"></span>
           <div class="t-Body-fullContent"></div>
-          <div class="t-Body-fullContent"><div class="container">
-<div class="row ">
-<div class="col col-12 apex-col-auto col-start col-end"><div class="t-Region t-Region--noPadding t-Region--removeHeader js-removeLandmark t-Region--noBorder t-Region--hiddenOverflow" id="R67567691275172001">
- <div class="t-Region-header">
-  <div class="t-Region-headerItems t-Region-headerItems--title">
-    <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
-    <h2 class="t-Region-title" id="R67567691275172001_heading" data-apex-heading="">New</h2>
-  </div>
-  <div class="t-Region-headerItems t-Region-headerItems--buttons"><span class="js-maximizeButtonContainer"></span></div>
- </div>
- <div class="t-Region-bodyWrap">
-   <div class="t-Region-buttons t-Region-buttons--top">
-    <div class="t-Region-buttons-left"></div>
-    <div class="t-Region-buttons-right"></div>
-   </div>
-   <div class="t-Region-body">
-     <div class="t-Region-orderBy"></div>
-     <div class="headline-with-new">
-  <img class="blink" src="assets/img/new blink.gif" alt="New">
-  <h2 data-aos="fade-up" class="text-middle">
-    Department of Information and Public Relations Announcements and Policy note 2025-26
-  </h2>
-  <img class="blink" src="assets/img/new blink.gif" alt="New">   
-</div>
+          <div class="t-Body-fullContent">
+            <div class="container">
+              <div class="row ">
+                <div class="col col-12 apex-col-auto col-start col-end">
+                  <div
+                    class="t-Region t-Region--noPadding t-Region--removeHeader js-removeLandmark t-Region--noBorder t-Region--hiddenOverflow"
+                    id="R67567691275172001">
+                    <div class="t-Region-header">
+                      <div class="t-Region-headerItems t-Region-headerItems--title">
+                        <span class="t-Region-headerIcon"><span class="t-Icon " aria-hidden="true"></span></span>
+                        <h2 class="t-Region-title" id="R67567691275172001_heading" data-apex-heading="">New</h2>
+                      </div>
+                      <div class="t-Region-headerItems t-Region-headerItems--buttons"><span
+                          class="js-maximizeButtonContainer"></span></div>
+                    </div>
+                    <div class="t-Region-bodyWrap">
+                      <div class="t-Region-buttons t-Region-buttons--top">
+                        <div class="t-Region-buttons-left"></div>
+                        <div class="t-Region-buttons-right"></div>
+                      </div>
+                      <div class="t-Region-body">
+                        <div class="t-Region-orderBy"></div>
+                        <div class="headline-with-new">
+                          <img class="blink" src="assets/img/new blink.gif" alt="New">
+                          <h2 data-aos="fade-up" class="text-middle">
+                            Department of Information and Public Relations Announcements and Policy note 2025-26
+                          </h2>
+                          <img class="blink" src="assets/img/new blink.gif" alt="New">
+                        </div>
 
-<div class="center-text"> 
-  <a class="k-heading" href="assets/pdf/28--PN-DIPR-2025-26-ENG-WEB.pdf" target="_blank">
-    1. Department of Information and Public Relations Policy Note 2025 - 26 - English version
-  </a>
-  <br><br> 
-  <a class="k-heading" href="assets/pdf/28--PN-DIPR-2025-26-TAM-WEB.pdf" target="_blank">
-    2. Department of Information and Public Relations Policy Note 2025 - 26 - Tamil version
-  </a>
-  <br><br> 
-  <a class="k-heading" href="assets/pdf/Announcement - DIPR-2025-26.pdf" target="_blank">
-    3. Department of Information and Public Relations Announcements 2025 - 26
-  </a>
-</div>
+                        <div class="center-text">
+                          <a class="k-heading" href="assets/pdf/28--PN-DIPR-2025-26-ENG-WEB.pdf" target="_blank">
+                            1. Department of Information and Public Relations Policy Note 2025 - 26 - English version
+                          </a>
+                          <br><br>
+                          <a class="k-heading" href="assets/pdf/28--PN-DIPR-2025-26-TAM-WEB.pdf" target="_blank">
+                            2. Department of Information and Public Relations Policy Note 2025 - 26 - Tamil version
+                          </a>
+                          <br><br>
+                          <a class="k-heading" href="assets/pdf/Announcement - DIPR-2025-26.pdf" target="_blank">
+                            3. Department of Information and Public Relations Announcements 2025 - 26
+                          </a>
+                        </div>
 
-<style>
-.headline-with-new {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 20px auto;
-  flex-wrap: wrap;
-}
+                        <style>
+                          .headline-with-new {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                            margin: 20px auto;
+                            flex-wrap: wrap;
+                          }
 
-.text-middle {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+                          .text-middle {
+                            font-size: 1.5rem;
+                            font-weight: bold;
+                          }
 
-.blink {
-  width: 50px;
-  animation: blink-animation 1s steps(2, start) infinite;
-}
+                          .blink {
+                            width: 50px;
+                            animation: blink-animation 1s steps(2, start) infinite;
+                          }
 
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
+                          @keyframes blink-animation {
+                            to {
+                              visibility: hidden;
+                            }
+                          }
 
-.k-heading {
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000;
-}
+                          .k-heading {
+                            font-size: 20px;
+                            font-weight: bold;
+                            text-decoration: none;
+                            color: #000;
+                          }
 
-.center-text {
-  text-align: center;
-  margin-top: 20px;
-}
-</style>
-     
-   </div>
-   <div class="t-Region-buttons t-Region-buttons--bottom">
-    <div class="t-Region-buttons-left"></div>
-    <div class="t-Region-buttons-right"></div>
-   </div>
- </div>
-</div>
-</div>
-</div>
-</div></div>
+                          .center-text {
+                            text-align: center;
+                            margin-top: 20px;
+                          }
+                        </style>
+
+                      </div>
+                      <div class="t-Region-buttons t-Region-buttons--bottom">
+                        <div class="t-Region-buttons-left"></div>
+                        <div class="t-Region-buttons-right"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="t-Body-contentInner" id="home_container">
             <div class="container">
               <div class="row ">
@@ -1022,7 +1034,7 @@
                                   <div class="t-Region-buttons-right"></div>
                                 </div>
                                 <div class="t-Region-body">
-                                  <div class="t-Region-orderBy"></div> 
+                                  <div class="t-Region-orderBy"></div>
                                   <img src='assets/img/80.jpg' alt="carousel_img">
                                 </div>
                                 <div class="t-Region-buttons t-Region-buttons--bottom">
@@ -2091,72 +2103,73 @@
                 </div>
               </div>
               <div class="row ">
-  <div class="col col-12 apex-col-auto col-start col-end">
-    <div class="t-CardsRegion u-colors t-CardsRegion--styleB" id="R49340374899562503" role="region" aria-label="cards">
-      <div class="t-Region-orderBy"></div>
-      <div id="R49340374899562503_Cards" class="a-TMV--cards">
-        <ul class="a-CardView-items a-CardView-items--grid4col is-placeholder" aria-hidden="true">
-          <li class="a-CardView-item">
-            <a href="photo-gallery.html">
-              <div class="a-CardView has-title has-icon has-icon--top">
-                <div class="a-CardView-header">
-                  <div class="a-CardView-iconWrap a-CardView-iconWrap--top">
-                    <img src="assets/img/40.png" class="a-CardView-icon">
-                  </div>
-                  <div class="a-CardView-headerBody">
-                    <h5>About Us</h5>
+                <div class="col col-12 apex-col-auto col-start col-end">
+                  <div class="t-CardsRegion u-colors t-CardsRegion--styleB" id="R49340374899562503" role="region"
+                    aria-label="cards">
+                    <div class="t-Region-orderBy"></div>
+                    <div id="R49340374899562503_Cards" class="a-TMV--cards">
+                      <ul class="a-CardView-items a-CardView-items--grid4col is-placeholder" aria-hidden="true">
+                        <li class="a-CardView-item">
+                          <a href="photo-gallery.html">
+                            <div class="a-CardView has-title has-icon has-icon--top">
+                              <div class="a-CardView-header">
+                                <div class="a-CardView-iconWrap a-CardView-iconWrap--top">
+                                  <img src="assets/img/40.png" class="a-CardView-icon">
+                                </div>
+                                <div class="a-CardView-headerBody">
+                                  <h5>About Us</h5>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="a-CardView-item">
+                          <a href="video-gallery.html">
+                            <div class="a-CardView has-title has-icon has-icon--top">
+                              <div class="a-CardView-header">
+                                <div class="a-CardView-iconWrap a-CardView-iconWrap--top">
+                                  <img src="assets/img/41.png" class="a-CardView-icon">
+                                </div>
+                                <div class="a-CardView-headerBody">
+                                  <h5>Photo / Video</h5>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="a-CardView-item">
+                          <a href="sections.html">
+                            <div class="a-CardView has-title has-icon has-icon--top">
+                              <div class="a-CardView-header">
+                                <div class="a-CardView-iconWrap a-CardView-iconWrap--top">
+                                  <img src="assets/img/42.png" class="a-CardView-icon">
+                                </div>
+                                <div class="a-CardView-headerBody">
+                                  <h5>Sections</h5>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li class="a-CardView-item">
+                          <a href="press-release1.html">
+                            <div class="a-CardView has-title has-icon has-icon--top">
+                              <div class="a-CardView-header">
+                                <div class="a-CardView-iconWrap a-CardView-iconWrap--top">
+                                  <img src="assets/img/4.png" class="a-CardView-icon">
+                                </div>
+                                <div class="a-CardView-headerBody">
+                                  <h5>Press Release</h5>
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </a>
-          </li>
-          <li class="a-CardView-item">
-            <a href="video-gallery.html">
-              <div class="a-CardView has-title has-icon has-icon--top">
-                <div class="a-CardView-header">
-                  <div class="a-CardView-iconWrap a-CardView-iconWrap--top">
-                    <img src="assets/img/41.png" class="a-CardView-icon">
-                  </div>
-                  <div class="a-CardView-headerBody">
-                    <h5>Photo / Video</h5>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="a-CardView-item">
-            <a href="video-gallery.html">
-              <div class="a-CardView has-title has-icon has-icon--top">
-                <div class="a-CardView-header">
-                  <div class="a-CardView-iconWrap a-CardView-iconWrap--top">
-                    <img src="assets/img/42.png" class="a-CardView-icon">
-                  </div>
-                  <div class="a-CardView-headerBody">
-                    <h5>Sections</h5>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li class="a-CardView-item">
-            <a href="video-gallery.html">
-              <div class="a-CardView has-title has-icon has-icon--top">
-                <div class="a-CardView-header">
-                  <div class="a-CardView-iconWrap a-CardView-iconWrap--top">
-                    <img src="assets/img/4.png" class="a-CardView-icon">
-                  </div>
-                  <div class="a-CardView-headerBody">
-                    <h5>Press Release</h5>
-                  </div> 
-                </div>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
               <!-- <div class="row ">
                   <div class="col col-12 apex-col-auto col-start col-end">
                     <div class="t-CardsRegion u-colors t-CardsRegion--styleB t-Region-orderBy--center"
@@ -2493,6 +2506,7 @@
   <script src="assets/js/widget.report.min.js"></script>
   <script src="assets/js/aos.js"></script>
   <script src="assets/js/global.js"></script>
+  <script src="assets/js/basepath.js"></script>
   <script type="text/javascript">
     apex.jQuery(function () {
       apex.page.init(this, function () {
@@ -2555,7 +2569,8 @@
 
 
       $("#adminLoginBtn").on("click", function () {
-        window.location.href = "../admin-login.html";
+        window.location.href = window.basePath + "admin-login.html";
+
       });
 
       $('.shownav').on('click', function (e) {
