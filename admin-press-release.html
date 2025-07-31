@@ -1393,6 +1393,30 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/global.js"></script>
   <script src="assets/js/fileValidator.js"></script>
+  <script src="assets/js/basepath.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const links = document.querySelectorAll(".t-Header-nav a, .t-Header-nav ul li a");
+
+      links.forEach(link => {
+        const originalHref = link.getAttribute("href");
+
+        // ✅ Skip external or already-correct links
+        if (
+          !originalHref ||
+          originalHref.startsWith("http") ||
+          originalHref.startsWith(window.basePath)
+        ) return;
+
+        const fixedHref = window.basePath + originalHref.replace(/^(\.\.\/)+/, "");
+
+        console.log(`Rewriting ${originalHref} → ${fixedHref}`); // ✅ Debug log
+
+        link.setAttribute("href", fixedHref);
+      });
+    });
+  </script>
+
 
   <script type="text/javascript">
     apex.session.initTimeouts(300, { "idle_time_ms": 3595000, "life_time_ms": 28755000, "max_idle_time_ms": 3600000 }, '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome', '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome');

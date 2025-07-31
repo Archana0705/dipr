@@ -1,14 +1,16 @@
-// basePath.js
+// assets/basePath.js
 const basePath = (function () {
-    const pathParts = window.location.pathname.split('/');
-    const subFolder = pathParts[1]; // e.g., 'dipr'
+    const pathName = window.location.pathname;
+    console.log("DEBUG - window.location.pathname:", pathName); // ✅ Debug line
 
-    // If hosted at root (e.g., localhost/index.html), subFolder might be ''
-    if (!subFolder || subFolder === 'index.html') {
-        return '/';
+    // Check if 'dipr' is in the path
+    if (pathName.includes('/dipr/')) {
+        return '/dipr';
     }
 
-    return `/${subFolder}/`;
+    // Fallback to root if 'dipr' is not found (local development)
+    return '/';
 })();
 
+console.log("DEBUG - Resolved basePath:", basePath); // ✅ Debug line
 window.basePath = basePath;
