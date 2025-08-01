@@ -23,7 +23,6 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/toastr/toastr.min.css" rel="stylesheet">
-  <base href="/ords/" />
   <link rel="stylesheet"
     href="https://static.oracle.com/cdn/apex/24.1.7/libraries/oraclejet/16.0.10/css/libs/oj/16.0.10/redwood/oj-redwood-notag-min.css?v=24.1.7"
     type="text/css" />
@@ -1424,7 +1423,7 @@
       value="&#x2F;vD7fBxRAam3mHjcj50UL8pQyNu3ka625aJArB-y_q5WSI-zwy056GI6nKpPXmzG6l6r6IhNbuewSh_hGyK6UhQ" />
   </form>
 
-
+  <!-- 
   <script>
     var apex_img_dir = "https:\u002F\u002Fstatic.oracle.com\u002Fcdn\u002Fapex\u002F24.1.7\u002F";
     var apex = {
@@ -1433,7 +1432,7 @@
     };
   </script>
   <script src="https://static.oracle.com/cdn/apex/24.1.7/libraries/apex/minified/desktop_all.min.js?v=24.1.7"></script>
-  <script src="wwv_flow.js_messages?p_app_id=103&p_lang=en&p_version=24.1.7-44329441868468"></script>
+  <script src="wwv_flow.js_messages?p_app_id=103&p_lang=en&p_version=24.1.7-44329441868468"></script> -->
 
   <!-- <script type="text/javascript">
     apex.da.initDaEventList = function () {
@@ -1443,10 +1442,36 @@
     }
   </script> -->
 
-  <script src="../assets/vendor/datatable/jquery.dataTables.min.js"></script>
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <script src="../assets/js/global.js"></script>
+  <script type="text/javascript" src="assets/js/desktop_all.min.js"></script>
+  <script src="assets/vendor/datatable/jquery.dataTables.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/fileValidator.js"></script>
+  <script src="assets/js/basepath.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const links = document.querySelectorAll(".t-Header-nav a, .t-Header-nav ul li a");
+
+      links.forEach(link => {
+        const originalHref = link.getAttribute("href");
+
+        // ✅ Skip external or already-correct links
+        if (
+          !originalHref ||
+          originalHref.startsWith("http") ||
+          originalHref.startsWith(window.basePath)
+        ) return;
+
+        const fixedHref = window.basePath + originalHref.replace(/^(\.\.\/)+/, "");
+
+        console.log(`Rewriting ${originalHref} → ${fixedHref}`); // ✅ Debug log
+
+        link.setAttribute("href", fixedHref);
+      });
+    });
+  </script>
 
   <script type="text/javascript">
     apex.session.initTimeouts(300, { "idle_time_ms": 3595000, "life_time_ms": 28755000, "max_idle_time_ms": 3600000 }, '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome', '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome');
@@ -1703,8 +1728,8 @@
         formData.append("created_by", "admin");
         formData.append("district", $('#Press_create_district').val() || "");
         formData.append("video_name", $('#Press_create_video_name').val() || "");
-        formData.append("mime_type", file.type);
-        formData.append("video_attachment_name", file);
+        // formData.append("mime_type", file.type);
+        // formData.append("video_attachment_name", file);
         formData.append("language", "en");
 
 
@@ -1712,7 +1737,7 @@
           url: apiUrl,
           method: "POST",
           contentType: "application/json",
-          data: JSON.stringify(viewPayload),
+          // data: JSON.stringify(viewPayload),
           success: function (response) {
             tableData = response.data;
 
