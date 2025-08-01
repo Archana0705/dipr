@@ -1073,7 +1073,7 @@
           <!-- <img id="last_image" class="header-images" src="r/dipr/103/files/static/v397/right-png.png"> -->
         </div>
       </div>
-      <div class="t-Header-nav">
+      <!-- <div class="t-Header-nav">
         <div class="t-Header-nav-list js-tabLike js-tabLike" id="t_MenuNav">
           <ul>
             <li class="a-MenuBar-item" data-id="" data-disabled="" data-hide="" data-shortcut="" data-icon=""><a
@@ -1152,7 +1152,9 @@
           </ul>
           </ul>
         </div>
-      </div>
+      </div> -->
+      <div id="navbar-container"></div>
+
     </header>
 
     <div class="t-Body ">
@@ -1393,6 +1395,8 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/global.js"></script>
   <script src="assets/js/fileValidator.js"></script>
+  <script src="assets/js/globalNavbar.js"></script>
+
   <script src="assets/js/basepath.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -1418,59 +1422,7 @@
   </script>
 
 
-  <script type="text/javascript">
-    apex.session.initTimeouts(300, { "idle_time_ms": 3595000, "life_time_ms": 28755000, "max_idle_time_ms": 3600000 }, '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome', '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fhome');
-    apex.jQuery(function () {
-      apex.page.init(this, function () {
-        try {
-          (function () { apex.widget.selectList("#P0_LANGUAGE", { "ajaxIdentifier": "SVRFTSBUWVBFfjUxMjB-MzgxODM5MDAxMjAxMjk3NDc\u002FqNARaPF5gDXj9vUg6HNb_-Nu7WF-ASygDaMOVVhb1z-Xe7rng6WDpJFQfSGfA0_eq-mm9wm0mx3CjUGl7mhFpA" }); })();
-          (function () {
-            var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
-            if (e.hasClass("js-addActions")) {
-              apex.actions.addFromMarkup(e);
-            }
-            e.menu({
-              behaveLikeTabs: e.hasClass("js-tabLike"),
-              menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
-              menubar: true,
-              menubarOverflow: true,
-              callout: e.hasClass("js-menu-callout")
-            });
-          })();
-          (function () { apex.jQuery('#R34839964403869597_ir').interactiveReport({ "regionId": "R34839964403869597", "helpLink": "wwv_flow_utilities.show_ir_help?p_app_id=103\u0026p_worksheet_id=34839996188869597\u0026p_lang=en", "lazyLoading": false, "ajaxIdentifier": "UkVHSU9OIFRZUEV-fjM0ODM5OTY0NDAzODY5NTk3\u002F1h3h-l5ziaqoxBpLrM_KI3v-d4OwVtIuxt1TSsxJyOGdiCAdZBq79n5zvLnQCHpEsHHZ-J2ehCjC2LIAqbL57A" }); })();
-          (function () {
-            var e = apex.jQuery("#t_MenuNav", apex.gPageContext$);
-            if (e.hasClass("js-addActions")) {
-              apex.actions.addFromMarkup(e);
-            }
-            e.menu({
-              behaveLikeTabs: e.hasClass("js-tabLike"),
-              menubarShowSubMenuIcon: e.hasClass("js-showSubMenuIcons") || null,
-              menubar: true,
-              menubarOverflow: true,
-              callout: e.hasClass("js-menu-callout")
-            });
-          })();
-        } catch (e) { apex.debug.error(e) };
-        apex.item.waitForDelayLoadItems().done(function () {
-          try {
-            (function () {
-              apex.da.initDaEventList();
-              apex.da.init();
-            })();
-            apex.theme42.initializePage.noSideCol();
 
-            apex.page.warnOnUnsavedChanges();
-          } finally {
-            apex.event.trigger(apex.gPageContext$, 'apexreadyend');
-          };
-        });
-      });
-    }); apex.pwa.publicKey = ''
-    apex.pwa.pushSubscriptions = [
-    ]
-    apex.pwa.init({ serviceWorkerPath: '\u002Fords\u002Fr\u002Fdipr\u002Finfo-prdept103\u002Fsw.js?v=24.1.7-44329441868468\u0026lang=en' });
-  </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const navLinks = document.querySelectorAll(".t-Header-nav .a-MenuBar-label");
