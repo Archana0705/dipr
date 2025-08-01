@@ -1681,7 +1681,7 @@
       let tableData;
       let selectedId;
       let fileName;
-      
+
       const userId = localStorage.getItem("role_id");
       const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/commonApi";
       const tableBody = $("#pressReleaseTableBody");
@@ -1689,11 +1689,24 @@
       tableBody.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
 
       function fetchData() {
-        var viewPayload = {
-          "action": "fetch",
-          "table": "GOOGLE_SHEETS",
-          "columns": "ID,FILENAME,ATTACHMENT_NAME,MIMETYPE,UPLOADED_BY,UPLOADED_ON,DISTRICT"
-        };
+        // var viewPayload = {
+        //   "action": "fetch",
+        //   "table": "GOOGLE_SHEETS",
+        //   "columns": "ID,FILENAME,ATTACHMENT_NAME,MIMETYPE,UPLOADED_BY,UPLOADED_ON,DISTRICT"
+        // };
+
+        let formData = new FormData();
+        formData.append("action", "insert");
+        formData.append("slno", 12);
+        formData.append("monuments", $('#Press_create_memorial').val() || "");
+        formData.append("place", $('#Press_create_place').val() || "");
+        formData.append("created_by", "admin");
+        formData.append("district", $('#Press_create_district').val() || "");
+        formData.append("video_name", $('#Press_create_video_name').val() || "");
+        formData.append("mime_type", file.type);
+        formData.append("video_attachment_name", file);
+        formData.append("language", "en");
+
 
         $.ajax({
           url: apiUrl,

@@ -766,7 +766,7 @@
                                       <div class="t-Region-buttons-right float-end pad0">
                                         <button
                                           class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
-                                          id="createUploadBtn">Create</button>
+                                          id="createUploadBtn">Create </button>
                                       </div>
                                       <div class="t-Region-buttons-right float-end pad0">
                                         <button
@@ -982,37 +982,15 @@
                                             <div
                                               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
                                             </div>
-
-                                            <div
-                                              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field"
-                                              id="Press_create_date">
-                                              <div class="t-Form-labelContainer col col-2">
-                                                <label for="Press_create_date" id="Press_date_LABEL">Date</label>
-                                              </div>
-                                              <div class="t-Form-inputContainer col col-6">
-                                                <div class="t-Form-itemWrapper">
-                                                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
-                                                    class="apex-item-text&#x20;apex-item-datepicker"
-                                                    name="Press_create_date" size="30">
-                                                </div>
-                                                <div class="t-Form-itemAssistance">
-                                                  <span id="Press_create_date_error_placeholder" class="a-Form-error"
-                                                    data-template-id="70091003340642546032_ET"></span>
-                                                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
-                                                </div>
-                                              </div>
-                                            </div>
-
                                             <div
                                               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
                                               <div class="t-Form-labelContainer col col-2">
-                                                <label for="pressCreateLangugage"
-                                                  id="pressCreateLangugage_LABEL">Language</label>
+                                                <label for="Video_language" id="Video_language_LABEL">Language</label>
                                               </div>
                                               <div class="t-Form-inputContainer col col-6">
                                                 <div class="t-Form-itemWrapper">
                                                   <div class="t-Form-itemWrapper">
-                                                    <select id="pressCreateLangugage" name="pressCreateLangugage"
+                                                    <select id="Video_language" name="Video_language"
                                                       class="selectlist&#x20;apex-item-select" data-native-menu="false"
                                                       size="1">
                                                       <option value="" selected="selected">-Select-</option>
@@ -1032,35 +1010,86 @@
                                             <div
                                               class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
                                               <div class="t-Form-labelContainer col col-2">
-                                                <label for="pressFileUpload" id="pressFileUpload_LABEL">File
-                                                  Upload</label>
+                                                <label for="Video_Name" id="Video_Name_LABEL">Name</label>
                                               </div>
                                               <div class="t-Form-inputContainer col col-6">
                                                 <div class="t-Form-itemWrapper">
-                                                  <a-file-upload id="pressFileUpload" name="pressFileUpload"
-                                                    upload-type="FILE" display-style="NATIVE" accept=".pdf,.jpg,.jpeg"
-                                                    size="30" max-file-size="2048">
-                                                    <input type="file" id="imageUpload_input" name="pressFileUpload"
-                                                      class="text_field&#x20;apex-item-text" value=""
-                                                      maxlength="1000" />
-                                                    <div class="a-FileDrop a-FileDrop--native">
-                                                    </div>
-                                                  </a-file-upload>
+                                                  <input id="Video_Name" class="form-control" name="Video_Name"
+                                                    class="text_field&#x20;apex-item-text" value=""
+                                                    size="70"></textarea>
                                                 </div>
                                                 <div class="t-Form-itemAssistance">
-                                                  <span id="pressFileUpload_error_placeholder" class="a-Form-error"
+                                                  <span id="Video_Name_error_placeholder" class="a-Form-error"
                                                     data-template-id="70091003340642546032_ET"></span>
                                                   <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
                                                 </div>
                                               </div>
                                             </div>
+
+                                            <div
+                                              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+                                              <div class="t-Form-labelContainer col col-2">
+                                                <label for="Video_desc" id="Video_desc_LABEL">Description</label>
+                                              </div>
+                                              <div class="t-Form-inputContainer col col-6">
+                                                <div class="t-Form-itemWrapper">
+                                                  <textarea id="Video_desc" class="form-control" rows="3"
+                                                    name="Video_desc" class="text_field&#x20;apex-item-text" value=""
+                                                    size="70" maxlength="10"></textarea>
+                                                </div>
+                                                <div class="t-Form-itemAssistance">
+                                                  <span id="Video_desc_error_placeholder" class="a-Form-error"
+                                                    data-template-id="70091003340642546032_ET"></span>
+                                                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div
+                                              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+                                              <div class="t-Form-labelContainer col col-2">
+                                                <label for="Video_url" id="Video_url_LABEL">Video Url - YouTube</label>
+                                              </div>
+                                              <div class="t-Form-inputContainer col col-6">
+                                                <div class="t-Form-itemWrapper">
+                                                  <input id="Video_url" class="form-control" name="Video_url"
+                                                    class="text_field&#x20;apex-item-text" value=""
+                                                    size="70"></textarea>
+                                                </div>
+                                                <div class="t-Form-itemAssistance">
+                                                  <span id="Video_url_error_placeholder" class="a-Form-error"
+                                                    data-template-id="70091003340642546032_ET"></span>
+                                                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                            <div
+                                              class="t-Form-fieldContainer is-required rel-col t-Form-fieldContainer--stretchInputs t-Form-fieldContainer--indicatorAsterisk t-Form-fieldContainer--large apex-item-wrapper apex-item-wrapper--text-field">
+                                              <div class="t-Form-labelContainer col col-2">
+                                                <label for="Video_vdate" id="Press_date_LABEL">Date</label>
+                                              </div>
+                                              <div class="t-Form-inputContainer col col-6">
+                                                <div class="t-Form-itemWrapper">
+                                                  <input type="date" placeholder="Select Date" aria-haspopup="dialog"
+                                                    class="apex-item-text&#x20;apex-item-datepicker" id="Video_vdate"
+                                                    size="30">
+                                                </div>
+                                                <div class="t-Form-itemAssistance">
+                                                  <span id="Video_vdate_error_placeholder" class="a-Form-error"
+                                                    data-template-id="70091003340642546032_ET"></span>
+                                                  <div class="t-Form-itemRequired" aria-hidden="true">Required</div>
+                                                </div>
+                                              </div>
+                                            </div>
+
                                           </div>
                                         </div>
                                       </div>
                                       <div class="t-Region-buttons-right float-end pad0">
                                         <button
                                           class="t-Button bg-success text-white t-Button--icon t-Button--large t-Button--iconLeft t-Button--padLeft t-Button--padRight"
-                                          id="createUploadBtn">Create</button>
+                                          id="createVideoBtn">Create</button>
                                       </div>
                                       <div class="t-Region-buttons-right float-end pad0">
                                         <button
@@ -1106,18 +1135,30 @@
                                               </th>
                                               <th class="a-IRR-header u-tL" id="C11748439923991421"><a
                                                   aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                  data-column="11748439923991421" href="#">File Name
+                                                  data-column="11748439923991421" href="#">V Url
                                                 </a>
                                               </th>
                                               <th class="a-IRR-header u-tL" id="C11748439923991421"><a
                                                   aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                  data-column="11748439923991421" href="#">Language
+                                                  data-column="11748439923991421" href="#">V Name
                                                 </a>
                                               </th>
                                               <th class="a-IRR-header u-tL" id="C11747689722991413"><a
                                                   aria-haspopup="dialog" class="a-IRR-headerLink"
-                                                  data-column="11747689722991413" href="#">Created By</a>
+                                                  data-column="11747689722991413" href="#">V Desc</a>
                                               </th>
+                                              <th class="a-IRR-header u-tL" id="C37710503093077076"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="37710503093077076" href="#">Language
+                                                </a></th>
+                                              <th class="a-IRR-header u-tL" id="C37710503093077076"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="37710503093077076" href="#">V Date
+                                                </a></th>
+                                              <th class="a-IRR-header u-tL" id="C37710503093077076"><a
+                                                  aria-haspopup="dialog" class="a-IRR-headerLink"
+                                                  data-column="37710503093077076" href="#">Created By
+                                                </a></th>
                                               <th class="a-IRR-header u-tL" id="C37710503093077076"><a
                                                   aria-haspopup="dialog" class="a-IRR-headerLink"
                                                   data-column="37710503093077076" href="#">Created On
@@ -1442,7 +1483,7 @@
       $("#createNewBtn").on("click", function () {
         window.location.href = "../admin-section-create.html"
       });
-      const apiUrlTa = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/general/commonApi";
+      const apiUrlTa = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/GovtAttachmentVideo";
       const tableBodyTa = $("#TASecCon");
       tableBodyTa.html('<tr><td colspan="9" class="text-center">Loading...</td></tr>');
 
@@ -1470,14 +1511,19 @@
             const newRow = `
               <tr>
           <td class="u-tL">
-            <a data-id="${item.slno}" id="open-modal-btn" href="javascript:void(0);">
+            <a data-id="${item.id}" id="open-modal-btn" href="javascript:void(0);">
               <i class="bi bi-pencil-square"></i>
             </a>
           </td>
-          <td class="a-GV-cell u-tC is-readonly">${item.file_name || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.v_url || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.v_name || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.v_desc || 'N/A'}</td>
           <td class="a-GV-cell u-tC is-readonly">${item.language || 'N/A'}</td>
+          <td class="a-GV-cell u-tC is-readonly">${item.v_date || 'N/A'}</td>
           <td class="a-GV-cell u-tC is-readonly">${item.created_by || 'N/A'}</td>
           <td class="a-GV-cell u-tC is-readonly">${item.created_on || 'N/A'}</td>
+
+
         </tr>`;
             tableBodyTa.append(newRow);
           });
@@ -1656,7 +1702,7 @@
       });
 
       $("#create-video-open-modal").on("click", function () {
-        $("#uploadImageModal").dialog("open");
+        $("#uploadVideoModal").dialog("open");
       })
 
       $("body").on("click", "#open-modal-btn", function () {
@@ -1695,51 +1741,39 @@
       });
 
       $("#uploadcancelBtn").on("click", function () {
-        $("#uploadImageModal").dialog("close");
+        $("#uploadVideoModal").dialog("close");
       });
 
-      async function uploadGovtVideo() {
+      async function InsertVideoData() {
         debugger;
-        let fileInput = $('#imageUpload_input')[0];
-        let file = fileInput.files[0];
-
-        if (!file) {
-          showErrorToast("Please select a video file.");
-          return;
-        }
-
-        // Validate file
-        const validVideoTypes = ['video/mp4', 'video/mov', 'video/avi'];
-        const maxVideoSize = 5 * 1024 * 1024; // 5MB limit
-
-        if (!validVideoTypes.includes(file.type)) {
-          showErrorToast("Invalid file type. Supported types: .mp4, .mov, .avi.");
-          return;
-        }
-
-        if (file.size > maxVideoSize) {
-          showErrorToast("File size exceeds the 5MB limit.");
-          return;
-        }
 
         const apiUrl = "https://tngis.tnega.org/lcap_api/dipr-lcap-api/v1/admin/GovtAttachmentVideo";
 
-        let formData = new FormData();
-        formData.append("p_ID", "189");
-        formData.append("V_NAME", $('#video_name').val() || "test");
-        formData.append("V_DESC", $('#video_desc').val() || "Sample Description");
-        formData.append("V_URL", $('#video_url').val() || "https://example.com/sample.mp4");
-        formData.append("Current_User", $('#current_user').val() || "admin");
-        formData.append("V_DATE", $('#video_date').val() || new Date().toISOString().split("T")[0]);
-        formData.append("LANGUAGE", langSwitch || "en");
-        formData.append("video_attachment", file);
-        console.log(formData)
+        var Video_language = $('#Video_language').val();
+        var Video_Name = $('#Video_Name').val();
+        var Video_desc = $('#Video_desc').val();
+        var Video_url = $('#Video_url').val();
+        var Video_desc = $('#Video_desc').val();
+        var Video_vdate = $('#Video_vdate').val();
+
+        var createPayload = {
+          "action": "insert",
+          "V_NAME": Video_Name,
+          "V_DESC": Video_desc,
+          "V_URL": Video_url,
+          "created_by": "Dhivahar",
+          "V_DATE": Video_vdate,
+          "LANGUAGE": Video_language
+
+        };
         $.ajax({
           url: apiUrl,
-          type: 'POST',
-          data: formData,
-          processData: false,
-          contentType: false,
+          method: "POST",
+
+          data:
+            JSON.stringify(createPayload)
+          ,
+          contentType: 'json',
           success: function (response) {
             if (response.success === 1) {
               showSuccessToast("Video uploaded successfully!");
@@ -1754,8 +1788,8 @@
         });
       }
 
-      $("#createUploadBtn").on("click", function () {
-        uploadGovtVideo();
+      $("#createVideoBtn").on("click", function () {
+        InsertVideoData();
       });
 
       document.getElementById('P0_LANGUAGE').addEventListener('change', function () {
